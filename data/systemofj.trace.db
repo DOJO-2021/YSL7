@@ -371,3 +371,69 @@ Wrong user name or password [28000-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:461)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	... 21 more
+2021-07-08 17:20:38 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "CREATE TABLE FEEDBACK (
+F_ID INT (6) AUT_INCREMENT[*] PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+F_CATEGORY VARCHAR (30) NOT NULL,
+F_NAME VARCHAR (20),
+F_CONTENT VARCHAR (1000)
+)"; 期待されるステートメント "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE FEEDBACK (
+F_ID INT (6) AUT_INCREMENT[*] PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+F_CATEGORY VARCHAR (30) NOT NULL,
+F_NAME VARCHAR (20),
+F_CONTENT VARCHAR (1000)
+)"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+create table Feedback (
+f_id int (6) aut_increment primary key not null,
+s_id int (6) not null,
+f_category varchar (30) not null,
+f_name varchar (20),
+f_content varchar (1000)
+) [42001-200]
+2021-07-08 17:25:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "CREATE TABLE SELECTIONFACE (
+SF_ID INT (4) AUT_INCREMENT[*] PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+SF_CATEGORY VARCHAR (20),
+SF_NAME VARCHAR (20),
+SF_SCORE INT (1),
+)"; 期待されるステートメント "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"
+Syntax error in SQL statement "CREATE TABLE SELECTIONFACE (
+SF_ID INT (4) AUT_INCREMENT[*] PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+SF_CATEGORY VARCHAR (20),
+SF_NAME VARCHAR (20),
+SF_SCORE INT (1),
+)"; expected "FOR, UNSIGNED, INVISIBLE, VISIBLE, NOT, NULL, AS, DEFAULT, GENERATED, ON, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, COMMENT, CHECK, REFERENCES, ,, )"; SQL statement:
+create table SelectionFace (
+sf_id int (4) aut_increment primary key not null,
+s_id int (6) not null,
+sf_category varchar (20),
+sf_name varchar (20),
+sf_score int (1),
+) [42001-200]
+2021-07-08 17:25:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "CREATE TABLE SELECTIONFACE (
+SF_ID INT (4) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+SF_CATEGORY VARCHAR (20),
+SF_NAME VARCHAR (20),
+SF_SCORE INT (1),
+)[*]"; 期待されるステートメント "identifier"
+Syntax error in SQL statement "CREATE TABLE SELECTIONFACE (
+SF_ID INT (4) AUTO_INCREMENT PRIMARY KEY NOT NULL,
+S_ID INT (6) NOT NULL,
+SF_CATEGORY VARCHAR (20),
+SF_NAME VARCHAR (20),
+SF_SCORE INT (1),
+)[*]"; expected "identifier"; SQL statement:
+create table SelectionFace (
+sf_id int (4) auto_increment primary key not null,
+s_id int (6) not null,
+sf_category varchar (20),
+sf_name varchar (20),
+sf_score int (1),
+) [42001-200]
