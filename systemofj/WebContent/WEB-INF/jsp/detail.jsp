@@ -30,8 +30,10 @@ margin-block-end: 0em;
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
     <input type="SUBMIT" value="履歴書PDFを表示">
   </form>
-
+<br>
 <!-- 基本情報テーブル -->
+
+基本情報<input type="checkbox" id="s_info">
   <div class="student">
 	<table>
 	  <tr>
@@ -60,6 +62,7 @@ margin-block-end: 0em;
   </div>
 <!-- イベントテーブル -->
 
+イベント<input type="checkbox" id="e_info">
 <table>
   <tr>
     <td>
@@ -112,6 +115,8 @@ margin-block-end: 0em;
 </table>
 
 <!-- インターンテーブル -->
+
+インターン<input type="checkbox" id="i_info">
 <table>
   <tr>
     <td>
@@ -166,12 +171,14 @@ margin-block-end: 0em;
 </table>
 
 <!-- 選考テーブル -->
+
+選考<input type="checkbox" id="sele_info">
 <table>
   <tr>
     <td>
       <table>
         <tr>
-          <th>説明会</th>
+          <th colspan="4">説明会</th>
         </tr>
         <tr>
           <td>申込日</td>
@@ -180,38 +187,209 @@ margin-block-end: 0em;
           <td>出欠</td>
         </tr>
         <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
         </tr>
       </table>
     </td>
     <td>
       <table>
         <tr>
+         <th>選考受験日</th>
+         <th>適正点数</th>
         </tr>
         <tr>
-        </tr>
-        <tr>
+          <td>　</td>
+          <td>　</td>
         </tr>
       </table>
     </td>
     <td>
-
+      <table>
+        <tr>
+          <th>書類点数</th>
+          <th>書類合否</th>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
     </td>
-    <td></td>
-    <td></td>
+    <td>
+      <table>
+        <tr>
+          <th>選考進捗状況</th>
+        </tr>
+        <tr>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="4">履歴書評価</th>
+        </tr>
+        <tr>
+          <td>松野</td>
+          <td>藤原</td>
+          <td>板谷</td>
+          <td>菅澤</td>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="4">自己PR文評価</th>
+        </tr>
+        <tr>
+          <td>松野</td>
+          <td>藤原</td>
+          <td>板谷</td>
+          <td>菅澤</td>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="4">書類選考評価</th>
+        </tr>
+        <tr>
+          <td>松野</td>
+          <td>藤原</td>
+          <td>板谷</td>
+          <td>菅澤</td>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="6">1次面接</th>
+        </tr>
+        <tr>
+          <td>前辞退</td>
+          <td>実施</td>
+          <td>藤原</td>
+          <td>板谷</td>
+          <td>菅澤</td>
+          <th>合否</th>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="5">2次面接</th>
+        </tr>
+        <tr>
+          <td>前辞退</td>
+          <td>実施</td>
+          <td>藤原</td>
+          <td>板谷</td>
+          <th>合否</th>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
+    <td>
+      <table>
+        <tr>
+          <th colspan="2">3次面接</th>
+        </tr>
+        <tr>
+          <td>実施</td>
+          <th>合否</th>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
+    <td colspan="3">
+      <table>
+        <tr>
+          <th>内々定送付</th>
+          <th>応諾</th>
+          <th>辞退</th>
+          <th>内定応諾</th>
+          <th>応諾後辞退</th>
+          <th>書類受領日</th>
+          <th>決定までの日数</th>
+        </tr>
+        <tr>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+          <td>　</td>
+        </tr>
+        <tr>
+          <th>辞退理由</th>
+        </tr>
+        <tr>
+          <td colspan="7">理由は～～～～～～～～～です。</td>
+        </tr>
+      </table>
+    </td>
   </tr>
   <tr>
+    <td>
+     <table>
+       <tr>
+         <th>備考</th>
+       </tr>
+       <tr>
+         <td></td>
+       </tr>
+     </table>
+    </td>
   </tr>
 </table>
 
