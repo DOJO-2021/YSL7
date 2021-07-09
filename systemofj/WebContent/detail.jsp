@@ -171,8 +171,13 @@ margin-block-end: 0em;
     <td>
       <table>
         <tr>
+          <th>説明会</th>
         </tr>
         <tr>
+          <td>申込日</td>
+          <td>予約日</td>
+          <td>参加日</td>
+          <td>出欠</td>
         </tr>
         <tr>
         </tr>
