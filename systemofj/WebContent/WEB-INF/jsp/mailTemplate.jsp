@@ -21,7 +21,9 @@
 						<option value="3">会社説明会のご案内</option>
 						<option value="4">会社説明会参加のお礼</option>
 			 </select><br>
-			 <input type="submit" name="submit" value="説明会で検索" >
+			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="templateedit" value="テンプレ編集" >
+
 		 </div>
 		<div id="interntemplate" style="display: none">
 					カテゴリを選択してください：
@@ -34,7 +36,9 @@
 						<option value="5">3dayインターン当日案内</option>
 
 			 </select><br>
-			 <input type="submit" name="submit" value="インターンで検索" >
+			 <input type="submit" name="search" value="テンプレ使用"onclick="yesno()" >
+			 <input type="submit" name="templateedit" value="テンプレ編集" >
+
 		 </div>
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
@@ -43,14 +47,11 @@
 						<option value="1">面接参加のお礼</option>
 						<option value="2">面接当日案内</option>
 			 </select><br>
-			 <input type="submit" name="submit" value="面接で検索" >
+			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="templateedit" value="テンプレ編集" >
+
 		</div>
-
-
-
 </form>
-
-
 </body>
 <script>
 'use strict';
@@ -62,9 +63,15 @@ function show(){
 	explanationtemplate.style.display =explanation.checked ? "block" : "none";
 	interntemplate.style.display =intern.checked ? "block" : "none";
 	facetemplate.style.display =face.checked ? "block" : "none";
+}
+function yesno(){
+	if(window.confirm(このテンプレを使用しますか)){
+		console.log('yes')
+	} else {
+		console.log('no')
+	}
 
 }
-
 
 </script>
 </html>
