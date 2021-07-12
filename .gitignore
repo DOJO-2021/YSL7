@@ -1,3 +1,5 @@
 /.metadata/
 data
 build
+/systemofj/WebContent/WEB-INF/jsp/result.jsp
+result.jsp
