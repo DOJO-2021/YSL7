@@ -13,9 +13,9 @@ public class RegistService {
 
 		//ドライバの登録
 		Class.forName("org.h2.Driver");
-
 		//データベースに接続する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+
 		//Daoを実体化
 		UserDao dao = new UserDao(conn);
 
