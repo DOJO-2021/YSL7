@@ -22,6 +22,18 @@ public class SelectAction {
 			//何で検索されたかを判断するためのmode
 			String mode = request.getParameter("mode");
 
+			if(mode.equals("intern")) {//インターン検索がされた場合
+
+			} else if(mode.equals("event")) {//イベント検索がされた場合
+
+			} else if(mode.equals("selection")) {//選考検索がされた場合
+
+			} else {//個人名検索
+
+			}
+
+			request.setAttribute("SResult", SResult);
+
 
 		} catch(SQLException e) {
 			request.setAttribute("errMsg", "SQLExceptionだよー");
