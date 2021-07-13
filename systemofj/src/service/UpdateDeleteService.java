@@ -33,8 +33,8 @@ public class UpdateDeleteService {
 		return result;
 
 	}
-	public boolean StudentUpdate(int s_id,String s_name,String s_kana,String s_contexts) throws ClassNotFoundException, SQLException {
-		boolean result = false;
+	public boolean StudentUpdate(int sId,String sName,String sKana,String sContexts,String sUnivercity, String sFaculty,String sDepatment, String sAddress, String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String Other ) throws ClassNotFoundException, SQLException {
+		int result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -42,7 +42,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		TemplateDao dao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.templateUpdate(t_id,t_content);
+		int test =dao.templateUpdate(sId,sName,sKana,sContexts,sUnivercity,sFaculty,sDepatment,sAddress,sPcmail,sMobilemail,sCareertasu,sMynavi,sRikunavi,Other);
 
 		if(test == 1) {
 			result = true;

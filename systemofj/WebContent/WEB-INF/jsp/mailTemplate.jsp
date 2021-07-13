@@ -55,6 +55,7 @@
 </body>
 <script>
 'use strict';
+
 function show(){
 	var explanation = document.getElementById("explanation");
 	var intern = document.getElementById("intern");
@@ -64,13 +65,20 @@ function show(){
 	interntemplate.style.display =intern.checked ? "block" : "none";
 	facetemplate.style.display =face.checked ? "block" : "none";
 }
-function yesno(){
-	if(window.confirm(このテンプレを使用しますか)){
-		console.log('yes')
-	} else {
-		console.log('no')
-	}
 
+function yesno(){
+
+	//確認ダイアログを表示
+	if(window.confirm('このテンプレを使用してよろしいですか？')){
+		//「OK」時は送信実行
+		return true;
+	}
+	//「キャンセル」時
+	else {
+		window.alert('キャンセルされました。');
+		//送信中止
+		return false;
+	}
 }
 
 </script>

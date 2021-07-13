@@ -8,10 +8,20 @@
 <style>
 table, td, th {
 border: 2px #000000 solid;
+margin: 3px auto;
 }
 hr {
 margin-block-start: 0em;
 margin-block-end: 0em;
+}
+th {
+background-color: #e0e0e0;
+}
+h3 {
+text-align: center;
+margin: 15px auto;
+width: 800px;
+background-color: #e0e0e0;
 }
 </style>
 </head>
@@ -33,9 +43,9 @@ margin-block-end: 0em;
 <br>
 <!-- 基本情報テーブル -->
 
-基本情報<input type="checkbox" id="s_info">
-  <div class="student">
-	<table>
+<h3>基本情報<input type="checkbox" id="s_info"  onclick="divOpen(this,'student')"></h3>
+  <div id="student" style="display:none;">
+	<table style="width: 800px;">
 	  <tr>
 	    <td>氏名<hr>椹篤弥</td>
 	    <td>フリガナ<hr>サワラギアツヤ</td>
@@ -62,10 +72,11 @@ margin-block-end: 0em;
   </div>
 <!-- イベントテーブル -->
 
-イベント<input type="checkbox" id="e_info">
-<table>
+<h3>イベント<input type="checkbox" id="e_info" onclick="divOpen(this,'event')"></h3>
+<div id="event" style="display:none;">
+<table style="border: 0px; width: 800px;">
   <tr>
-    <td>
+    <td style="border: 0px">
       <table>
         <tr>
           <th>合同説明会</th>
@@ -78,7 +89,7 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
+    <td style="border: 0px">
       <table>
         <tr>
           <th colspan="3">模擬面接</th>
@@ -96,7 +107,7 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
+    <td style="border: 0px">
       <table>
         <tr>
           <th colspan="2">座談会</th>
@@ -113,19 +124,20 @@ margin-block-end: 0em;
     </td>
   </tr>
 </table>
-
+</div>
 <!-- インターンテーブル -->
 
-インターン<input type="checkbox" id="i_info">
-<table>
+<h3>インターン<input type="checkbox" id="i_info" onclick="divOpen(this,'intern')"></h3>
+<div id="intern" style="display:none;">
+<table style="border: 0px #000000 solid; width: 830px;">
   <tr>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="border: 0px">
         <tr>
-          <td>
+          <td style="border: 0px">
             <table>
               <tr>
-                <td></td>
+                <td style="border: 0px"></td>
                 <th>1day</th>
                 <th>3days</th>
                 <th>初級</th>
@@ -133,7 +145,7 @@ margin-block-end: 0em;
                 <th>準備</th>
               </tr>
               <tr>
-                <td></td>
+                <td style="border: 0px"></td>
                 <td>2021-08-08</td>
                 <td>2021-08-12</td>
                 <td>2021-08-15</td>
@@ -153,12 +165,18 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
+    <td style="border: 0px">
       <table>
+	<tr>
+	  <th colspan="3">
+	    アンケート
+	  </th>
+
+	</tr>
         <tr>
-          <th>アンケート提出有無</th>
-          <th>アンケート合否</th>
-          <th>資料送付</th>
+          <th>提出有無</th>
+          <th>合否</th>
+	  <th>資料送付</th>
         </tr>
         <tr>
           <td>なし</td>
@@ -169,14 +187,15 @@ margin-block-end: 0em;
     </td>
   </tr>
 </table>
-
+</div>
 <!-- 選考テーブル -->
 
-選考<input type="checkbox" id="sele_info">
-<table>
+<h3>選考<input type="checkbox" id="sele_info"  onclick="divOpen(this,'selection')"></h3>
+<div id="selection" style="display:none;">
+<table style="border: 0px #000000 solid; width: 800px;">
   <tr>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 265px">
         <tr>
           <th colspan="4">説明会</th>
         </tr>
@@ -194,8 +213,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 230px">
         <tr>
          <th>選考受験日</th>
          <th>適正点数</th>
@@ -206,8 +225,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 170px">
         <tr>
           <th>書類点数</th>
           <th>書類合否</th>
@@ -218,7 +237,7 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
+    <td style="border: 0px">
       <table>
         <tr>
           <th>選考進捗状況</th>
@@ -230,8 +249,8 @@ margin-block-end: 0em;
     </td>
   </tr>
   <tr>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 265px">
         <tr>
           <th colspan="4">履歴書評価</th>
         </tr>
@@ -249,8 +268,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 230px">
         <tr>
           <th colspan="4">自己PR文評価</th>
         </tr>
@@ -268,8 +287,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 170px">
         <tr>
           <th colspan="4">書類選考評価</th>
         </tr>
@@ -289,8 +308,8 @@ margin-block-end: 0em;
     </td>
   </tr>
   <tr>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 265px">
         <tr>
           <th colspan="6">1次面接</th>
         </tr>
@@ -312,8 +331,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 230px">
         <tr>
           <th colspan="5">2次面接</th>
         </tr>
@@ -333,8 +352,8 @@ margin-block-end: 0em;
         </tr>
       </table>
     </td>
-    <td>
-      <table>
+    <td style="border: 0px">
+      <table style="width: 170px">
         <tr>
           <th colspan="2">3次面接</th>
         </tr>
@@ -350,8 +369,8 @@ margin-block-end: 0em;
     </td>
   </tr>
   <tr>
-    <td colspan="3">
-      <table>
+    <td colspan="3" style="border: 0px">
+      <table style="width: 678px">
         <tr>
           <th>内々定送付</th>
           <th>応諾</th>
@@ -380,22 +399,30 @@ margin-block-end: 0em;
     </td>
   </tr>
   <tr>
-    <td>
-     <table>
+    <td style="border: 0px" colspan="3">
+     <table style="width: 678px">
        <tr>
          <th>備考</th>
        </tr>
        <tr>
-         <td></td>
+         <td>　</td>
        </tr>
      </table>
     </td>
   </tr>
 </table>
-
-<!-- 備考テーブル -->
-<table>
-</table>
-
+</div>
 </body>
+<script>
+'use strict'
+function divOpen(checkBox, id) {
+if(checkBox.checked){
+  document.getElementById(id).style.display = "block";
+}else{
+  document.getElementById(id).style.display = "none";
+}
+
+}
+
+</script>
 </html>
