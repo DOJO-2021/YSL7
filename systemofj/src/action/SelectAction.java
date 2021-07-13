@@ -1,6 +1,12 @@
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
+
+import model.SEvent;
+import model.Student;
+import service.SelectService;
 
 public class SelectAction {
 
@@ -17,14 +23,22 @@ public class SelectAction {
 	public String goToDetail(HttpServletRequest request) {
 
 		//リクエスト領域からsIdを持ってくる。
-		String sId = request.getParameter("sId");
+		int sId = Integer.parseInt(request.getParameter("sId"));
 
-		//StudentDaoを実体化
-		//EventDaoを実体化
-		//InternDaoを実体化
-		//SelectionEasyDaoを実体化
-		//SelectionFaceDaoを実体化
-		//SelectionText
+		//selectServiceを実体化
+		SelectService service = new SelectService();
+
+		//Studentの情
+		Student student = service.studentSelect(sId);
+
+		//SEvent
+		ArrayList<SEvent> events = service.eventSelect(sId);
+
+		//SIntern
+		//SSelectionEazy
+		//SSelectionFace
+		//SSelectionText
+
 
 		return page;
 	}
