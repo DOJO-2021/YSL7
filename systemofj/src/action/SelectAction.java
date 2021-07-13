@@ -1,58 +1,96 @@
 package action;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
 import model.SEvent;
+import model.SIntern;
+import model.SSelectionEasy;
+import model.SSelectionFace;
+import model.SSelectionText;
 import model.Student;
 import service.SelectService;
 
 public class SelectAction {
 
-	//戻り値に設定するページを初期設定しておく
-	String page="/WEB-INF/jsp/login.jsp";
-
 	//検索して、検索一覧ページに飛ぶメソッド
 	public String serch(HttpServletRequest request) {
+		try {
 
-		return page;
+			//何で検索されたかを判断するためのmode
+			String mode = request.getParameter("mode");
+
+
+		} catch(SQLException e) {
+			request.setAttribute("errMsg", "SQLExceptionだよー");
+			return "/WEB-INF/jsp/search.jsp";
+		} catch(ClassNotFoundException e) {
+			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			return "/WEB-INF/jsp/search.jsp";
+		}
+
+		return "/WEB-INF/jsp/searchResult.jsp";
 	}
 
 	//詳細画面に飛ぶメソッド
 	public String goToDetail(HttpServletRequest request) {
 
-		//リクエスト領域からsIdを持ってくる。
-		int sId = Integer.parseInt(request.getParameter("sId"));
+		try {
+			//リクエスト領域からsIdを持ってくる。
+			int sId = Integer.parseInt(request.getParameter("sId"));
 
-		//selectServiceを実体化
-		SelectService service = new SelectService();
+			//selectServiceを実体化
+			SelectService service = new SelectService();
 
-		//Studentの情
-		Student student = service.studentSelect(sId);
+			//Studentの情報取得
+			Student student = service.studentSelect(sId);
 
-		//SEvent
-		ArrayList<SEvent> events = service.eventSelect(sId);
+			//SEventの情報取得
+			ArrayList<SEvent> events = service.eventSelect(sId);
 
-		//SIntern
-		//SSelectionEazy
-		//SSelectionFace
-		//SSelectionText
+			//SInternの情報取得
+			ArrayList<SIntern> interns = service.internSelect(sId);
 
+			//SSelectionEazyの情報取得
+			SSelectionEasy eazy = service.selectioneasySelect(sId);
 
-		return page;
+			//SSelectionFaceの情報取得
+			ArrayList<SSelectionFace> faces = service.selectionfaceSelect(sId);
+
+			//SSelectionTextの情報取得
+			ArrayList<SSelectionText> texts = service.selectiontextSelect(sId);
+
+			//上で取得した情報をすべてsetAttribute
+			request.setAttribute("student", student);
+			request.setAttribute("events", events);
+			request.setAttribute("interns", interns);
+			request.setAttribute("eazy", eazy);
+			request.setAttribute("faces", faces);
+			request.setAttribute("texts", texts);
+
+			return "/WEB-INF/jsp/detail.jsp";
+
+		} catch(SQLException e) {
+			request.setAttribute("errMsg", "SQLExceptionだよー");
+			return "/WEB-INF/jsp/search.jsp";
+		} catch(ClassNotFoundException e) {
+			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			return "/WEB-INF/jsp/search.jsp";
+		}
 	}
 
 	//テンプレを選択するし、次のページに飛ぶメソッド
 	public String selectTemplate(HttpServletRequest request) {
 
-		return page;
+		return;
 	}
 
 	//フィードバックページに飛ぶメソッド
 	public String goToFeedbak(HttpServletRequest request) {
 
-		return page;
+		return ;
 	}
 
 
