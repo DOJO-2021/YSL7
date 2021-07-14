@@ -26,12 +26,12 @@
 	</div>
 	<div class="c2" id="d2">
 
-		<div id="event1_1"><input type="radio" name="event" value="entry" id="event1">エントリー</div>
-		<div id="event2_1"><input type="radio" name="event" value="intern" id="event2">インターン</div>
+		<div id="event1_1"><input type="radio" name="event" value="entry" id="event1" onclick="Hide3()">エントリー</div>
+		<div id="event2_1"><input type="radio" name="event" value="intern" id="event2" onclick="Hide4()">インターン</div>
 		<div id="event3_1"><input type="radio" name="event" value="infosession" id="event3">会社説明会</div>
 		<div id="event4_1"><input type="radio" name="event" value="infosession2" id="event4">合同説明会</div>
 	</div>
-	<div class="c3">
+	<div class="c3" id="d3">
 		<select name="i_category">
 			<option value="i_category1">1Day</option>
 			<option value="i_category2">3Days</option>
@@ -41,9 +41,10 @@
 			<option value="i_category6">座談会</option>
 		</select>
 	</div>
+	<div class="c4" id="d4">
 		<input type="date" name="e_date">
 		<input type="date" name="i_date">
-		<br>
+	</div>
 		<input type="file" name="file" accept=".csv">
 		<input type="file" name="file" accept=".pdf">
 		<input type="submit" name="upload" value="アップロード">
@@ -53,6 +54,8 @@
 	'use strict';
 
 	document.getElementById("d2").style.display = "none";
+	document.getElementById("d3").style.display = "none";
+	document.getElementById("d4").style.display = "none";
 
 	function Hide1() {
 		document.getElementById("d2").style.display="";
@@ -73,6 +76,13 @@
 		document.getElementById("event3_1").style.display="";
 		document.getElementById("event4_1").style.display="none";
 		console.log("test");
+	};
+
+	function Hide3() {
+		document.getElementById("d3").style.display="none";
+	};
+	function Hide4() {
+		document.getElementById("d3").style.display="";
 	};
 
 	</script>
