@@ -28,8 +28,8 @@
 
 		<div id="event1_1"><input type="radio" name="event" value="entry" id="event1" onclick="Hide3()">エントリー</div>
 		<div id="event2_1"><input type="radio" name="event" value="intern" id="event2" onclick="Hide4()">インターン</div>
-		<div id="event3_1"><input type="radio" name="event" value="infosession" id="event3">会社説明会</div>
-		<div id="event4_1"><input type="radio" name="event" value="infosession2" id="event4">合同説明会</div>
+		<div id="event3_1"><input type="radio" name="event" value="infosession" id="event3" onclick="Hide5()">会社説明会</div>
+		<div id="event4_1"><input type="radio" name="event" value="infosession2" id="event4" onclick="Hide5()">合同説明会</div>
 	</div>
 	<div class="c3" id="d3">
 		<select name="i_category">
@@ -41,13 +41,12 @@
 			<option value="i_category6">座談会</option>
 		</select>
 	</div>
-	<div class="c4" id="d4">
-		<input type="date" name="e_date">
-		<input type="date" name="i_date">
-	</div>
-		<input type="file" name="file" accept=".csv">
-		<input type="file" name="file" accept=".pdf">
-		<input type="submit" name="upload" value="アップロード">
+	<input type="date" name="e_date" id="date1">
+	<input type="date" name="i_date" id="date2">
+
+	<input type="file" name="file" accept=".csv" id="file1">
+	<input type="file" name="file" accept=".pdf" id="file2">
+	<input type="submit" name="upload" value="アップロード">
 	</form>
 
 	<script>
@@ -55,7 +54,9 @@
 
 	document.getElementById("d2").style.display = "none";
 	document.getElementById("d3").style.display = "none";
-	document.getElementById("d4").style.display = "none";
+	document.getElementById("date1").style.display="none";
+	document.getElementById("date2").style.display="none";
+	document.getElementById("file2").style.display="none";
 
 	function Hide1() {
 		document.getElementById("d2").style.display="";
@@ -63,10 +64,17 @@
 		document.getElementById("event2_1").style.display="";
 		document.getElementById("event3_1").style.display="";
 		document.getElementById("event4_1").style.display="";
+		document.getElementById("file1").style.display="";
+		document.getElementById("file2").style.display="none";
 		console.log("test");
 	};
 	function Hide2() {
 		document.getElementById("d2").style.display="none";
+		document.getElementById("d3").style.display="none";
+		document.getElementById("date1").style.display="none";
+		document.getElementById("date2").style.display="none";
+		document.getElementById("file1").style.display="none";
+		document.getElementById("file2").style.display="";
 		console.log("test");
 	};
 	function Hide0() {
@@ -75,15 +83,28 @@
 		document.getElementById("event2_1").style.display="";
 		document.getElementById("event3_1").style.display="";
 		document.getElementById("event4_1").style.display="none";
+		document.getElementById("file1").style.display="";
+		document.getElementById("file2").style.display="none";
 		console.log("test");
 	};
 
 	function Hide3() {
 		document.getElementById("d3").style.display="none";
+		document.getElementById("date1").style.display="none";
+		document.getElementById("date2").style.display="none";
 	};
 	function Hide4() {
 		document.getElementById("d3").style.display="";
+		document.getElementById("date1").style.display="none";
+		document.getElementById("date2").style.display="";
 	};
+
+	function Hide5(){
+		document.getElementById("d3").style.display="none";
+		document.getElementById("date1").style.display="";
+		document.getElementById("date2").style.display="none";
+	};
+
 
 	</script>
 </body>
