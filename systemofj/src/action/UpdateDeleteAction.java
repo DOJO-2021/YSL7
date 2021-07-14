@@ -14,7 +14,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//idをリクエスト領域から取得
 		int uId = Integer.parseInt(request.getParameter("uId"));
 
 		//出力値を格納するBean
@@ -30,13 +30,13 @@ public class UpdateDeleteAction {
 			if (update == true) {
 
 				request.setAttribute("update", update);
-				//（成功）
-				request.setAttribute("errMsg", "削除成功");
+				//（更新成功）
+				request.setAttribute("errMsg", "更新成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "削除失敗");
+				request.setAttribute("errMsg", "更新失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -49,12 +49,13 @@ public class UpdateDeleteAction {
 		return page;
 	}
 
+
 	public String delete(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//idをリクエスト領域から取得
 		int uId = Integer.parseInt(request.getParameter("uId"));
 
 		//出力値を格納するBean
@@ -70,7 +71,7 @@ public class UpdateDeleteAction {
 			if (delete == true) {
 
 				request.setAttribute("update", delete);
-				//（成功）
+				//（削除成功）
 				request.setAttribute("errMsg", "削除成功");
 
 			}
@@ -95,7 +96,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//リクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 		String sName = request.getParameter("sName");
 		String sKana = request.getParameter("sKana");
@@ -123,8 +124,8 @@ public class UpdateDeleteAction {
 
 			if (student == true) {
 
-				request.setAttribute("template", student);
-				//（成功）
+				request.setAttribute("studentUpdate", student);
+				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
 
 			}
@@ -148,7 +149,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//idをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 
 		//出力値を格納するBean
@@ -163,8 +164,8 @@ public class UpdateDeleteAction {
 
 			if (SDelete == true) {
 
-				request.setAttribute("studentdelete", SDelete);
-				//（成功）
+				request.setAttribute("studentDelete", SDelete);
+				//（削除成功）
 				request.setAttribute("errMsg", "削除成功");
 
 			}
@@ -188,7 +189,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//リクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 		int alleditflag = Integer.parseInt(request.getParameter("alleditflag"));
 
@@ -204,8 +205,8 @@ public class UpdateDeleteAction {
 
 			if (flag == true) {
 
-				request.setAttribute("flagupdate", flag);
-				//（成功）
+				request.setAttribute("flagUpdate", flag);
+				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
 
 			}
@@ -229,7 +230,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//リクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 
 		String seSelectionDate =request.getParameter("seSelectionDate");
@@ -287,8 +288,8 @@ public class UpdateDeleteAction {
 
 			if (SelectionEasy == true) {
 
-				request.setAttribute("selectioneasy", SelectionEasy);
-				//（成功）
+				request.setAttribute("selectionEasyUpdate", SelectionEasy);
+				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
 
 			}
@@ -314,7 +315,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//idをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 
 
@@ -326,18 +327,18 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			EasyDelete = service.templateUpdate(sId);
+			EasyDelete = service.selectionEasyDelete(sId);
 
-			if (temp == true) {
+			if (EasyDelete == true) {
 
 				request.setAttribute("selectioneasydelete", EasyDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -356,7 +357,7 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//リクエスト領域から取得
 		int tId = Integer.parseInt(request.getParameter("tId"));
 		String tTitle = request.getParameter("tTitle");
 		String tContent = request.getParameter("tContent");
@@ -373,7 +374,7 @@ public class UpdateDeleteAction {
 
 			if (temp == true) {
 
-				request.setAttribute("template", temp);
+				request.setAttribute("templateUpdate", temp);
 				//（成功）
 				request.setAttribute("errMsg", "編集成功");
 
@@ -395,7 +396,7 @@ public class UpdateDeleteAction {
 
 
 
-	public String eventeUpdate(HttpServletRequest request) {
+	public String eventUpdate(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
@@ -424,7 +425,7 @@ public class UpdateDeleteAction {
 
 			if (event == true) {
 
-				request.setAttribute("event", event);
+				request.setAttribute("eventUpdate", event);
 				//（成功）
 				request.setAttribute("errMsg", "編集成功");
 
@@ -444,12 +445,12 @@ public class UpdateDeleteAction {
 		return page;
 	}
 
-	public String eventeDelete(HttpServletRequest request) {
+	public String eventDelete(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-		//idとpwをリクエスト領域から取得
+		//idをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 
 //		String eDatetest =request.getParameter("eDate");
@@ -468,18 +469,18 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			eDelete = service.eventUpdate( sId);
+			eDelete = service.eventDelete( sId);
 
 			if (eDelete == true) {
 
 				request.setAttribute("eventdelete", eDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -515,7 +516,7 @@ public class UpdateDeleteAction {
 
 			if (fb == true) {
 
-				request.setAttribute("feedback", fb);
+				request.setAttribute("feedbackUpdate", fb);
 				//（成功）
 				request.setAttribute("errMsg", "編集成功");
 
@@ -558,12 +559,12 @@ public class UpdateDeleteAction {
 
 				request.setAttribute("feedbackdelete", fDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -606,7 +607,7 @@ public class UpdateDeleteAction {
 
 			if (intern == true) {
 
-				request.setAttribute("intern", intern);
+				request.setAttribute("internUpdate", intern);
 				//（成功）
 				request.setAttribute("errMsg", "編集成功");
 
@@ -649,12 +650,12 @@ public class UpdateDeleteAction {
 
 				request.setAttribute("feedbackdelete", iDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -732,8 +733,8 @@ public class UpdateDeleteAction {
 
 			if (face == true) {
 
-				request.setAttribute("selectionface", face);
-				//（成功）
+				request.setAttribute("selectionfaceUpdate", face);
+				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
 
 			}
@@ -774,12 +775,12 @@ public class UpdateDeleteAction {
 
 				request.setAttribute("facedelete", faceDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -861,12 +862,12 @@ public class UpdateDeleteAction {
 
 				request.setAttribute("textdelete", textDelete);
 				//（成功）
-				request.setAttribute("errMsg", "編集成功");
+				request.setAttribute("errMsg", "削除成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "削除失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
