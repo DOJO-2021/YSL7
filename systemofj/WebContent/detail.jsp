@@ -45,12 +45,11 @@ background-color: #e0e0e0;
 
 <h3>基本情報<input type="checkbox" id="s_info"  onclick="divOpen(this,'student')"></h3>
   <div id="student" style="display:none;">
-	<table style="width: 800px;">
+	<table style="border: 0px; width: 800px;">
 	  <tr>
 	    <td>氏名<hr>椹篤弥</td>
 	    <td>フリガナ<hr>サワラギアツヤ</td>
-	    <td>年齢<hr>23</td>
-	    <td>住所<hr>東京都大田区</td>
+	    <td colspan="2">住所<hr>東京都大田区</td>
 	  </tr>
 	  <tr>
 	    <td>学校名<hr>日本大学</td>
@@ -59,14 +58,23 @@ background-color: #e0e0e0;
 	    <td>文理<hr>文</td>
 	  </tr>
 	  <tr>
-	    <td>PCメール<hr>@gmail.com</td>
-	    <td>携帯メール<hr>@docomo.ne.jp</td>
+	    <td colspan="2">PCメール<hr>@gmail.com</td>
+	    <td colspan="2">携帯メール<hr>@docomo.ne.jp</td>
 	  </tr>
 	  <tr>
-	    <td>キャリタス<hr>〇</td>
-	    <td>リクナビ<hr>　</td>
-	    <td>マイナビ<hr>　</td>
-	    <td>その他<hr>　</td>
+	    <td colspan="4">
+	      <table style="width: 800px;">
+	        <tr>
+	          <th colspan="4">申込分類</th>
+	        </tr>
+	        <tr>
+	    	  <td>キャリタス<hr>〇</td>
+	    	  <td>リクナビ<hr>　</td>
+	    	  <td>マイナビ<hr>　</td>
+	    	  <td>その他<hr>　</td>
+	        </tr>
+	      </table>
+	    </td>
 	  </tr>
 	</table>
   </div>
@@ -160,31 +168,36 @@ background-color: #e0e0e0;
                 <td>〇</td>
                 <td>　</td>
               </tr>
+              <tr>
+                <th>アンケート合否</th>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <th>アンケート提出有無</th>
+                <td>〇</td>
+                <td>　</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <th>資料送付</th>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>〇</td>
+              </tr>
             </table>
           </td>
         </tr>
       </table>
     </td>
-    <td style="border: 0px">
-      <table>
-	<tr>
-	  <th colspan="3">
-	    アンケート
-	  </th>
 
-	</tr>
-        <tr>
-          <th>提出有無</th>
-          <th>合否</th>
-	  <th>資料送付</th>
-        </tr>
-        <tr>
-          <td>なし</td>
-          <td>合格</td>
-          <td>済</td>
-        </tr>
-      </table>
-    </td>
   </tr>
 </table>
 </div>
