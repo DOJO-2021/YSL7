@@ -16,19 +16,19 @@ public class UserDao {
 		this.conn = conn;
 	}
 
-	public User login(int uId, String uPw) throws SQLException {
+	public User login(String uId, String uPw) throws SQLException {
 
 		//リターンするためのUserBeanを実体化
 		User user = null;
 
 		//SQL文を準備する
-		String sql = "select * from user where id=? and password=?";
+		String sql = "select * from user where u_id=? and u_pw=?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//?（プレースホルダ―）の部分に値を設定
-		pStmt.setInt(1, uId);
+		pStmt.setString(1, uId);
 		pStmt.setString(2, uPw);
 
 		//SQLを実行し、結果を取得する
@@ -38,12 +38,12 @@ public class UserDao {
 		// 次のデータ、次のデータ・・順に
 		if (rs.next()) { // 1件でもあれば実行される
 			user = new User();
-			user.setU_id(rs.getInt("u_id"));
-			user.setU_name(rs.getString("u_name"));
-			user.setU_first(rs.getString("u_first"));
-			user.setU_pw(rs.getString("u_pw"));
-			user.setA_flag(rs.getInt("a_flag"));
-			user.setY_flag(rs.getInt("y_flag"));
+			user.setuId(rs.getString("u_id"));
+			user.setuName(rs.getString("u_name"));
+			user.setuFirst(rs.getString("u_first"));
+			user.setuPw(rs.getString("u_pw"));
+			user.setaFlag(rs.getInt("a_flag"));
+			user.setyFlag(rs.getInt("y_flag"));
 		}
 
 		if (conn != null) {
@@ -69,12 +69,12 @@ public class UserDao {
 		// 次のデータ、次のデータ・・順に
 		while (rs.next()) {
 			User user = new User(); // JavaBeansをインスタンス化してデータを入れる箱として利用
-			user.setU_id(rs.getInt("u_id"));
-			user.setU_name(rs.getString("u_name"));
-			user.setU_first(rs.getString("u_first"));
-			user.setU_pw(rs.getString("u_pw"));
-			user.setA_flag(rs.getInt("a_flag"));
-			user.setY_flag(rs.getInt("y_flag"));
+			user.setuId(rs.getString("u_id"));
+			user.setuName(rs.getString("u_name"));
+			user.setuFirst(rs.getString("u_first"));
+			user.setuPw(rs.getString("u_pw"));
+			user.setaFlag(rs.getInt("a_flag"));
+			user.setyFlag(rs.getInt("y_flag"));
 
 			userList.add(user); // ArrayListに入れなおす（みんな知ってるから）
 		}
@@ -88,7 +88,7 @@ public class UserDao {
 	}
 
 	// 登録
-	public int insert(int uId, String uName, String uFirst, String uPw) throws SQLException {
+	public int insert(String uId, String uName, String uFirst, String uPw) throws SQLException {
 
 		// SQL文を準備する
 
@@ -97,7 +97,7 @@ public class UserDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, uId); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(1, uId); //1つ目の?(=NAME)に入力値をいれる
 
 		pStmt.setString(2, uName);
 
@@ -117,7 +117,7 @@ public class UserDao {
 	}
 
 	// 更新
-	public int update(int uId) throws SQLException {
+	public int update(String uId) throws SQLException {
 
 
 		// SQL文を準備する
@@ -127,7 +127,7 @@ public class UserDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, uId); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(1, uId); //1つ目の?(=NAME)に入力値をいれる
 
 
 
@@ -148,7 +148,7 @@ public class UserDao {
 
 
 	// 削除
-	public int delete(int uId) throws SQLException {
+	public int delete(String uId) throws SQLException {
 
 
 		// SQL文を準備する
@@ -158,7 +158,7 @@ public class UserDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, uId); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(1, uId); //1つ目の?(=NAME)に入力値をいれる
 
 
 
