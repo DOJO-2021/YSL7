@@ -67,6 +67,7 @@
 	};
 	function Hide2() {
 		document.getElementById("d2").style.display="none";
+		document.getElementById("d3").style.display="none";
 		console.log("test");
 	};
 	function Hide0() {
