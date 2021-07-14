@@ -160,31 +160,36 @@ background-color: #e0e0e0;
                 <td>〇</td>
                 <td>　</td>
               </tr>
+              <tr>
+                <th>アンケート合否</th>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <th>アンケート提出有無</th>
+                <td>〇</td>
+                <td>　</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>　</td>
+              </tr>
+              <tr>
+                <th>資料送付</th>
+                <td>　</td>
+                <td>　</td>
+                <td>　</td>
+                <td>〇</td>
+                <td>〇</td>
+              </tr>
             </table>
           </td>
         </tr>
       </table>
     </td>
-    <td style="border: 0px">
-      <table>
-	<tr>
-	  <th colspan="3">
-	    アンケート
-	  </th>
 
-	</tr>
-        <tr>
-          <th>提出有無</th>
-          <th>合否</th>
-	  <th>資料送付</th>
-        </tr>
-        <tr>
-          <td>なし</td>
-          <td>合格</td>
-          <td>済</td>
-        </tr>
-      </table>
-    </td>
   </tr>
 </table>
 </div>

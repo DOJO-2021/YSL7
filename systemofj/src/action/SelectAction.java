@@ -11,6 +11,7 @@ import model.SSelectionEasy;
 import model.SSelectionFace;
 import model.SSelectionText;
 import model.Student;
+import model.SearchResult;
 import service.SelectService;
 
 public class SelectAction {
@@ -22,7 +23,27 @@ public class SelectAction {
 			//何で検索されたかを判断するためのmode
 			String mode = request.getParameter("mode");
 
+			//年度か日付は必ず注力した状態でのみ検索できる
+			//ただし、選考で検索された場合は日付、年度ともに送られてこない
+			if (!mode.equals("selection")) {
+				String year = request.getParameter("year");
+				String date = request.getParameter("date");
+				if (year == null) {//年度未入力の場合
+					
+				} else if (date == null) {//日付未入力の場合
+					
+				} else {//日付も年度も入力されていた場合
+					
+				}
+			
+			}
+
+
+			//SelectServiceを実体化
+			SelectService service = new SelectService();
+
 			if(mode.equals("intern")) {//インターン検索がされた場合
+				service.searchIntern()
 
 			} else if(mode.equals("event")) {//イベント検索がされた場合
 
@@ -32,7 +53,7 @@ public class SelectAction {
 
 			}
 
-			request.setAttribute("SResult", SResult);
+			request.setAttribute("SResult", SearchResult);
 
 
 		} catch(SQLException e) {
