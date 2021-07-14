@@ -5,6 +5,12 @@ import java.sql.Date;
 public class All {
 
 	//Userフィールド
+	private int u_id;
+	private String u_name;
+	private String u_first;
+	private String u_pw;
+	private int a_flag;
+	private int y_flag;
 
 
 	//Studentフィールド-------------------------
@@ -102,6 +108,46 @@ public class All {
 
 
 	//以下ゲッターセッター
+	//User
+	public int getU_id() {
+		return u_id;
+	}
+	public void setU_id(int u_id) {
+		this.u_id = u_id;
+	}
+	public String getU_name() {
+		return u_name;
+	}
+	public void setU_name(String u_name) {
+		this.u_name = u_name;
+	}
+	public String getU_first() {
+		return u_first;
+	}
+	public void setU_first(String u_first) {
+		this.u_first = u_first;
+	}
+	public String getU_pw() {
+		return u_pw;
+	}
+	public void setU_pw(String u_pw) {
+		this.u_pw = u_pw;
+	}
+	public int getA_flag() {
+		return a_flag;
+	}
+	public void setA_flag(int a_flag) {
+		this.a_flag = a_flag;
+	}
+	public int getY_flag() {
+		return y_flag;
+	}
+	public void setY_flag(int y_flag) {
+		this.y_flag = y_flag;
+	}
+
+
+	//Student
 	public int getsId() {
 		return sId;
 	}
@@ -192,6 +238,9 @@ public class All {
 	public void setAllEditFlag(String allEditFlag) {
 		this.allEditFlag = allEditFlag;
 	}
+
+
+	//Feedback
 	public int getfId() {
 		return fId;
 	}
@@ -216,6 +265,9 @@ public class All {
 	public void setfContent(String fContent) {
 		this.fContent = fContent;
 	}
+
+
+	//Intern
 	public String getiCategory() {
 		return iCategory;
 	}
@@ -270,6 +322,9 @@ public class All {
 	public void setApplyflag(Date applyflag) {
 		this.applyflag = applyflag;
 	}
+
+
+	//Event
 	public String geteCategory() {
 		return eCategory;
 	}
@@ -288,6 +343,9 @@ public class All {
 	public void seteId(int eId) {
 		this.eId = eId;
 	}
+
+
+	//SelectionText
 	public String getStCategory() {
 		return stCategory;
 	}
@@ -312,6 +370,9 @@ public class All {
 	public void setStId(int stId) {
 		this.stId = stId;
 	}
+
+
+	//SelectionFace
 	public String getSfCategory() {
 		return sfCategory;
 	}
@@ -336,6 +397,9 @@ public class All {
 	public void setSfId(int sfId) {
 		this.sfId = sfId;
 	}
+
+
+	//SelectionEasy
 	public Date getSeSelectionDate() {
 		return seSelectionDate;
 	}
@@ -468,6 +532,9 @@ public class All {
 	public void setSeSituation(String seSituation) {
 		this.seSituation = seSituation;
 	}
+
+
+	//Template
 	public int gettId() {
 		return tId;
 	}
