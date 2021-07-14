@@ -5,7 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class UploadService {
-	public /*メソッド名　引数*/ throws ClassNotFoundException,SQLException {
+	public boolean insert(String site,) throws ClassNotFoundException,SQLException {
+		boolean result = false;
+
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 

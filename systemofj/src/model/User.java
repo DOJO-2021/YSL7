@@ -2,48 +2,49 @@ package model;
 
 public class User {
 
-	private int u_id;
-	private String u_name;
-	private String u_first;
-	private String u_pw;
-	private int a_flag;
-	private int y_flag;
+	private String uId;
+	private String uName;
+	private String uFirst;
+	private String uPw;
+	private int aFlag;
+	private int yFlag;
 
 
-	public int getU_id() {
-		return u_id;
+	public String getuId() {
+		return uId;
 	}
-	public void setU_id(int u_id) {
-		this.u_id = u_id;
+	public void setuId(String uId) {
+		this.uId = uId;
 	}
-	public String getU_name() {
-		return u_name;
+	public String getuName() {
+		return uName;
 	}
-	public void setU_name(String u_name) {
-		this.u_name = u_name;
+	public void setuName(String uName) {
+		this.uName = uName;
 	}
-	public String getU_first() {
-		return u_first;
+	public String getuFirst() {
+		return uFirst;
 	}
-	public void setU_first(String u_first) {
-		this.u_first = u_first;
+	public void setuFirst(String uFirst) {
+		this.uFirst = uFirst;
 	}
-	public String getU_pw() {
-		return u_pw;
+	public String getuPw() {
+		return uPw;
 	}
-	public void setU_pw(String u_pw) {
-		this.u_pw = u_pw;
+	public void setuPw(String uPw) {
+		this.uPw = uPw;
 	}
-	public int getA_flag() {
-		return a_flag;
+	public int getaFlag() {
+		return aFlag;
 	}
-	public void setA_flag(int a_flag) {
-		this.a_flag = a_flag;
+	public void setaFlag(int aFlag) {
+		this.aFlag = aFlag;
 	}
-	public int getY_flag() {
-		return y_flag;
+	public int getyFlag() {
+		return yFlag;
 	}
-	public void setY_flag(int y_flag) {
-		this.y_flag = y_flag;
+	public void setyFlag(int yFlag) {
+		this.yFlag = yFlag;
 	}
+
 }
