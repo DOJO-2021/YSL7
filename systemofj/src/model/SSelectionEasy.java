@@ -1,25 +1,24 @@
 package model;
 
-import java.sql.Date;
-
 public class SSelectionEasy {
-	private Date seSelectionDate;
+	private String seSelectionDate;
 	private int seScore;
 	private int seTextScore;
 	private String seTextResult;
-	private Date seGetTextDate;
-	private Date seNo;
-	private Date seOk;
+	private String seGetTextDate;
+	private String seNo;
+	private String seOk;
 	private String seNoReason;
-	private Date seSendOk;
-	private Date seEarlyOk;
-	private Date seEarlyNo;
+	private String seSendOk;
+	private String seEarlyOk;
+	private String seEarlyNo;
 	private String seFirstResult;
 	private String seSecondResult;
-	private Date seFirstNo;
-	private Date seSecondNo;
-	private Date seSecondDate;
-	private Date seThirdDate;
+	private String seFirstNo;
+	private String seFirstDate;
+	private String seSecondNo;
+	private String seSecondDate;
+	private String seThirdDate;
 	private String seThirdResult;
 	private String seRemarks;
 	private int seId;
@@ -51,10 +50,10 @@ public class SSelectionEasy {
 	public void setsId(int sId) {
 		this.sId = sId;
 	}
-	public Date getSeSelectionDate() {
+	public String getSeSelectionDate() {
 		return seSelectionDate;
 	}
-	public void setSeSelectionDate(Date seSelectionDate) {
+	public void setSeSelectionDate(String seSelectionDate) {
 		this.seSelectionDate = seSelectionDate;
 	}
 	public int getSeScore() {
@@ -75,22 +74,22 @@ public class SSelectionEasy {
 	public void setSeTextResult(String seTextResult) {
 		this.seTextResult = seTextResult;
 	}
-	public Date getSeGetTextDate() {
+	public String getSeGetTextDate() {
 		return seGetTextDate;
 	}
-	public void setSeGetTextDate(Date seGetTextDate) {
+	public void setSeGetTextDate(String seGetTextDate) {
 		this.seGetTextDate = seGetTextDate;
 	}
-	public Date getSeNo() {
+	public String getSeNo() {
 		return seNo;
 	}
-	public void setSeNo(Date seNo) {
+	public void setSeNo(String seNo) {
 		this.seNo = seNo;
 	}
-	public Date getSeOk() {
+	public String getSeOk() {
 		return seOk;
 	}
-	public void setSeOk(Date seOk) {
+	public void setSeOk(String seOk) {
 		this.seOk = seOk;
 	}
 	public String getSeNoReason() {
@@ -99,22 +98,22 @@ public class SSelectionEasy {
 	public void setSeNoReason(String seNoReason) {
 		this.seNoReason = seNoReason;
 	}
-	public Date getSeSendOk() {
+	public String getSeSendOk() {
 		return seSendOk;
 	}
-	public void setSeSendOk(Date seSendOk) {
+	public void setSeSendOk(String seSendOk) {
 		this.seSendOk = seSendOk;
 	}
-	public Date getSeEarlyOk() {
+	public String getSeEarlyOk() {
 		return seEarlyOk;
 	}
-	public void setSeEarlyOk(Date seEarlyOk) {
+	public void setSeEarlyOk(String seEarlyOk) {
 		this.seEarlyOk = seEarlyOk;
 	}
-	public Date getSeEarlyNo() {
+	public String getSeEarlyNo() {
 		return seEarlyNo;
 	}
-	public void setSeEarlyNo(Date seEarlyNo) {
+	public void setSeEarlyNo(String seEarlyNo) {
 		this.seEarlyNo = seEarlyNo;
 	}
 	public String getSeFirstResult() {
@@ -129,28 +128,34 @@ public class SSelectionEasy {
 	public void setSeSecondResult(String seSecondResult) {
 		this.seSecondResult = seSecondResult;
 	}
-	public Date getSeFirstNo() {
+	public String getSeFirstNo() {
 		return seFirstNo;
 	}
-	public void setSeFirstNo(Date seFirstNo) {
+	public void setSeFirstNo(String seFirstNo) {
 		this.seFirstNo = seFirstNo;
 	}
-	public Date getSeSecondNo() {
+	public String getseFirstDate() {
+		return seFirstNo;
+	}
+	public void setseFirstDate(String seFirstNo) {
+		this.seFirstNo = seFirstNo;
+	}
+	public String getSeSecondNo() {
 		return seSecondNo;
 	}
-	public void setSeSecondNo(Date seSecondNo) {
+	public void setSeSecondNo(String seSecondNo) {
 		this.seSecondNo = seSecondNo;
 	}
-	public Date getSeSecondDate() {
+	public String getSeSecondDate() {
 		return seSecondDate;
 	}
-	public void setSeSecondDate(Date seSecondDate) {
+	public void setSeSecondDate(String seSecondDate) {
 		this.seSecondDate = seSecondDate;
 	}
-	public Date getSeThirdDate() {
+	public String getSeThirdDate() {
 		return seThirdDate;
 	}
-	public void setSeThirdDate(Date seThirdDate) {
+	public void setSeThirdDate(String seThirdDate) {
 		this.seThirdDate = seThirdDate;
 	}
 	public String getSeThirdResult() {

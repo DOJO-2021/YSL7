@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.naming.directory.SearchResult;
@@ -172,7 +171,7 @@ public class SelectService {
 //検索→検索一覧結果に飛ぶ
 
 	//インターン検索ボタン
-	public List<SearchResult> searchInternList(String iCategory,Date iDate) throws ClassNotFoundException, SQLException {
+	public List<SearchResult> searchInternList(String iCategory,String iDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -185,7 +184,7 @@ public class SelectService {
 		return bean;
 	}
 	//イベント検索ボタン
-	public List<SearchResult> searchEventList(String eCategory,Date eDate) throws ClassNotFoundException, SQLException {
+	public List<SearchResult> searchEventList(String eCategory,String eDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
