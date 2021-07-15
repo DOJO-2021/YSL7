@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import model.SEvent;
 import model.SFeedback;
@@ -14,6 +15,7 @@ import model.SSelectionText;
 import model.SearchResult;
 import model.Student;
 import model.Template;
+import model.User;
 import service.SelectService;
 
 public class SelectAction {
@@ -145,15 +147,34 @@ public class SelectAction {
 	public String selectTemplate(HttpServletRequest request) {
 
 		//どのテンプレが選択されたかの情報を入手
-		String title = request.getParameter("title");
+		String tId = request.getParameter("tId");
 
-		if (title == null) {//テンプレ選択のページに飛ぶ
+		if (tId == null) {//テンプレ選択のページに飛ぶ
 			return "/WEB-INF/jsp/mailTemplate.jsp";
 		} else {
+
+			//学生の名前を入手
+			String sName = request.getParameter("sName");
+
+			//人事の名前を入手
+			HttpSession session = request.getSession();
+			User user = (User)session.getAttribute("user");
+			String uName = user.getuName();
+
+			//大学名を入手
+			String sUnivercity = request.getParameter("sUnivercity");
+
+
 			//selectServiceを実体化
 			SelectService service = new SelectService();
 
-			Template template = service.tenplateSelect(title);
+			//テンプレに実名や大学名を入れる。
+			Template template = service.tenplateSelect(tId);
+			String content = template.gettContent();
+			content = content.replace("学生の名前が入ります", sName);
+			content = content.replace("あなたの名前が入ります", uName);
+			content = content.replace("学生の大学名が入ります", sUnivercity);
+			template.settContent(content);
 
 			request.setAttribute("template", template);
 			return "/WEB-INF/jsp/mail.jsp";
@@ -169,7 +190,7 @@ public class SelectAction {
 		//selectServiceを実体化
 		SelectService service = new SelectService();
 
-		if (fCategory == null) {
+		if (fCategory == null) { //fCategory.equals(service);
 			request.setAttribute("list.sId", sId);
 			return "/WEB-INF/jsp/feedback.jsp";
 		} else {
