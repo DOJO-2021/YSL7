@@ -5,10 +5,49 @@
 <head>
 <meta charset="UTF-8">
 <title>top</title>
+
+<style>
+
+
+.container {
+  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+  text-align: center;
+  padding-top: 180px;
+}
+
+.btn {
+  display: inline-block;
+  height: 100px;
+  width: 200px;
+  text-align: center;
+  border: 2px solid #59b9c6;
+  font-size: 16px;
+  color: #59b9c6;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 4px;
+  transition: .4s;
+}
+
+.btn:hover {
+  background-color: #59b9c6;
+  border-color: #59b9c6;
+  color: #FFF;
+}
+
+.btn-td{
+  padding: 10px;
+  line-height: 100px;
+}
+
+
+</style>
+
 </head>
 <body>
 
-<!-- ボタンの場合 -->
+<!-- ボタンの場合
 <table align="center">
 	<tr align="center">
 		<td><input type="button" value="アップロード"></td>
@@ -22,23 +61,25 @@
 		<td><input type="button" value="ログアウト" onclick="return onLogout()"></td>
 	</tr>
 </table>
+ -->
 
 
-<!-- リンクの場合 --><br>
+<!-- リンクの場合 -->
+<div class="container">
 <table align="center">
 	<tr align="center">
-		<td><a href="">アップロード</a></td>
-		<td><a href="">検索</a></td>
-		<td><a href="">テンプレート登録</a></td>
+		<td class="btn-td"><a href="" class="btn">アップロード</a></td>
+		<td class="btn-td"><a href="" class="btn">検索</a></td>
+		<td class="btn-td"><a href="" class="btn">テンプレート登録</a></td>
 	</tr>
 
 	<tr align="center">
-		<td><a href="">分析</a></td>
-		<td><a href="">学生の新規登録</a></td>
-		<td><a href="" onclick="return onLogout()">ログアウト</a></td>
+		<td class="btn-td"><a href="" class="btn">分析</a></td>
+		<td class="btn-td"><a href="" class="btn">学生の新規登録</a></td>
+		<td class="btn-td"><a href="" onclick="return onLogout()" class="btn">ログアウト</a></td>
 	</tr>
 </table>
-
+</div>
 </body>
 <script>
 

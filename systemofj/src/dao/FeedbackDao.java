@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import model.SFeedback;
 
@@ -22,7 +21,7 @@ public class FeedbackDao {
 
 		// SQL文を準備する
 
-		String sql = "insert into Feedback values (0, ?, ?, ?, ?)";
+		String sql = "insert into Feedback values (null, ?, ?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -109,9 +108,9 @@ public class FeedbackDao {
 
 	// 検索（フィードバックカテゴリーの初期値1day（詳細ページのフィードバックボタンを押したとき））
 
-	public List<SFeedback> fFeedbackSelect(int sId) throws SQLException {
+	public ArrayList<SFeedback> fFeedbackSelect(int sId) throws SQLException {
 
-		List<SFeedback> fFeedbackList = new ArrayList<SFeedback>(); //SFeedback型の要素をしまうListを作る
+		ArrayList<SFeedback> fFeedbackList = new ArrayList<SFeedback>(); //SFeedback型の要素をしまうListを作る
 
 		// SELECT文を準備する		ユーザーが入れてくる情報を?にしておく
 		// 絞り込み検索用SQL
@@ -149,9 +148,9 @@ public class FeedbackDao {
 
 	// 検索（カテゴリー選択→検索ボタン）
 
-	public List<SFeedback> feedbackSelect(int sId, String fCategory) throws SQLException {
+	public ArrayList<SFeedback> feedbackSelect(int sId, String fCategory) throws SQLException {
 
-		List<SFeedback> fFeedbackList = new ArrayList<SFeedback>(); //SFeedback型の要素をしまうListを作る
+		ArrayList<SFeedback> fFeedbackList = new ArrayList<SFeedback>(); //SFeedback型の要素をしまうListを作る
 
 		// SELECT文を準備する		ユーザーが入れてくる情報を?にしておく
 		// 絞り込み検索用SQL

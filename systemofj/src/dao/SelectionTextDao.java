@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.SSelectionText;
 
@@ -13,7 +14,9 @@ public class SelectionTextDao {
 		public SelectionTextDao(Connection conn) {
 			this.conn=conn;
 		}
-		public SSelectionText selectiontextSelect(int sId) throws SQLException {
+		public ArrayList<SSelectionText> selectiontextSelect(int sId) throws SQLException {
+
+			ArrayList<SSelectionText> stsList = new ArrayList<SSelectionText>(); //SFeedback型の要素をしまうListを作る
 
 			//リターンするためのUserBeanを実体化
 			SSelectionText bean =null;
@@ -41,16 +44,18 @@ public class SelectionTextDao {
 				bean.setStName(rs.getString("st_name"));
 				bean.setStScore(rs.getInt("st_score"));
 				bean.setStId(rs.getInt("st_id"));
+
+				stsList.add(bean);
 			}
 			if(conn != null) {
 				conn.close();
 			}
-			return bean;
+			return stsList;
 		}
 		public int selectiontextInsert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
-			String sql = "insert into SelectionText values (?,?,?,?,null)";
+			String sql = "insert into SelectionText values (null,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//beanに値をひとつずつセットする

@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.SSelectionFace;
 
@@ -15,7 +16,9 @@ public class SelectionFaceDao {
 		this.conn=conn;
 	}
 
-	public SSelectionFace selectionfaceSelect(int sId) throws SQLException {
+	public ArrayList<SSelectionFace> selectionfaceSelect(int sId) throws SQLException {
+
+		ArrayList<SSelectionFace> sfsList = new ArrayList<SSelectionFace>(); //SFeedback型の要素をしまうListを作る
 
 		//リターンするためのUserBeanを実体化
 		SSelectionFace bean =null;
@@ -43,17 +46,19 @@ public class SelectionFaceDao {
 			bean.setSfName(rs.getString("sf_name"));
 			bean.setSfScore(rs.getInt("sf_score"));
 			bean.setSfId(rs.getInt("sf_id"));
+
+			sfsList.add(bean);
 		}
 		if(conn != null) {
 			conn.close();
 		}
-		return bean;
+		return sfsList;
 	}
 	public int selectionfaceInsert(int sId, String sfCategory, String sfName, int sfScore,int sfId) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "insert into SelectionFace values (?,?,?,?,null)";
+		String sql = "insert into SelectionFace values (null,?,?,?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
