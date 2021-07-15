@@ -76,7 +76,7 @@ function addSname(){
 	var pos      = textarea.selectionStart;
 
 	var before   = sentence.substr(0, pos);
-	var word     = '\"+s_name+\"';
+	var word     = '\"学生の名前が入ります\"';
 	var after    = sentence.substr(pos, len);
 
 	sentence = before + word + after;
@@ -92,7 +92,7 @@ function addRname(){
 	var pos      = textarea.selectionStart;
 
 	var before   = sentence.substr(0, pos);
-	var word     = '\"+u_name+\"';
+	var word     = '\"あなたの名前が入ります\"';
 	var after    = sentence.substr(pos, len);
 
 	sentence = before + word + after;
@@ -108,7 +108,7 @@ function addUname(){
 	var pos      = textarea.selectionStart;
 
 	var before   = sentence.substr(0, pos);
-	var word     = '\"+s_university+\"';
+	var word     = '\"学生の大学名が入ります\"';
 	var after    = sentence.substr(pos, len);
 
 	sentence = before + word + after;
