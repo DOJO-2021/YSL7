@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import model.SEvent;
 
@@ -15,13 +17,15 @@ public class EventDao {
 		this.conn = conn;
 	}
 
-	public SEvent eventSelect(int sId) throws SQLException {
+	public List<SEvent> eventSelect(int sId) throws SQLException {
+
+		List<SEvent>sEventList = new ArrayList<SEvent>();
 
 		//リターンするためのSEventBeanを実体化
 		SEvent event = null;
 
 		//SQL文を準備する
-		String sql = "select * from event where s_id=?";
+		String sql = "select * from event where s_id=? order by e_date desc";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -34,16 +38,21 @@ public class EventDao {
 
 		//スチューデントIDと一致するユーザーがいたかどうかチェックする
 		//次のデータ、次のデータ・・・順に
-		if (rs.next()) {
-			event = new SEvent();
-			event.setsId(rs.getInt("s_id"));
+		while (rs.next()) {
+			SEvent sEvent = new SEvent();
+			sEvent.seteId(rs.getInt("e_id"));
+			sEvent.seteCategory(rs.getString("e_category"));
+			sEvent.seteDate(rs.getString("e_date"));
+			sEvent.setsId(rs.getInt("s_id"));
+
+			sEventList.add(sEvent);
 		}
 
 		if(conn != null) {
 			conn.close();
 		}
 
-		return event;
+		return sEventList;
 
 	}
 

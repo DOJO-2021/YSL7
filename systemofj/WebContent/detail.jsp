@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,19 +48,19 @@ background-color: #e0e0e0;
   <div id="student" style="display:none;">
 	<table style="border: 0px; width: 800px;">
 	  <tr>
-	    <td>氏名<hr>椹篤弥</td>
-	    <td>フリガナ<hr>サワラギアツヤ</td>
-	    <td colspan="2">住所<hr>東京都大田区</td>
+	    <td>氏名<hr>${student.sName}</td>
+	    <td>フリガナ<hr>${student.sKana}</td>
+	    <td colspan="2">住所<hr>${student.sAddress}</td>
 	  </tr>
 	  <tr>
-	    <td>学校名<hr>日本大学</td>
-	    <td>学部<hr>経済学部</td>
-	    <td>学科<hr>経済学科</td>
-	    <td>文理<hr>文</td>
+	    <td>学校名<hr>${student.sUnivercity}</td>
+	    <td>学部<hr>${student.sFaculty}</td>
+	    <td>学科<hr>${student.sDepartment}</td>
+	    <td>文理<hr>${student.sContexts}</td>
 	  </tr>
 	  <tr>
-	    <td colspan="2">PCメール<hr>@gmail.com</td>
-	    <td colspan="2">携帯メール<hr>@docomo.ne.jp</td>
+	    <td colspan="2">PCメール<hr>${student.sPcMail}</td>
+	    <td colspan="2">携帯メール<hr>${student.sMobileMail}</td>
 	  </tr>
 	  <tr>
 	    <td colspan="4">
@@ -68,10 +69,10 @@ background-color: #e0e0e0;
 	          <th colspan="4">申込分類</th>
 	        </tr>
 	        <tr>
-	    	  <td>キャリタス<hr>〇</td>
-	    	  <td>リクナビ<hr>　</td>
-	    	  <td>マイナビ<hr>　</td>
-	    	  <td>その他<hr>　</td>
+	    	  <td>キャリタス<hr>${student.sCareertasu}</td>
+	    	  <td>リクナビ<hr>${student.sRikunavi}</td>
+	    	  <td>マイナビ<hr>${student.sMynavi}</td>
+	    	  <td>その他<hr>${student.Other}</td>
 	        </tr>
 	      </table>
 	    </td>
@@ -108,9 +109,10 @@ background-color: #e0e0e0;
 		  <td>参加日</td>
         </tr>
         <tr>
-          <td>2021-08-08</td>
-		  <td>2021-08-12</td>
-		  <td>2021-08-12</td>
+
+          <c:forEach items="mock" var="mock">
+			<td>${mock.eDate}</td>>
+          </c:forEach>
 
         </tr>
       </table>
@@ -125,8 +127,10 @@ background-color: #e0e0e0;
 		  <td>参加日</td>
         </tr>
         <tr>
-          <td>2021-08-14</td>
-          <td>2021-08-19</td>
+          <c:forEach items="talk" var="talk">
+            <td>${talk.eDate}</td>
+          </c:forEach>
+
         </tr>
       </table>
     </td>
@@ -154,43 +158,44 @@ background-color: #e0e0e0;
               </tr>
               <tr>
                 <td style="border: 0px"></td>
-                <td>2021-08-08</td>
-                <td>2021-08-12</td>
-                <td>2021-08-15</td>
-                <td>2021-08-23</td>
-                <td>2021-08-30</td>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iDate}</td>
+           		</c:forEach>
+              </tr>
+              <tr>
+              	<th>インターン出欠</th>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iAttend}</td>
+           		</c:forEach>
               </tr>
               <tr>
                 <th>懇親会出欠</th>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>〇</td>
-                <td>　</td>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iMeeting}</td>
+           		</c:forEach>
+
               </tr>
               <tr>
                 <th>アンケート合否</th>
-                <td>　</td>
-                <td>〇</td>
-                <td>　</td>
-                <td>〇</td>
-                <td>　</td>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iAcceptance}</td>
+           		</c:forEach>
+
               </tr>
               <tr>
                 <th>アンケート提出有無</th>
-                <td>〇</td>
-                <td>　</td>
-                <td>　</td>
-                <td>〇</td>
-                <td>　</td>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iSubmit}</td>
+           		</c:forEach>
+
+
               </tr>
               <tr>
                 <th>資料送付</th>
-                <td>　</td>
-                <td>　</td>
-                <td>　</td>
-                <td>〇</td>
-                <td>〇</td>
+                <c:forEach items="intern" var="intern">
+          		  <td>${intern.iDocument}</td>
+           		</c:forEach>
+
               </tr>
             </table>
           </td>
@@ -219,6 +224,12 @@ background-color: #e0e0e0;
           <td>出欠</td>
         </tr>
         <tr>
+          <c:forEach items="exp" var="exp">
+            <td>${exp.iDate}</td>
+            <c:if test="last">
+              <td>${exp.iAttend}</td>
+            </c:if>
+          </c:forEach>
           <td>　</td>
           <td>　</td>
           <td>　</td>
