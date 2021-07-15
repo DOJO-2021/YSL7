@@ -101,10 +101,10 @@ public class Student {
 	public void setsOther(String sOther) {
 		this.sOther = sOther;
 	}
-	public int getAllEditFlag() {
+	public int getallEditFlag() {
 		return allEditFlag;
 	}
-	public void setAllEditFlag(int allEditFlag) {
+	public void setallEditFlag(int allEditFlag) {
 		this.allEditFlag = allEditFlag;
 	}
 }
