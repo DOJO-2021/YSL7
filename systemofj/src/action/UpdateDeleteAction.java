@@ -191,7 +191,6 @@ public class UpdateDeleteAction {
 
 		//リクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
-		int alleditflag = Integer.parseInt(request.getParameter("alleditflag"));
 
 		//出力値を格納するBean
 		boolean flag = false;
@@ -201,18 +200,58 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			flag= service.flagUpdate(sId,alleditflag);
+			flag= service.flagUpdate(sId);
 
 			if (flag == true) {
 
-				request.setAttribute("flagUpdate", flag);
+				return "/WEB-INF/jsp/studentEdit.jsp";
 				//（更新成功）
-				request.setAttribute("errMsg", "編集成功");
 
 			}
 			else {
 				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "編集失敗");
+				request.setAttribute("errMsg", "失敗");
+			}
+
+			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+		} catch (SQLException e) {
+			request.setAttribute("errMsg", "SQL文おかしい");
+		} catch (ClassNotFoundException e) {
+			request.setAttribute("errMsg", "サーバーおかしい");
+		}
+
+		return page;
+	}
+
+
+	public String flagDelete(HttpServletRequest request) {
+
+		//戻り値に設定するページを初期設定しておく
+		String page = "/WEB-INF/jsp/result.jsp";
+
+		//リクエスト領域から取得
+		int sId = Integer.parseInt(request.getParameter("sId"));
+
+		//出力値を格納するBean
+		boolean flag = false;
+
+		try {
+
+			//入力されていたらサービスへ処理を委譲
+			UpdateDeleteService service = new UpdateDeleteService();
+
+			flag= service.flagDelete(sId);
+
+			if (flag == true) {
+
+				request.setAttribute("errMsg", "更新成功");
+
+				//（更新成功）
+
+			}
+			else {
+				//更新がされていないので、エラーメッセージをセットしログイン画面へ
+				request.setAttribute("errMsg", "失敗");
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる

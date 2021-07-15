@@ -135,10 +135,10 @@ public class SSelectionEasy {
 		this.seFirstNo = seFirstNo;
 	}
 	public String getseFirstDate() {
-		return seFirstNo;
+		return seFirstDate;
 	}
-	public void setseFirstDate(String seFirstNo) {
-		this.seFirstNo = seFirstNo;
+	public void setseFirstDate(String seFirstDate) {
+		this.seFirstDate = seFirstDate;
 	}
 	public String getSeSecondNo() {
 		return seSecondNo;

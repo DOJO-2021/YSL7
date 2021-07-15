@@ -38,18 +38,18 @@ public class SelectionFaceDao {
 			bean = new SSelectionFace();
 
 			//beanに値をひとつずつセットする
-			bean.setsId(rs.getInt("sId"));
-			bean.setSfCategory(rs.getString("SfCategory"));
-			bean.setSfName(rs.getString("SfName"));
-			bean.setSfScore(rs.getInt("SfScore"));
-			bean.setSfId(rs.getInt("SfId"));
+			bean.setsId(rs.getInt("s_id"));
+			bean.setSfCategory(rs.getString("sf_category"));
+			bean.setSfName(rs.getString("sf_name"));
+			bean.setSfScore(rs.getInt("sf_score"));
+			bean.setSfId(rs.getInt("sf_id"));
 		}
 		if(conn != null) {
 			conn.close();
 		}
 		return bean;
 	}
-	public int insert(int sId, String sfCategory, String sfName, int sfScore,int sfId) throws SQLException {
+	public int selectionfaceInsert(int sId, String sfCategory, String sfName, int sfScore,int sfId) throws SQLException {
 
 		// SQL文を準備する
 
@@ -72,7 +72,7 @@ public class SelectionFaceDao {
 		return pStmt.executeUpdate();
 	}
 	// 更新
-	public int update(int sId,String sfCategory,String sfName, int sfScore,int sfId) throws SQLException {
+	public int selectionfaceUpdate(int sId,String sfCategory,String sfName, int sfScore,int sfId) throws SQLException {
 
 
 		// SQL文を準備する
@@ -100,12 +100,12 @@ public class SelectionFaceDao {
 		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 	// 削除
-	public int delete(int sId) throws SQLException {
+	public int selectionfaceDelete(int sId) throws SQLException {
 
 
 		// SQL文を準備する
 
-		String sql = "delete from SelectionFace where sf_id=?";
+		String sql = "delete from SelectionFace where s_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる

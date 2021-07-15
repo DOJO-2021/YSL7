@@ -16,7 +16,6 @@ public class Student {
 	private String sMynavi;
 	private String sRikunavi;
 	private String sOther;
-	private int allDitFlag;
 	public int getsId() {
 		return sId;
 	}
@@ -100,12 +99,6 @@ public class Student {
 	}
 	public void setsOther(String sOther) {
 		this.sOther = sOther;
-	}
-	public int getAllDitFlag() {
-		return allDitFlag;
-	}
-	public void setAllDitFlag(int allDitFlag) {
-		this.allDitFlag = allDitFlag;
 	}
 }
 
