@@ -50,8 +50,7 @@ public class SelectionTextDao {
 		public int insert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
-
-			String sql = "insert into SelectionText values (?,?,?,?,0)";
+			String sql = "insert into SelectionText values (?,?,?,?,null)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//beanに値をひとつずつセットする
@@ -63,7 +62,6 @@ public class SelectionTextDao {
 			if (conn != null) {
 				conn.close();
 			}
-
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
@@ -72,31 +70,41 @@ public class SelectionTextDao {
 
 		public int update(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
 
-
 			// SQL文を準備する
-
 			String sql = "update SelectionFace set s_id=?,st_category=? ,st_name=? ,st_score=? ,st_id =? where st_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-
 			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 			pStmt.setString(2,stCategory);
 			pStmt.setString(3,stName);
 			pStmt.setInt(4,stScore);
 
-
-
 			if (conn != null) {
 				conn.close();
 			}
-
-
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
 			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 		}
+		public int delete(int sId) throws SQLException {
+
+			// SQL文を準備する
+
+			String sql = "delete from SelectionText where st_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			// SQL文を完成させる
+			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+			if (conn != null) {
+				conn.close();
+			}
+			// SQL文を実行する
+			// ここは変えなくていい
+			// 件数を返す
+			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		}
+
 }
 
 

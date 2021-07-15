@@ -53,7 +53,7 @@ public class SelectionFaceDao {
 
 		// SQL文を準備する
 
-		String sql = "insert into SelectionFace values (?,?,?,?,0)";
+		String sql = "insert into SelectionFace values (?,?,?,?,null)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする

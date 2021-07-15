@@ -6,18 +6,20 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 import model.SEvent;
+import model.SFeedback;
 import model.SIntern;
 import model.SSelectionEasy;
 import model.SSelectionFace;
 import model.SSelectionText;
 import model.SearchResult;
 import model.Student;
+import model.Template;
 import service.SelectService;
 
 public class SelectAction {
 
 	//検索して、検索一覧ページに飛ぶメソッド
-	public ArrayList<SearchResult> serch(HttpServletRequest request) {
+	public String serch(HttpServletRequest request) {
 		try {
 
 			//何で検索されたかを判断するためのmode
@@ -26,6 +28,8 @@ public class SelectAction {
 			String searchValue = request.getParameter("search");
 			String year = "";
 			String date = "";
+			//検索結果を入れる配列
+			ArrayList<SearchResult> list = new ArrayList<>();
 
 			//年か日付は必ず注力した状態でのみ検索できる
 			//ただし、選考で検索された場合は日付、年ともに送られてこない
@@ -48,27 +52,36 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 
-				ArrayList<SearchResult> list = service.searchInternList(searchValue, date);
-				return list;
+				list = service.searchInternList(searchValue, date);
 
 			} else if(mode.equals("event")) {//イベント検索がされた場合
 
-				ArrayList<SearchResult> list = new ArrayList<>();
 				//説明会だけはインターンテーブルに入ってるから
 				if (searchValue.equals("説明会")) {
+
 					list = service.searchInternList(searchValue, date);
+
 				} else {
+
 					list = service.searchEventList(searchValue, date);
+
 				}
-				return list;
+
 
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
+				list = service.searchSelection(searchValue);
+
+
 			} else {//個人名検索
+
+				list = service.searchName(searchValue);
+
 
 			}
 
-			request.setAttribute("SResult", SearchResult);
+			request.setAttribute("list", list);
+			return "/WEB-INF/jsp/searchResult.jsp";
 
 
 		} catch(SQLException e) {
@@ -79,7 +92,6 @@ public class SelectAction {
 			return "/WEB-INF/jsp/search.jsp";
 		}
 
-		return "/WEB-INF/jsp/searchResult.jsp";
 	}
 
 	//詳細画面に飛ぶメソッド
@@ -99,7 +111,7 @@ public class SelectAction {
 			ArrayList<SEvent> events = service.eventSelect(sId);
 
 			//SInternの情報取得
-			ArrayList<SIntern> interns = service.internSelect(sId);
+			ArrayList<SIntern> interns = service.internDSelect(sId);
 
 			//SSelectionEazyの情報取得
 			SSelectionEasy eazy = service.selectioneasySelect(sId);
@@ -129,16 +141,44 @@ public class SelectAction {
 		}
 	}
 
-	//テンプレを選択するし、次のページに飛ぶメソッド
+	//テンプレを選択し、次のページに飛ぶメソッド
 	public String selectTemplate(HttpServletRequest request) {
 
-		return;
+		//どのテンプレが選択されたかの情報を入手
+		String title = request.getParameter("title");
+
+		if (title == null) {//テンプレ選択のページに飛ぶ
+			return "/WEB-INF/jsp/mailTemplate.jsp";
+		} else {
+			//selectServiceを実体化
+			SelectService service = new SelectService();
+
+			Template template = service.tenplateSelect(title);
+
+			request.setAttribute("template", template);
+			return "/WEB-INF/jsp/mail.jsp";
+		}
 	}
 
 	//フィードバックページに飛ぶメソッド
 	public String goToFeedbak(HttpServletRequest request) {
 
-		return ;
+		//リクエスト領域からsIdを持ってくる。
+		int sId = Integer.parseInt(request.getParameter("sId"));
+		String fCategory = request.getParameter("fCategory");
+		//selectServiceを実体化
+		SelectService service = new SelectService();
+
+		if (fCategory == null) {
+			request.setAttribute("list.sId", sId);
+			return "/WEB-INF/jsp/feedback.jsp";
+		} else {
+			//フィードバックを入れるリスト
+			ArrayList<SFeedback> list = service.feedbackSelect(sId, fCategory);
+			request.setAttribute("list", list);
+			return "/WEB-INF/jsp/feedback.jsp";
+		}
+
 	}
 
 
