@@ -31,15 +31,27 @@ public class TemplateDao {
 	}
 
 	//更新
-	public int eventUpdate(int tId) throws SQLException {
+	public int eventUpdate(int tId, String tTitle, String tContent) throws SQLException {
 
 		//SQL文を準備する
-		String sql = "update Template set t_content=? where t_id=?";
+		String sql = "update Template set t_title=?, t_content=? where t_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQL文を完成させる
-		pStmt.setString(1, tContent);
-		pStmt.setInt(2, tId);
+		pStmt.setString(1, tTitle);
+		pStmt.setString(2, tContent);
+		pStmt.setInt(3, tId);
+
+		if(conn != null) {
+			conn.close();
+		}
+
+		return pStmt.executeUpdate();
 
 	}
+
+	//SELECT
+	public int templateSelect
+
+
 }
