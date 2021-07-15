@@ -22,7 +22,7 @@ public class FeedbackDao {
 
 		// SQL文を準備する
 
-		String sql = "insert into Feedback values (0, ?, ?, ?, ?)";
+		String sql = "insert into Feedback values (null, ?, ?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
