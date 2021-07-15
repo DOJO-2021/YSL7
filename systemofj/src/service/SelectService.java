@@ -4,9 +4,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-
-import javax.naming.directory.SearchResult;
 
 import dao.EventDao;
 import dao.FeedbackDao;
@@ -22,6 +19,7 @@ import model.SIntern;
 import model.SSelectionEasy;
 import model.SSelectionFace;
 import model.SSelectionText;
+import model.SearchResult;
 import model.Student;
 import model.Template;
 
@@ -172,7 +170,7 @@ public class SelectService {
 //検索→検索一覧結果に飛ぶ
 
 	//インターン検索ボタン
-	public ArrayList<SearchResult> searchInternList(String iCategory,String iDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchInternList(int iCategory,String iDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -180,12 +178,12 @@ public class SelectService {
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SearchResult> bean =StudentDao.searchInternList(iCategory,iDate);
+		ArrayList<SearchResult> bean =sDao.searchInternList(iCategory,iDate);
 
 		return bean;
 	}
 	//イベント検索ボタン
-	public ArrayList<SearchResult> searchEventList(String eCategory,String eDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchEventList(int eCategory,String eDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -193,13 +191,13 @@ public class SelectService {
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SearchResult> bean =StudentDao.searchEventList(eCategory,eDate);
+		ArrayList<SearchResult> bean =sDao.searchEventList(eCategory,eDate);
 
 		return bean;
 	}
 
 	//選考検索ボタン
-	public ArrayList<SearchResult> searchSelection(String seSituation) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchEntryList(String seSituation) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -207,7 +205,7 @@ public class SelectService {
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SearchResult> bean =StudentDao.searchSelection(seSituation);
+		ArrayList<SearchResult> bean =sDao.searchEntryList(seSituation);
 
 		return bean;
 	}
@@ -221,13 +219,13 @@ public class SelectService {
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SearchResult> bean =StudentDao.searchName(sName);
+		ArrayList<SearchResult> bean = sDao.searchName(sName);
 
 		return bean;
 	}
 
 //テンプレートの検索
-	public Template tenplateSelect(String t_title, String t_content) throws ClassNotFoundException, SQLException {
+	public  ArrayList<Template> tenplateSelect(String tCategory,String t_title) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -235,7 +233,7 @@ public class SelectService {
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		Template  bean=TemplateDao.tenplateSelect(t_title,t_content);
+		Template  bean=tDao.templateSelect(tCategory,t_title);
 
 		return bean;
 	}
