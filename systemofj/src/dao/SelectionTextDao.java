@@ -97,6 +97,33 @@ public class SelectionTextDao {
 			// 件数を返す
 			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 		}
+		public int delete(int sId) throws SQLException {
+
+
+			// SQL文を準備する
+
+			String sql = "delete from SelectionText where st_id=?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる
+
+			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+
+
+
+			if (conn != null) {
+				conn.close();
+			}
+
+
+			// SQL文を実行する
+			// ここは変えなくていい
+			// 件数を返す
+			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+
+		}
+
 }
 
 
