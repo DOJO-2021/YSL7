@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import model.SEvent;
 
@@ -17,12 +16,10 @@ public class EventDao {
 		this.conn = conn;
 	}
 
-	public List<SEvent> eventSelect(int sId) throws SQLException {
+	public ArrayList<SEvent> eventSelect(int sId) throws SQLException {
 
-		List<SEvent>sEventList = new ArrayList<SEvent>();
+		ArrayList<SEvent>sEventList = new ArrayList<SEvent>();
 
-		//リターンするためのSEventBeanを実体化
-		SEvent event = null;
 
 		//SQL文を準備する
 		String sql = "select * from event where s_id=? order by e_date desc";
@@ -96,7 +93,7 @@ public class EventDao {
 	}
 
 	//削除
-	public int delete(int sId) throws SQLException {
+	public int eventDelete(int sId) throws SQLException {
 
 		//SQL文を準備する
 		String sql = "delete from Event where s_id = ?";
