@@ -1,7 +1,5 @@
 package model;
 
-import java.sql.Date;
-
 public class SEvent {
 
 	//student
@@ -25,7 +23,7 @@ public class SEvent {
 	//Event
 
 	private String eCategory;
-	private Date eDate;
+	private String eDate;
 	private int eId;
 	public int getsId() {
 		return sId;
@@ -123,10 +121,10 @@ public class SEvent {
 	public void seteCategory(String eCategory) {
 		this.eCategory = eCategory;
 	}
-	public Date geteDate() {
+	public String geteDate() {
 		return eDate;
 	}
-	public void seteDate(Date eDate) {
+	public void seteDate(String eDate) {
 		this.eDate = eDate;
 	}
 	public int geteId() {

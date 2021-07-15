@@ -94,7 +94,7 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean flagUpdate( int sId, int alleditflag) throws ClassNotFoundException, SQLException {
+	public boolean flagUpdate( int sId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -103,7 +103,26 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		StudentDao dao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.StudentUpdate( sId, alleditflag);
+		int test =dao.flagUpdate(sId);
+
+		if(test != 0) {
+			result = true;
+		}
+
+		return result;
+
+	}
+
+	public boolean flagDelete( int sId) throws ClassNotFoundException, SQLException {
+		boolean result = false;
+		//ドライバの登録を行う
+		Class.forName("org.h2.Driver");
+		//データベースへの接続情報を設定する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+		//DAOを実体化
+		StudentDao dao = new StudentDao(conn);
+		//引数を渡し、取得地をbeanに渡す
+		int test =dao.flagDelete(sId);
 
 		if(test  != 0) {
 			result = true;
@@ -113,7 +132,8 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean selectionEasyUpdate(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,String seNo, String seOk, String seNoreason, String seSendOk,String seEarlyOk,String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo,String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituatioin)  throws ClassNotFoundException, SQLException {
+
+	public boolean selectionEasyUpdate(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,String seNo, String seOk, String seNoreason, String seSendOk,String seEarlyOk,String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo,String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -122,7 +142,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.SelectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk,  seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks,  seSituation);
+		int test =dao.selectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk,  seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks,  seSituation);
 
 		if(test != 0) {
 			result = true;
@@ -141,7 +161,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.delete(sId);
+		int test =dao.selectionEasyDelete(sId);
 
 		if(test == 1) {
 			result = true;
@@ -160,9 +180,9 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		TemplateDao dao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.TemplateUpdate(tId, tTitle, tContent);
+		int test =dao.templateUpdate(tId, tTitle, tContent);
 
-		if(test == 1) {
+		if(test != 0) {
 			result = true;
 		}
 
@@ -181,7 +201,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		EventDao dao = new EventDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.EventUpdate( eDate, eId);
+		int test =dao.eventUpdate(eId,eDate);
 
 		if(test  != 0) {
 			result = true;
@@ -219,9 +239,9 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		FeedbackDao dao = new FeedbackDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.FeedbackUpdate(fId, sId, fCategory, fName, fContent);
+		int test =dao.feedbackUpdate(fId, fName, fContent);
 
-		if(test == 1) {
+		if(test != 0) {
 			result = true;
 		}
 
@@ -296,9 +316,9 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.eventDelete(sqlContent, iCategory);
+		int test =dao.allUpdate(sqlContent, iCategory);
 
-		if(test == 1) {
+		if(test != 0) {
 			result = true;
 		}
 
@@ -313,9 +333,9 @@ public class UpdateDeleteService {
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
-		SelectionFaceDao dao = newSelectioFaceDao(conn);
+		SelectionFaceDao dao = new SelectionFaceDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.SelectionFaceUpdate(sId, sfCategory, sfName, sfScore, sfId);
+		int test =dao.selectionfaceUpdate(sId, sfCategory, sfName, sfScore, sfId);
 
 		if(test != 0) {
 			result = true;
@@ -334,7 +354,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionFaceDao dao = new SelectionFaceDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.selectionFaceDelete(sId);
+		int test =dao.selectionfaceDelete(sId);
 
 		if(test == 1) {
 			result = true;
@@ -353,9 +373,9 @@ public class UpdateDeleteService {
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
-		SelectionTextDao dao = newSelectionTextDao(conn);
+		SelectionTextDao dao = new SelectionTextDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.SelectionTextUpdate(sId, stCategory, stName, stScore, stId);
+		int test =dao.selectiontextUpdate(sId, stCategory, stName, stScore, stId);
 
 		if(test != 0) {
 			result = true;
@@ -375,7 +395,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionTextDao dao = new SelectionTextDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.selectionTextDelete(sId);
+		int test =dao.selectiontextDelete(sId);
 
 		if(test == 1) {
 			result = true;

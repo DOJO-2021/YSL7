@@ -2,7 +2,10 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.Template;
 
 public class TemplateDao {
 	Connection conn = null;
@@ -51,7 +54,37 @@ public class TemplateDao {
 	}
 
 	//SELECT
-	public int templateSelect
+	public Template templateSelect(int tId) throws SQLException {
+
+		//リターンするためのTemplateBeanを実体化
+		Template template = null;
+
+		//SQL文を準備する
+		String sql = "select * from template where t_id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		//SQL文を完成させる
+		pStmt.setInt(1, tId);
+
+		//SQLを実行し、結果を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		//テンプレートIDと一致するテンプレートがあるかチェックする
+		if (rs.next()) {
+			template = new Template();
+			template.settId(rs.getInt("t_id"));
+		}
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		return template;
+
+	}
+
+	//インターンSELECT
+	public Template
 
 
 }

@@ -79,7 +79,6 @@ public class SelectAction {
 
 				list = service.searchName(searchValue);
 
-
 			}
 
 			request.setAttribute("list", list);
@@ -88,9 +87,11 @@ public class SelectAction {
 
 		} catch(SQLException e) {
 			request.setAttribute("errMsg", "SQLExceptionだよー");
+			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		} catch(ClassNotFoundException e) {
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		}
 
@@ -111,9 +112,36 @@ public class SelectAction {
 
 			//SEventの情報取得
 			ArrayList<SEvent> events = service.eventSelect(sId);
+			//模擬面接、座談会、合説で分ける
+			ArrayList<SEvent> mock = new ArrayList<>();
+			ArrayList<SEvent> talk = new ArrayList<>();
+			String con = "　";
+
+			for (SEvent e : events) {
+				if (e.geteCategory().contains("模擬")) {//模擬面接だった場合
+					mock.add(e);
+				} else if (e.geteCategory().contains("座談会")) {//座談会だった場合
+					talk.add(e);
+				} else if (e.geteCategory().contains("合")) {//合説だった場合
+					con = e.geteDate();
+				}
+
+			}
 
 			//SInternの情報取得
 			ArrayList<SIntern> interns = service.internDSelect(sId);
+			ArrayList<SIntern> intern = new ArrayList<>();
+			ArrayList<SIntern> exp = new ArrayList<SIntern>();
+			//説明会とそれ以外を分ける。
+
+			for (SIntern e : interns) {
+				if(e.getiCategory().contains("説明会")) {
+					exp.add(e);
+				} else {
+					intern.add(e);
+				}
+
+			}
 
 			//SSelectionEazyの情報取得
 			SSelectionEasy eazy = service.selectioneasySelect(sId);
@@ -126,8 +154,11 @@ public class SelectAction {
 
 			//上で取得した情報をすべてsetAttribute
 			request.setAttribute("student", student);
-			request.setAttribute("events", events);
-			request.setAttribute("interns", interns);
+			request.setAttribute("mock", mock);
+			request.setAttribute("talk", talk);
+			request.setAttribute("con", con);
+			request.setAttribute("intern", intern);
+			request.setAttribute("exp", exp);
 			request.setAttribute("eazy", eazy);
 			request.setAttribute("faces", faces);
 			request.setAttribute("texts", texts);
@@ -136,9 +167,11 @@ public class SelectAction {
 
 		} catch(SQLException e) {
 			request.setAttribute("errMsg", "SQLExceptionだよー");
+			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		} catch(ClassNotFoundException e) {
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		}
 	}
@@ -146,57 +179,77 @@ public class SelectAction {
 	//テンプレを選択し、次のページに飛ぶメソッド
 	public String selectTemplate(HttpServletRequest request) {
 
-		//どのテンプレが選択されたかの情報を入手
-		String tId = request.getParameter("tId");
+		try {
+			//どのテンプレが選択されたかの情報を入手
+			String tId = request.getParameter("tId");
 
-		if (tId == null) {//テンプレ選択のページに飛ぶ
-			return "/WEB-INF/jsp/mailTemplate.jsp";
-		} else {
+			if (tId == null) {//テンプレ選択のページに飛ぶ
+				return "/WEB-INF/jsp/mailTemplate.jsp";
+			} else {
 
-			//学生の名前を入手
-			String sName = request.getParameter("sName");
+				//学生の名前を入手
+				String sName = request.getParameter("sName");
 
-			//人事の名前を入手
-			HttpSession session = request.getSession();
-			User user = (User)session.getAttribute("user");
-			String uName = user.getuName();
+				//人事の名前を入手
+				HttpSession session = request.getSession();
+				User user = (User)session.getAttribute("user");
+				String uName = user.getuName();
 
-			//大学名を入手
-			String sUnivercity = request.getParameter("sUnivercity");
+				//大学名を入手
+				String sUnivercity = request.getParameter("sUnivercity");
 
 
-			//selectServiceを実体化
-			SelectService service = new SelectService();
+				//selectServiceを実体化
+				SelectService service = new SelectService();
 
-			//テンプレに実名や大学名を入れる。
-			Template template = service.tenplateSelect(tId);
-			String content = template.gettContent();
-			content = content.replace("学生の名前が入ります", sName);
-			content = content.replace("あなたの名前が入ります", uName);
-			content = content.replace("学生の大学名が入ります", sUnivercity);
-			template.settContent(content);
+				//テンプレに実名や大学名を入れる。
+				Template template = service.tenplateSelect(tId);
+				String content = template.gettContent();
+				content = content.replace("学生の名前が入ります", sName);
+				content = content.replace("あなたの名前が入ります", uName);
+				content = content.replace("学生の大学名が入ります", sUnivercity);
+				template.settContent(content);
 
-			request.setAttribute("template", template);
-			return "/WEB-INF/jsp/mail.jsp";
+				request.setAttribute("template", template);
+				return "/WEB-INF/jsp/mail.jsp";
+			}
+		}catch(SQLException e) {
+			request.setAttribute("errMsg", "SQLExceptionだよー");
+			System.out.println("SQLExceptionだよー");
+			return "/WEB-INF/jsp/detail.jsp";
+		} catch(ClassNotFoundException e) {
+			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			System.out.println("lassNotFoundExceptionだよー");
+			return "/WEB-INF/jsp/detail.jsp";
 		}
 	}
 
 	//フィードバックページに飛ぶメソッド
 	public String goToFeedbak(HttpServletRequest request) {
 
-		//リクエスト領域からsIdを持ってくる。
-		int sId = Integer.parseInt(request.getParameter("sId"));
-		String fCategory = request.getParameter("fCategory");
-		//selectServiceを実体化
-		SelectService service = new SelectService();
+		try {
+			//リクエスト領域からsIdを持ってくる。
+			int sId = Integer.parseInt(request.getParameter("sId"));
+			String fCategory = request.getParameter("fCategory");
+			//selectServiceを実体化
+			SelectService service = new SelectService();
 
-		if (fCategory == null) { //fCategory.equals(service);
-			request.setAttribute("list.sId", sId);
+			if (fCategory == null) {
+				request.setAttribute("list.sId", sId);
+				return "/WEB-INF/jsp/feedback.jsp";
+			} else {
+				//フィードバックを入れるリスト
+				ArrayList<SFeedback> list = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
+				request.setAttribute("list", list);
+				return "/WEB-INF/jsp/feedback.jsp";
+			}
+		} catch(SQLException e) {
+			request.setAttribute("errMsg", "SQLExceptionだよー");
+			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/feedback.jsp";
-		} else {
-			//フィードバックを入れるリスト
-			ArrayList<SFeedback> list = service.feedbackSelect(sId, fCategory);
-			request.setAttribute("list", list);
+		} catch(ClassNotFoundException e) {
+			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
+			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/feedback.jsp";
 		}
 
