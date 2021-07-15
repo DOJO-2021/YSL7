@@ -36,6 +36,7 @@ public class SelectionEasyDao {
 			//ここでbeanを実体化（これがなければbeanはnullのまま)
 			bean = new SSelectionEasy();
 			//beanに値をひとつずつセットする
+			bean.setSeId(rs.getInt("se_id"));
 			bean.setsId(rs.getInt("s_id"));
 			bean.setSeSelectionDate(rs.getString("se_selectiondate"));
 			bean.setSeScore(rs.getInt("se_score"));
@@ -56,7 +57,6 @@ public class SelectionEasyDao {
 			bean.setSeThirdDate(rs.getString("se_thirddate"));
 			bean.setSeThirdResult(rs.getString("se_thirdresult"));
 			bean.setSeRemarks(rs.getString("se_remarks"));
-			bean.setSeId(rs.getInt("se_id"));
 			bean.setSeConfirm(rs.getString("se_confirm"));
 			bean.setSeSituation(rs.getString("se_situation"));
 
@@ -100,7 +100,7 @@ public class SelectionEasyDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setInt(1, sId); //1つ目の?に入力値をいれる
 		pStmt.setString(2, seSelectionDate);
 		pStmt.setInt(3, seScore);
 		pStmt.setInt(4, seTextScore);
