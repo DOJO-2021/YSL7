@@ -265,5 +265,28 @@ public class StudentDao {
 		return searchEntryList;
 	}
 
+	// フラグ更新
+	public int flagUpdate(int sId) throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Student set (alleditflag) values(1) where s_Id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+
+		pStmt.setInt(1, ); //1つ目の?(=NAME)に入力値をいれる
+
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+	}
 
 }
