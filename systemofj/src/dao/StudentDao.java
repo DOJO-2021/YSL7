@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 import model.SearchResult;
 import model.Student;
@@ -181,12 +180,12 @@ public class StudentDao {
 	}
 
 	//一覧のインターン
-	public List<SearchResult> searchInternList(int iCategory, String iDate) throws SQLException {
+	public ArrayList<SearchResult> searchInternList(int iCategory, String iDate) throws SQLException {
 
-		List<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+		ArrayList<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
-		//SQL文を準備する
-		String sql = "select s.sName=?, s.sUnivercity=?, s.sFaculty=?, i.iCategory=?, i.iDate=? FROM Student AS s LEFT JOIN Intern AS i ON s.sId=i.sId where s.sId=?";
+		//SQL文を準備する		//i.iCategoryの部分怪しい
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, i.iCategory, i.iDate FROM Student AS s LEFT JOIN Intern AS i ON s.sId=i.sId where i.iCategory=? AND i.iDate=?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -210,12 +209,12 @@ public class StudentDao {
 	}
 
 	//一覧のイベント
-	public List<SearchResult> searchEventList(int eCategory, String eDate) throws SQLException {
+	public ArrayList<SearchResult> searchEventList(int eCategory, String eDate) throws SQLException {
 
-		List<SearchResult> searchEventList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+		ArrayList<SearchResult> searchEventList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.sName=?, s.sUnivercity=?, s.sFaculty=?, e.eCategory=?, e.eDate=? FROM Student AS s LEFT JOIN Event AS e ON s.sId=e.sId where s.sId=?";
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, e.eCategory, e.eDate FROM Student AS s LEFT JOIN Event AS e ON s.sId=e.sId where e.eCategory=? AND e.eDate=?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -239,12 +238,12 @@ public class StudentDao {
 	}
 
 	//一覧の選考進捗
-	public List<SearchResult> searchEntryList(String seSituation) throws SQLException {
+	public ArrayList<SearchResult> searchEntryList(String seSituation) throws SQLException {
 
-		List<SearchResult> searchEntryList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+		ArrayList<SearchResult> searchEntryList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.sName=?, s.sUnivercity=?, se.seSituation=? FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where s.sId=?";
+		String sql = "select s.sName, s.sUnivercity, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where se.seSituation";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -265,17 +264,46 @@ public class StudentDao {
 		return searchEntryList;
 	}
 
+	//一覧の個人名で検索
+	public ArrayList<SearchResult> searchName(String sName) throws SQLException {
+
+		ArrayList<SearchResult> searchName = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+
+		//SQL文を準備する
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, s.sDepartment, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where s.sId like ?";
+
+		//準備したSQLを発行できる状態にする（全てまとめる）
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) { // 1件でもあれば実行される
+			SearchResult student = new SearchResult();
+			student.setsName(rs.getString("s_Name"));
+			student.setsUnivercity(rs.getString("s_Univercity"));
+			student.setsFaculty(rs.getString("s_Faculty"));
+			student.setsDepartment(rs.getString("s_Department"));
+			student.setSeSituation(rs.getString("se_Situation"));
+
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		return searchName;
+	}
+
 	// フラグ更新
 	public int flagUpdate(int sId) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "update Student set (alleditflag) values(1) where s_Id=?";
+		String sql = "update Intern set (alleditflag) values(1) where s_Id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, ); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
 
 		if (conn != null) {
@@ -289,4 +317,22 @@ public class StudentDao {
 
 	}
 
+	// フラグ削除
+	public int flagDelete() throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Intern set (alleditflag) values(0) where alleditflag=1";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+	}
 }
