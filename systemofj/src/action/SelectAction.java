@@ -146,11 +146,39 @@ public class SelectAction {
 			//SSelectionEazyの情報取得
 			SSelectionEasy eazy = service.selectioneasySelect(sId);
 
+
 			//SSelectionFaceの情報取得
 			ArrayList<SSelectionFace> faces = service.selectionfaceSelect(sId);
+			ArrayList<SSelectionFace> face1 = new ArrayList<>();
+			ArrayList<SSelectionFace> face2 = new ArrayList<>();
+
+			//1次面接、２次面接に分類する
+			for (SSelectionFace e : faces) {
+				if (e.getSfCategory().contains("1次")) {
+					face1.add(e);
+				} else if (e.getSfCategory().contains("2次")) {
+					face2.add(e);
+				}
+			}
+
+
 
 			//SSelectionTextの情報取得
 			ArrayList<SSelectionText> texts = service.selectiontextSelect(sId);
+			ArrayList<SSelectionText> resume = new ArrayList<>();
+			ArrayList<SSelectionText> pr = new ArrayList<>();
+			ArrayList<SSelectionText> text = new ArrayList<>();
+
+			for (SSelectionText e : texts) {
+				if (e.getStCategory().contains("履歴書")) {
+					resume.add(e);
+				} else if(e.getStCategory().contains("PR")) {
+					pr.add(e);
+				} else if (e.getStCategory().contains("書類")) {
+					text.add(e);
+				}
+			}
+
 
 			//上で取得した情報をすべてsetAttribute
 			request.setAttribute("student", student);
@@ -160,8 +188,11 @@ public class SelectAction {
 			request.setAttribute("intern", intern);
 			request.setAttribute("exp", exp);
 			request.setAttribute("eazy", eazy);
-			request.setAttribute("faces", faces);
-			request.setAttribute("texts", texts);
+			request.setAttribute("face1", face1);
+			request.setAttribute("face2", face2);
+			request.setAttribute("resume", resume);
+			request.setAttribute("pr", pr);
+			request.setAttribute("text", text);
 
 			return "/WEB-INF/jsp/detail.jsp";
 

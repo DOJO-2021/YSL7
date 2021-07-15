@@ -193,7 +193,7 @@ public class StudentDao {
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
 
-		if (rs.next()) { // 1件でもあれば実行される
+		while (rs.next()) { // 1件でもあれば実行される
 			SearchResult student = new SearchResult();
 			student.setsName(rs.getString("s_Name"));
 			student.setsUnivercity(rs.getString("s_Univercity"));
@@ -201,6 +201,7 @@ public class StudentDao {
 			student.setiCategory(rs.getString("i_Category"));
 			student.setiDate(rs.getString("i_Date"));
 
+			searchInternList.add(student);
 		}
 		if(conn != null) {
 			conn.close();
@@ -222,13 +223,15 @@ public class StudentDao {
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
 
-		if (rs.next()) { // 1件でもあれば実行される
+		while (rs.next()) { // 1件でもあれば実行される
 			SearchResult student = new SearchResult();
 			student.setsName(rs.getString("s_Name"));
 			student.setsUnivercity(rs.getString("s_Univercity"));
 			student.setsFaculty(rs.getString("s_Faculty"));
 			student.setiCategory(rs.getString("i_Category"));
 			student.setiDate(rs.getString("i_Date"));
+
+			searchEventList.add(student);
 
 		}
 		if(conn != null) {
@@ -251,12 +254,13 @@ public class StudentDao {
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
 
-		if (rs.next()) { // 1件でもあれば実行される
+		while (rs.next()) { // 1件でもあれば実行される
 			SearchResult student = new SearchResult();
 			student.setsName(rs.getString("s_Name"));
 			student.setsUnivercity(rs.getString("s_Univercity"));
 			student.setSeSituation(rs.getString("se_Situation"));
 
+			searchEntryList.add(student);
 		}
 		if(conn != null) {
 			conn.close();

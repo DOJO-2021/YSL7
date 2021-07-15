@@ -29,17 +29,18 @@ background-color: #e0e0e0;
 <body>
 <!-- メール作成ボタン -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="メール作成">
+    <input type="submit" name="submit" value="メール作成">
   </form>
 
 <!-- フィードバックボタン -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="フィードバック">
+    <input type="hidden" name="sId" value="${student.sId}">
+    <input type="submit" name="submit" value="フィードバック">
   </form>
 
 <!-- 履歴書ボタン -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="履歴書PDFを表示">
+    <input type="submit" name="submit" value="履歴書PDFを表示">
   </form>
 <br>
 <!-- 基本情報テーブル -->
@@ -276,16 +277,14 @@ background-color: #e0e0e0;
           <th colspan="4">履歴書評価</th>
         </tr>
         <tr>
-          <td>松野</td>
-          <td>藤原</td>
-          <td>板谷</td>
-          <td>菅澤</td>
+          <c:forEach items="${resume}" var="resume">
+            <td>${resume.stName}</td>
+          </c:forEach>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+        <c:forEach items="${resume}" var="resume">
+          <td>${resume.stScore}</td>
+        </c:forEach>
         </tr>
       </table>
     </td>
@@ -295,16 +294,14 @@ background-color: #e0e0e0;
           <th colspan="4">自己PR文評価</th>
         </tr>
         <tr>
-          <td>松野</td>
-          <td>藤原</td>
-          <td>板谷</td>
-          <td>菅澤</td>
+          <c:forEach items="${pr}" var="pr">
+            <td>${pr.stName}</td>
+          </c:forEach>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <c:forEach items="${pr}" var="pr">
+            <td>${pr.stScore}</td>
+          </c:forEach>
         </tr>
       </table>
     </td>
@@ -314,16 +311,14 @@ background-color: #e0e0e0;
           <th colspan="4">書類選考評価</th>
         </tr>
         <tr>
-          <td>松野</td>
-          <td>藤原</td>
-          <td>板谷</td>
-          <td>菅澤</td>
+          <c:forEach items="${text}" var="text">
+            <td>${text.stName}</td>
+          </c:forEach>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <c:forEach items="${text}" var="text">
+            <td>${text.stScore}</td>
+          </c:forEach>
         </tr>
       </table>
     </td>
@@ -337,17 +332,17 @@ background-color: #e0e0e0;
         <tr>
           <td>前辞退</td>
           <td>実施</td>
-          <td>藤原</td>
-          <td>板谷</td>
-          <td>菅澤</td>
+          <c:forEach items="${face1}" var="face1">
+            <td>${face1.sfName}</td>
+          </c:forEach>
           <th>合否</th>
         </tr>
         <tr>
           <td>${eazy.seFirstNo}</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seFirstDate}</td>
+          <c:forEach items="${face1}" var="face1">
+            <td>${face1.sfScore}</td>
+          </c:forEach>
           <td>${eazy.seFirstResult}</td>
         </tr>
       </table>
@@ -360,15 +355,17 @@ background-color: #e0e0e0;
         <tr>
           <td>前辞退</td>
           <td>実施</td>
-          <td>藤原</td>
-          <td>板谷</td>
+          <c:forEach items="${face2}" var="face2">
+            <td>${face2.sfName}</td>
+          </c:forEach>
           <th>合否</th>
         </tr>
         <tr>
           <td>${eazy.seSecondNo}</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seSecondDate}</td>
+          <c:forEach items="${face2}" var="face2">
+            <td>${face2.sfScore}</td>
+          </c:forEach>
           <td>${eazy.seSecondResult}</td>
         </tr>
       </table>
@@ -383,8 +380,8 @@ background-color: #e0e0e0;
           <th>合否</th>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seThirdDate}</td>
+          <td>${eazy.seThirdResult}</td>
         </tr>
       </table>
     </td>
@@ -433,6 +430,18 @@ background-color: #e0e0e0;
   </tr>
 </table>
 </div>
+<!-- 編集ボタン -->
+<form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+	<input type="hidden" name="sId" value="${student.sId}">
+    <input type="submit" name="submit" value="編集">
+  </form>
+
+<!-- 削除ボタン -->
+<form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+	<input type="hidden" name="sId" value="${student.sId}">
+    <input type="submit" name="submit" value="削除">
+  </form>
+
 </body>
 <script>
 'use strict'
