@@ -50,7 +50,7 @@ public class SelectionTextDao {
 		public int selectiontextInsert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
-			String sql = "insert into SelectionText values (?,?,?,?,null)";
+			String sql = "insert into SelectionText values (null,?,?,?,?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//beanに値をひとつずつセットする

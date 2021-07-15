@@ -55,7 +55,7 @@ public class InternDao {
 
 		// SQL文を準備する
 
-		String sql = "insert into Intern values (?,?,?,?,?,?,?,null,?)";
+		String sql = "insert into Intern values (null,?,?,?,?,?,?,?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
