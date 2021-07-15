@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import model.SIntern;
 
@@ -13,7 +14,9 @@ public class InternDao {
 	public InternDao(Connection conn) {
 		this.conn = conn;
 	}
-	public SIntern internDSelect(int sId) throws SQLException {
+	public  ArrayList<SIntern> internDSelect(int sId) throws SQLException {
+
+		ArrayList<SIntern> isList = new ArrayList<SIntern>(); //SFeedback型の要素をしまうListを作る
 
 		//リターンするためのSSelectionEasyBeanを実体化
 		SIntern bean = null;
@@ -44,11 +47,13 @@ public class InternDao {
 			bean.setiDocument(rs.getString("i_document"));
 			bean.setiId(rs.getInt("i_id"));
 			bean.setiAttend(rs.getString("i_attend"));
+
+			isList.add(bean);
 		}
 		if(conn != null) {
 			conn.close();
 		}
-		return bean;
+		return isList;
 	}
 
 	public int internInsert(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
