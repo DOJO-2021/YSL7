@@ -26,10 +26,10 @@
 	</div>
 	<div class="c2" id="d2">
 
-		<div id="event1_1"><input type="radio" name="event" value="entry" id="event1" onclick="Hide3()">エントリー</div>
-		<div id="event2_1"><input type="radio" name="event" value="intern" id="event2" onclick="Hide4()">インターン</div>
-		<div id="event3_1"><input type="radio" name="event" value="infosession" id="event3" onclick="Hide5()">会社説明会</div>
-		<div id="event4_1"><input type="radio" name="event" value="infosession2" id="event4" onclick="Hide5()">合同説明会</div>
+		<div id="event1_1"><input type="radio" name="event" value="entry" onclick="Hide3()">エントリー</div>
+		<div id="event2_1"><input type="radio" name="event" value="intern" onclick="Hide4()">インターン</div>
+		<div id="event3_1"><input type="radio" name="event" value="infosession" onclick="Hide5()">会社説明会</div>
+		<div id="event4_1"><input type="radio" name="event" value="infosession2" onclick="Hide5()">合同説明会</div>
 	</div>
 	<div class="c3" id="d3">
 		<select name="i_category">
@@ -41,8 +41,8 @@
 			<option value="i_category6">座談会</option>
 		</select>
 	</div>
-	<input type="date" name="e_date" id="date1">
-	<input type="date" name="i_date" id="date2">
+	<input type="date" name="date" id="date1">
+	<input type="date" name="date" id="date2">
 
 	<input type="file" name="file" accept=".csv" id="file1">
 	<input type="file" name="file" accept=".pdf" id="file2">
