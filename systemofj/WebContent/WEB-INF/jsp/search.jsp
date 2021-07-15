@@ -7,6 +7,17 @@
 <title>search</title>
 
 <style>
+
+/*プルダウン（インターン、イベント）の幅を広げる*/
+.width td {
+  width:210px;
+}
+
+/*プルダウン（選考）の幅を広げる*/
+.selection_width td{
+	width:400px;
+	}
+
  /*タブ切り替え全体のスタイル*/
 .tabs {
 	margin-top: 50px;
@@ -63,10 +74,6 @@ input[name="tab_item"] {
 	color: #fff;
 }
 
-/*.test  [name="birthday"],[name="regist"]{
-	margin-left:10em;
-	}*/
-
 </style>
 
 </head>
@@ -109,6 +116,7 @@ input[name="tab_item"] {
 <option value="2029">2029</option>
 <option value="2030">2030</option>
 </select> 年
+<br>
 
 <!-- 個人名で検索できる場所 -->
 <input type="text" name="search" placeholder="個人名検索">
@@ -126,91 +134,93 @@ input[name="tab_item"] {
 <!-- 検索小項目(インターン) -->
 <div class="tab_content" id="intern">
 <form method="POST" action="/systemofj/Servlet">
-    <table  class="test">
+    <table  class="width">
         <tr>
         	<td><input type="radio" name=search_item>1DAY</td>
-        	<td>　　　　　　　　　　日付<input type="date" name="birthday"></td>
-        </tr>
-        <tr>
         	<td><input type="radio" name=search_item>3DAY</td>
+        	<td><input type="date" name="birthday"></td>
         </tr>
         <tr>
         	<td><input type="radio" name=search_item>初級</td>
-        </tr>
-        <tr>
         	<td><input type="radio" name=search_item>中級</td>
         </tr>
         <tr>
         	<td><input type="radio" name=search_item>選考準備</td>
-        </tr>
-        <tr>
         	<td><input type="radio" name=search_item>インターン参加者</td>
         </tr>
         <tr>
-        	<td></td><td>　　　　　　　<input type="submit" name="regist" value="検索"></td>
+        	<td colspan="3" align="right"><input type="submit" name="regist" value="検索"></td>
         </tr>
     </table>
-    </div>
+</form>
+</div>
 
 <!-- 検索小項目(イベント) -->
 <div class="tab_content" id="briefing">
-    <table>
-    <tr>
-		<td><input type="radio" name=search_item>合同説明会</td>
-    	<td>　　　　　　　　　　日付<input type="date" name="birthday"></td>
-    </tr>
-    <tr>
-    	 <td><input type="radio" name=search_item>模擬面接</td>
-	</tr>
-	<tr>
-    	 <td></td><td>　　　　　　　<input type="submit" name="regist" value="検索"></td>
-	</tr>
+<form method="POST" action="/systemofj/Servlet">
+    <table  class="width">
+    	<tr>
+			<td><input type="radio" name=search_item>合同説明会</td>
+			<td><input type="radio" name=search_item>模擬面接申し込み</td>
+    		<td><input type="date" name="birthday"></td>
+    	</tr>
+    	<tr>
+	    	<td><input type="radio" name=search_item>模擬面接予約</td>
+	    	<td><input type="radio" name=search_item>模擬面接参加</td>
+		</tr>
+		<tr>
+			<td><input type="radio" name=search_item>座談会1</td>
+	    	<td><input type="radio" name=search_item>座談会2</td>
+		</tr>
+		<tr>
+	    	<td colspan="3" align="right"><input type="submit" name="regist" value="検索"></td>
+		</tr>
 	</table>
-	</div>
+</form>
+</div>
 
 <!-- 検索小項目(選考参加者) -->
 <div class="tab_content" id="selection">
-    <table>
-    <tr>
-       <td><input type="radio" name=search_item>適性検査受験前</td>
-       <td><input type="radio" name=search_item>適性検査受験済み</td>
-	</tr>
-	<tr>
-       <td><input type="radio" name=search_item>書類選考中</td>
-       <td><input type="radio" name=search_item>書類選考合否</td>
-	</tr>
-	<tr>
-       <td><input type="radio" name=search_item>1次選考日程調整</td>
-       <td><input type="radio" name=search_item>１次選考実施中</td>
-    </tr>
-	<tr>
-       <td><input type="radio" name=search_item>2次選考日程調整</td>
-       <td><input type="radio" name=search_item>2次選考実施中</td>
-    </tr>
-	<tr>
-       <td><input type="radio" name=search_item>3次選考日程調整中</td>
-       <td><input type="radio" name=search_item>3次選考実施中</td>
-    </tr>
-	<tr>
-       <td><input type="radio" name=search_item>内々定決定</td>
-       <td><input type="radio" name=search_item>内々定送付</td>
-	</tr>
-	<tr>
-       <td><input type="radio" name=search_item>内々定応諾</td>
-       <td><input type="radio" name=search_item>辞退</td>
-    </tr>
-	<tr>
-       <td><input type="radio" name=search_item>不合格</td>
-	</tr>
-	<tr>
-       <td></td><td>　　　　　　　<input type="submit" name="regist" value="検索"></td>
-	</tr>
+<form method="POST" action="/systemofj/Servlet">
+    <table  class="selection_width">
+	    <tr>
+	       <td><input type="radio" name=search_item>適性検査受験前</td>
+	       <td><input type="radio" name=search_item>適性検査受験済み</td>
+		</tr>
+		<tr>
+	       <td><input type="radio" name=search_item>書類選考中</td>
+	       <td><input type="radio" name=search_item>書類選考合否</td>
+		</tr>
+		<tr>
+	       <td><input type="radio" name=search_item>1次選考日程調整</td>
+	       <td><input type="radio" name=search_item>１次選考実施中</td>
+	    </tr>
+		<tr>
+	       <td><input type="radio" name=search_item>2次選考日程調整</td>
+	       <td><input type="radio" name=search_item>2次選考実施中</td>
+	    </tr>
+		<tr>
+	       <td><input type="radio" name=search_item>3次選考日程調整中</td>
+	       <td><input type="radio" name=search_item>3次選考実施中</td>
+	    </tr>
+		<tr>
+	       <td><input type="radio" name=search_item>内々定決定</td>
+	       <td><input type="radio" name=search_item>内々定送付</td>
+		</tr>
+		<tr>
+	       <td><input type="radio" name=search_item>内々定応諾</td>
+	       <td><input type="radio" name=search_item>辞退</td>
+	    </tr>
+		<tr>
+	       <td><input type="radio" name=search_item>不合格</td>
+		</tr>
+		<tr>
+	       <td colspan="2" align="right"><input type="submit" name="regist" value="検索"></td>
+		</tr>
 	</table>
-	</form>
-	</div>
+</form>
 </div>
-
-
+</div>
 
 
 </body>
