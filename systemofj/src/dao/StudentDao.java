@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import model.SearchResult;
 import model.Student;
 
 public class StudentDao {
@@ -18,7 +20,7 @@ public class StudentDao {
 	public int studentInsert(String sName,String sKana,String sContexts, String sUnivercity, String sFaculty, String sDepartment, String sAddress,String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String sOther)  throws SQLException {
 
 		// SQL文を準備する
-		String sql = "insert into Student values (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+		String sql = "insert into Student values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -134,13 +136,14 @@ public class StudentDao {
 
 	}
 
+	//詳細に表示
 	public Student studentSelect(int sId) throws SQLException {
 
 		//リターンするためのUserBeanを実体化
 		Student bean =null;
 
 		//SQL文を準備する
-		String sql = "select * from Student where sId=?";
+		String sql = "select * from Student where s_Id=?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -154,24 +157,182 @@ public class StudentDao {
 			bean = new Student();
 
 			//beanに値をひとつずつセットする
-			bean.setsId(rs.getInt("sId"));
-			bean.setsName(rs.getString("sName"));
-			bean.setsKana(rs.getString("sKana"));
-			bean.setsContexts(rs.getString("sContexts"));
-			bean.setsFaculty(rs.getString("sFaculty"));
-			bean.setsDepartment(rs.getString("sDepartment"));
-			bean.setsAddress(rs.getString("sAddress"));
-			bean.setsPcMail(rs.getString("sPcMail"));
-			bean.setsMobileMail(rs.getString("sMobileMail"));
-			bean.setsCareertasu(rs.getString("sCareertasu"));
-			bean.setsMynavi(rs.getString("sMynavi"));
-			bean.setsRikunavi(rs.getString("sRikunavi"));
-			bean.setsOther(rs.getString("sOther"));
+			bean.setsId(rs.getInt("s_Id"));
+			bean.setsName(rs.getString("s_Name"));
+			bean.setsKana(rs.getString("s_Kana"));
+			bean.setsContexts(rs.getString("s_Contexts"));
+			bean.setsUnivercity(rs.getString("s_Univercity"));
+			bean.setsFaculty(rs.getString("s_Faculty"));
+			bean.setsDepartment(rs.getString("s_Department"));
+			bean.setsAddress(rs.getString("s_Address"));
+			bean.setsPcMail(rs.getString("s_PcMail"));
+			bean.setsMobileMail(rs.getString("s_MobileMail"));
+			bean.setsCareertasu(rs.getString("s_Careertasu"));
+			bean.setsMynavi(rs.getString("s_Mynavi"));
+			bean.setsRikunavi(rs.getString("s_Rikunavi"));
+			bean.setsOther(rs.getString("s_Other"));
 
 		}
 		if(conn != null) {
 			conn.close();
 		}
 		return bean;
+	}
+
+	//一覧のインターン
+	public ArrayList<SearchResult> searchInternList(int iCategory, String iDate) throws SQLException {
+
+		ArrayList<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+
+		//SQL文を準備する		//i.iCategoryの部分怪しい
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, i.iCategory, i.iDate FROM Student AS s LEFT JOIN Intern AS i ON s.sId=i.sId where i.iCategory=? AND i.iDate=?";
+
+		//準備したSQLを発行できる状態にする（全てまとめる）
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) { // 1件でもあれば実行される
+			SearchResult student = new SearchResult();
+			student.setsName(rs.getString("s_Name"));
+			student.setsUnivercity(rs.getString("s_Univercity"));
+			student.setsFaculty(rs.getString("s_Faculty"));
+			student.setiCategory(rs.getString("i_Category"));
+			student.setiDate(rs.getString("i_Date"));
+
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		return searchInternList;
+	}
+
+	//一覧のイベント
+	public ArrayList<SearchResult> searchEventList(int eCategory, String eDate) throws SQLException {
+
+		ArrayList<SearchResult> searchEventList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+
+		//SQL文を準備する
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, e.eCategory, e.eDate FROM Student AS s LEFT JOIN Event AS e ON s.sId=e.sId where e.eCategory=? AND e.eDate=?";
+
+		//準備したSQLを発行できる状態にする（全てまとめる）
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) { // 1件でもあれば実行される
+			SearchResult student = new SearchResult();
+			student.setsName(rs.getString("s_Name"));
+			student.setsUnivercity(rs.getString("s_Univercity"));
+			student.setsFaculty(rs.getString("s_Faculty"));
+			student.setiCategory(rs.getString("i_Category"));
+			student.setiDate(rs.getString("i_Date"));
+
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		return searchEventList;
+	}
+
+	//一覧の選考進捗
+	public ArrayList<SearchResult> searchEntryList(String seSituation) throws SQLException {
+
+		ArrayList<SearchResult> searchEntryList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+
+		//SQL文を準備する
+		String sql = "select s.sName, s.sUnivercity, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where se.seSituation";
+
+		//準備したSQLを発行できる状態にする（全てまとめる）
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) { // 1件でもあれば実行される
+			SearchResult student = new SearchResult();
+			student.setsName(rs.getString("s_Name"));
+			student.setsUnivercity(rs.getString("s_Univercity"));
+			student.setSeSituation(rs.getString("se_Situation"));
+
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		return searchEntryList;
+	}
+
+	//一覧の個人名で検索
+	public ArrayList<SearchResult> searchName(String sName) throws SQLException {
+
+		ArrayList<SearchResult> searchName = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
+
+		//SQL文を準備する
+		String sql = "select s.sName, s.sUnivercity, s.sFaculty, s.sDepartment, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where s.sId like ?";
+
+		//準備したSQLを発行できる状態にする（全てまとめる）
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SELECT文を実行し、結果表を取得する
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) { // 1件でもあれば実行される
+			SearchResult student = new SearchResult();
+			student.setsName(rs.getString("s_Name"));
+			student.setsUnivercity(rs.getString("s_Univercity"));
+			student.setsFaculty(rs.getString("s_Faculty"));
+			student.setsDepartment(rs.getString("s_Department"));
+			student.setSeSituation(rs.getString("se_Situation"));
+
+		}
+		if(conn != null) {
+			conn.close();
+		}
+		return searchName;
+	}
+
+	// フラグ更新
+	public int flagUpdate(int sId) throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Intern set (alleditflag) values(1) where s_Id=?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+
+		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+	}
+
+	// フラグ削除
+	public int flagDelete() throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Intern set (alleditflag) values(0) where alleditflag=1";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
 	}
 }
