@@ -213,6 +213,8 @@ public class SelectAction {
 		try {
 			//どのテンプレが選択されたかの情報を入手
 			String tId = request.getParameter("tId");
+			//ボタンの値を入手
+			String submit = request.getParameter("submit");
 
 			if (tId == null) {//テンプレ選択のページに飛ぶ
 				return "/WEB-INF/jsp/mailTemplate.jsp";
@@ -235,6 +237,16 @@ public class SelectAction {
 
 				//テンプレに実名や大学名を入れる。
 				Template template = service.tenplateSelect(tId);
+
+				//テンプレ検索の場合
+				if(submit != null) {
+					if(submit.equals("検索")) {
+						request.setAttribute("template", template);
+						return "/WEB-INF/jsp/tamplateEdit.jsp";
+					}
+				}
+
+				//テンプレ選択の場合
 				String content = template.gettContent();
 				content = content.replace("学生の名前が入ります", sName);
 				content = content.replace("あなたの名前が入ります", uName);
