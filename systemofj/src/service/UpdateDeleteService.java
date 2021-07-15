@@ -15,12 +15,6 @@ import dao.TemplateDao;
 import dao.UserDao;
 
 
-//import model.Template;
-
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.SQLException;
-
 public class UpdateDeleteService {
 
 	public boolean update(int uId) throws ClassNotFoundException, SQLException {
