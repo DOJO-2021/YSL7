@@ -1,8 +1,5 @@
 package model;
 
-import java.sql.Date;
-
-
 public class SIntern {
 
 	//student
@@ -21,19 +18,19 @@ public class SIntern {
 	private String sMynavi;	//マイナビ
 	private String sRikunavi;	//リクナビ
 	private String sOther;	//その他
-	private String alleditflag;	//一括編集フラグ
 
 	//Intern
 
 	private String iCategory;	//インターン種類
-	private Date iDate;			//日付
+	private String iDate;			//日付
 	private String iMeeting;	//懇親会参加したか
 	private String iSubmit;		//アンケート提出
 	private String iAcceptance;//アンケート合否
 	private String iDocument;	//資料送付
 	private int iId;			//主キー
 	private String iAttend;		//出欠
-	private Date applyflag;		//インターン申し込みフラグ
+	private String applyflag;		//インターン申し込みフラグ
+	private int allEditFlag;  //
 	public int getsId() {
 		return sId;
 	}
@@ -118,22 +115,16 @@ public class SIntern {
 	public void setsOther(String sOther) {
 		this.sOther = sOther;
 	}
-	public String getAlleditflag() {
-		return alleditflag;
-	}
-	public void setAlleditflag(String alleditflag) {
-		this.alleditflag = alleditflag;
-	}
 	public String getiCategory() {
 		return iCategory;
 	}
 	public void setiCategory(String iCategory) {
 		this.iCategory = iCategory;
 	}
-	public Date getiDate() {
+	public String getiDate() {
 		return iDate;
 	}
-	public void setiDate(Date iDate) {
+	public void setiDate(String iDate) {
 		this.iDate = iDate;
 	}
 	public String getiMeeting() {
@@ -172,11 +163,17 @@ public class SIntern {
 	public void setiAttend(String iAttend) {
 		this.iAttend = iAttend;
 	}
-	public Date getApplyflag() {
+	public String getApplyflag() {
 		return applyflag;
 	}
-	public void setApplyflag(Date applyflag) {
+	public void setApplyflag(String applyflag) {
 		this.applyflag = applyflag;
+	}
+	public int getAlleditflag() {
+		return allEditFlag;
+	}
+	public void setAlleditflag(int alleditflag) {
+		this.allEditFlag = alleditflag;
 	}
 
 //ゲッター・セッター
