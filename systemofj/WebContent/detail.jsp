@@ -110,7 +110,7 @@ background-color: #e0e0e0;
         </tr>
         <tr>
 
-          <c:forEach items="mock" var="mock">
+          <c:forEach items="${mock}" var="mock">
 			<td>${mock.eDate}</td>>
           </c:forEach>
 
@@ -127,7 +127,7 @@ background-color: #e0e0e0;
 		  <td>参加日</td>
         </tr>
         <tr>
-          <c:forEach items="talk" var="talk">
+          <c:forEach items="${talk}" var="talk">
             <td>${talk.eDate}</td>
           </c:forEach>
 
@@ -158,33 +158,33 @@ background-color: #e0e0e0;
               </tr>
               <tr>
                 <td style="border: 0px"></td>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iDate}</td>
            		</c:forEach>
               </tr>
               <tr>
               	<th>インターン出欠</th>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iAttend}</td>
            		</c:forEach>
               </tr>
               <tr>
                 <th>懇親会出欠</th>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iMeeting}</td>
            		</c:forEach>
 
               </tr>
               <tr>
                 <th>アンケート合否</th>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iAcceptance}</td>
            		</c:forEach>
 
               </tr>
               <tr>
                 <th>アンケート提出有無</th>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iSubmit}</td>
            		</c:forEach>
 
@@ -192,7 +192,7 @@ background-color: #e0e0e0;
               </tr>
               <tr>
                 <th>資料送付</th>
-                <c:forEach items="intern" var="intern">
+                <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iDocument}</td>
            		</c:forEach>
 
@@ -224,16 +224,13 @@ background-color: #e0e0e0;
           <td>出欠</td>
         </tr>
         <tr>
-          <c:forEach items="exp" var="exp">
+          <c:forEach items="${exp}" var="exp" varStatus="loop">
             <td>${exp.iDate}</td>
-            <c:if test="last">
+            <c:if test="${loop.last}">
               <td>${exp.iAttend}</td>
             </c:if>
           </c:forEach>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+
         </tr>
       </table>
     </td>
@@ -244,8 +241,8 @@ background-color: #e0e0e0;
          <th>適正点数</th>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seSelectionDate}</td>
+          <td>${eazy.seScore}</td>
         </tr>
       </table>
     </td>
@@ -256,8 +253,8 @@ background-color: #e0e0e0;
           <th>書類合否</th>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seTextScore}</td>
+          <td>${eazy.seTextResult}</td>
         </tr>
       </table>
     </td>
@@ -267,7 +264,7 @@ background-color: #e0e0e0;
           <th>選考進捗状況</th>
         </tr>
         <tr>
-          <td>　</td>
+          <td>${eazy.seSituation}</td>
         </tr>
       </table>
     </td>
@@ -346,12 +343,12 @@ background-color: #e0e0e0;
           <th>合否</th>
         </tr>
         <tr>
+          <td>${eazy.seFirstNo}</td>
           <td>　</td>
           <td>　</td>
           <td>　</td>
           <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seFirstResult}</td>
         </tr>
       </table>
     </td>
@@ -368,11 +365,11 @@ background-color: #e0e0e0;
           <th>合否</th>
         </tr>
         <tr>
+          <td>${eazy.seSecondNo}</td>
           <td>　</td>
           <td>　</td>
           <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seSecondResult}</td>
         </tr>
       </table>
     </td>
@@ -405,19 +402,19 @@ background-color: #e0e0e0;
           <th>決定までの日数</th>
         </tr>
         <tr>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
-          <td>　</td>
+          <td>${eazy.seSendOk}</td>
+          <td>${eazy.seEarlyOk}</td>
+          <td>${eazy.seEarlyNo}</td>
+          <td>${eazy.seOk}</td>
+          <td>${eazy.seNo}</td>
+          <td>${eazy.seGetTextDate}</td>
+          <td>計算</td>
         </tr>
         <tr>
           <th>辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7">理由は～～～～～～～～～です。</td>
+          <td colspan="7">${eazy.seNoReason}</td>
         </tr>
       </table>
     </td>
@@ -429,7 +426,7 @@ background-color: #e0e0e0;
          <th>備考</th>
        </tr>
        <tr>
-         <td>　</td>
+         <td>${eazy.seRemarks}</td>
        </tr>
      </table>
     </td>
