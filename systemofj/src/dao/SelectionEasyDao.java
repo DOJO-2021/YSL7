@@ -57,8 +57,8 @@ public class SelectionEasyDao {
 			bean.setSeThirdDate(rs.getString("se_thirddate"));
 			bean.setSeThirdResult(rs.getString("se_thirdresult"));
 			bean.setSeRemarks(rs.getString("se_remarks"));
-			bean.setSeConfirm(rs.getString("se_confirm"));
 			bean.setSeSituation(rs.getString("se_situation"));
+			bean.setSeDecide(rs.getString("se_situation"));
 
 		}
 		if (conn != null) {
@@ -92,10 +92,11 @@ public class SelectionEasyDao {
 			String seThirdDate,
 			String seThirdResult,
 			String seRemarks,
-			String seSituation) throws SQLException {
+			String seSituation,
+			String seDecide) throws SQLException {
 
 		// SQL文を準備する
-		String sql = "insert into SelectionEasy values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "insert into SelectionEasy values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -122,6 +123,7 @@ public class SelectionEasyDao {
 		pStmt.setString(20, seThirdResult);
 		pStmt.setString(21, seRemarks);
 		pStmt.setString(22, seSituation);
+		pStmt.setString(23, seDecide);
 
 		if (conn != null) {
 			conn.close();
@@ -156,7 +158,8 @@ public class SelectionEasyDao {
 			String seThirdDate,
 			String seThirdResult,
 			String seRemarks,
-			String seSituation) throws SQLException {
+			String seSituation,
+			String seDecide) throws SQLException {
 
 		// SQL文を準備する
 
@@ -182,8 +185,8 @@ public class SelectionEasyDao {
 				+ "se_thirddate=?,"
 				+ "se_thirdresult=?,"
 				+ "se_thirdresult=?,"
-				+ "se_remarks=?,"
 				+ "se_situation=?"
+				+ "se_decide=?"
 				+ "where s_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 

@@ -22,8 +22,8 @@ public class SSelectionEasy {
 	private String seThirdResult;
 	private String seRemarks;
 	private int seId;
-	private String seConfirm;
 	private String seSituation;
+	private String seDecide;
 
 	//Studentフィールド--------------------------
 		private int sId;	//学生ID
@@ -176,18 +176,21 @@ public class SSelectionEasy {
 	public void setSeId(int seId) {
 		this.seId = seId;
 	}
-	public String getSeConfirm() {
-		return seConfirm;
-	}
-	public void setSeConfirm(String seConfirm) {
-		this.seConfirm = seConfirm;
-	}
+
 	public String getSeSituation() {
 		return seSituation;
 	}
 	public void setSeSituation(String seSituation) {
 		this.seSituation = seSituation;
 	}
+
+	public String getSeDecide() {
+		return seSituation;
+	}
+	public void setSeDecide(String seSituation) {
+		this.seSituation = seSituation;
+	}
+
 	public String getsName() {
 		return sName;
 	}
