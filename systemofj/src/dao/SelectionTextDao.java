@@ -36,18 +36,18 @@ public class SelectionTextDao {
 				bean = new SSelectionText();
 
 				//beanに値をひとつずつセットする
-				bean.setsId(rs.getInt("sId"));
-				bean.setStCategory(rs.getString("StCategory"));
-				bean.setStName(rs.getString("StName"));
-				bean.setStScore(rs.getInt("StScore"));
-				bean.setStId(rs.getInt("StId"));
+				bean.setsId(rs.getInt("s_id"));
+				bean.setStCategory(rs.getString("st_category"));
+				bean.setStName(rs.getString("st_name"));
+				bean.setStScore(rs.getInt("st_score"));
+				bean.setStId(rs.getInt("st_id"));
 			}
 			if(conn != null) {
 				conn.close();
 			}
 			return bean;
 		}
-		public int insert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
+		public int selectiontextInsert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
 			String sql = "insert into SelectionText values (?,?,?,?,null)";
@@ -68,7 +68,7 @@ public class SelectionTextDao {
 			return pStmt.executeUpdate();
 		}
 
-		public int update(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
+		public int selectiontextUpdate(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
 			String sql = "update SelectionFace set s_id=?,st_category=? ,st_name=? ,st_score=? ,st_id =? where st_id =?";
@@ -88,11 +88,11 @@ public class SelectionTextDao {
 			// 件数を返す
 			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 		}
-		public int delete(int sId) throws SQLException {
+		public int selectiontextDelete(int sId) throws SQLException {
 
 			// SQL文を準備する
 
-			String sql = "delete from SelectionText where st_id=?";
+			String sql = "delete from SelectionText where s_id=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる

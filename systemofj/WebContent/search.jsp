@@ -121,10 +121,11 @@ input[name="tab_item"] {
     <input type="radio" name="tab_item" id="briefing">
     <label class="tab_item" for="briefing">合説/模擬面接参加者で検索</label>
     <input type="radio" name="tab_item" id="selection" >
-    <label class="tab_item" for="selection">選考参加者で検索</label>
+    <label class="tab_item" for="selection">選考進捗状況で検索</label>
 
 <!-- 検索小項目(インターン) -->
 <div class="tab_content" id="intern">
+<form method="POST" action="/systemofj/Servlet">
     <table  class="test">
         <tr>
         	<td><input type="radio" name=search_item>1DAY</td>
@@ -166,30 +167,46 @@ input[name="tab_item"] {
 	</tr>
 	</table>
 	</div>
+
 <!-- 検索小項目(選考参加者) -->
 <div class="tab_content" id="selection">
     <table>
     <tr>
-       <td><input type="radio" name=search_item>会社説明会</td>
-       <td>　　　　　　　　　　日付<input type="date" name="birthday"></td>
+       <td><input type="radio" name=search_item>適性検査受験前</td>
+       <td><input type="radio" name=search_item>適性検査受験済み</td>
 	</tr>
 	<tr>
-       <td><input type="radio" name=search_item>書類選考</td>
-       <td>　　　　　　　　　　<input type="radio" name=test>合格<input type="radio" name=test>不合格</td>
+       <td><input type="radio" name=search_item>書類選考中</td>
+       <td><input type="radio" name=search_item>書類選考合否</td>
 	</tr>
 	<tr>
-       <td><input type="radio" name=search_item>1次面接</td>
+       <td><input type="radio" name=search_item>1次選考日程調整</td>
+       <td><input type="radio" name=search_item>１次選考実施中</td>
+    </tr>
+	<tr>
+       <td><input type="radio" name=search_item>2次選考日程調整</td>
+       <td><input type="radio" name=search_item>2次選考実施中</td>
+    </tr>
+	<tr>
+       <td><input type="radio" name=search_item>3次選考日程調整中</td>
+       <td><input type="radio" name=search_item>3次選考実施中</td>
+    </tr>
+	<tr>
+       <td><input type="radio" name=search_item>内々定決定</td>
+       <td><input type="radio" name=search_item>内々定送付</td>
 	</tr>
 	<tr>
-       <td><input type="radio" name=search_item>2次面接</td>
-	</tr>
+       <td><input type="radio" name=search_item>内々定応諾</td>
+       <td><input type="radio" name=search_item>辞退</td>
+    </tr>
 	<tr>
-       <td><input type="radio" name=search_item>3次面接</td>
+       <td><input type="radio" name=search_item>不合格</td>
 	</tr>
 	<tr>
        <td></td><td>　　　　　　　<input type="submit" name="regist" value="検索"></td>
 	</tr>
 	</table>
+	</form>
 	</div>
 </div>
 
