@@ -9,6 +9,7 @@ import java.util.List;
 import javax.naming.directory.SearchResult;
 
 import dao.EventDao;
+import dao.FeedbackDao;
 import dao.InternDao;
 import dao.SelectionEasyDao;
 import dao.SelectionFaceDao;
@@ -246,9 +247,9 @@ public class SelectService {
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
 		//DAOを実体化
-		TemplateDao tDao = new TemplateDao(conn);
+		FeedbackDao tDao = new FeedbackDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SFeedback>  bean=TemplateDao.feedbackSelect(sId,fCategory);
+		ArrayList<SFeedback>  bean= tDao.feedbackSelect(sId,fCategory);
 
 		return bean;
 	}
