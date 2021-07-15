@@ -36,11 +36,11 @@ public class SelectionTextDao {
 				bean = new SSelectionText();
 
 				//beanに値をひとつずつセットする
-				bean.setsId(rs.getInt("sId"));
-				bean.setStCategory(rs.getString("stCategory"));
-				bean.setStName(rs.getString("stName"));
-				bean.setStScore(rs.getInt("stScore"));
-				bean.setStId(rs.getInt("stId"));
+				bean.setsId(rs.getInt("s_id"));
+				bean.setStCategory(rs.getString("st_category"));
+				bean.setStName(rs.getString("st_name"));
+				bean.setStScore(rs.getInt("st_score"));
+				bean.setStId(rs.getInt("st_id"));
 			}
 			if(conn != null) {
 				conn.close();

@@ -38,11 +38,11 @@ public class SelectionFaceDao {
 			bean = new SSelectionFace();
 
 			//beanに値をひとつずつセットする
-			bean.setsId(rs.getInt("sId"));
-			bean.setSfCategory(rs.getString("sfCategory"));
-			bean.setSfName(rs.getString("sfName"));
-			bean.setSfScore(rs.getInt("sfScore"));
-			bean.setSfId(rs.getInt("sfId"));
+			bean.setsId(rs.getInt("s_id"));
+			bean.setSfCategory(rs.getString("sf_category"));
+			bean.setSfName(rs.getString("sf_name"));
+			bean.setSfScore(rs.getInt("sf_score"));
+			bean.setSfId(rs.getInt("sf_id"));
 		}
 		if(conn != null) {
 			conn.close();

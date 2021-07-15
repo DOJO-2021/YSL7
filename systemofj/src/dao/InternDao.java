@@ -35,15 +35,15 @@ public class InternDao {
 			bean = new SIntern();
 
 			//beanに値をひとつずつセットする
-			bean.setsId(rs.getInt("sId"));
-			bean.setiCategory(rs.getString("iCategory"));
-			bean.setiDate(rs.getString("iDate"));
-			bean.setiMeeting(rs.getString("iMeeting"));
-			bean.setiSubmit(rs.getString("iSubmit"));
-			bean.setiAcceptance(rs.getString("iAcceptance"));
-			bean.setiDocument(rs.getString("iDocument"));
-			bean.setiId(rs.getInt("iId"));
-			bean.setiAttend(rs.getString("iAttend"));
+			bean.setsId(rs.getInt("s_id"));
+			bean.setiCategory(rs.getString("i_category"));
+			bean.setiDate(rs.getString("i_date"));
+			bean.setiMeeting(rs.getString("i_meeting"));
+			bean.setiSubmit(rs.getString("i_submit"));
+			bean.setiAcceptance(rs.getString("i_acceptance"));
+			bean.setiDocument(rs.getString("i_document"));
+			bean.setiId(rs.getInt("i_id"));
+			bean.setiAttend(rs.getString("i_attend"));
 		}
 		if(conn != null) {
 			conn.close();
