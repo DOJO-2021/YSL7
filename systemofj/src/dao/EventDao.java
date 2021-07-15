@@ -51,8 +51,8 @@ public class EventDao {
 	public int eventInsert(int sId, String eCategory, String eDate) throws SQLException {
 
 		//SQL文を準備する
-		String sql = "insert into Event (e_id, s_id, e_category, e_date)"
-				+ " values (0, ?, ?, ?)";
+		String sql = "insert into Event (s_id, e_category, e_date)"
+				+ " values (?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQL文を完成させる

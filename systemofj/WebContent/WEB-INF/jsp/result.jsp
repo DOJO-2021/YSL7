@@ -13,11 +13,11 @@
 <p>アップロードが完了しました。</p>
 
 <h1 class="result">
-	<c:out value="${result.title}"/>
+	<c:out value="${errMsg.title}"/>
 </h1>
 
 <p class="result">
-	<c:out value="${result.message}"/>
+	<c:out value="${errMsg.message}"/>
 </p>
 
 
