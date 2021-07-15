@@ -9,6 +9,7 @@ import java.util.List;
 import javax.naming.directory.SearchResult;
 
 import dao.EventDao;
+import dao.FeedbackDao;
 import dao.InternDao;
 import dao.SelectionEasyDao;
 import dao.SelectionFaceDao;
@@ -118,7 +119,7 @@ public class SelectService {
 		//DAOを実体化
 		SelectionEasyDao seDao = new SelectionEasyDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		SSelectionEasy bean =seDao.selectioneasySelect(sId);
+		SSelectionEasy bean =seDao.selectionEasySelect(sId);
 		//トランザクションを使用する場合はこんなかんじ
 		//conn.commit();
 		return bean;
@@ -171,7 +172,7 @@ public class SelectService {
 //検索→検索一覧結果に飛ぶ
 
 	//インターン検索ボタン
-	public List<SearchResult> searchInternList(String iCategory,String iDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchInternList(String iCategory,String iDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -184,7 +185,7 @@ public class SelectService {
 		return bean;
 	}
 	//イベント検索ボタン
-	public List<SearchResult> searchEventList(String eCategory,String eDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchEventList(String eCategory,String eDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -198,7 +199,7 @@ public class SelectService {
 	}
 
 	//選考検索ボタン
-	public List<SearchResult> searchSelection(String seSituation) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchSelection(String seSituation) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -212,7 +213,7 @@ public class SelectService {
 	}
 
 	//個人名検索ボタン
-	public List<SearchResult> searchName(String sName) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchName(String sName) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -240,15 +241,15 @@ public class SelectService {
 	}
 
 //フィードバックの検索
-	public List<SFeedback> feedbackSelect(int sId, String fCategory) throws ClassNotFoundException, SQLException {
+	public ArrayList<SFeedback> feedbackSelect(int sId, String fCategory) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
 		//DAOを実体化
-		TemplateDao tDao = new TemplateDao(conn);
+		FeedbackDao tDao = new FeedbackDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		List<SFeedback>  bean=TemplateDao.feedbackSelect(sId,fCategory);
+		ArrayList<SFeedback>  bean= tDao.feedbackSelect(sId,fCategory);
 
 		return bean;
 	}
