@@ -136,7 +136,7 @@ public class InternDao {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_id=?,i_attend=? where alleditflag =?";
+		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_id=?,i_attend=? where alleditflag =1";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
