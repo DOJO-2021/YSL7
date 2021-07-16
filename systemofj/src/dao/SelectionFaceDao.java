@@ -54,18 +54,18 @@ public class SelectionFaceDao {
 		}
 		return sfsList;
 	}
-	public int selectionfaceInsert(int sId, String sfCategory, String sfName, int sfScore,int sfId) throws SQLException {
+	public int selectionfaceInsert(String sfCategory, String sfName, int sfScore) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "insert into SelectionFace values (null,?,?,?,?)";
+		String sql =  "insert into SelectionFace (s_id, sf_category, sf_name, sf_score)"
+				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?)";;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
-		pStmt.setInt(1,sId);
-		pStmt.setString(2,sfCategory);
-		pStmt.setString(3,sfName);
-		pStmt.setInt(4,sfScore);
+		pStmt.setString(1,sfCategory);
+		pStmt.setString(2,sfName);
+		pStmt.setInt(3,sfScore);
 
 		if (conn != null) {
 			conn.close();

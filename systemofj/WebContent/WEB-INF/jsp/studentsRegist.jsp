@@ -330,12 +330,12 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td style="width: 143px"><input type="date" name="se_selectiondate"></td>
-          <td style="width: 143px"><input type="date" name="se_selectiondate"></td>
+          <td style="width: 143px"><input type="date" name="se_firstno"></td>
+          <td style="width: 143px"><input type="date" name="se_firstdate"></td>
           <td><select name="sf_score_one1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="sf_score_one2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="sf_score_one3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one4"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><select name="se_firstresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -352,11 +352,11 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td style="width: 143px"><input type="date" name="se_selectiondate"></td>
-          <td style="width: 143px"><input type="date" name="se_selectiondate"></td>
-          <td><select name="se_textresult"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_textresult"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_textresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td style="width: 143px"><input type="date" name="se_secondno"></td>
+          <td style="width: 143px"><input type="date" name="se_seconddate"></td>
+          <td><select name="sf_score_second1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="se_secondresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -370,8 +370,8 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><select name="se_textresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><input type="date" name="se_thirddate"></td>
+          <td><select name="se_thirdresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -390,18 +390,18 @@ width: 800px;
         </tr>
         <tr>
           <td><input type="date" name="se_sendok"></td>
+          <td><input type="date" name="se_earlyok"></td>
+          <td><input type="date" name="se_earlyno"></td>
           <td><input type="date" name="se_ok"></td>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><input type="text" name=""></td>
+          <td><input type="date" name="se_no"></td>
+          <td><input type="date" name="se_gettextdate"></td>
+          <td><input type="text" name="se_decide"></td>
         </tr>
         <tr>
           <th>辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7"><textarea style="width: 1069px"></textarea></td>
+          <td colspan="7"><textarea style="width: 1069px" name="se_noreason"></textarea></td>
         </tr>
       </table>
     </td>
@@ -413,7 +413,7 @@ width: 800px;
          <th>備考</th>
        </tr>
        <tr>
-         <td><textarea></textarea></td>
+         <td><textarea name="se_remarks"></textarea></td>
        </tr>
      </table>
     </td>
@@ -423,17 +423,17 @@ width: 800px;
           <th>選考進捗状況</th>
         </tr>
         <tr>
-          <td><select name="">
+          <td><select name="se_situation">
           <option value=""></option>
           <option value="適性検査受験前">適性検査受験前</option>
           <option value="適性検査受験済">適性検査受験済</option>
           <option value="書類選考中">書類選考中</option>
           <option value="書類選考合否">書類選考合否</option>
-          <option value="一次選考日程調整">一次面接日程調整</option>
+          <option value="一次選考日程調整">一次選考日程調整</option>
           <option value="一次選考実施中">一次選考実施中</option>
-          <option value="二次選考日程調整">二次面接日程調整</option>
+          <option value="二次選考日程調整">二次選考日程調整</option>
           <option value="二次選考実施中">二次選考実施中</option>
-          <option value="三次選考日程調整">三次面接日程調整</option>
+          <option value="三次選考日程調整">三次選考日程調整</option>
           <option value="三次選考実施中">三次選考実施中</option>
           <option value="内々定決定">内々定決定</option>
           <option value="内々定送付">内々定送付</option>
