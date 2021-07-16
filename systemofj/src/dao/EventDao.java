@@ -54,17 +54,17 @@ public class EventDao {
 	}
 
 	//登録
-	public int eventInsert(int sId, String eCategory, String eDate) throws SQLException {
+	public int eventInsert(String eCategory, String eDate) throws SQLException {
 
 		//SQL文を準備する
 		String sql = "insert into Event (s_id, e_category, e_date)"
-				+ " values (?, ?, ?)";
+				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQL文を完成させる
-		pStmt.setInt(1, sId);
-		pStmt.setString(2, eCategory);
-		pStmt.setString(3, eDate);
+
+		pStmt.setString(1, eCategory);
+		pStmt.setString(2, eDate);
 
 		if (conn != null) {
 			conn.close();

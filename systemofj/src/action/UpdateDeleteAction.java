@@ -9,13 +9,13 @@ import service.UpdateDeleteService;
 public class UpdateDeleteAction {
 
 
-	public String update(HttpServletRequest request) {
+	public String userUpdate(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//idをリクエスト領域から取得
-		int uId = Integer.parseInt(request.getParameter("uId"));
+		String uId = request.getParameter("uId");
 
 		//出力値を格納するBean
 		boolean update = false;
@@ -25,7 +25,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			update = service.studentDelete(uId);
+			update = service.userUpdate(uId);
 
 			if (update == true) {
 
@@ -50,13 +50,13 @@ public class UpdateDeleteAction {
 	}
 
 
-	public String delete(HttpServletRequest request) {
+	public String userDelete(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//idをリクエスト領域から取得
-		int uId = Integer.parseInt(request.getParameter("uId"));
+		String uId = request.getParameter("uId");
 
 		//出力値を格納するBean
 		boolean delete = false;
@@ -66,7 +66,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			delete = service.delete(uId);
+			delete = service.userDelete(uId);
 
 			if (delete == true) {
 
@@ -230,7 +230,6 @@ public class UpdateDeleteAction {
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//リクエスト領域から取得
-		int sId = Integer.parseInt(request.getParameter("sId"));
 
 		//出力値を格納するBean
 		boolean flag = false;
@@ -240,7 +239,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			flag= service.flagDelete(sId);
+			flag= service.flagDelete();
 
 			if (flag == true) {
 
@@ -314,6 +313,8 @@ public class UpdateDeleteAction {
 
 		String seSituation = request.getParameter("seSituation");
 
+		 String seDecide = request.getParameter("seSituation");
+
 
 		//出力値を格納するBean
 		boolean SelectionEasy = false;
@@ -323,7 +324,10 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			SelectionEasy = service.selectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult, seSecondResult,seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation);
+			SelectionEasy = service.selectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate,
+														seNo, seOk, seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult,
+														seSecondResult,seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate,
+														seThirdResult, seRemarks, seSituation, seDecide);
 
 			if (SelectionEasy == true) {
 
@@ -391,7 +395,7 @@ public class UpdateDeleteAction {
 	}
 
 
-	public String TemplateUpdate(HttpServletRequest request) {
+	public String templateUpdate(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
@@ -632,7 +636,6 @@ public class UpdateDeleteAction {
 		String iDocument = request.getParameter("iDocument");
 		int   iId = Integer.parseInt(request.getParameter("iId"));
 		String iAttend = request.getParameter("iAttend");
-		String applyFlag =request.getParameter("applyFlag");
 
 		//出力値を格納するBean
 		boolean intern = false;
@@ -642,7 +645,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			intern = service.internUpdate(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptace, iDocument, iId, iAttend, applyFlag);
+			intern = service.internUpdate(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptace, iDocument, iId, iAttend);
 
 			if (intern == true) {
 
@@ -712,9 +715,50 @@ public class UpdateDeleteAction {
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
+//		フラグが１の人の情報を書き換えたい所
+//		update set table どこを変更するのかをSQLに
+//		if文　request.getparameter
+
+
+
 		//idとpwをリクエスト領域から取得
-		String sqlContent = request.getParameter("sqlContent");
+		int sId = Integer.parseInt(request.getParameter("sId"));
 		String iCategory = request.getParameter("iCategory");
+		String iDate1 = request.getParameter("iDate1");
+		String iDate2 = request.getParameter("iDate2");
+		String iDate3 = request.getParameter("iDate3");
+		String iDate4 = request.getParameter("iDate4");
+		String iDate5 = request.getParameter("iDate5");
+
+		String iMeeting1 = request.getParameter("iMeeting1");
+		String iMeeting2 = request.getParameter("iMeeting2");
+		String iMeeting3 = request.getParameter("iMeeting3");
+		String iMeeting4 = request.getParameter("iMeeting4");
+		String iMeeting5 = request.getParameter("iMeeting5");
+
+		String iSubmit = request.getParameter("iSubmit");
+
+		String iAcceptance1 = request.getParameter("iAcceptance1");
+		String iAcceptance2 = request.getParameter("iAcceptance2");
+		String iAcceptance3 = request.getParameter("iAcceptance3");
+		String iAcceptance4 = request.getParameter("iAcceptance4");
+		String iAcceptance5 = request.getParameter("iAcceptance5");
+
+		String iDocument1 = request.getParameter("iDocument1");
+		String iDocument2 = request.getParameter("iDocument2");
+		String iDocument3 = request.getParameter("iDocument3");
+		String iDocument4 = request.getParameter("iDocument4");
+		String iDocument5 = request.getParameter("iDocument5");
+
+		int iId = Integer.parseInt(request.getParameter("iId"));
+
+		String iAttend1 = request.getParameter("iAttend1");
+		String iAttend2 = request.getParameter("iAttend2");
+		String iAttend3 = request.getParameter("iAttend3");
+		String iAttend4 = request.getParameter("iAttend4");
+		String iAttend5 = request.getParameter("iAttend5");
+
+
 
 		//出力値を格納するBean
 		boolean allUpdate = false;
@@ -724,7 +768,11 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			allUpdate = service.allUpdate(sqlContent, iCategory);
+			allUpdate = service.allUpdate(sId, iCategory, iDate1,iDate2,iDate3,iDate4,iDate5,
+											iMeeting1, iMeeting2, iMeeting3, iMeeting4, iMeeting5, iSubmit,
+											iAcceptance1, iAcceptance2, iAcceptance3, iAcceptance4, iAcceptance5,
+											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iId,
+											iAttend1, iAttend2, iAttend3, iAttend4, iAttend5);
 
 			if (allUpdate == true) {
 

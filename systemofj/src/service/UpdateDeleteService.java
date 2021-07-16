@@ -17,7 +17,7 @@ import dao.UserDao;
 
 public class UpdateDeleteService {
 
-	public boolean update(String uId) throws ClassNotFoundException, SQLException {
+	public boolean userUpdate(String uId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -36,7 +36,7 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean delete(String uId) throws ClassNotFoundException, SQLException {
+	public boolean userDelete(String uId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -64,7 +64,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		StudentDao dao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.StudentUpdate(sId,sName,sKana,sContexts,sUnivercity,sFaculty,sDepatment,sAddress,sPcmail,sMobilemail,sCareertasu,sMynavi,sRikunavi,Other);
+		int test =dao.update(sId,sName,sKana,sContexts,sUnivercity,sFaculty,sDepatment,sAddress,sPcmail,sMobilemail,sCareertasu,sMynavi,sRikunavi,Other);
 
 		if(test != 0) {
 			result = true;
@@ -83,7 +83,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		StudentDao dao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.StudentDelete(sId);
+		int test =dao.delete(sId);
 
 		if(test == 1) {
 			result = true;
@@ -113,7 +113,7 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean flagDelete( int sId) throws ClassNotFoundException, SQLException {
+	public boolean flagDelete() throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -122,7 +122,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		StudentDao dao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.flagDelete(sId);
+		int test =dao.flagDelete();
 
 		if(test  != 0) {
 			result = true;
@@ -133,7 +133,11 @@ public class UpdateDeleteService {
 	}
 
 
-	public boolean selectionEasyUpdate(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,String seNo, String seOk, String seNoreason, String seSendOk,String seEarlyOk,String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo,String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation)  throws ClassNotFoundException, SQLException {
+	public boolean selectionEasyUpdate(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult,
+											String seGetTextDate,String seNo, String seOk, String seNoreason, String seSendOk,
+											String seEarlyOk,String seEarlyNo, String seFirstResult, String seSecondResult,
+											String seFirstNo,String seFirstDate, String seSecondNo, String seSecondDate,
+											String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -142,7 +146,10 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.selectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk,  seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks,  seSituation);
+		int test =dao.selectionEasyUpdate(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate,
+										   seNo, seOk,  seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult,
+										   seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate,
+										   seThirdResult, seRemarks,  seSituation, seDecide);
 
 		if(test != 0) {
 			result = true;
@@ -220,7 +227,7 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		EventDao dao = new EventDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.Eventdelete(sId);
+		int test =dao.eventDelete(sId);
 
 		if(test == 1) {
 			result = true;
@@ -307,7 +314,11 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean allUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws ClassNotFoundException, SQLException {
+	public boolean allUpdate(int sId, String iCategory, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5,
+								String iMeeting1, String iMeeting2, String iMeeting3, String iMeeting4, String iMeeting5, String iSubmit,
+								String iAcceptance1, String iAcceptance2, String iAcceptance3, String iAcceptance4, String iAcceptance5,
+								String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,
+								int iId, String iAttend1, String iAttend2, String iAttend3, String iAttend4, String iAttend5) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -316,7 +327,11 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.allUpdate(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iId, iAttend);
+		int test =dao.allUpdate(sId, iCategory, iDate1,iDate2,iDate3,iDate4,iDate5,
+									iMeeting1, iMeeting2, iMeeting3, iMeeting4, iMeeting5,
+									iSubmit, iAcceptance1, iAcceptance2, iAcceptance3, iAcceptance4, iAcceptance5,
+									iDocument1, iDocument2, iDocument3, iDocument4, iDocument5,
+									iId, iAttend1, iAttend2, iAttend3, iAttend4, iAttend5);
 
 		if(test != 0) {
 			result = true;

@@ -19,7 +19,7 @@ public class RegistService {
 
 
 	//ユーザー登録
-	public boolean insert(int uId, String uName, String uFirst, String uPw)  throws ClassNotFoundException, SQLException {
+	public boolean insert(String uId, String uName, String uFirst, String uPw)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -56,7 +56,7 @@ public class RegistService {
 		StudentDao dao = new StudentDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int newStudent = dao.studentInsert(sName, sKana, sContent, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther, alleditflag);
+		int newStudent = dao.studentInsert(sName, sKana, sContent, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther);
 
 		if(newStudent != 0) {
 			result = true;
@@ -69,7 +69,7 @@ public class RegistService {
 
 
 	//選考データの新規登録
-	public boolean selectionEasyInsert(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation)  throws ClassNotFoundException, SQLException {
+	public boolean selectionEasyInsert(String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -81,7 +81,7 @@ public class RegistService {
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int selectionEasy = dao.selectionEasyInsert(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation);
+		int selectionEasy = dao.selectionEasyInsert(seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
 
 		if(selectionEasy != 0) {
 			result = true;
@@ -94,7 +94,7 @@ public class RegistService {
 
 
 	//テンプレート登録
-	public boolean templateInsert(String tTitle, String tCategory, String tContent) {
+	public boolean templateInsert(String tTitle, String tCategory, String tContent) throws ClassNotFoundException, SQLException{
 		boolean result = false;
 
 		//ドライバの登録
@@ -106,7 +106,7 @@ public class RegistService {
 		TemplateDao dao = new TemplateDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int newTemplate = dao.templateInsert(tTitle, tCategory, tContent);
+		int newTemplate = dao.templeteInsert(tTitle, tCategory, tContent);
 
 		if(newTemplate != 0) {
 			result = true;
@@ -120,7 +120,7 @@ public class RegistService {
 
 
 	//イベント参加情報登録
-	public boolean eventInsert(int sId, String eCategory, String eDate) {
+	public boolean eventInsert(String eCategory, String eDate) throws ClassNotFoundException, SQLException{
 		boolean result = false;
 
 		//ドライバの登録
@@ -132,7 +132,7 @@ public class RegistService {
 		EventDao dao = new EventDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int event = dao.eventInsert(sId, eCategory, eDate);
+		int event = dao.eventInsert(eCategory, eDate);
 
 		if(event != 0) {
 			result = true;
@@ -145,7 +145,7 @@ public class RegistService {
 
 
 	//フィードバック登録
-	public boolean feedbackInsert(int sId, String fCategory, String fName, String fContent) {
+	public boolean feedbackInsert(int sId, String fCategory, String fName, String fContent) throws ClassNotFoundException, SQLException{
 		boolean result = false;
 
 		//ドライバの登録
@@ -171,7 +171,7 @@ public class RegistService {
 
 
 	//インターン参加情報登録
-	public boolean internInsert(int sId, String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, int iId, String iAttend, String applyFlag) {
+	public boolean internInsert(String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, String iAttend, String applyFlag) throws ClassNotFoundException, SQLException{
 		boolean result = false;
 
 		//ドライバの登録
@@ -183,7 +183,7 @@ public class RegistService {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int intern = dao.internInsert(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iId, iAttend, applyFlag);
+		int intern = dao.internInsert(iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iAttend, applyFlag);
 
 		if(intern != 0) {
 			result = true;
@@ -196,7 +196,7 @@ public class RegistService {
 
 
 	//面接情報登録
-	public boolean selectionfaceInsert(int sId, String sfCategory, String sfName, int sfScore, int sfId) {
+	public boolean selectionfaceInsert(String sfCategory, String sfName, int sfScore) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -208,7 +208,7 @@ public class RegistService {
 		SelectionFaceDao dao = new SelectionFaceDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int selectionFace = dao.internInsert(sId, sfCategory, sfName, sfScore, sfId);
+		int selectionFace = dao.selectionfaceInsert(sfCategory, sfName, sfScore);
 
 		if(selectionFace != 0) {
 			result = true;
@@ -222,7 +222,7 @@ public class RegistService {
 
 
 	//書類選考情報登録
-	public boolean selectiontextInsert(int sId, String stCategory, String stName, int stScore, int stId) {
+	public boolean selectiontextInsert(String stCategory, String stName, int stScore) throws ClassNotFoundException, SQLException{
 		boolean result = false;
 
 		//ドライバの登録
@@ -234,7 +234,7 @@ public class RegistService {
 		SelectionTextDao dao = new SelectionTextDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int selectionText = dao.selectiontextInsert(sId, stCategory, stName, stScore, stId);
+		int selectionText = dao.selectiontextInsert(stCategory, stName, stScore);
 
 		if(selectionText != 0) {
 			result = true;

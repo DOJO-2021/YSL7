@@ -1,0 +1,95 @@
+
+
+jdbc:h2:file:C:\pleiades\workspace\YSL7\data\systemofj
+
+
+
+￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥
+
+インターン
+
+create table Intern (
+i_id int (6) primary key auto_increment not null,
+s_id int (4) not null,
+i_category varchar (20),
+i_date varchar (10),
+i_meeting varchar (1),
+i_submit varchar (1),
+i_acceptance varchar (1),
+i_document varchar (1),
+i_attend varchar (1),
+applyflag varchar (10),
+alleditflag int (1) default 1
+);
+
+insert into Intern values(
+ null,
+ '203432',
+ '夏季１dayインターン',
+ '6月18日',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '6月2日',
+ '0'
+);
+
+insert into Intern values(
+ null,
+ '000001',
+ '夏季１dayインターン',
+ '6月11日',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '6月1日',
+ '0'
+);
+
+insert into Intern values(
+ null,
+ '000002',
+ '夏季3dayインターン',
+ '7月15日',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ ' ',
+ '6月21日',
+ '0'
+);
+
+
+insert into Intern values(
+ null,
+ '004256',
+ '冬季初級インターン',
+ '1月11日',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '12月24日',
+ '0'
+);
+
+
+insert into Intern values(
+ null,
+ '001546',
+ '冬季中級インターン',
+ '1月17日',
+ ' ',
+ '〇',
+ '〇',
+ '〇',
+ '〇',
+ '12月24日',
+ '0'
+);
