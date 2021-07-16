@@ -1,0 +1,62 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+セレクションテキスト
+
+create table SelectionText(
+st_id int (4) primary key auto_increment not null,
+s_id int (6) not null,
+st_category varchar (20),
+st_name varchar (20),
+st_score int (1)
+);
+
+
+insert into SelectionText values (
+null,
+'000001',
+'自己PR文',
+'菅澤',
+'1'
+);
+
+insert into SelectionText values (
+null,
+'036120',
+'履歴書',
+'藤原',
+'2'
+);
+
+
+
+insert into SelectionText values (
+null,
+'045643',
+'書類選考',
+'菅澤',
+'1'
+);
+
+
+
+insert into SelectionText values (
+null,
+'000421',
+'履歴書',
+'板谷',
+'2'
+);
+
+
+
+insert into SelectionText values (
+null,
+'004512',
+'履歴書',
+'菅澤',
+'0'
+);
+
+
+
+
+
