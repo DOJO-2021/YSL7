@@ -114,7 +114,7 @@ public class FeedbackDao {
 
 		// SELECT文を準備する		ユーザーが入れてくる情報を?にしておく
 		// 絞り込み検索用SQL
-		String sql = "select * from Feedback where s_id = ? and f_category = '1day'";
+		String sql = "select * from Feedback where s_id = ? and f_category = '1dayインターン'";
 		PreparedStatement pStmt = conn.prepareStatement(sql); // PreparedStatementが無害化して↓
 
 		//?（プレースホルダ―）の部分に値を設定
