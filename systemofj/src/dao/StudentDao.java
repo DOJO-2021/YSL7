@@ -180,7 +180,7 @@ public class StudentDao {
 	}
 
 	//一覧のインターン
-	public ArrayList<SearchResult> searchInternList(int iCategory, String iDate) throws SQLException {
+	public ArrayList<SearchResult> searchInternList(String iCategory, String iDate) throws SQLException {
 
 		ArrayList<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
@@ -210,7 +210,7 @@ public class StudentDao {
 	}
 
 	//一覧のイベント
-	public ArrayList<SearchResult> searchEventList(int eCategory, String eDate) throws SQLException {
+	public ArrayList<SearchResult> searchEventList(String eCategory, String eDate) throws SQLException {
 
 		ArrayList<SearchResult> searchEventList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
