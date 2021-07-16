@@ -238,6 +238,63 @@ public class SelectService {
 		return bean;
 	}
 
+//テンプレートのカテゴリーごと
+//インターン
+	public  ArrayList<Template> templateInternTitleSelect() throws ClassNotFoundException, SQLException {
+		//ドライバの登録を行う
+		Class.forName("org.h2.Driver");
+		//データベースへの接続情報を設定する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		//DAOを実体化
+		TemplateDao tDao = new TemplateDao(conn);
+		//引数を渡し、取得地をbeanに渡す
+		ArrayList<Template>  bean=tDao.templateInternTitleSelect();
+
+		return bean;
+	}
+
+//セミナー
+	public  ArrayList<Template> templateSeminarTitleSelect() throws ClassNotFoundException, SQLException {
+		//ドライバの登録を行う
+		Class.forName("org.h2.Driver");
+		//データベースへの接続情報を設定する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		//DAOを実体化
+		TemplateDao tDao = new TemplateDao(conn);
+		//引数を渡し、取得地をbeanに渡す
+		ArrayList<Template>  bean=tDao.templateSeminarTitleSelect();
+
+		return bean;
+	}
+
+//面談
+	public  ArrayList<Template> templateFaceTitleSelect() throws ClassNotFoundException, SQLException {
+		//ドライバの登録を行う
+		Class.forName("org.h2.Driver");
+		//データベースへの接続情報を設定する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		//DAOを実体化
+		TemplateDao tDao = new TemplateDao(conn);
+		//引数を渡し、取得地をbeanに渡す
+		ArrayList<Template>  bean=tDao.templateFaceTitleSelect();
+
+		return bean;
+	}
+
+//その他
+	public  ArrayList<Template> templateOtherTitleSelect() throws ClassNotFoundException, SQLException {
+		//ドライバの登録を行う
+		Class.forName("org.h2.Driver");
+		//データベースへの接続情報を設定する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		//DAOを実体化
+		TemplateDao tDao = new TemplateDao(conn);
+		//引数を渡し、取得地をbeanに渡す
+		ArrayList<Template>  bean=tDao.templateOtherTitleSelect();
+
+		return bean;
+	}
+
 //フィードバックの検索
 	public ArrayList<SFeedback> feedbackSelect(int sId, String fCategory) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
