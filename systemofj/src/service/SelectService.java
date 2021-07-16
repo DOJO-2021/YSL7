@@ -108,7 +108,7 @@ public class SelectService {
 //		}
 		return bean;
 	}
-	public SSelectionEasy selectioneasySelect(int sId) throws ClassNotFoundException, SQLException {
+	public SSelectionEasy selectionEasySelect(int sId) throws ClassNotFoundException, SQLException {
 
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -170,7 +170,7 @@ public class SelectService {
 //検索→検索一覧結果に飛ぶ
 
 	//インターン検索ボタン
-	public ArrayList<SearchResult> searchInternList(int iCategory,String iDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchInternList(String iCategory,String iDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -183,7 +183,7 @@ public class SelectService {
 		return bean;
 	}
 	//イベント検索ボタン
-	public ArrayList<SearchResult> searchEventList(int eCategory,String eDate) throws ClassNotFoundException, SQLException {
+	public ArrayList<SearchResult> searchEventList(String eCategory,String eDate) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -225,7 +225,7 @@ public class SelectService {
 	}
 
 //テンプレートの検索
-	public  ArrayList<Template> tenplateSelect(String tCategory,String t_title) throws ClassNotFoundException, SQLException {
+	public  Template tenplateSelect(int tId) throws ClassNotFoundException, SQLException {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -233,7 +233,7 @@ public class SelectService {
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		Template  bean=tDao.templateSelect(tCategory,t_title);
+		Template  bean=tDao.templateSelect(tId);
 
 		return bean;
 	}

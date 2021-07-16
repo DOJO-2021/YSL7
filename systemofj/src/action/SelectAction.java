@@ -212,13 +212,14 @@ public class SelectAction {
 
 		try {
 			//どのテンプレが選択されたかの情報を入手
-			String tId = request.getParameter("tId");
+			String stringtId = request.getParameter("tId");
 			//ボタンの値を入手
 			String submit = request.getParameter("submit");
 
-			if (tId == null) {//テンプレ選択のページに飛ぶ
+			if (stringtId == null) {//テンプレ選択のページに飛ぶ
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
+				int tId = Integer.parseInt(request.getParameter("tId"));
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
