@@ -18,7 +18,7 @@ sf_score int (1)
 
 insert into SelectionFace values (
 null,
-'000001',
+'1',
 '一次面接',
 '菅澤',
 '2'
@@ -28,7 +28,7 @@ null,
 
 insert into SelectionFace values (
 null,
-'001345',
+'1',
 '一次面接',
 '板谷',
 '1'
@@ -37,7 +37,7 @@ null,
 
 insert into SelectionFace values (
 null,
-'004535',
+'1',
 '二次面接',
 '菅澤',
 '2'
@@ -46,17 +46,39 @@ null,
 
 insert into SelectionFace values (
 null,
-'001345',
+'1',
 '二次面接',
-'菅澤',
+'藤原',
 '1'
 );
 
 
 insert into SelectionFace values (
 null,
-'002345',
+'2',
 '一次面接',
 '藤原',
 '0'
+);
+
+insert into SelectionFace values (
+null,
+'2',
+'一次面接',
+'菅澤',
+'2'
+);
+insert into SelectionFace values (
+null,
+'2',
+'二次面接',
+'菅澤',
+'2'
+);
+insert into SelectionFace values (
+null,
+'2',
+'二次面接',
+'藤原',
+'2'
 );

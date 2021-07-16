@@ -17,7 +17,7 @@ public class FeedbackDao {
 	}
 
 	// 登録
-	public int feedbackInsert(int sID, String fCategory, String fName, String fContent) throws SQLException {
+	public int feedbackInsert(int sId, String fCategory, String fName, String fContent) throws SQLException {
 
 		// SQL文を準備する
 
@@ -26,7 +26,7 @@ public class FeedbackDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, sID); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
 		pStmt.setString(2, fCategory);
 
@@ -47,7 +47,7 @@ public class FeedbackDao {
 
 
 	// 更新
-	public int update(int fID, String fName, String fContent) throws SQLException {
+	public int update(int fId, String fName, String fContent) throws SQLException {
 
 
 		// SQL文を準備する
@@ -59,7 +59,7 @@ public class FeedbackDao {
 
 		pStmt.setString(1, fName); //1つ目の?(=NAME)に入力値をいれる
 		pStmt.setString(2, fContent);
-		pStmt.setInt(3, fID);
+		pStmt.setInt(3, fId);
 
 
 
@@ -114,7 +114,7 @@ public class FeedbackDao {
 
 		// SELECT文を準備する		ユーザーが入れてくる情報を?にしておく
 		// 絞り込み検索用SQL
-		String sql = "select * from Feedback where s_id = ? and f_category = '1day'";
+		String sql = "select * from Feedback where s_id = ? and f_category = '1dayインターン'";
 		PreparedStatement pStmt = conn.prepareStatement(sql); // PreparedStatementが無害化して↓
 
 		//?（プレースホルダ―）の部分に値を設定

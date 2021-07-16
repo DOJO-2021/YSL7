@@ -163,7 +163,6 @@ public class SelectionEasyDao {
 		// SQL文を準備する
 
 		String sql = "update SelectionEasy set"
-				+ "s_id=?,"
 				+ "se_selectiondate=?,"
 				+ "se_score=?,"
 				+ "se_textscore=?,"
@@ -190,28 +189,28 @@ public class SelectionEasyDao {
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
-		pStmt.setString(2, seSelectionDate);
-		pStmt.setInt(3, seScore);
-		pStmt.setInt(4, seTextScore);
-		pStmt.setString(5, seTextResult);
-		pStmt.setString(6, seSelectionDate);
-		pStmt.setString(7, seNo);
-		pStmt.setString(8, seOk);
-		pStmt.setString(9, seNoReason);
-		pStmt.setString(10, seSendOk);
-		pStmt.setString(11, seEaryOk);
-		pStmt.setString(12, seEaryNo);
-		pStmt.setString(13, seFirstResult);
-		pStmt.setString(14, seSecondResult);
-		pStmt.setString(15, seFirstNo);
-		pStmt.setString(16, seFirstDate);
-		pStmt.setString(17, seSecondNo);
-		pStmt.setString(18, seSecondDate);
-		pStmt.setString(19, seThirdDate);
-		pStmt.setString(20, seThirdResult);
-		pStmt.setString(21, seRemarks);
-		pStmt.setString(22, seDecide);
+		pStmt.setString(1, seSelectionDate);
+		pStmt.setInt(2, seScore);
+		pStmt.setInt(3, seTextScore);
+		pStmt.setString(4, seTextResult);
+		pStmt.setString(5, seSelectionDate);
+		pStmt.setString(6, seNo);
+		pStmt.setString(7, seOk);
+		pStmt.setString(8, seNoReason);
+		pStmt.setString(9, seSendOk);
+		pStmt.setString(10, seEaryOk);
+		pStmt.setString(11, seEaryNo);
+		pStmt.setString(12, seFirstResult);
+		pStmt.setString(13, seSecondResult);
+		pStmt.setString(14, seFirstNo);
+		pStmt.setString(15, seFirstDate);
+		pStmt.setString(16, seSecondNo);
+		pStmt.setString(17, seSecondDate);
+		pStmt.setString(18, seThirdDate);
+		pStmt.setString(19, seThirdResult);
+		pStmt.setString(20, seRemarks);
+		pStmt.setString(21, seDecide);
+		pStmt.setInt(22, sId);
 
 
 		if (conn != null) {
