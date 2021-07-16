@@ -220,18 +220,13 @@ background-color: #e0e0e0;
         </tr>
         <tr>
           <td>申込日</td>
-          <td>予約日</td>
           <td>参加日</td>
           <td>出欠</td>
         </tr>
         <tr>
-          <c:forEach items="${exp}" var="exp" varStatus="loop">
-            <td>${exp.iDate}</td>
-            <c:if test="${loop.last}">
-              <td>${exp.iAttend}</td>
-            </c:if>
-          </c:forEach>
-
+          <td>${exp.applyflag}</td>
+		  <td>${exp.iDate}</td>
+		  <td>${exp.iAttend}</td>
         </tr>
       </table>
     </td>
