@@ -152,7 +152,7 @@ public class TemplateDao {
 		ArrayList<Template> templateFaceList = new ArrayList<Template>();
 
 		//SQL文を準備する
-		String sql = "select * from template where t_category='説明会'";
+		String sql = "select * from template where t_category='面接'";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQLを実行し、結果を取得する

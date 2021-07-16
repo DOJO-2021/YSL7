@@ -83,23 +83,23 @@ public class InternDao {
 		// 件数を返す
 		return pStmt.executeUpdate();
 	}
-	public int internUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
+	public int internUpdate(int iId,String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_attend=? where i_id =?";
+		String sql = "update Intern set i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_attend=? where i_id =?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 		//beanに値をひとつずつセットする
-		pStmt.setInt(1,sId);
-		pStmt.setString(2,iCategory);
-		pStmt.setString(3,iDate);
-		pStmt.setString(4,iMeeting);
-		pStmt.setString(5,iSubmit);
-		pStmt.setString(6,iAcceptance);
-		pStmt.setString(7,iDocument);
-		pStmt.setString(8,iAttend);
+		pStmt.setString(1,iCategory);
+		pStmt.setString(2,iDate);
+		pStmt.setString(3,iMeeting);
+		pStmt.setString(4,iSubmit);
+		pStmt.setString(5,iAcceptance);
+		pStmt.setString(6,iDocument);
+		pStmt.setString(7,iAttend);
+		pStmt.setInt(8,iId);
 
 
 		if (conn != null) {
@@ -136,25 +136,14 @@ public class InternDao {
 
 	}
 
-	public int allUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
+	public int allUpdate(String sqlContents) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_id=?,i_attend=? where alleditflag =1";
+		String sql = "update Intern" + sqlContents;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
-		//beanに値をひとつずつセットする
-		pStmt.setInt(1,sId);
-		pStmt.setString(2,iCategory);
-		pStmt.setString(3,iDate);
-		pStmt.setString(4,iMeeting);
-		pStmt.setString(5,iSubmit);
-		pStmt.setString(6,iAcceptance);
-		pStmt.setString(7,iDocument);
-		pStmt.setString(8,iAttend);
-
-
 		if (conn != null) {
 			conn.close();
 		}

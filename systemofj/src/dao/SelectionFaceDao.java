@@ -24,7 +24,7 @@ public class SelectionFaceDao {
 		SSelectionFace bean =null;
 
 		//SQL文を準備する
-		String sql = "select * from SelectionFace where sId=?";
+		String sql = "select * from SelectionFace where s_id=?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -77,20 +77,20 @@ public class SelectionFaceDao {
 		return pStmt.executeUpdate();
 	}
 	// 更新
-	public int selectionfaceUpdate(int sId,String sfCategory,String sfName, int sfScore,int sfId) throws SQLException {
+	public int selectionfaceUpdate(String sfCategory,String sfName, int sfScore,int sfId) throws SQLException {
 
 
 		// SQL文を準備する
 
-		String sql = "update SelectionFace set s_id=?,sf_category=? ,sf_name=? ,sf_score=? ,sf_id =? where sf_id =?";
+		String sql = "update SelectionFace set sf_category=? ,sf_name=? ,sf_score=? where sf_id =?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 
-		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
-		pStmt.setString(2,sfCategory);
-		pStmt.setString(3,sfName);
-		pStmt.setInt(4,sfScore);
+		pStmt.setString(1,sfCategory);
+		pStmt.setString(2,sfName);
+		pStmt.setInt(3,sfScore);
+		pStmt.setInt(4,sfId);
 
 
 
