@@ -56,12 +56,12 @@ public class InternDao {
 		return isList;
 	}
 
-	public int internInsert(String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
+	public int internInsert(String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend,String applyflag) throws SQLException {
 
 		// SQL文を準備する
 
 		String sql =  "insert into Intern (s_id,i_category, i_date, i_meeting,i_submit,i_acceptance,i_document,i_attend)"
-				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?, ?, ?, ?)";;
+				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?, ?, ?, ?,?)";;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
@@ -72,6 +72,7 @@ public class InternDao {
 		pStmt.setString(5,iAcceptance);
 		pStmt.setString(6,iDocument);
 		pStmt.setString(7,iAttend);
+		pStmt.setString(8,applyflag);
 
 
 		if (conn != null) {
@@ -82,11 +83,11 @@ public class InternDao {
 		// 件数を返す
 		return pStmt.executeUpdate();
 	}
-	public int internUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
+	public int internUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_id=?,i_attend=? where i_id =?";
+		String sql = "update Intern set s_id=?,i_category=? ,i_date=? ,i_meeting=? ,i_submit=?,i_acceptance=?,i_document=?,i_attend=? where i_id =?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -98,8 +99,7 @@ public class InternDao {
 		pStmt.setString(5,iSubmit);
 		pStmt.setString(6,iAcceptance);
 		pStmt.setString(7,iDocument);
-		pStmt.setInt(8,iId);
-		pStmt.setString(9,iAttend);
+		pStmt.setString(8,iAttend);
 
 
 		if (conn != null) {
@@ -136,7 +136,7 @@ public class InternDao {
 
 	}
 
-	public int allUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
+	public int allUpdate(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
 		// SQL文を準備する
 
@@ -152,8 +152,7 @@ public class InternDao {
 		pStmt.setString(5,iSubmit);
 		pStmt.setString(6,iAcceptance);
 		pStmt.setString(7,iDocument);
-		pStmt.setInt(8,iId);
-		pStmt.setString(9,iAttend);
+		pStmt.setString(8,iAttend);
 
 
 		if (conn != null) {
