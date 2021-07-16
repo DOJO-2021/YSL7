@@ -10,8 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 
 public class UploadAction {
 
-		public String upload(HttpServletRequest request) {
 
+		//ここから下すべて、合ってるのか全然分かりません助けて～
+		public String upload(HttpServletRequest request) {
 			//戻り値に設定するページを初期設定しておく
 			String page = "/WEB-INF/jsp/result.jsp";
 
