@@ -70,7 +70,7 @@ public class SelectionEasyDao {
 	}
 
 	// 登録
-	public int insert(
+	public int selectionEasyInsert(
 			int sId,
 			String seSelectionDate,
 			int seScore,
@@ -184,7 +184,6 @@ public class SelectionEasyDao {
 				+ "se_seconddate=?,"
 				+ "se_thirddate=?,"
 				+ "se_thirdresult=?,"
-				+ "se_thirdresult=?,"
 				+ "se_situation=?"
 				+ "se_decide=?"
 				+ "where s_id=?";
@@ -213,7 +212,8 @@ public class SelectionEasyDao {
 		pStmt.setString(19, seThirdDate);
 		pStmt.setString(20, seThirdResult);
 		pStmt.setString(21, seRemarks);
-		pStmt.setString(22, seSituation);
+		pStmt.setString(22, seDecide);
+
 
 		if (conn != null) {
 			conn.close();

@@ -19,7 +19,7 @@ public class RegistService {
 
 
 	//ユーザー登録
-	public boolean insert(int uId, String uName, String uFirst, String uPw)  throws ClassNotFoundException, SQLException {
+	public boolean insert(String uId, String uName, String uFirst, String uPw)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -56,7 +56,7 @@ public class RegistService {
 		StudentDao dao = new StudentDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int newStudent = dao.studentInsert(sName, sKana, sContent, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther, alleditflag);
+		int newStudent = dao.studentInsert(sName, sKana, sContent, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther);
 
 		if(newStudent != 0) {
 			result = true;
@@ -69,7 +69,7 @@ public class RegistService {
 
 
 	//選考データの新規登録
-	public boolean selectionEasyInsert(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation)  throws ClassNotFoundException, SQLException {
+	public boolean selectionEasyInsert(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -81,7 +81,7 @@ public class RegistService {
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int selectionEasy = dao.selectionEasyInsert(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation);
+		int selectionEasy = dao.selectionEasyInsert(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
 
 		if(selectionEasy != 0) {
 			result = true;
