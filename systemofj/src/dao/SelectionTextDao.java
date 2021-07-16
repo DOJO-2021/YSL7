@@ -52,17 +52,17 @@ public class SelectionTextDao {
 			}
 			return stsList;
 		}
-		public int selectiontextInsert(int sId, String stCategory, String stName, int stScore,int stId) throws SQLException {
+		public int selectiontextInsert(String stCategory, String stName, int stScore) throws SQLException {
 
 			// SQL文を準備する
-			String sql = "insert into SelectionText values (null,?,?,?,?)";
+			String sql =  "insert into SelectionText (s_id, st_category, st_score)"
+					+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?)";;
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			//beanに値をひとつずつセットする
-			pStmt.setInt(1,sId);
-			pStmt.setString(2,stCategory);
-			pStmt.setString(3,stName);
-			pStmt.setInt(4,stScore);
+			pStmt.setString(1,stCategory);
+			pStmt.setString(2,stName);
+			pStmt.setInt(3,stScore);
 
 			if (conn != null) {
 				conn.close();
@@ -76,7 +76,7 @@ public class SelectionTextDao {
 		public int selectiontextUpdate(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
-			String sql = "update SelectionFace set s_id=?,st_category=? ,st_name=? ,st_score=? ,st_id =? where st_id =?";
+			String sql = "update SelectionText set s_id=?,st_category=? ,st_name=? ,st_score=? ,st_id =? where st_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
