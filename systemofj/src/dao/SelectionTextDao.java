@@ -22,7 +22,7 @@ public class SelectionTextDao {
 			SSelectionText bean =null;
 
 			//SQL文を準備する
-			String sql = "select * from SelectionText where sId=?";
+			String sql = "select * from SelectionText where s_id=?";
 
 			//準備したSQLを発行できる状態にする（全てまとめる）
 			PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -76,14 +76,14 @@ public class SelectionTextDao {
 		public int selectiontextUpdate(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
 
 			// SQL文を準備する
-			String sql = "update SelectionText set s_id=?,st_category=? ,st_name=? ,st_score=? ,st_id =? where st_id =?";
+			String sql = "update SelectionText set st_category=? ,st_name=? ,st_score=? where st_id =?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる
-			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
-			pStmt.setString(2,stCategory);
-			pStmt.setString(3,stName);
-			pStmt.setInt(4,stScore);
+			pStmt.setString(1,stCategory);
+			pStmt.setString(2,stName);
+			pStmt.setInt(3,stScore);
+			pStmt.setInt(4,stId);
 
 			if (conn != null) {
 				conn.close();

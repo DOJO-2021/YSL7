@@ -11,35 +11,35 @@ e_date varchar (10)
 
 insert into Event values (
 null,
-'000001',
+'1',
 '合同説明会',
 '2020-10-12'
 );
 
 insert into Event values (
 null,
-'002452',
+'2',
 '模擬面接',
 '2021-03-22'
 );
 
 insert into Event values (
 null,
-'435673',
+'3',
 '座談会',
 '2020-4-21'
 );
 
 insert into Event values (
 null,
-'000001',
+'4',
 '模擬面接',
 '2021-07-15'
 );
 
 insert into Event values (
 null,
-'783456',
+'5',
 '合同説明会',
 '2020-10-12'
 );
