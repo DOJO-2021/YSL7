@@ -97,6 +97,8 @@ public class StudentDao {
 
 		pStmt.setString(13, sOther);
 
+		pStmt.setInt(14, sId);
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -148,6 +150,11 @@ public class StudentDao {
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
+
+		// SQL文を完成させる
+		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+
+
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
 
@@ -185,10 +192,16 @@ public class StudentDao {
 		ArrayList<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する		//i.iCategoryの部分怪しい
-		String sql = "select s.sName, s.sUnivercity, s.sFaculty, i.iCategory, i.iDate FROM Student AS s LEFT JOIN Intern AS i ON s.sId=i.sId where i.iCategory=? AND i.iDate=?";
+		String sql = "select s.s_name, s.s_univercity, s.s_faculty, i.i_category, i.i_date FROM Student AS s LEFT JOIN Intern AS i ON s.s_id=i.s_id where i.i_category=? AND i.i_date LIKE ?%";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+
+		// SQL文を完成させる
+		pStmt.setString(1, iCategory); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(2, iDate);
+
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -215,10 +228,15 @@ public class StudentDao {
 		ArrayList<SearchResult> searchEventList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.sName, s.sUnivercity, s.sFaculty, e.eCategory, e.eDate FROM Student AS s LEFT JOIN Event AS e ON s.sId=e.sId where e.eCategory=? AND e.eDate=?";
+		String sql = "select s.s_name, s.s_univercity, s.s_faculty, e.e_category, e.e_date FROM Student AS s LEFT JOIN Event AS e ON s.s_id=e.s_id where e.e_category=? AND e.e_date LIKE ?%";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+		pStmt.setString(1, eCategory); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(2, eDate);
+
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -246,10 +264,14 @@ public class StudentDao {
 		ArrayList<SearchResult> searchEntryList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.sName, s.sUnivercity, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where se.seSituation";
+		String sql = "select s.s_name, s.s_univercity, se.se_situation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.s_id=se.s_id where se.se_situation = ?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+		pStmt.setString(1, seSituation); //1つ目の?(=NAME)に入力値をいれる
+
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -274,10 +296,13 @@ public class StudentDao {
 		ArrayList<SearchResult> searchName = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.sName, s.sUnivercity, s.sFaculty, s.sDepartment, se.seSituation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.sId=se.sId where s.sId like ?";
+		String sql = "select s.s_name, s.s_univercity, s.s_faculty, s.s_department, se.se_situation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.s_id=se.s_id where s.s_name like %?%";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+		pStmt.setString(1, sName); //1つ目の?(=NAME)に入力値をいれる
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();

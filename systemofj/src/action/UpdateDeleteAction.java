@@ -446,7 +446,15 @@ public class UpdateDeleteAction {
 
 		//idとpwをリクエスト領域から取得
 		int eId = Integer.parseInt(request.getParameter("eId"));
-		String eDate = request.getParameter("eDate");
+		String eDate1 = request.getParameter("e_date1");
+		String eDate2 = request.getParameter("e_date2");
+		String eDate3 = request.getParameter("e_date3");
+		String eDate4 = request.getParameter("e_date4");
+		String eDate5 = request.getParameter("e_date5");
+		String eDate6 = request.getParameter("e_date6");
+
+
+
 
 //		String eDatetest =request.getParameter("eDate");
 //		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -464,7 +472,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			event = service.eventUpdate( eId, eDate);
+			event = service.eventUpdate( eId, eDate1, eDate2, eDate3, eDate4, eDate5, eDate6 );
 
 			if (event == true) {
 
@@ -628,16 +636,50 @@ public class UpdateDeleteAction {
 
 		//idとpwをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
-		String iCategory = request.getParameter("iCategory");
-		String iDate =request.getParameter("iDate");
-		String iMeeting = request.getParameter("iMeeting");
-		String iSubmit = request.getParameter("iSubmit");
-		String iAcceptace = request.getParameter("iAcceptace");
-		String iDocument = request.getParameter("iDocument");
+//		String iCategory = request.getParameter("iCategory");
+		String iCategory1 ="1day";
+		String iCategory2 ="3days";
+		String iCategory3 = "初級";
+		String iCategory4 = "中級";
+		String iCategory5 = "準備";
+
+
+		String iDate1 =request.getParameter("iDate1");
+		String iDate2 =request.getParameter("iDate2");
+		String iDate3 =request.getParameter("iDate3");
+		String iDate4 =request.getParameter("iDate4");
+		String iDate5 =request.getParameter("iDate5");
+
+		String iMeeting1 = request.getParameter("iMeeting1");
+		String iMeeting2 = request.getParameter("iMeeting2");
+		String iMeeting3 = request.getParameter("iMeeting3");
+		String iMeeting4 = request.getParameter("iMeeting4");
+		String iMeeting5 = request.getParameter("iMeeting5");
+
+		String iSubmit1 = request.getParameter("iSubmit1");
+		String iSubmit2 = request.getParameter("iSubmit2");
+		String iSubmit3 = request.getParameter("iSubmit3");
+		String iSubmit4 = request.getParameter("iSubmit4");
+		String iSubmit5 = request.getParameter("iSubmit5");
+
+		String iAcceptace1 = request.getParameter("iAcceptace1");
+		String iAcceptace2 = request.getParameter("iAcceptace2");
+		String iAcceptace3 = request.getParameter("iAcceptace3");
+		String iAcceptace4 = request.getParameter("iAcceptace4");
+		String iAcceptace5 = request.getParameter("iAcceptace5");
+
+		String iDocument1 = request.getParameter("iDocument1");
+		String iDocument2 = request.getParameter("iDocument2");
+		String iDocument3 = request.getParameter("iDocument3");
+		String iDocument4 = request.getParameter("iDocument4");
+		String iDocument5 = request.getParameter("iDocument5");
+
 		int   iId = Integer.parseInt(request.getParameter("iId"));
-		String iAttend = request.getParameter("iAttend");
+//		String iAttend = request.getParameter("iAttend");
 
 		//出力値を格納するBean
+		//String seFirstResult = request.getParameter("sf_score_one4");
+
 		boolean intern = false;
 
 		try {
@@ -645,7 +687,10 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			intern = service.internUpdate(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptace, iDocument, iId, iAttend);
+			intern = service.internUpdate(sId, iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2,
+											iMeeting3, iMeeting4, iMeeting5, iSubmit1, iSubmit2, iSubmit3, iSubmit4, iSubmit5,
+											iAcceptace1, iAcceptace2, iAcceptace3, iAcceptace4, iAcceptace5,
+											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iId);
 
 			if (intern == true) {
 
@@ -803,9 +848,28 @@ public class UpdateDeleteAction {
 
 		//idとpwをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
-		String sfCategory = request.getParameter("sfCategory");
-		String sfName = request.getParameter("sfName");
-		int sfScore = Integer.parseInt(request.getParameter("sfScore"));
+		String sfCategory1 = "一次面接";
+		String sfCategory2 = "二次面接";
+
+		String sfName1 = "松野";
+		String sfName2 = "藤原";
+		String sfName3 = "板谷";
+		String sfName4 = "菅澤";
+
+
+
+		int sfScore1_1 = Integer.parseInt(request.getParameter("sf_score_one1"));
+		int sfScore1_2 = Integer.parseInt(request.getParameter("sf_score_one2"));
+		int sfScore1_3 = Integer.parseInt(request.getParameter("sf_score_one3"));
+		int sfScore1_4 = Integer.parseInt(request.getParameter("sf_score_one4"));
+
+		int sfScore2_1 = Integer.parseInt(request.getParameter("se_textresult"));
+		int sfScore2_2 = Integer.parseInt(request.getParameter("se_textresult"));
+		int sfScore2_3 = Integer.parseInt(request.getParameter("se_textresult"));
+
+		int sfScore3_1 = Integer.parseInt(request.getParameter("se_textresult"));
+
+
 		int sfId = Integer.parseInt(request.getParameter("sfId"));
 
 		//出力値を格納するBean
@@ -816,7 +880,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			face = service.selectionFaceUpdate(sId, sfCategory, sfName, sfScore, sfId);
+			face = service.selectionFaceUpdate(sId, sfCategory1, sfCategory2, sfName1,sfName2, sfName3, sfName4, sfScore, sfId);
 
 			if (face == true) {
 
@@ -888,9 +952,34 @@ public class UpdateDeleteAction {
 
 		//idとpwをリクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
-		String stCategory = request.getParameter("stCategory");
-		String stName = request.getParameter("stName");
-		int stScore = Integer.parseInt(request.getParameter("stScore"));
+
+		String stCategory1 ="履歴書評価";
+		String stCategory2 ="自己PR文評価";
+		String stCategory3 ="書類選考評価";
+
+
+		String stName1 = "松野";
+		String stName2 = "藤原";
+		String stName3 = "板谷";
+		String stName4 = "菅澤";
+
+
+
+		int stScore1 = Integer.parseInt(request.getParameter("st_score_resume1"));
+		int stScore2 = Integer.parseInt(request.getParameter("st_score_resume2"));
+		int stScore3 = Integer.parseInt(request.getParameter("st_score_resume3"));
+		int stScore4 = Integer.parseInt(request.getParameter("st_score_resume4"));
+
+		int stScore5 = Integer.parseInt(request.getParameter("st_score_pr1"));
+		int stScore6 = Integer.parseInt(request.getParameter("st_score_pr2"));
+		int stScore7 = Integer.parseInt(request.getParameter("st_score_pr3"));
+		int stScore8 = Integer.parseInt(request.getParameter("st_score_pr4"));
+
+		int stScore9 = Integer.parseInt(request.getParameter("st_score_text1"));
+		int stScore10 = Integer.parseInt(request.getParameter("st_score_text2"));
+		int stScore11 = Integer.parseInt(request.getParameter("st_score_text3"));
+		int stScore12 = Integer.parseInt(request.getParameter("st_score_text4"));
+
 		int stId = Integer.parseInt(request.getParameter("stId"));
 
 		//出力値を格納するBean
@@ -901,7 +990,8 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			st = service.selectionTextUpdate(sId, stCategory, stName, stScore, stId);
+			st = service.selectionTextUpdate(sId, stCategory1, stCategory2, stCategory3,
+												stName1, stName2, stName3, stName4, stScore1, stScore2, stScore3, stScore4, stScore5, stScore6, stScore7, stScore8, stScore9, stScore10, stScore11, stScore12, stId);
 
 			if (st == true) {
 
