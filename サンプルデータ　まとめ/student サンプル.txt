@@ -1,0 +1,172 @@
+Student
+
+create table Student (
+s_id int (6) primary key auto_increment not null,
+s_name varchar (20) not null,
+s_kana varchar (20),
+s_contexts varchar (2),
+s_univercity varchar (20),
+s_faculty varchar (20),
+s_department varchar (20),
+s_address varchar (100) not null,
+s_pcmail varchar (50),
+s_mobilemail varchar (50),
+s_careertasu varchar (1),
+s_mynavi varchar (1),
+s_rikunavi varchar (1),
+s_other varchar (1)
+)
+
+insert into student values(
+null,
+'城戸沙月',
+'キドサツキ',
+'文系',
+'駒沢大学',
+'グローバル学部',
+'グローバル学科',
+'神奈川県横浜市3-5-1',
+'satsuki_kido@pc.com',
+'satsuki_kido@ne.jp',
+'',
+'〇',
+'',
+''
+);
+
+insert into student values(
+null,
+'柳川和輝',
+'ヤナガワカズキ',
+'文系',
+'桐蔭横浜大学',
+'法学部',
+'法律学科',
+'神奈川県川崎市2-6-5-1',
+'kazuki_yanagawa@pc.com',
+'kazuki_yanagawa@ne.jp',
+'',
+'',
+'〇',
+''
+);
+
+
+insert into student values(
+null,
+'椹篤弥',
+'サワラギアツヤ',
+'文系',
+'日本大学',
+'経済学部',
+'経済学科',
+'東京都大田区蒲田4-6-5-9',
+'atsuya_sawaragi@pc.com',
+'atsuya_sawaragi@ne.jp',
+'',
+'',
+'〇',
+''
+);
+
+insert into student values(
+null,
+'森山晃希',
+'モリヤマコウキ　',
+'理系',
+'明治大学',
+'理工学部',
+'数学科',
+'神奈川県川崎市5-7',
+'koki_moriyama@pc.com',
+'koki_moriyama@ne.jp',
+'',
+'',
+'',
+'〇'
+);
+
+insert into student values(
+null,
+'蔭山ゆり',
+'カゲヤマユリ',
+'文系',
+'立正大学',
+'心理学部',
+'対人・社会心理学科',
+'神奈川県横浜市4-11',
+'yuri_kageyama@pc.com',
+'yuri_kageyama@ne.jp',
+'',
+'',
+'〇',
+''
+);
+
+insert into student values(
+null,
+'辻彩乃',
+'ツジアヤノ',
+'文系',
+'産業能率大学',
+'経営学部',
+'ビジネス学科',
+'神奈川県横須賀市103-7',
+'ayano_tsuji@pc.com',
+'ayano_tsuji@ne.jp',
+'〇',
+'',
+'',
+''
+);
+
+insert into student values(
+null,
+'齊藤優海',
+'サイトウユミ',
+'文系',
+'文京学院大学',
+'経営学部',
+'経営コミュニケーション学科',
+'東京都大田区蒲田1-7',
+'yumi_saitou@pc.com',
+'yumi_saitou@ne.jp',
+'',
+'〇',
+'',
+''
+);
+
+insert into student values(
+null,
+'峰力哉',
+'ミネリキヤ',
+'理系',
+'日本大学',
+'文理学部',
+'物理学科',
+'東京都大田区蒲田30-3-3',
+'rikiya_mine@pc.com',
+'rikiya_mine@ne.jp',
+'',
+'',
+'',
+'〇'
+);
+
+insert into student values(
+null,
+'鈴木杏海',
+'スズキアミ',
+'文系',
+'関東学院大学',
+'経営学部',
+'経済学科',
+'神奈川県横浜市8-14',
+'ami_suzuki@pc.com',
+'ami_suzuki@ne.jp',
+'〇',
+'',
+'',
+''
+);

@@ -1,0 +1,45 @@
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+イベント
+
+create table Event (
+e_id int (4) primary key auto_increment not null,
+s_id int (6) not null,
+e_category varchar (20),
+e_date varchar (10)
+);
+
+
+insert into Event values (
+null,
+'000001',
+'合同説明会',
+'2020-10-12'
+);
+
+insert into Event values (
+null,
+'002452',
+'模擬面接',
+'2021-03-22'
+);
+
+insert into Event values (
+null,
+'435673',
+'座談会',
+'2020-4-21'
+);
+
+insert into Event values (
+null,
+'000001',
+'模擬面接',
+'2021-07-15'
+);
+
+insert into Event values (
+null,
+'783456',
+'合同説明会',
+'2020-10-12'
+);

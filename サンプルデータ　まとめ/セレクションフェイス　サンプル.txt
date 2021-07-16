@@ -1,0 +1,62 @@
+jdbc:h2:file:C:\pleiades\workspace\YSL7\data\systemofj
+
+
+
+
+\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+セレクションフェイス
+
+
+create table SelectionFace (
+sf_id int (4) primary key auto_increment not null,
+s_id int (6) not null,
+sf_category varchar (20),
+sf_name varchar (20),
+sf_score int (1)
+);
+
+
+insert into SelectionFace values (
+null,
+'000001',
+'一次面接',
+'菅澤',
+'2'
+);
+
+
+
+insert into SelectionFace values (
+null,
+'001345',
+'一次面接',
+'板谷',
+'1'
+);
+
+
+insert into SelectionFace values (
+null,
+'004535',
+'二次面接',
+'菅澤',
+'2'
+);
+
+
+insert into SelectionFace values (
+null,
+'001345',
+'二次面接',
+'菅澤',
+'1'
+);
+
+
+insert into SelectionFace values (
+null,
+'002345',
+'一次面接',
+'藤原',
+'0'
+);
