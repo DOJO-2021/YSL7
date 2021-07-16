@@ -199,7 +199,7 @@ public class UpdateDeleteService {
 
 
 
-	public boolean eventUpdate( int eId, String eDate) throws ClassNotFoundException, SQLException {
+	public boolean eventUpdate( int eId, String eDate1, String eDate2, String eDate3, String eDate4, String eDate5, String eDate6 ) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -208,15 +208,24 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		EventDao dao = new EventDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.eventUpdate(eId,eDate);
+		int test1 =dao.eventUpdate(eId,eDate1);
+		int test2 =dao.eventUpdate(eId,eDate2);
+		int test3 =dao.eventUpdate(eId,eDate3);
+		int test4 =dao.eventUpdate(eId,eDate4);
+		int test5 =dao.eventUpdate(eId,eDate5);
+		int test6 =dao.eventUpdate(eId,eDate6);
 
-		if(test  != 0) {
+
+
+		if(test1 == 1 && test2 ==1 && test3 == 1 && test4 == 1 && test5 == 1 && test6==1 ) {
 			result = true;
 		}
 
 		return result;
 
 	}
+
+
 
 	public boolean eventDelete(int sId ) throws ClassNotFoundException, SQLException {
 		boolean result = false;
@@ -276,7 +285,10 @@ public class UpdateDeleteService {
 	}
 
 
-	public boolean internUpdate(int sId, String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, int iId, String iAttend ) throws ClassNotFoundException, SQLException {
+	public boolean internUpdate(int sId, String iCategory1, String iCategory2, String iCategory3, String iCategory4, String iCategory5, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5, String iMeeting1, String iMeeting2,
+									String iMeeting3, String iMeeting4, String iMeeting5, String iSubmit1, String iSubmit2, String iSubmit3, String iSubmit4, String iSubmit5,
+									String iAcceptace1, String iAcceptace2, String iAcceptace3, String iAcceptace4, String iAcceptace5,
+									String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5, int iId, String iAttend) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -285,9 +297,15 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.internUpdate(sId, iCategory, iDate, iMeeting,iSubmit, iAcceptance, iDocument, iId, iAttend);
+		int test1 =dao.internUpdate(sId, iCategory1, iDate1,  iMeeting1,  iSubmit1, iAcceptace1,  iDocument1,  iId, iAttend);
+		int test2 =dao.internUpdate(sId, iCategory2, iDate2,  iMeeting2,  iSubmit2, iAcceptace2,  iDocument2,  iId, iAttend);
+		int test3 =dao.internUpdate(sId, iCategory3, iDate3,  iMeeting3,  iSubmit3, iAcceptace3,  iDocument3,  iId, iAttend);
+		int test4 =dao.internUpdate(sId, iCategory4, iDate4,  iMeeting4,  iSubmit4, iAcceptace4,  iDocument4,  iId, iAttend);
+		int test5 =dao.internUpdate(sId, iCategory5, iDate5,  iMeeting5,  iSubmit5, iAcceptace5,  iDocument5,  iId, iAttend);
 
-		if(test != 0) {
+
+
+		if(test1 == 1 && test2 == 1 && test3 == 1 && test4 == 1 && test5 == 1) {
 			result = true;
 		}
 
@@ -381,7 +399,8 @@ public class UpdateDeleteService {
 
 
 
-	public boolean selectionTextUpdate(int sId, String stCategory, String stName, int stScore, int stId) throws ClassNotFoundException, SQLException {
+	public boolean selectionTextUpdate(int sId,String stCategory1, String stCategory2, String stCategory3,
+			String stName1, String stName2, String stName3, String stName4, int stScore1, int stScore2, int stScore3, int stScore4, int stScore5, int stScore6, int stScore7, int stScore8, int stScore9,int stScore10, int stScore11, int stScore12, int stId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -390,9 +409,22 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		SelectionTextDao dao = new SelectionTextDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.selectiontextUpdate(sId, stCategory, stName, stScore, stId);
+		int test1 =dao.selectiontextUpdate(sId, stCategory1, stName1, stScore1, stId);
+		int test2 =dao.selectiontextUpdate(sId, stCategory1, stName2, stScore2, stId);
+		int test3 =dao.selectiontextUpdate(sId, stCategory1, stName3, stScore3, stId);
+		int test4 =dao.selectiontextUpdate(sId, stCategory1, stName4, stScore4, stId);
 
-		if(test != 0) {
+		int test5 =dao.selectiontextUpdate(sId, stCategory2, stName1, stScore1, stId);
+		int test6 =dao.selectiontextUpdate(sId, stCategory2, stName2, stScore2, stId);
+		int test7 =dao.selectiontextUpdate(sId, stCategory2, stName3, stScore3, stId);
+		int test8 =dao.selectiontextUpdate(sId, stCategory2, stName4, stScore4, stId);
+
+		int test9 =dao.selectiontextUpdate(sId, stCategory3, stName1, stScore1, stId);
+		int test10 =dao.selectiontextUpdate(sId, stCategory3, stName2, stScore2, stId);
+		int test11 =dao.selectiontextUpdate(sId, stCategory3, stName3, stScore3, stId);
+		int test12 =dao.selectiontextUpdate(sId, stCategory3, stName4, stScore4, stId);
+
+		if(test1 == 1 && test2 == 1 && test3 == 1 && test4 == 1 && test5 == 1 && test6 == 1 && test7 == 1 && test8 == 1 && test9 == 1 && test10 == 1 && test11 == 1 && test12 == 1 ) {
 			result = true;
 		}
 
