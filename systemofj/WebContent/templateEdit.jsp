@@ -8,13 +8,19 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
+	html{}
+
 	body{
-		margin:50px;
+		margin:100px;
+
 	}
 	textarea{
-		width:700px;
+		width:1000px;
 		height:600px;
 		float:left;
+		margin-bottom: 20px;
+		margin-left:40px;
 	}
 	.inline{
 		display:inline-block;
@@ -28,8 +34,29 @@
 		margin-bottom:5px;
 	}
 	h2{
-		margin-right:300px;
+		margin-right:200px;
+		margin-left:50px;
 	}
+
+	.sub_button{
+	float:right;
+	margin-right:273px;
+	}
+
+	.right_button1{
+		width:170px;
+		}
+
+	.right_button2{
+		width:170px;
+		}
+	.right_button3{
+		width:170px;
+		}
+
+	.title{
+		margin-left:50px;
+		}
 
 </style>
 </head>
@@ -38,10 +65,10 @@
 		<h2 class="inline">テンプレ編集ページ</h2>
 		<a href = "/systemofj/Servlet?FLG=テンプレ登録ページ" class="inline">テンプレ登録ページへ</a>
 	</div>
-	<p>選考準備編セミナー参加のお礼</p>
+	<p class="title">選考準備編セミナー参加のお礼</p>
 	<!-- <p>${requestScope.template.t_title}</p>-->
 	<form action ="/systemofj/Servlet" method="POST">
-		<input type="submit" class="sub_button" name="tu_update_button" value="テンプレ更新ボタン">
+		<input type="submit" class="sub_button" name="tu_update_button" value="テンプレ更新ボタン"><br><br>
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
 		<textarea></textarea>
 		<ul>

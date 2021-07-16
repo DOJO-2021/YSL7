@@ -56,23 +56,21 @@ public class InternDao {
 		return isList;
 	}
 
-	public int internInsert(int sId, String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
+	public int internInsert(String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "insert into Intern values (null,?,?,?,?,?,?,?,?)";
+		String sql = "insert into Intern values (null,?,?,?,?,?,?,?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
-		pStmt.setInt(1,sId);
-		pStmt.setString(2,iCategory);
-		pStmt.setString(3,iDate);
-		pStmt.setString(4,iMeeting);
-		pStmt.setString(5,iSubmit);
-		pStmt.setString(6,iAcceptance);
-		pStmt.setString(7,iDocument);
-		pStmt.setInt(8,iId);
-		pStmt.setString(9,iAttend);
+		pStmt.setString(1,iCategory);
+		pStmt.setString(2,iDate);
+		pStmt.setString(3,iMeeting);
+		pStmt.setString(4,iSubmit);
+		pStmt.setString(5,iAcceptance);
+		pStmt.setString(6,iDocument);
+		pStmt.setString(7,iAttend);
 
 
 		if (conn != null) {

@@ -72,7 +72,7 @@ public class SelectAction {
 
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
-				list = service.searchSelection(searchValue);
+				list = service.searchEntryList(searchValue);
 
 
 			} else {//個人名検索
@@ -144,7 +144,7 @@ public class SelectAction {
 			}
 
 			//SSelectionEazyの情報取得
-			SSelectionEasy eazy = service.selectioneasySelect(sId);
+			SSelectionEasy eazy = service.selectionEasySelect(sId);
 
 
 			//SSelectionFaceの情報取得
@@ -165,6 +165,8 @@ public class SelectAction {
 
 			//SSelectionTextの情報取得
 			ArrayList<SSelectionText> texts = service.selectiontextSelect(sId);
+
+			//履歴書、PR、書類に分類する。
 			ArrayList<SSelectionText> resume = new ArrayList<>();
 			ArrayList<SSelectionText> pr = new ArrayList<>();
 			ArrayList<SSelectionText> text = new ArrayList<>();
@@ -212,13 +214,14 @@ public class SelectAction {
 
 		try {
 			//どのテンプレが選択されたかの情報を入手
-			String tId = request.getParameter("tId");
+			String stringtId = request.getParameter("tId");
 			//ボタンの値を入手
 			String submit = request.getParameter("submit");
 
-			if (tId == null) {//テンプレ選択のページに飛ぶ
+			if (stringtId == null) {//テンプレ選択のページに飛ぶ
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
+				int tId = Integer.parseInt(stringtId);
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
@@ -271,21 +274,28 @@ public class SelectAction {
 	public String goToFeedbak(HttpServletRequest request) {
 
 		try {
-			//リクエスト領域からsIdを持ってくる。
+			//リクエスト領域からsIdとfCategoryを持ってくる。
 			int sId = Integer.parseInt(request.getParameter("sId"));
 			String fCategory = request.getParameter("fCategory");
+
+			//フィードバックを入れるリスト
+			ArrayList<SFeedback> list = new ArrayList<>();
+
 			//selectServiceを実体化
 			SelectService service = new SelectService();
 
-			if (fCategory == null) {
-				request.setAttribute("list.sId", sId);
-				return "/WEB-INF/jsp/feedback.jsp";
-			} else {
-				//フィードバックを入れるリスト
-				ArrayList<SFeedback> list = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
-				request.setAttribute("list", list);
-				return "/WEB-INF/jsp/feedback.jsp";
+
+			if (fCategory == null) {//詳細ページからフィードバックページに飛ぶとき
+				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
+
+			} else {//フィードバックのカテゴリーを変更した場合
+				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
+
 			}
+
+			request.setAttribute("list", list);
+			return "/WEB-INF/jsp/feedback.jsp";
+
 		} catch(SQLException e) {
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");

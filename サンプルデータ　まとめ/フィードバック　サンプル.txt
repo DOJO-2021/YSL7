@@ -1,0 +1,56 @@
+jdbc:h2:file:C:\pleiades\workspace\YSL7\data\systemofj
+
+
+￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥￥
+フィードバック
+
+
+create table Feedback (
+f_id int (6)　primary key auto_increment not null,
+s_id int (6) not null,
+f_category varchar (30) not null,
+f_name varchar (20),
+f_content varchar (1000)
+);
+
+
+insert into Feedback values (
+ null,
+ '006432',
+ '7月15日',
+ '菅澤',
+ '積極的な姿勢がとても印象的でした。周りのメンバーにも声をかけて、グループでの活動をより活発にできていたと思います。'
+ );
+
+insert into Feedback values (
+ null,
+ '002050',
+ '7月18日',
+ '菅澤',
+ 'インターンお疲れさまでした。経験者として専門的な知識を生かせていたと思います。周りのメンバーとも協力できていたと思います。'
+ );
+
+insert into Feedback values (
+ null,
+ '010567',
+ '6月12日',
+ '藤原',
+ 'お疲れさまでした。運動部ということで周りとの連携がかなり上手な印象です。'
+ );
+
+insert into Feedback values (
+ null,
+ '010567',
+ '6月14日',
+ 'フィードバックまとめ',
+ 'インターンお疲れさまでした。今回の経験を生かしてこれからの学校生活、就職活動頑張っていただけたらと思います。'
+ );
+
+insert into Feedback values (
+ null,
+ '117645',
+ '7月15日',
+ '板谷',
+ 'インターンお疲れさまでした。積極的な姿勢がとても印象的でした。'
+ );
+
