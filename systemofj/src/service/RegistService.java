@@ -69,7 +69,7 @@ public class RegistService {
 
 
 	//選考データの新規登録
-	public boolean selectionEasyInsert(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide)  throws ClassNotFoundException, SQLException {
+	public boolean selectionEasyInsert(String seSelectionDate, int seScore, int seTextScore, String seTextResult, String seGetTextDate,  String seNo, String seOk, String seNoReason, String seSendOk, String seEalryOk, String seEarlyNo, String seFirstResult, String seSecondResult, String seFirstNo, String seFirstDate, String seSecondNo, String seSecondDate, String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -81,7 +81,7 @@ public class RegistService {
 		SelectionEasyDao dao = new SelectionEasyDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int selectionEasy = dao.selectionEasyInsert(sId, seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
+		int selectionEasy = dao.selectionEasyInsert(seSelectionDate, seScore, seTextScore, seTextResult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEalryOk, seEarlyNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
 
 		if(selectionEasy != 0) {
 			result = true;
@@ -120,7 +120,7 @@ public class RegistService {
 
 
 	//イベント参加情報登録
-	public boolean eventInsert(int sId, String eCategory, String eDate) {
+	public boolean eventInsert(String eCategory, String eDate) {
 		boolean result = false;
 
 		//ドライバの登録
@@ -132,7 +132,7 @@ public class RegistService {
 		EventDao dao = new EventDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int event = dao.eventInsert(sId, eCategory, eDate);
+		int event = dao.eventInsert(eCategory, eDate);
 
 		if(event != 0) {
 			result = true;
@@ -171,7 +171,7 @@ public class RegistService {
 
 
 	//インターン参加情報登録
-	public boolean internInsert(int sId, String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, int iId, String iAttend, String applyFlag) {
+	public boolean internInsert(String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, int iId, String iAttend, String applyFlag) {
 		boolean result = false;
 
 		//ドライバの登録
@@ -183,7 +183,7 @@ public class RegistService {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int intern = dao.internInsert(sId, iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iId, iAttend, applyFlag);
+		int intern = dao.internInsert(iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iId, iAttend, applyFlag);
 
 		if(intern != 0) {
 			result = true;
