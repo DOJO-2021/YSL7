@@ -56,11 +56,12 @@ public class InternDao {
 		return isList;
 	}
 
-	public int internInsert(String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,int iId,String iAttend) throws SQLException {
+	public int internInsert(String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "insert into Intern values (null,?,?,?,?,?,?,?)";
+		String sql =  "insert into Intern (s_id,i_category, i_date, i_meeting,i_submit,i_acceptance,i_document,i_attend)"
+				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?, ?, ?, ?)";;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
