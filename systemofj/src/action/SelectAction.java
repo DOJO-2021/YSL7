@@ -229,6 +229,19 @@ public class SelectAction {
 			String submit = request.getParameter("submit");
 
 			if (stringtId == null) {//テンプレ選択のページに飛ぶ
+
+				SelectService service = new SelectService();
+				//プルダウンに表示するものを入手する処理
+				ArrayList<Template> intern = service.templateInternTitleSelect();
+				ArrayList<Template> event = service.templateSeminarTitleSelect();
+				ArrayList<Template> selection = service.templateFaceTitleSelect();
+				ArrayList<Template> other = service.templateOtherTitleSelect();
+				request.setAttribute("intern", intern);
+				request.setAttribute("event", event);
+				request.setAttribute("selection", selection);
+				request.setAttribute("other", other);
+
+
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
 				int tId = Integer.parseInt(stringtId);
