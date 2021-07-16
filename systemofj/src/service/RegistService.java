@@ -106,7 +106,7 @@ public class RegistService {
 		TemplateDao dao = new TemplateDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int newTemplate = dao.templateInsert(tTitle, tCategory, tContent);
+		int newTemplate = dao.templeteInsert(tTitle, tCategory, tContent);
 
 		if(newTemplate != 0) {
 			result = true;
@@ -171,7 +171,7 @@ public class RegistService {
 
 
 	//インターン参加情報登録
-	public boolean internInsert(String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, int iId, String iAttend, String applyFlag) {
+	public boolean internInsert(String iCategory, String iDate, String iMeeting, String iSubmit, String iAcceptance, String iDocument, String iAttend, String applyFlag) {
 		boolean result = false;
 
 		//ドライバの登録
@@ -183,7 +183,7 @@ public class RegistService {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int intern = dao.internInsert(iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iId, iAttend, applyFlag);
+		int intern = dao.internInsert(iCategory, iDate, iMeeting, iSubmit, iAcceptance, iDocument, iAttend, applyFlag);
 
 		if(intern != 0) {
 			result = true;
