@@ -1,0 +1,18 @@
+create table User (
+u_id int (4) primary key not null,
+u_name varchar (10) not null,
+u_first varchar (10) not null,
+u_pw varchar (20) not null,
+a_flag int (1) not null,
+y_flag int (1) not null
+);
+
+
+
+
+
+insert into user values(0101,'湯澤','芳郎','0101','1','1');
+insert into user values(9435,'松野','志保','0202','0','1');
+insert into user values(5634,'藤原','美樹','0303','0','1');
+insert into user values(1294,'板谷','亜佑佳','0404','0','1');
+insert into user values(5576,'菅澤','加奈','0505','0','1');
