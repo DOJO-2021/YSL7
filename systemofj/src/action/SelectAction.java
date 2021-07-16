@@ -21,7 +21,7 @@ import service.SelectService;
 public class SelectAction {
 
 	//検索して、検索一覧ページに飛ぶメソッド
-	public String serch(HttpServletRequest request) {
+	public String search(HttpServletRequest request) {
 		try {
 
 			//何で検索されたかを判断するためのmode
@@ -131,12 +131,12 @@ public class SelectAction {
 			//SInternの情報取得
 			ArrayList<SIntern> interns = service.internDSelect(sId);
 			ArrayList<SIntern> intern = new ArrayList<>();
-			ArrayList<SIntern> exp = new ArrayList<SIntern>();
+			SIntern exp = new SIntern();
 			//説明会とそれ以外を分ける。
 
 			for (SIntern e : interns) {
 				if(e.getiCategory().contains("説明会")) {
-					exp.add(e);
+					exp = e;
 				} else {
 					intern.add(e);
 				}
@@ -196,6 +196,16 @@ public class SelectAction {
 			request.setAttribute("pr", pr);
 			request.setAttribute("text", text);
 
+			String submit = request.getParameter("submit");
+
+			//編集画面に飛びます
+			if (submit != null) {
+				if (submit.equals("編集")) {
+					return "/WEB-INF/jsp/studentsEdit.jsp";
+				}
+			}
+
+			//詳細画面に飛びます
 			return "/WEB-INF/jsp/detail.jsp";
 
 		} catch(SQLException e) {
@@ -219,6 +229,19 @@ public class SelectAction {
 			String submit = request.getParameter("submit");
 
 			if (stringtId == null) {//テンプレ選択のページに飛ぶ
+
+				SelectService service = new SelectService();
+				//プルダウンに表示するものを入手する処理
+				ArrayList<Template> intern = service.templateInternTitleSelect();
+				ArrayList<Template> event = service.templateSeminarTitleSelect();
+				ArrayList<Template> selection = service.templateFaceTitleSelect();
+				ArrayList<Template> other = service.templateOtherTitleSelect();
+				request.setAttribute("intern", intern);
+				request.setAttribute("event", event);
+				request.setAttribute("selection", selection);
+				request.setAttribute("other", other);
+
+
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
 				int tId = Integer.parseInt(stringtId);
@@ -245,7 +268,7 @@ public class SelectAction {
 				if(submit != null) {
 					if(submit.equals("検索")) {
 						request.setAttribute("template", template);
-						return "/WEB-INF/jsp/tamplateEdit.jsp";
+						return "/WEB-INF/jsp/templateEdit.jsp";
 					}
 				}
 
