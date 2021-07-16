@@ -68,15 +68,15 @@
 <div class="container">
 <table align="center">
 	<tr align="center">
-		<td class="btn-td"><a href="" class="btn">アップロード</a></td>
-		<td class="btn-td"><a href="" class="btn">検索</a></td>
-		<td class="btn-td"><a href="" class="btn">テンプレート登録</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=アップロード" id="t_upload" class="btn">アップロード</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=検索" id="t_search" class="btn">検索</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=テンプレート登録" id="t_template" class="btn">テンプレート登録</a></td>
 	</tr>
 
 	<tr align="center">
-		<td class="btn-td"><a href="" class="btn">分析</a></td>
-		<td class="btn-td"><a href="" class="btn">学生の新規登録</a></td>
-		<td class="btn-td"><a href="" onclick="return onLogout()" class="btn">ログアウト</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=分析" id="t_analysis" class="btn">分析</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=学生の新規登録" id="t_regist" class="btn">学生の新規登録</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=ログアウト" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
 	</tr>
 </table>
 </div>

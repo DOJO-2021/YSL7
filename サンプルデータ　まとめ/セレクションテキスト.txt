@@ -12,16 +12,16 @@ st_score int (1)
 
 insert into SelectionText values (
 null,
-'000001',
+'1',
 '自己PR文',
-'菅澤',
+'松野',
 '1'
 );
 
 insert into SelectionText values (
 null,
-'036120',
-'履歴書',
+'1',
+'自己PR文',
 '藤原',
 '2'
 );
@@ -30,9 +30,9 @@ null,
 
 insert into SelectionText values (
 null,
-'045643',
-'書類選考',
-'菅澤',
+'1',
+'自己PR文',
+'板谷',
 '1'
 );
 
@@ -40,9 +40,9 @@ null,
 
 insert into SelectionText values (
 null,
-'000421',
-'履歴書',
-'板谷',
+'1',
+'自己PR文',
+'菅澤',
 '2'
 );
 
@@ -50,8 +50,91 @@ null,
 
 insert into SelectionText values (
 null,
-'004512',
+'1',
 '履歴書',
+'松野',
+'0'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'履歴書',
+'藤原',
+'0'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'履歴書',
+'板谷',
+'0'
+);
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'履歴書',
+'菅澤',
+'2'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'書類選考',
+'松野',
+'0'
+);
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'書類選考',
+'藤原',
+'0'
+);
+
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'書類選考',
+'板谷',
+'0'
+);
+
+
+
+
+insert into SelectionText values (
+null,
+'1',
+'書類選考',
 '菅澤',
 '0'
 );
@@ -59,4 +142,138 @@ null,
 
 
 
+
+
+insert into SelectionText values (
+null,
+'2',
+'自己PR文',
+'松野',
+'1'
+);
+
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'自己PR文',
+'藤原',
+'2'
+);
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'自己PR文',
+'板谷',
+'1'
+);
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'自己PR文',
+'菅澤',
+'2'
+);
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'履歴書',
+'松野',
+'2'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'履歴書',
+'藤原',
+'0'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'履歴書',
+'板谷',
+'0'
+);
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'履歴書',
+'菅澤',
+'2'
+);
+
+
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'書類選考',
+'松野',
+'0'
+);
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'書類選考',
+'藤原',
+'1'
+);
+
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'書類選考',
+'板谷',
+'1'
+);
+
+
+
+
+insert into SelectionText values (
+null,
+'2',
+'書類選考',
+'菅澤',
+'0'
+);
 
