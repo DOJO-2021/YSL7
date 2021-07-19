@@ -19,7 +19,7 @@ import service.UploadService;
 public class UploadAction {
 
 
-		//ここから下すべて、合ってるのか全然分かりません助けて～
+
 		public String upload(HttpServletRequest request, ServletContext context) {
 
 			try {
@@ -142,8 +142,13 @@ public class UploadAction {
 				UploadService service = new UploadService();
 				if (service.insert(listInList)) {//登録できた場合
 
+					request.setAttribute("msg", "登録が成功しました");
+					return "/WEB-INF/jsp/upload.jsp";
+
 				} else {//登録できなかった場合
 
+					request.setAttribute("msg", "登録が失敗しました。もう一度CSVファイルをアップロードしてください。");
+					return "/WEB-INF/jsp/upload.jsp";
 				}
 
 			} catch (IOException e) {
@@ -154,6 +159,6 @@ public class UploadAction {
 
 
 
-			return "/WEB-INF/jsp/upload.jsp";
+
 	}
 }
