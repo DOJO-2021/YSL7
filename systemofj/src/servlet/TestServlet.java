@@ -54,9 +54,43 @@ public class TestServlet extends HttpServlet {
 				path = "/WEB-INF/jsp/templateRegist.jsp";
 			}
 			if(request.getParameter("FLG").equals("ログアウト")) {
-				//ログインページへのパスを入れる
-				path = "/WEB-INF/jsp/login.jsp";
+					//ログインページへのパスを入れる
+					path = "/WEB-INF/jsp/login.jsp";
+				}
+
+
+
+
+			//その他のjspにも直で飛べるようにする
+			if(request.getParameter("FLG").equals("学生データ詳細")) {
+				//詳細ページへのパスを入れる
+				path = "/WEB-INF/jsp/detail.jsp";
 			}
+			if(request.getParameter("FLG").equals("フィードバック登録・更新")) {
+				//フィードバックページへのパスを入れる
+				path = "/WEB-INF/jsp/feedback.jsp";
+			}
+
+			if(request.getParameter("FLG").equals("検索結果")) {
+				//検索結果ページへのパスを入れる
+				path = "/WEB-INF/jsp/searchResult.jsp";
+			}
+			if(request.getParameter("FLG").equals("一括編集")) {
+				//一括編集ページへのパスを入れる
+				path = "/WEB-INF/jsp/allEdit.jsp";
+			}
+
+			if(request.getParameter("FLG").equals("テンプレ編集")) {
+				//テンプレ編集ページへのパスを入れる
+				path = "/WEB-INF/jsp/templateEdit.jsp";
+			}
+			if(request.getParameter("FLG").equals("処理結果")) {
+				//処理結果ページへのパスを入れる
+				path = "/WEB-INF/jsp/result.jsp";
+			}
+
+
+
 
 		}
 //		if(request.getParameter("t_upload")!= null){
