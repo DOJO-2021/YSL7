@@ -315,6 +315,7 @@ public class SelectAction {
 				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
 
 			} else {//フィードバックのカテゴリーを変更した場合
+				request.setAttribute("fCategory", fCategory);
 				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
 
 			}
