@@ -33,12 +33,11 @@
 	</div>
 	<div class="c3" id="d3">
 		<select name="i_category">
-			<option value="i_category1">1day</option>
-			<option value="i_category2">3days</option>
-			<option value="i_category3">初級</option>
-			<option value="i_category4">中級</option>
-			<option value="i_category5">選考準備</option>
-			<option value="i_category6">説明会</option>
+			<option value="1day">1day</option>
+			<option value="3days">3days</option>
+			<option value="初級">初級</option>
+			<option value="中級">中級</option>
+			<option value="準備">選考準備</option>
 		</select>
 	</div>
 	<input type="date" name="date" id="date1">

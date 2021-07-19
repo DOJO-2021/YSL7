@@ -51,10 +51,9 @@ public class FeedbackDao {
 	// 更新
 	public int update(int fId, String fName, String fContent) throws SQLException {
 
-
 		// SQL文を準備する
 
-		String sql = "update Feedback set f_name = ? f_content = ? where f_id = ?";
+		String sql = "update Feedback set f_name = ?, f_content = ? where f_id = ?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -63,6 +62,7 @@ public class FeedbackDao {
 		pStmt.setString(2, fContent);
 		pStmt.setInt(3, fId);
 
+		int ans = pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
 		if (conn != null) {
@@ -73,7 +73,7 @@ public class FeedbackDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans;
 
 
 	}
@@ -92,6 +92,7 @@ public class FeedbackDao {
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
+		int ans = pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
 		if (conn != null) {
@@ -102,7 +103,7 @@ public class FeedbackDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans;
 
 
 	}
