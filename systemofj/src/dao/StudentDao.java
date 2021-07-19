@@ -180,7 +180,7 @@ public class StudentDao {
 			bean.setsFaculty(rs.getString("s_Faculty"));
 			bean.setsDepartment(rs.getString("s_Department"));
 			bean.setsAddress(rs.getString("s_Address"));
-			bean.setsPcmail(rs.getString("s_Pcmail"));
+			bean.setsPcMail(rs.getString("s_Pcmail"));
 			bean.setsMobileMail(rs.getString("s_MobileMail"));
 			bean.setsCareertasu(rs.getString("s_Careertasu"));
 			bean.setsMynavi(rs.getString("s_Mynavi"));
