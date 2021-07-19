@@ -2,26 +2,8 @@ package model;
 
 public class Student {
 
+	// フィールド
 	private int sId;
-	public Student(int sId, String sName, String sKana, String sContexts, String sUnivercity, String sFaculty,
-			String sDepartment, String sAddress, String sPcMail, String sMobileMail, String sCareertasu, String sMynavi,
-			String sRikunavi, String sOther) {
-		super();
-		this.sId = sId;
-		this.sName = sName;
-		this.sKana = sKana;
-		this.sContexts = sContexts;
-		this.sUnivercity = sUnivercity;
-		this.sFaculty = sFaculty;
-		this.sDepartment = sDepartment;
-		this.sAddress = sAddress;
-		this.sPcMail = sPcMail;
-		this.sMobileMail = sMobileMail;
-		this.sCareertasu = sCareertasu;
-		this.sMynavi = sMynavi;
-		this.sRikunavi = sRikunavi;
-		this.sOther = sOther;
-	}
 	private String sName;
 	private String sKana;
 	private String sContexts;
@@ -37,6 +19,9 @@ public class Student {
 	private String sOther;
 	public int getsId() {
 		return sId;
+
+
+	// ゲッター・セッター
 	}
 	public void setsId(int sId) {
 		this.sId = sId;
