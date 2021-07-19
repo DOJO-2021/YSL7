@@ -20,7 +20,7 @@ public class StudentDao {
 	public int studentInsert(String sName,String sKana,String sContexts, String sUnivercity, String sFaculty, String sDepartment, String sAddress,String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String sOther)  throws SQLException {
 
 		// SQL文を準備する
-		String sql = "insert into Student values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)";
+		String sql = "insert into Student values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -68,7 +68,7 @@ public class StudentDao {
 
 		// SQL文を準備する
 
-		String sql = "update Student set s_Name=?, s_Kana=?,s_Contexts=?,s_Univercity=?, s_Faculty=?, s_Department=?, s_Address=?, s_Pcmail=?, s_Mobilemail=?, s_Careertasu=?, s_Mynavi=?, s_Rikunavi=?, String s_Other where s_Id=?";
+		String sql = "update Student set s_Name=?, s_Kana=?,s_Contexts=?,s_Univercity=?, s_Faculty=?, s_Department=?, s_Address=?, s_Pcmail=?, s_Mobilemail=?, s_Careertasu=?, s_Mynavi=?, s_Rikunavi=?, s_Other=? where s_Id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -101,11 +101,15 @@ public class StudentDao {
 
 		pStmt.setInt(14, sId);
 
+
+		int ans = pStmt.executeUpdate();
+
+
 		if (conn != null) {
 			conn.close();
 		}
 
-		int ans = pStmt.executeUpdate();
+
 
 		// SQL文を実行する
 		// ここは変えなくていい
