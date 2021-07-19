@@ -94,9 +94,9 @@ width: 800px;
 
   </tr>
 </table>
+<input type="submit" name="allUpdate" value="一括更新" style="width: 200px">
 </form>
 <div align="center">
-<input type="submit" name="allUpdate" value="一括更新" style="width: 200px">
 </div>
 </body>
 </html>

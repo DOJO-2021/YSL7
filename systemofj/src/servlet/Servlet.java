@@ -64,7 +64,7 @@ public class Servlet extends HttpServlet {
 		LoginAction LoginAction = new LoginAction();
 		UploadAction UploadAction = new UploadAction();
 
-		if(request.getParameter("FLG")== null) {
+		if(request.getParameter("FLG")!= null) {
 			if(request.getParameter("FLG").equals("アップロード")) {
 				//アップロードページへのパスを入れる
 				path = "/WEB-INF/jsp/upload.jsp";
@@ -104,7 +104,7 @@ public class Servlet extends HttpServlet {
 		//アップロード
 		if(request.getParameter("FLG")== null) {
 			if(submit == "u_upload"){
-				path = UploadAction.studentUpload(request);
+				path = UploadAction.upload(request, getServletContext());
 			}
 			//削除
 			if(submit == "u_delete") {
@@ -222,7 +222,7 @@ public class Servlet extends HttpServlet {
 			}
 			//登録ボタン・フィードバックまとめ登録ボタン
 			if(submit == "fr_regist_button" || submit == "f_regist_button") {
-				path = RegistAction.feedbackRegist(request);
+				path = RegistAction.FeedbackRegist(request);
 			}
 			//更新ボタン・フィードバックまとめ更新ボタン
 			if(submit == "fr_update_button" || submit == "f_update_button") {
@@ -231,7 +231,7 @@ public class Servlet extends HttpServlet {
 		//テンプレ登録画面
 			//テンプレ登録ボタン
 			if(submit == "tr_regist_button") {
-				path = RegistAction.templateRegist(request);
+				path = RegistAction.TemplateRegist(request);
 			}
 		//テンプレ検索画面
 			//検索ボタン
