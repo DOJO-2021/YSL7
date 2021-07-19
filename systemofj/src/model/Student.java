@@ -2,6 +2,7 @@ package model;
 
 public class Student {
 
+	// フィールド
 	private int sId;
 	private String sName;
 	private String sKana;
@@ -18,6 +19,9 @@ public class Student {
 	private String sOther;
 	public int getsId() {
 		return sId;
+
+
+	// ゲッター・セッター
 	}
 	public void setsId(int sId) {
 		this.sId = sId;

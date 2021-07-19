@@ -7,14 +7,15 @@
 	<title>フィードバック</title>
 
 <style>
-.fb-table{
 
+.fb-tbl{
+	margin:auto;
 }
-
 
 .fb-matome{
 	height: 600px;
 	width: 800px;
+	margin: auto;
 }
 
 
@@ -24,17 +25,18 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <p>フィードバックページ</p>
 ※フィードバック入力後は必ず登録ボタンを押してください
 
 
 
-<table align="center" class="fb-table">
+<table align="center" class="fb-tbl">
 	<tr>
 		<td>
 
 		<!-- tableの中のtable①ここから -->
-			<table border="1">
+			<table border="1" class="fb-tbl">
 			<tr>
 				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
 			</tr>
@@ -87,7 +89,7 @@
 		<td>
 
 		<!-- tableの中のtable③ここから -->
-			<table border="1">
+			<table border="1" class="fb-tbl">
 			<tr>
 				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
 			</tr>
