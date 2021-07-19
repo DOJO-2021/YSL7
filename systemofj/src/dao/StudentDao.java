@@ -50,6 +50,8 @@ public class StudentDao {
 
 		pStmt.setString(13, sOther);
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -57,7 +59,7 @@ public class StudentDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
@@ -103,10 +105,12 @@ public class StudentDao {
 			conn.close();
 		}
 
+		int ans = pStmt.executeUpdate();
+
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
@@ -123,7 +127,7 @@ public class StudentDao {
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
-
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -133,7 +137,7 @@ public class StudentDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
 	}
@@ -343,10 +347,12 @@ public class StudentDao {
 			conn.close();
 		}
 
+		int ans = pStmt.executeUpdate();
+
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
