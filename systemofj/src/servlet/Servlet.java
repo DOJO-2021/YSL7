@@ -87,8 +87,7 @@ public class Servlet extends HttpServlet {
 			}
 			if(request.getParameter("FLG").equals("テンプレート検索")) {
 				//テンプレート編集ページへのパスを入れる
-				path = SelectAction.templateInternTitleSelect(request);
-				path = SelectAction.template
+				path = SelectAction.selectTemplate(request);
 
 			}
 			if(request.getParameter("FLG").equals("ログアウト")) {
@@ -96,28 +95,7 @@ public class Servlet extends HttpServlet {
 				path = "/WEB-INF/jsp/login.jsp";
 			}
 		}
-		if(request.getParameter("t_upload")!= null){
-			path = "/WEB-INF/jsp/upload.jsp";
-		}
-		if(request.getParameter("t_search")!= null){
-			path = "/WEB-INF/jsp/search.jsp";
-		}
-		if(request.getParameter("t_template")!= null){
-			path = "/WEB-INF/jsp/templateRegist.jsp";
-		}
-		if(request.getParameter("t_analysis")!= null){
-			path = "/WEB-INF/jsp/analysis.jsp";
-		}
-		if(request.getParameter("t_regist")!= null){
-			path = "/WEB-INF/jsp/studentRegist.jsp";
-		}
-		if(request.getParameter("t_logout")!= null){
-			session.invalidate();
-			path = "/WEB-INF/jsp/login.jsp";
-		}
-		if(request.getParameter("login")!= null){
-			path = LoginAction.login(request);
-		}
+
 
 	//ログイン画面
 
@@ -133,6 +111,28 @@ public class Servlet extends HttpServlet {
 				result = "アップロードした内容を削除しました。";
 				request.setAttribute("result", result);
 				path = "/WEB-INF/jsp/result.jsp";
+			}
+			if(submit == "t_upload"){
+				path = "/WEB-INF/jsp/upload.jsp";
+			}
+			if(submit == "t_search"){
+				path = "/WEB-INF/jsp/search.jsp";
+			}
+			if(submit == "t_template"){
+				path = "/WEB-INF/jsp/templateRegist.jsp";
+			}
+			if(submit == "t_analysis"){
+				path = "/WEB-INF/jsp/analysis.jsp";
+			}
+			if(submit == "t_regist"){
+				path = "/WEB-INF/jsp/studentRegist.jsp";
+			}
+			if(submit == "t_logout"){
+				session.invalidate();
+				path = "/WEB-INF/jsp/login.jsp";
+			}
+			if(request.getParameter("login")!= null){
+				path = LoginAction.Login(request);
 			}
 
 		//検索画面
@@ -177,18 +177,13 @@ public class Servlet extends HttpServlet {
 			}
 			//フィードバックボタン
 			if(submit == "feedback") {
-				SelectAction.fFeedbackSelect(request);
+				path = SelectAction.goToFeedbak(request);
 			}
 
 
 			//編集ボタン
 			if(submit == "Edit") {
-				path = SelectAction.studentSelect(request);
-				SelectAction.selectionEasySelect(request);
-				SelectAction.eventSelect(request);
-				SelectAction.internSelect(request);
-				SelectAction.selectionFaceSelect(request);
-				SelectAction.selectionTextSelect(request);
+				path = SelectAction.goToDetail(request);
 			}
 			//削除ボタン
 			if(submit == "Delete") {
@@ -218,21 +213,16 @@ public class Servlet extends HttpServlet {
 		//学生の新規登録画面
 			//登録ボタン
 			if(submit == "Regist") {
-				path = RegistAction.studentInsert(request);
-				RegistAction.selectionEasyInsert(request);
-				RegistAction.eventInsert(request);
-				RegistAction.internInsert(request);
-				RegistAction.selectionFaceInsert(request);
-				RegistAction.selectionTextInsert(request);
+				path = RegistAction.StudentRegist(request);
 			}
 		//フィードバック画面
 			//検索ボタン
 			if(submit == "fr_search_button") {
-				path = SelectAction.feedbackSelect(request);
+				path = SelectAction.goToFeedbak(request);
 			}
 			//登録ボタン・フィードバックまとめ登録ボタン
 			if(submit == "fr_regist_button" || submit == "f_regist_button") {
-				path = RegistAction.feedbackInsert(request);
+				path = RegistAction.feedbackRegist(request);
 			}
 			//更新ボタン・フィードバックまとめ更新ボタン
 			if(submit == "fr_update_button" || submit == "f_update_button") {
@@ -241,12 +231,17 @@ public class Servlet extends HttpServlet {
 		//テンプレ登録画面
 			//テンプレ登録ボタン
 			if(submit == "tr_regist_button") {
-				path = RegistAction.templateInsert(request);
+				path = RegistAction.templateRegist(request);
 			}
 		//テンプレ検索画面
 			//検索ボタン
 			if(submit == "ts_regist_button") {
-				path =
+				path = SelectAction.selectTemplate(request);
+			}
+		//テンプレ更新画面
+			//テンプレ更新ボタン
+			if(submit == "tu_update_button") {
+				path = UpdateDeleteAction.templateUpdate(request);
 			}
 		}
 
