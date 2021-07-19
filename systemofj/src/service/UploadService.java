@@ -18,7 +18,7 @@ import dao.StudentDao;
 
 
 public class UploadService {
-	public boolean insert(ArrayList<ArrayList<String>> list) throws ClassNotFoundException,SQLException {
+	public boolean insert(ArrayList<ArrayList<String>> list) {
 		boolean result = false;
 
 		//ドライバの登録を行う
