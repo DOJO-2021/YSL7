@@ -34,6 +34,8 @@ public class FeedbackDao {
 
 		pStmt.setString(4, fContent);
 
+		int ans = pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -41,7 +43,7 @@ public class FeedbackDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans;
 
 	}
 
