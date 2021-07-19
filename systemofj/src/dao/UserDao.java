@@ -125,7 +125,7 @@ public class UserDao {
 
 		// SQL文を準備する
 
-		String sql = "update User set a_flag = 1 where user_id=?";
+		String sql = "update User set a_flag = 1 where u_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -156,14 +156,14 @@ public class UserDao {
 
 		// SQL文を準備する
 
-		String sql = "delete from Question where u_id=?";
+		String sql = "delete from User where u_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 
 		pStmt.setString(1, uId); //1つ目の?(=NAME)に入力値をいれる
 
-
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -173,7 +173,7 @@ public class UserDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
 	}
