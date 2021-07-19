@@ -27,6 +27,7 @@ textarea{
 width: 800px;
 }
 </style>
+
 </head>
 <body>
 <!-- メール作成ボタン -->
