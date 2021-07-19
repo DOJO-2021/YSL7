@@ -44,7 +44,7 @@ public class RegistService {
 
 
 	//学生データ（基本情報）の新規登録
-	public boolean studentInsert(String sName, String sKana, String sContent, String sUnivercity, String sFaculty, String sDepartment, String sAddress, String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String sOther, int alleditflag)  throws ClassNotFoundException, SQLException {
+	public boolean studentInsert(String sName, String sKana, String sContexts, String sUnivercity, String sFaculty, String sDepartment, String sAddress, String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String sOther, int alleditflag)  throws ClassNotFoundException, SQLException {
 		boolean result = false;
 
 		//ドライバの登録
@@ -56,7 +56,7 @@ public class RegistService {
 		StudentDao dao = new StudentDao(conn);
 
 		//引数を渡し、取得値をbeanに渡す
-		int newStudent = dao.studentInsert(sName, sKana, sContent, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther);
+		int newStudent = dao.studentInsert(sName, sKana, sContexts, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther);
 
 		if(newStudent != 0) {
 			result = true;
