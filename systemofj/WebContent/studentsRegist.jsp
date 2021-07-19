@@ -27,6 +27,7 @@ textarea{
 width: 800px;
 }
 </style>
+
 </head>
 <body>
 <!-- メール作成ボタン -->
@@ -53,19 +54,19 @@ width: 800px;
 	<table style="border: 0px; width: 800px;">
 	<input type="hidden" name="s_id">
 	  <tr>
-	    <td>氏名<hr><input type="text" name="s_name"></td>
-	    <td>フリガナ<hr><input type="text" name="s_kana"></td>
-	    <td colspan="2">住所<hr><input type="text" name="s_address"></td>
+	    <td>氏名<hr><input type="text" name="s_name" value="　"></td>
+	    <td>フリガナ<hr><input type="text" name="s_kana" value="　"></td>
+	    <td colspan="2">住所<hr><input type="text" name="s_address" value="　"></td>
 	  </tr>
 	  <tr>
-	    <td>学校名<hr><input type="text" name="s_university"></td>
-	    <td>学部<hr><input type="text" name="s_faculty"></td>
-	    <td>学科<hr><input type="text" name="s_department"></td>
-	    <td>文理<hr><select name="s_contexts"><option value=""></option><option value="文">文</option><option value="理">理</option></select></td>
+	    <td>学校名<hr><input type="text" name="s_university" value="　"></td>
+	    <td>学部<hr><input type="text" name="s_faculty" value="　"></td>
+	    <td>学科<hr><input type="text" name="s_department" value="　"></td>
+	    <td>文理<hr><select name="s_contexts"><option value="　"></option><option value="文">文</option><option value="理">理</option></select></td>
 	  </tr>
 	  <tr>
-	    <td colspan="2">PCメール<hr><input type="text" name="s_pcmail"></td>
-	    <td colspan="2">携帯メール<hr><input type="text" name="s_mobilemail"></td>
+	    <td colspan="2">PCメール<hr><input type="text" name="s_pcmail" value="　"></td>
+	    <td colspan="2">携帯メール<hr><input type="text" name="s_mobilemail" value="　"></td>
 	  </tr>
 	  <tr>
 	    <td colspan="4">
@@ -74,10 +75,10 @@ width: 800px;
 	          <th colspan="4">申込分類</th>
 	        </tr>
 	        <tr>
-	    	  <td>キャリタス<hr><select name="s_careertasu"><option value=""></option><option value="〇">〇</option></select></td>
-	    	  <td>リクナビ<hr><select name="s_rikunavi"><option value=""></option><option value="〇">〇</option></select></td>
-	    	  <td>マイナビ<hr><select name="s_mynavi"><option value=""></option><option value="〇">〇</option></select></td>
-	    	  <td>その他<hr><select name="s_other"><option value=""></option><option value="〇">〇</option></select></td>
+	    	  <td>キャリタス<hr><select name="s_careertasu"><option value="　"></option><option value="〇">〇</option></select></td>
+	    	  <td>リクナビ<hr><select name="s_rikunavi"><option value="　"></option><option value="〇">〇</option></select></td>
+	    	  <td>マイナビ<hr><select name="s_mynavi"><option value="　"></option><option value="〇">〇</option></select></td>
+	    	  <td>その他<hr><select name="s_other"><option value="　"></option><option value="〇">〇</option></select></td>
 	        </tr>
 	      </table>
 	    </td>
@@ -99,7 +100,7 @@ width: 800px;
           <td>参加日</td>
         </tr>
         <tr>
-          <td><input type="date" name="e_date1"></td>
+          <td><input type="date" name="e_date1" value="　"></td>
         </tr>
       </table>
     </td>
@@ -114,9 +115,9 @@ width: 800px;
 		  <td>参加日</td>
         </tr>
         <tr>
-          <td><input type="date" name="e_date2"></td>
-		  <td><input type="date" name="e_date3"></td>
-		  <td><input type="date" name="e_date4"></td>
+          <td><input type="date" name="e_date2" value="　"></td>
+		  <td><input type="date" name="e_date3" value="　"></td>
+		  <td><input type="date" name="e_date4" value="　"></td>
 
         </tr>
       </table>
@@ -131,8 +132,8 @@ width: 800px;
 		  <td>参加日</td>
         </tr>
         <tr>
-          <td><input type="date" name="e_date5"></td>
-          <td><input type="date" name="e_date6"></td>
+          <td><input type="date" name="e_date5" value="　"></td>
+          <td><input type="date" name="e_date6" value="　"></td>
         </tr>
       </table>
     </td>
@@ -160,43 +161,43 @@ width: 800px;
               </tr>
               <tr>
                 <td style="border: 0px"></td>
-                <td><input type="date" name="i_date1"></td>
-                <td><input type="date" name="i_date2"></td>
-                <td><input type="date" name="i_date3"></td>
-                <td><input type="date" name="i_date4"></td>
-                <td><input type="date" name="i_date5"></td>
+                <td><input type="date" name="i_date1" value="　"></td>
+                <td><input type="date" name="i_date2" value="　"></td>
+                <td><input type="date" name="i_date3" value="　"></td>
+                <td><input type="date" name="i_date4" value="　"></td>
+                <td><input type="date" name="i_date5" value="　"></td>
               </tr>
               <tr>
                 <th>懇親会出欠</th>
-                <td><select name="i_meeting1"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting2"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting3"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting4"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting5"><option value=""></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting1"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting2"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting3"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting4"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting5"><option value="　"></option><option value="〇">〇</option></select></td>
               </tr>
               <tr>
                 <th>アンケート合否</th>
-                <td><select name="i_acceptance1"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance2"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance3"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance4"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance5"><option value=""></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance1"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance2"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance3"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance4"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance5"><option value="　"></option><option value="〇">〇</option></select></td>
               </tr>
               <tr>
                 <th>アンケート提出有無</th>
-                <td><select name="i_submit1"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit2"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit3"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit4"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit5"><option value=""></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit1"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit2"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit3"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit4"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit5"><option value="　"></option><option value="〇">〇</option></select></td>
               </tr>
               <tr>
                 <th>資料送付</th>
-                <td><select name="i_document1"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document2"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document3"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document4"><option value=""></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document5"><option value=""></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document1"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document2"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document3"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document4"><option value="　"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document5"><option value="　"></option><option value="〇">〇</option></select></td>
               </tr>
             </table>
           </td>
@@ -224,9 +225,9 @@ width: 800px;
           <td>出欠</td>
         </tr>
         <tr>
-          <td><input type="date" name="applyflag"></td>
-          <td><input type="date" name="i_date6"></td>
-          <td><select name="i_attend"><option value=""></option><option value="〇">〇</option></select></td>
+          <td><input type="date" name="applyflag" value="　"></td>
+          <td><input type="date" name="i_date6" value="　"></td>
+          <td><select name="i_attend"><option value="　"></option><option value="〇">〇</option></select></td>
         </tr>
       </table>
     </td>
@@ -237,8 +238,8 @@ width: 800px;
          <th>適正点数</th>
         </tr>
         <tr>
-          <td><input type="date" name="se_selectiondate"></td>
-          <td><input type="text" name="se_score"></td>
+          <td><input type="date" name="se_selectiondate" value="　"></td>
+          <td><input type="text" name="se_score" value="　"></td>
         </tr>
       </table>
     </td>
@@ -249,8 +250,8 @@ width: 800px;
           <th>書類合否</th>
         </tr>
         <tr>
-          <td><input type="text" name="se_textscore"></td>
-          <td><select name="se_textresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><input type="text" name="se_textscore" value="　"></td>
+          <td><select name="se_textresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -268,10 +269,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><input type="text" name="st_score_resume1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume4"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><input type="text" name="st_score_resume1" value="　"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -287,10 +288,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_pr1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr4"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -306,10 +307,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_text1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text4"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -329,12 +330,12 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td style="width: 143px"><input type="date" name="se_firstno"></td>
-          <td style="width: 143px"><input type="date" name="se_firstdate"></td>
-          <td><select name="sf_score_one1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_firstresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td style="width: 143px"><input type="date" name="se_firstno" value="　"></td>
+          <td style="width: 143px"><input type="date" name="se_firstdate" value="　"></td>
+          <td><select name="sf_score_one1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_one2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_one3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="se_firstresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -351,11 +352,11 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td style="width: 143px"><input type="date" name="se_secondno"></td>
-          <td style="width: 143px"><input type="date" name="se_seconddate"></td>
-          <td><select name="sf_score_second1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_second2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_secondresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td style="width: 143px"><input type="date" name="se_secondno" value="　"></td>
+          <td style="width: 143px"><input type="date" name="se_seconddate" value="　"></td>
+          <td><select name="sf_score_second1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="se_secondresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -369,8 +370,8 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td><input type="date" name="se_thirddate"></td>
-          <td><select name="se_thirdresult"><option value=""></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><input type="date" name="se_thirddate" value="　"></td>
+          <td><select name="se_thirdresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
     </td>
@@ -388,19 +389,19 @@ width: 800px;
           <th>決定までの日数</th>
         </tr>
         <tr>
-          <td><input type="date" name="se_sendok"></td>
-          <td><input type="date" name="se_earlyok"></td>
-          <td><input type="date" name="se_earlyno"></td>
-          <td><input type="date" name="se_ok"></td>
-          <td><input type="date" name="se_no"></td>
-          <td><input type="date" name="se_gettextdate"></td>
-          <td><input type="text" name="se_decide"></td>
+          <td><input type="date" name="se_sendok" value="　"></td>
+          <td><input type="date" name="se_earlyok" value="　"></td>
+          <td><input type="date" name="se_earlyno" value="　"></td>
+          <td><input type="date" name="se_ok" value="　"></td>
+          <td><input type="date" name="se_no" value="　"></td>
+          <td><input type="date" name="se_gettextdate" value="　"></td>
+          <td><input type="text" name="se_decide" value="　"></td>
         </tr>
         <tr>
           <th>辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7"><textarea style="width: 1069px" name="se_noreason"></textarea></td>
+          <td colspan="7"><textarea style="width: 1069px" name="se_noreason"　>　</textarea></td>
         </tr>
       </table>
     </td>
@@ -412,7 +413,7 @@ width: 800px;
          <th>備考</th>
        </tr>
        <tr>
-         <td><textarea name="se_remarks"></textarea></td>
+         <td><textarea name="se_remarks">　</textarea></td>
        </tr>
      </table>
     </td>
@@ -423,7 +424,7 @@ width: 800px;
         </tr>
         <tr>
           <td><select name="se_situation">
-          <option value=""></option>
+          <option value="　"></option>
           <option value="適性検査受験前">適性検査受験前</option>
           <option value="適性検査受験済">適性検査受験済</option>
           <option value="書類選考中">書類選考中</option>
