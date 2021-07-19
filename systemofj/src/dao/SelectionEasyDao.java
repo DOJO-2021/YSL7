@@ -124,13 +124,16 @@ public class SelectionEasyDao {
 		pStmt.setString(21, seSituation);
 		pStmt.setString(22, seDecide);
 
+
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
@@ -193,7 +196,7 @@ public class SelectionEasyDao {
 		pStmt.setInt(2, seScore);
 		pStmt.setInt(3, seTextScore);
 		pStmt.setString(4, seTextResult);
-		pStmt.setString(5, seSelectionDate);
+		pStmt.setString(5, seGetTextDate);
 		pStmt.setString(6, seNo);
 		pStmt.setString(7, seOk);
 		pStmt.setString(8, seNoReason);
@@ -213,6 +216,8 @@ public class SelectionEasyDao {
 		pStmt.setInt(22, sId);
 
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -220,7 +225,7 @@ public class SelectionEasyDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
@@ -236,6 +241,8 @@ public class SelectionEasyDao {
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -243,6 +250,6 @@ public class SelectionEasyDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 }

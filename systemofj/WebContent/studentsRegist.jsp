@@ -27,6 +27,7 @@ textarea{
 width: 800px;
 }
 </style>
+
 </head>
 <body>
 <!-- メール作成ボタン -->
@@ -268,7 +269,7 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><input type="text" name="st_score_resume1" value="　"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><input type="text" name="st_score_resume1" value="　"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
@@ -329,8 +330,8 @@ width: 800px;
           <th>合否</th>
         </tr>
         <tr>
-          <td style="width: 143px"><input type="date" name="se_firstno"></td>
-          <td style="width: 143px"><input type="date" name="se_firstdate"></td>
+          <td style="width: 143px"><input type="date" name="se_firstno" value="　"></td>
+          <td style="width: 143px"><input type="date" name="se_firstdate" value="　"></td>
           <td><select name="sf_score_one1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="sf_score_one2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="sf_score_one3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>

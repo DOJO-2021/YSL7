@@ -18,7 +18,7 @@ import dao.StudentDao;
 
 
 public class UploadService {
-	public boolean insert(ArrayList<ArrayList<String>> list) throws ClassNotFoundException,SQLException {
+	public boolean insert(ArrayList<ArrayList<String>> list) {
 		boolean result = false;
 
 		//ドライバの登録を行う
@@ -159,6 +159,7 @@ public class UploadService {
 				sedao.selectionEasyUpdate(seSelectionDate,seScore,seTextScore,seTextResult,seGetTextDate,seNo,seOk,seNoReason,seSendOk,seEarlyOk,seEarlyNo,seFirstResult,seSecondResult,seFirstNo,seFirstDate,seSecondNo,seSecondDate,seThirdDate,seThirdResult,seRemarks,seSituation,seDecide);
 			}
 			conn.commit();
+			result = true;
 		}
 
 		catch(IOException e){
@@ -174,45 +175,5 @@ public class UploadService {
 		return result;
 	}
 
-	public boolean insert(String eCategory,String eDate) throws ClassNotFoundException,SQLException {
-		boolean result2 = false;
-
-		//ドライバの登録を行う
-		Class.forName("org.h2.Driver");
-
-		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\db\\db", "sa", "sa");
-
-		try {
-			EventDao edao = new EventDao(conn);
-			edao.eventInsert(eCategory,eDate);
-
-			InternDao idao = new InternDao(conn);
-			idao.internInsert(iCategory,iDate,"","","","","",applyFlag);
-
-			SelectionTextDao stdao = new SelectionTextDao(conn);
-			stdao.selectiontextInsert("","",0);
-
-			SelectionFaceDao sfdao = new SelectionFaceDao(conn);
-			sfdao.selectionfaceInsert("","",0);
-
-			SelectionEasyDao sedao = new SelectionEasyDao(conn);
-			sedao.selectionEasyInsert("",0,0,"","","","","","","","","","","","","","","","","","","");
-
-			conn.commit();
-		}
-
-		catch(IOException e){
-			e.printStackTrace();
-		}
-		catch(ServletException e) {
-			e.printStackTrace();
-		}
-		catch(SQLException e) {
-			conn.rollback();
-		}
-
-		return result2;
-	}
 
 }
