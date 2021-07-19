@@ -86,8 +86,11 @@ input[name="tab_item"] {
 
 
 <!-- 個人名で検索できる場所 -->
-<input type="text" name="search" placeholder="個人名検索">
-<input type="submit" name="search" value="検索">
+<form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" value="name" name="mode">
+	<input type="text" name="search_item" placeholder="個人名検索">
+	<input type="submit" name="submit" value="検索">
+</form>
 
 <!-- 検索大項目 -->
 <div class="tabs">
@@ -101,11 +104,15 @@ input[name="tab_item"] {
 <!-- 検索小項目(インターン) -->
 <div class="tab_content" id="intern">
 <form method="POST" action="/systemofj/Servlet">
+
+	<input type="hidden" value="intern" name="mode">
+
     <table  class="width">
         <tr>
-        	<td><input type="radio" name=search_item>1DAY</td>
-        	<td><input type="radio" name=search_item>3DAY</td>
-			<td>年度選択　<select name="year">
+        	<td><input type="radio" name=search_item value="1day">1DAY</td>
+        	<td><input type="radio" name=search_item value="3days">3DAY</td>
+			<td>年度選択　<select name="year" id="internYear">
+			<option hidden></option>
 			<option value="1998">1998</option>
 			<option value="1999">1999</option>
 			<option value="2000">2000</option>
@@ -142,16 +149,16 @@ input[name="tab_item"] {
 			</select></td>
         </tr>
         <tr>
-        	<td><input type="radio" name=search_item>初級</td>
-        	<td><input type="radio" name=search_item>中級</td>
-        	<td><input type="date" name="date"></td>
+        	<td><input type="radio" name=search_item value="初級">初級</td>
+        	<td><input type="radio" name=search_item value="中級">中級</td>
+        	<td><input type="date" name="date" id="internDay"></td>
         </tr>
         <tr>
-        	<td><input type="radio" name=search_item>選考準備</td>
-        	<td><input type="radio" name=search_item>インターン参加者</td>
+        	<td><input type="radio" name=search_item value="準備">選考準備</td>
+        	<td><input type="radio" name=search_item value="internAll">インターン参加者</td>
         </tr>
         <tr>
-        	<td colspan="3" align="right"><input type="submit" name="regist" value="検索"></td>
+        	<td colspan="3" align="right"><input type="submit" name="submit" value="検索" onclick="return dateCheck('internDay', 'internYear')"></td>
         </tr>
     </table>
 </form>
@@ -160,12 +167,16 @@ input[name="tab_item"] {
 <!-- 検索小項目(イベント) -->
 <div class="tab_content" id="briefing">
 <form method="POST" action="/systemofj/Servlet">
+
+	<input type="hidden" value="event" name="mode">
+
     <table  class="width">
     	<tr>
-			<td><input type="radio" name=search_item>合同説明会</td>
-			<td><input type="radio" name=search_item>模擬面接申し込み</td>
+			<td><input type="radio" name=search_item value="合説">合同説明会</td>
+			<td><input type="radio" name=search_item value="模擬面接申込">模擬面接申し込み</td>
 			<td>年度選択　
-			<select name="year">
+			<select name="year" id="eventYear">
+			<option hidden></option>
 			<option value="1998">1998</option>
 			<option value="1999">1999</option>
 			<option value="2000">2000</option>
@@ -203,16 +214,16 @@ input[name="tab_item"] {
 
     	</tr>
     	<tr>
-	    	<td><input type="radio" name=search_item>模擬面接予約</td>
-	    	<td><input type="radio" name=search_item>模擬面接参加</td>
-	    	<td><input type="date" name="date"></td>
+	    	<td><input type="radio" name=search_item value="模擬面接予約">模擬面接予約</td>
+	    	<td><input type="radio" name=search_item value="模擬面接参加">模擬面接参加</td>
+	    	<td><input type="date" name="date" id="eventDay"></td>
 		</tr>
 		<tr>
-			<td><input type="radio" name=search_item>座談会1</td>
-	    	<td><input type="radio" name=search_item>座談会2</td>
+			<td><input type="radio" name=search_item value="座談会1">座談会1</td>
+	    	<td><input type="radio" name=search_item value="座談会2">座談会2</td>
 		</tr>
 		<tr>
-	    	<td colspan="3" align="right"><input type="submit" name="regist" value="検索"></td>
+	    	<td colspan="3" align="right"><input type="submit" name="submit" value="検索" onclick="return dateCheck('eventDay', 'eventYear')"></td>
 		</tr>
 	</table>
 </form>
@@ -221,46 +232,65 @@ input[name="tab_item"] {
 <!-- 検索小項目(選考参加者) -->
 <div class="tab_content" id="selection">
 <form method="POST" action="/systemofj/Servlet">
+
+	<input type="hidden" value="selection" name="mode">
+
     <table  class="selection_width">
 	    <tr>
-	       <td><input type="radio" name=search_item>適性検査受験前</td>
-	       <td><input type="radio" name=search_item>適性検査受験済み</td>
+	       <td><input type="radio" name=search_item value="適性検査受験前">適性検査受験前</td>
+	       <td><input type="radio" name=search_item value="適性検査受験済">適性検査受験済み</td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item>書類選考中</td>
-	       <td><input type="radio" name=search_item>書類選考合否</td>
+	       <td><input type="radio" name=search_item value="書類選考中">書類選考中</td>
+	       <td><input type="radio" name=search_item value="書類選考合否">書類選考合否</td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item>1次選考日程調整</td>
-	       <td><input type="radio" name=search_item>１次選考実施中</td>
+	       <td><input type="radio" name=search_item value="一次選考日程調整">1次選考日程調整</td>
+	       <td><input type="radio" name=search_item value="一次選考実施中">１次選考実施中</td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item>2次選考日程調整</td>
-	       <td><input type="radio" name=search_item>2次選考実施中</td>
+	       <td><input type="radio" name=search_item value="二次選考日程調整">2次選考日程調整</td>
+	       <td><input type="radio" name=search_item value="二次選考実施中">2次選考実施中</td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item>3次選考日程調整中</td>
-	       <td><input type="radio" name=search_item>3次選考実施中</td>
+	       <td><input type="radio" name=search_item value="三次選考日程調整">3次選考日程調整中</td>
+	       <td><input type="radio" name=search_item value="三次選考実施中">3次選考実施中</td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item>内々定決定</td>
-	       <td><input type="radio" name=search_item>内々定送付</td>
+	       <td><input type="radio" name=search_item value="内々定決定">内々定決定</td>
+	       <td><input type="radio" name=search_item value="内々定送付">内々定送付</td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item>内々定応諾</td>
-	       <td><input type="radio" name=search_item>辞退</td>
+	       <td><input type="radio" name=search_item value="内々定応諾">内々定応諾</td>
+	       <td><input type="radio" name=search_item value="辞退">辞退</td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item>不合格</td>
+	       <td><input type="radio" name=search_item value="不合格">不合格</td>
 		</tr>
 		<tr>
-	       <td colspan="2" align="right"><input type="submit" name="regist" value="検索"></td>
+	       <td colspan="2" align="right"><input type="submit" name="submitt" value="検索"></td>
 		</tr>
 	</table>
 </form>
 </div>
 </div>
 
+<script>
 
+function dateCheck(dayId, yearId) {
+	var date = document.getElementById(dayId).value;
+	var year = document.getElementById(yearId).value;
+
+	console.log(date);
+	console.log(year + "yer");
+
+
+	if (date == "" && year == "") {
+		alert('日付または年を入力してください。');
+		return false;
+	}
+}
+
+</script>
 </body>
 </html>

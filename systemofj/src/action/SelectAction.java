@@ -27,7 +27,7 @@ public class SelectAction {
 			//何で検索されたかを判断するためのmode
 			String mode = request.getParameter("mode");
 			//ラジオボタンのvalueを取得
-			String searchValue = request.getParameter("search");
+			String searchValue = request.getParameter("serch_item");
 			String year = "";
 			String date = "";
 			//検索結果を入れる配列
@@ -53,8 +53,11 @@ public class SelectAction {
 			SelectService service = new SelectService();
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
-
-				list = service.searchInternList(searchValue, date);
+				if (searchValue.equals("internAll")) {
+					list = service.searchInternList("%", date);
+				} else {
+					list = service.searchInternList(searchValue, date);
+				}
 
 			} else if(mode.equals("event")) {//イベント検索がされた場合
 
