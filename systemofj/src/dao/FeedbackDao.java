@@ -51,7 +51,6 @@ public class FeedbackDao {
 	// 更新
 	public int update(int fId, String fName, String fContent) throws SQLException {
 
-
 		// SQL文を準備する
 
 		String sql = "update Feedback set f_name = ?, f_content = ? where f_id = ?";
