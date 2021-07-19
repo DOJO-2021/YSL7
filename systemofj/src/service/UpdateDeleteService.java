@@ -332,11 +332,7 @@ public class UpdateDeleteService {
 
 	}
 
-	public boolean allUpdate(int sId, String iCategory, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5,
-								String iMeeting1, String iMeeting2, String iMeeting3, String iMeeting4, String iMeeting5, String iSubmit,
-								String iAcceptance1, String iAcceptance2, String iAcceptance3, String iAcceptance4, String iAcceptance5,
-								String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,
-								int iId, String iAttend1, String iAttend2, String iAttend3, String iAttend4, String iAttend5) throws ClassNotFoundException, SQLException {
+	public boolean allUpdate(String sqlContents1, String sqlContents2,String sqlContents3,String sqlContents4,String sqlContents5,String categorys1,String categorys2,String categorys3,String categorys4,String categorys5) throws ClassNotFoundException, SQLException {
 		boolean result = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -345,16 +341,32 @@ public class UpdateDeleteService {
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.allUpdate(sId, iCategory, iDate1,iDate2,iDate3,iDate4,iDate5,
-									iMeeting1, iMeeting2, iMeeting3, iMeeting4, iMeeting5,
-									iSubmit, iAcceptance1, iAcceptance2, iAcceptance3, iAcceptance4, iAcceptance5,
-									iDocument1, iDocument2, iDocument3, iDocument4, iDocument5,
-									iId, iAttend1, iAttend2, iAttend3, iAttend4, iAttend5);
+		if (sqlContents1.equals("\"set where ;")) {
+			int test1 = dao.allUpdate(sqlContents1, categorys1);
 
-		if(test != 0) {
-			result = true;
+			if (sqlContents2.equals("\"set where ;")) {
+				int test2 = dao.allUpdate(sqlContents2, categorys2);
+
+				if (sqlContents3.equals("\"set where ;")) {
+					int test3 = dao.allUpdate(sqlContents3, categorys3);
+
+					if (sqlContents4.equals("\"set where ;")) {
+						int test4 = dao.allUpdate(sqlContents4, categorys4);
+
+						if (sqlContents5.equals("\"set where ;")) {
+							int test5 = dao.allUpdate(sqlContents5, categorys5);
+
+							if (test1 != 0 && test2 != 0 && test3 != 0 && test4 != 0 && test5 != 0) {
+								result = true;
+							}
+
+							return result;
+
+						}
+					}
+				}
+			}
 		}
-
 		return result;
 
 	}

@@ -136,7 +136,7 @@ public class InternDao {
 
 	}
 
-	public int allUpdate(String sqlContents) throws SQLException {
+	public int allUpdate(String sqlContents, String categorys) throws SQLException {
 
 		// SQL文を準備する
 

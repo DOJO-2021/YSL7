@@ -172,8 +172,19 @@ public class UploadService {
 			conn.rollback();
 		}
 
+		finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				}
+				catch(SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		//結果を返す
 		return result;
 	}
-
 
 }

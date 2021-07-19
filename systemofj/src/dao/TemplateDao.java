@@ -26,11 +26,13 @@ public class TemplateDao {
 		pStmt.setString(2, tCategory);
 		pStmt.setString(3, tContent);
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
 
-		return pStmt.executeUpdate();
+		return ans;
 
 	}
 
@@ -46,11 +48,14 @@ public class TemplateDao {
 		pStmt.setString(2, tContent);
 		pStmt.setInt(3, tId);
 
+
+		int ans = pStmt.executeUpdate();
+
 		if(conn != null) {
 			conn.close();
 		}
 
-		return pStmt.executeUpdate();
+		return ans;
 
 	}
 

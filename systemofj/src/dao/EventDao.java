@@ -66,11 +66,13 @@ public class EventDao {
 		pStmt.setString(1, eCategory);
 		pStmt.setString(2, eDate);
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
 
-		return pStmt.executeUpdate();
+		return ans;
 
 	}
 
@@ -85,11 +87,14 @@ public class EventDao {
 		pStmt.setInt(1, eId);
 		pStmt.setString(2, eDate);
 
+
+		int ans = pStmt.executeUpdate();
+
 		if(conn != null) {
 			conn.close();
 		}
 
-		return pStmt.executeUpdate();
+		return ans;
 	}
 
 	//削除
@@ -102,11 +107,14 @@ public class EventDao {
 		//SQL文を完成させる
 		pStmt.setInt(1, sId);
 
+
+		int ans = pStmt.executeUpdate();
+
 		if(conn != null) {
 			conn.close();
 		}
 
-		return pStmt.executeUpdate();
+		return ans;
 	}
 
 }
