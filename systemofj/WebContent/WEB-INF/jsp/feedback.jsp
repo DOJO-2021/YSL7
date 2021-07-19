@@ -18,6 +18,11 @@
 	margin: auto;
 }
 
+.fb-select {
+	height: 100px;
+	width: 800px;
+	margin: auto;
+}
 
 </style>
 
@@ -34,53 +39,62 @@
 <table align="center" class="fb-tbl">
 	<tr>
 		<td>
-
+<form method="POST" action="/systemofj/Servlet" id="form">
 		<!-- tableの中のtable①ここから -->
+		<input type="hidden" name="f_category" value="${requestScope.fCategory}">
 			<table border="1" class="fb-tbl">
 			<tr>
 				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
 			</tr>
 			<tr>
-				<td colspan="2">fr_name</td>
-				<td><button id=fr_regist_button value="登録">登録</button></td>
+				<td colspan="2"><input type="text" name="f_name"></td>
+				<td><input type="submit" name="fr_regist_button" value="登録"></td>
 			</tr>
 			<tr>
-				<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
+				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
 			</tr>
+
 			</table>
+</form>
 		<!-- ここまで -->
 
 		</td>
 		<td rowspan="2">
 
 		<!-- tableの中のtable②ここから -->
-			<table border="1" class="fb-matome">
+		<form method="POST" action="/systemofj/Servlet" id="form">
+			<table border="1" class="fb-select">
 			<tr>
 				<td>
-				<form>
-				<select>
+				<select name="f_category">
 					<option value="1day">インターン1DAY</option>
 					<option value="3day">インターン3DAY</option>
-					<option value="">初級</option>
-					<option value="">中級</option>
-					<option value="">模擬面接</option>
-					<option value="">会社説明会</option>
-					<option value="">一次面接</option>
-					<option value="">二次面接</option>
-					<option value="">予備</option>
+					<option value="初級">初級</option>
+					<option value="中級">中級</option>
+					<option value="模擬面接">模擬面接</option>
+					<option value="会社説明会">会社説明会</option>
+					<option value="一次面接">一次面接</option>
+					<option value="二次面接">二次面接</option>
+					<option value="予備">予備</option>
 				</select>
-				<input type="button" id="fr_search_button" value="検索">
-				</form>
+				<input type="submit" id="fr_search_button" value="検索">
 				</td>
 			</tr>
+			</table>
+			</form>
+
+			<form method="POST" action="/systemofj/Servlet" id="form">
+			<input type="hidden" name="f_category" value="${requestScope.fCategory }">
+			<table border="1" class="fb-matome">
 			<tr>
-				<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
+				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
 			</tr>
 			<tr>
 				<td id="f_regist_button"><input type="submit" value="フィードバックまとめを更新"></td>
 				<td id="f_update_button"><input type="submit"  value="フィードバックまとめを登録"></td>
 			</tr>
 			</table>
+			</form>
 		<!-- ここまで -->
 
 		</td>
@@ -89,18 +103,20 @@
 		<td>
 
 		<!-- tableの中のtable③ここから -->
+		<form method="POST" action="/systemofj/Servlet" id="form">
 			<table border="1" class="fb-tbl">
 			<tr>
 				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
 			</tr>
 			<tr>
-				<td colspan="2">fr_name</td>
-				<td><button id=fu_update_button value="更新">更新</button></td>
+				<td colspan="2"><input type="text" name="fName"></td>
+				<td><input type="submit" name="fu_update_button" value="更新"></td>
 			</tr>
 			<tr>
-				<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
+				<td colspan="3"><textarea name=fContent rows="20" cols="50"></textarea></td>
 			</tr>
 			</table>
+		</form>
 		<!-- ここまで -->
 
 		</td>
