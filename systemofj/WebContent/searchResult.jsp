@@ -7,25 +7,31 @@
 <head>
 <meta charset="UTF-8">
 <title>searchResult</title>
+<!-- ファイル読み込み--------------------------- -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+
 </head>
 <body>
 <h1>検索結果</h1>
-
+<div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
-	<label for="lab1">登録順で並び替え</label>
+	<label for="regist">登録順で並び替え</label>
 
 	<input type="radio" id="name" name="line" onclick="sort(1)">
-	<label for="lab2">名前で並び替え</label>
+	<label for="name">名前で並び替え</label>
 
 
 	<input type="radio" id="day" name="line" onclick="sort(2)">
-	<label for="lab3">日付で並び替え</label>
-
+	<label for="day">日付で並び替え</label>
+</div>
 <div class="list_box">
 <!-- インターン検索 -->
-<c:if test="${searchInternList.size() != 0} ">
+<c:if test="${searchInternList != null} ">
 			<form method="POST" action="/systemofj/Servlet">
-				<table>
+				<table id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -37,8 +43,8 @@
 							<th></th>
 						</tr>
 						<tr>
-						<c:forEach var="e" items="${searchInternList}">
-							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
+						<c:forEach var="e" items="${searchInternList}" varStatus="status">
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.s_Name }</td>
 							<td>${e.s_Univercity }</td>
@@ -53,9 +59,9 @@
 			</form>
 </c:if>
 <!-- イベント検索 -->
-<c:if test="${searchEventList.size() != 0}">
+<c:if test="${searchEventList != null}">
 <form method="POST" action="/systemofj/Servlet">
-				<table>
+				<table id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -66,9 +72,9 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchEventList}">
+					<c:forEach var="e" items="${searchEventList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}u</td>
 							<td>${e.s_Faculty}</td>
@@ -83,9 +89,9 @@
 </c:if>
 <!-- 選考検索 -->
 
-<c:if test="${searchEntryList.size() != 0}">
+<c:if test="${searchEntryList != null}">
 <form method="POST" action="/systemofj/Servlet">
-				<table>
+				<table id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -95,10 +101,9 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchEntryList}">
-
+					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
@@ -112,23 +117,22 @@
 				</form>
 </c:if>
 <!-- 名前検索 -->
-
-<c:if test="${searchName.size() != 0}">
+<c:if test="${searchName != null}">
 <form method="POST" action="/systemofj/Servlet">
-				<table>
+				<table id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
 							<th>大学名</th>
 							<th>学部</th>
 							<th>学科</th>
-							<th>選考進捗状況</th>
+							<th>選考状況</th>
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchName}">
+					<c:forEach var="e" items="${searchName}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
@@ -142,7 +146,20 @@
 				</table>
 				</form>
 </c:if>
-
+<c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
+				<table id="myTable">
+						<tr>
+							<th></th>
+							<th>名前</th>
+							<th>大学名</th>
+							<th>学部</th>
+							<th>学科</th>
+							<th>選考状況</th>
+							<th>メール</th>
+							<th></th>
+						</tr>
+				</table>
+</c:if>
 </div>
 	<label for="selection">
 		<input type="checkbox" id="checkbox_all"  >全選択/解除
@@ -153,28 +170,32 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
 
-
-function valueChange(id){
+function valueChange(indexNo){
 	//チェックボックスの取得
-	let changecheck= document.getElementByName("check1");
+	var ch = document.getElementById('checkId'+indexNo);
 //検索リストのチェックボックスのチェック判定
-	for(let i=0; i<elements.length; i++){
-		if(changecheck.checked){
+		if(ch.checked){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
 				data: {	int : sId }
 			});
-			console.log(id);
 		}
-	}
 }
 </script>
+<!-- ソート --------------------------- -->
+<script>
+//ページを読み込み後に、ソートを開始
+$(document).ready(function(){
+	        $("#myTable").tablesorter();
+}
+</script>
+
 <script>
 //全選択・解除のチェックボックス
-let checkbox_all = document.querySelector("#checkbox_all");
+let checkbox_all = document.querySelector('#checkbox_all');
 //チェックボックスのリスト
-let checkbox_list = document.querySelectorAll(".checkbox_list");
+let checkbox_list = document.querySelectorAll('.checkbox_list');
 
 //全選択のチェックボックスイベント
 checkbox_all.addEventListener('change', change_all);
@@ -203,25 +224,7 @@ function change_all() {
 
 };
 
-function sort(num) {
-	if (num == 0){
-		document.getElementById("regist").style.display = "block";
-		document.getElementById("name").style.display = "none";
-		document.getElementById("day").style.display = "none";
-	}
-	else if (num ==1){
-		document.getElementById("regist").style.display = "none";
-		document.getElementById("name").style.display = "block";
-		document.getElementById("day").style.display = "none";
-	}
-	else {
-		document.getElementById("regist").style.display = "none";
-		document.getElementById("name").style.display = "none";
-		document.getElementById("day").style.display = "block";
 
-	}
-
-}
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");

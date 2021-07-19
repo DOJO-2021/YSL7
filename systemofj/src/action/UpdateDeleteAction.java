@@ -635,8 +635,7 @@ public class UpdateDeleteAction {
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//idとpwをリクエスト領域から取得
-		int sId = Integer.parseInt(request.getParameter("sId"));
-//		String iCategory = request.getParameter("iCategory");
+
 		String iCategory1 ="1day";
 		String iCategory2 ="3days";
 		String iCategory3 = "初級";
@@ -758,20 +757,71 @@ public class UpdateDeleteAction {
 		return page;
 	}
 
+//	public String allUpdate(HttpServletRequest request) {
+//
+//		//戻り値に設定するページを初期設定しておく
+//		String page = "/WEB-INF/jsp/result.jsp";
+//
+////		フラグが１の人の情報を書き換えたい所
+////		update set table どこを変更するのかをSQLに
+////		if文　request.getparameter
+//
+//
+//
+//		//idとpwをリクエスト領域から取得
+//
+//		String sqlContents = request.getParameter("sqlContentns");
+//		String categorys = request.getParameter("categorys");
+//
+////
+////		int sId = Integer.parseInt(request.getParameter("sId"));
+////		String iCategory = request.getParameter("iCategory");
+//
+//
+////		int iId = Integer.parseInt(request.getParameter("iId"));
+//
+//
+//
+//
+//		//出力値を格納するBean
+//		boolean allUpdate = false;
+//
+//		try {
+//
+//			//入力されていたらサービスへ処理を委譲
+//			UpdateDeleteService service = new UpdateDeleteService();
+//
+//			allUpdate = service.allUpdate(sqlContents, categorys);
+//			if (allUpdate == true) {
+//
+//				request.setAttribute("allupdate", allUpdate);
+//				//（成功）
+//				request.setAttribute("errMsg", "編集成功");
+//
+//			}
+//			else {
+//				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+//				request.setAttribute("errMsg", "編集失敗");
+//			}
+//
+//			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+//		} catch (SQLException e) {
+//			request.setAttribute("errMsg", "SQL文おかしい");
+//		} catch (ClassNotFoundException e) {
+//			request.setAttribute("errMsg", "サーバーおかしい");
+//		}
+//
+//		return page;
+//	}
+
+
+
 	public String allUpdate(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
 
-//		フラグが１の人の情報を書き換えたい所
-//		update set table どこを変更するのかをSQLに
-//		if文　request.getparameter
 
-
-
-		//idとpwをリクエスト領域から取得
-		int sId = Integer.parseInt(request.getParameter("sId"));
-		String iCategory = request.getParameter("iCategory");
 		String iDate1 = request.getParameter("iDate1");
 		String iDate2 = request.getParameter("iDate2");
 		String iDate3 = request.getParameter("iDate3");
@@ -784,13 +834,17 @@ public class UpdateDeleteAction {
 		String iMeeting4 = request.getParameter("iMeeting4");
 		String iMeeting5 = request.getParameter("iMeeting5");
 
-		String iSubmit = request.getParameter("iSubmit");
-
 		String iAcceptance1 = request.getParameter("iAcceptance1");
 		String iAcceptance2 = request.getParameter("iAcceptance2");
 		String iAcceptance3 = request.getParameter("iAcceptance3");
 		String iAcceptance4 = request.getParameter("iAcceptance4");
 		String iAcceptance5 = request.getParameter("iAcceptance5");
+
+		String iSubmit1 = request.getParameter("iSubmit1");
+		String iSubmit2 = request.getParameter("iSubmit2");
+		String iSubmit3 = request.getParameter("iSubmit3");
+		String iSubmit4 = request.getParameter("iSubmit4");
+		String iSubmit5 = request.getParameter("iSubmit5");
 
 		String iDocument1 = request.getParameter("iDocument1");
 		String iDocument2 = request.getParameter("iDocument2");
@@ -798,17 +852,34 @@ public class UpdateDeleteAction {
 		String iDocument4 = request.getParameter("iDocument4");
 		String iDocument5 = request.getParameter("iDocument5");
 
-		int iId = Integer.parseInt(request.getParameter("iId"));
+		String intern[][] = {{iDate1,iMeeting1,iAcceptance1,iSubmit1,iDocument1},
+				 {iDate2,iMeeting2,iAcceptance2,iSubmit2,iDocument2},
+				 {iDate3,iMeeting3,iAcceptance3,iSubmit3,iDocument3},
+				 {iDate4,iMeeting4,iAcceptance4,iSubmit4,iDocument4},
+				 {iDate5,iMeeting5,iAcceptance5,iSubmit5,iDocument5}};
 
-		String iAttend1 = request.getParameter("iAttend1");
-		String iAttend2 = request.getParameter("iAttend2");
-		String iAttend3 = request.getParameter("iAttend3");
-		String iAttend4 = request.getParameter("iAttend4");
-		String iAttend5 = request.getParameter("iAttend5");
+				String category[] = {"1day","3day","初級","中級","準備"};
+				String sql[] = {"i_date=","i_attend=","i_submit=","i_acceptance=","i_document"};
+				String sqlContent[] = {"","","","",""};
+				String set []= {"\"set ","\"set ","\"set ","\"set ","\"set "};
+				String where [] = {"where ","where ","where ","where ","where "};
+
+				for(int i = 0; i < intern.length; i++){
+					for(int j = 0; j < intern[i].length; j++) {
+						if(intern[i][j] != ""){
+							if(set[i] != "set "){
+								set[i] += ",";
+							}
+							set[i] += sql[j] + "'" + intern[i][j] + "'";
+						}
+					}
+				if(set[i] != "\"set ") {
+					where[i] += "category = '" + category[i] + "' and alleditflag = 1\"";
+				}
+				sqlContent[i] = set[i] + where[i] + ";";
+				}
 
 
-
-		//出力値を格納するBean
 		boolean allUpdate = false;
 
 		try {
@@ -816,22 +887,20 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			allUpdate = service.allUpdate(sId, iCategory, iDate1,iDate2,iDate3,iDate4,iDate5,
-											iMeeting1, iMeeting2, iMeeting3, iMeeting4, iMeeting5, iSubmit,
-											iAcceptance1, iAcceptance2, iAcceptance3, iAcceptance4, iAcceptance5,
-											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iId,
-											iAttend1, iAttend2, iAttend3, iAttend4, iAttend5);
+			allUpdate = service.allUpdate(sqlContent[0], sqlContent[1], sqlContent[2], sqlContent[3], sqlContent[4],  category[0], category[1], category[2] ,category[3], category[4]);
 
 			if (allUpdate == true) {
 
-				request.setAttribute("allupdate", allUpdate);
-				//（成功）
+				request.setAttribute("allUpdate", allUpdate);
+				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
 
 			}
 			else {
-				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+
+
 				request.setAttribute("errMsg", "編集失敗");
+
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
@@ -843,6 +912,20 @@ public class UpdateDeleteAction {
 
 		return page;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public String selectionFaceUpdate(HttpServletRequest request) {
 
@@ -1057,6 +1140,8 @@ public class UpdateDeleteAction {
 
 		return page;
 	}
+
+
 
 
 
