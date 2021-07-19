@@ -10,16 +10,21 @@
 </head>
 <body>
 <h1>検索結果</h1>
-<label for="lab1">
-	<input type="radio" id="name" name="line" onclick="sort(0)">名前で並び替え
-</label>
-<label for="lab2">
-	<input type="radio" id="day" name="line" onclick="sort(1)">日付で並び替え
-</label>
+
+	<input type="radio" id="regist" name="line" onclick="sort(0)">
+	<label for="lab1">登録順で並び替え</label>
+
+	<input type="radio" id="name" name="line" onclick="sort(1)">
+	<label for="lab2">名前で並び替え</label>
+
+
+	<input type="radio" id="day" name="line" onclick="sort(2)">
+	<label for="lab3">日付で並び替え</label>
 
 <div class="list_box">
 <!-- インターン検索 -->
-<c:if test="">
+<c:if test="${searchInternList.size() != 0} ">
+			<form method="POST" action="/systemofj/Servlet">
 				<table>
 						<tr>
 							<th></th>
@@ -31,26 +36,25 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${cardList}">
-						<form method="POST" action="/systemofj/Servlet">
 						<tr>
+						<c:forEach var="e" items="${searchInternList}">
 							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
-							<input type ="hidden" name ="s_id" value ="1">
-							<td>name</td>
-							<td>daigaku</td>
-							<td>gakubu</td>
-							<td>sannka</td>
-							<td>hiduke</td>
+							<input type ="hidden" name ="s_id" value ="${e.s_id }">
+							<td>${e.s_Name }</td>
+							<td>${e.s_Univercity }</td>
+							<td>${e.s_Faculty}</td>
+							<td>${e.i_Category}</td>
+							<td>${e.i_Date}</td>
 							<td><input type="submit" name="mail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
-						</tr>
-						</form>
-					</c:forEach>
+						</c:forEach>
+					</tr>
 				</table>
+			</form>
 </c:if>
 <!-- イベント検索 -->
-
-<c:if test="">
+<c:if test="${searchEventList.size() != 0}">
+<form method="POST" action="/systemofj/Servlet">
 				<table>
 						<tr>
 							<th></th>
@@ -62,26 +66,25 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${cardList}">
-						<form method="POST" action="/systemofj/Servlet">
+					<c:forEach var="e" items="${searchEventList}">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
-							<input type ="hidden" name ="s_id" value ="1">
-							<td>name</td>
-							<td>daigaku</td>
-							<td>gakubu</td>
-							<td>sannka</td>
-							<td>hiduke</td>
+							<td>${e.s_Name}</td>
+							<td>${e.s_Univercity}u</td>
+							<td>${e.s_Faculty}</td>
+							<td>${e.i_Category}</td>
+							<td>${e.i_Date}</td>
 							<td><input type="submit" name="mail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
-						</form>
 					</c:forEach>
 				</table>
+				</form>
 </c:if>
 <!-- 選考検索 -->
 
-<c:if test="">
+<c:if test="${searchEntryList.size() != 0}">
+<form method="POST" action="/systemofj/Servlet">
 				<table>
 						<tr>
 							<th></th>
@@ -89,30 +92,29 @@
 							<th>大学名</th>
 							<th>学部</th>
 							<th>選考状況</th>
-							<th>日付</th>
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${cardList}">
-						<form method="POST" action="/systemofj/Servlet">
+					<c:forEach var="e" items="${searchEntryList}">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
-							<input type ="hidden" name ="s_id" value ="1">
-							<td>name</td>
-							<td>daigaku</td>
-							<td>gakubu</td>
-							<td>sannka</td>
-							<td>hiduke</td>
+							<td>${e.s_Name}</td>
+							<td>${e.s_Univercity}</td>
+							<td>${e.s_Faculty}</td>
+							<td>${e.se_Situation}</td>
 							<td><input type="submit" name="mail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
-						</form>
+
 					</c:forEach>
 				</table>
+				</form>
 </c:if>
 <!-- 名前検索 -->
 
-<c:if test="">
+<c:if test="${searchName.size() != 0}">
+<form method="POST" action="/systemofj/Servlet">
 				<table>
 						<tr>
 							<th></th>
@@ -124,22 +126,21 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${cardList}">
-						<form method="POST" action="/systemofj/Servlet">
+					<c:forEach var="e" items="${searchName}">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list"></td>
-							<input type ="hidden" name ="s_id" value ="1">
-							<td>name</td>
-							<td>daigaku</td>
-							<td>gakubu</td>
-							<td>gakka</td>
-							<td>sennkou</td>
+							<td>${e.s_Name}</td>
+							<td>${e.s_Univercity}</td>
+							<td>${e.s_Faculty}</td>
+							<td>${e.s_Department}</td>
+							<td>${e.se_Situation}</td>
 							<td><input type="submit" name="mail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
-						</form>
+
 					</c:forEach>
 				</table>
+				</form>
 </c:if>
 
 </div>
@@ -202,6 +203,25 @@ function change_all() {
 
 };
 
+function sort(num) {
+	if (num == 0){
+		document.getElementById("regist").style.display = "block";
+		document.getElementById("name").style.display = "none";
+		document.getElementById("day").style.display = "none";
+	}
+	else if (num ==1){
+		document.getElementById("regist").style.display = "none";
+		document.getElementById("name").style.display = "block";
+		document.getElementById("day").style.display = "none";
+	}
+	else {
+		document.getElementById("regist").style.display = "none";
+		document.getElementById("name").style.display = "none";
+		document.getElementById("day").style.display = "block";
+
+	}
+
+}
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");
