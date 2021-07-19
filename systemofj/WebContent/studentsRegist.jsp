@@ -51,6 +51,7 @@ width: 800px;
 <form action="/systemofj/Servlet.java" method="POST">
   <div id="student" style="display:none;">
 	<table style="border: 0px; width: 800px;">
+	<input type="hidden" name="s_id">
 	  <tr>
 	    <td>氏名<hr><input type="text" name="s_name"></td>
 	    <td>フリガナ<hr><input type="text" name="s_kana"></td>
@@ -219,14 +220,12 @@ width: 800px;
         </tr>
         <tr>
           <td>申込日</td>
-          <td>予約日</td>
           <td>参加日</td>
           <td>出欠</td>
         </tr>
         <tr>
-          <td><input type="date" name="session1"></td>
-          <td><input type="date" name="session2"></td>
-          <td><input type="date" name="session3"></td>
+          <td><input type="date" name="applyflag"></td>
+          <td><input type="date" name="i_date6"></td>
           <td><select name="i_attend"><option value=""></option><option value="〇">〇</option></select></td>
         </tr>
       </table>
@@ -269,7 +268,7 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_resume1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><input type="text" name="st_score_resume1"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume2"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume3"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume4"><option value=""></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
