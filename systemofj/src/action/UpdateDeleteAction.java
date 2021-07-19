@@ -674,6 +674,9 @@ public class UpdateDeleteAction {
 		String iDocument4 = request.getParameter("iDocument4");
 		String iDocument5 = request.getParameter("iDocument5");
 
+		String iAttend = request.getParameter("iAttend");
+
+
 		int   iId = Integer.parseInt(request.getParameter("iId"));
 //		String iAttend = request.getParameter("iAttend");
 
@@ -687,10 +690,10 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			intern = service.internUpdate(sId, iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2,
+			intern = service.internUpdate( iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2,
 											iMeeting3, iMeeting4, iMeeting5, iSubmit1, iSubmit2, iSubmit3, iSubmit4, iSubmit5,
 											iAcceptace1, iAcceptace2, iAcceptace3, iAcceptace4, iAcceptace5,
-											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iId);
+											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iAttend,iId);
 
 			if (intern == true) {
 
@@ -847,27 +850,23 @@ public class UpdateDeleteAction {
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//idとpwをリクエスト領域から取得
-		int sId = Integer.parseInt(request.getParameter("sId"));
+//		int sId = Integer.parseInt(request.getParameter("sId"));
 		String sfCategory1 = "一次面接";
 		String sfCategory2 = "二次面接";
 
-		String sfName1 = "松野";
-		String sfName2 = "藤原";
-		String sfName3 = "板谷";
-		String sfName4 = "菅澤";
+		String sfName1 = "藤原";
+		String sfName2 = "板谷";
+		String sfName3 = "菅澤";
 
 
 
 		int sfScore1_1 = Integer.parseInt(request.getParameter("sf_score_one1"));
 		int sfScore1_2 = Integer.parseInt(request.getParameter("sf_score_one2"));
 		int sfScore1_3 = Integer.parseInt(request.getParameter("sf_score_one3"));
-		int sfScore1_4 = Integer.parseInt(request.getParameter("sf_score_one4"));
 
-		int sfScore2_1 = Integer.parseInt(request.getParameter("se_textresult"));
-		int sfScore2_2 = Integer.parseInt(request.getParameter("se_textresult"));
-		int sfScore2_3 = Integer.parseInt(request.getParameter("se_textresult"));
+		int sfScore2_1 = Integer.parseInt(request.getParameter("se_textresult1"));
+		int sfScore2_2 = Integer.parseInt(request.getParameter("se_textresult2"));
 
-		int sfScore3_1 = Integer.parseInt(request.getParameter("se_textresult"));
 
 
 		int sfId = Integer.parseInt(request.getParameter("sfId"));
@@ -880,7 +879,7 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			face = service.selectionFaceUpdate(sId, sfCategory1, sfCategory2, sfName1,sfName2, sfName3, sfName4, sfScore, sfId);
+			face = service.selectionFaceUpdate(sfCategory1, sfCategory2, sfName1,sfName2, sfName3,  sfScore1_1, sfScore1_2, sfScore1_3 ,sfScore2_1, sfScore2_2,  sfId);
 
 			if (face == true) {
 
@@ -890,8 +889,10 @@ public class UpdateDeleteAction {
 
 			}
 			else {
-				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+
+
 				request.setAttribute("errMsg", "編集失敗");
+
 			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる

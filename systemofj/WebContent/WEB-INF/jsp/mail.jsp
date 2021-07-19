@@ -9,20 +9,18 @@
 <body>
 <h1>メール作成</h1>
 <div>
-<textarea rows="10" cols="20" id="textarea">こんにちは！！わたしです！！</textarea>
-<input type="button" name="submit" onclick="cope()" value="一括コピー">
+	<textarea rows="10" cols="20" id="text">こんにちは！</textarea>
+	<input type ="button" value="一括コピー" onclick="return textCopy()">
 </div>
-
 </body>
+<script >
+	function textCopy(){
+		 var urltext = document.getElementById("text");
+		 urltext.select();
+		 document.execCommand("copy");
+		 alert("コピーしました");
+	}
 
-<script>
-'use script'
-function cope(){
-	var textarea = document.getElementsById("textarea");
-	textarea.select();
-	document.execCommand("copy");
-	alert("コピーしました");
 
-}
 </script>
 </html>
