@@ -193,7 +193,7 @@ public class SelectionEasyDao {
 		pStmt.setInt(2, seScore);
 		pStmt.setInt(3, seTextScore);
 		pStmt.setString(4, seTextResult);
-		pStmt.setString(5, seSelectionDate);
+		pStmt.setString(5, seGetTextDate);
 		pStmt.setString(6, seNo);
 		pStmt.setString(7, seOk);
 		pStmt.setString(8, seNoReason);

@@ -185,10 +185,10 @@ public class SSelectionEasy {
 	}
 
 	public String getSeDecide() {
-		return seSituation;
+		return seDecide;
 	}
-	public void setSeDecide(String seSituation) {
-		this.seSituation = seSituation;
+	public void setSeDecide(String seDecide) {
+		this.seDecide = seDecide;
 	}
 
 	public String getsName() {
