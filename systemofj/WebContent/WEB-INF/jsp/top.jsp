@@ -12,8 +12,14 @@
 .container {
   font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
   text-align: center;
-  padding-top: 180px;
 }
+
+.top_tbl{
+text-align: center;
+margin: auto;
+margin-top: 70px;
+}
+
 
 .btn {
   display: inline-block;
@@ -46,6 +52,7 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 
 <!-- ボタンの場合
 <table align="center">
@@ -66,7 +73,7 @@
 
 <!-- リンクの場合 -->
 <div class="container">
-<table align="center">
+<table class="top_tbl">
 	<tr align="center">
 		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=アップロード" id="t_upload" class="btn">アップロード</a></td>
 		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=検索" id="t_search" class="btn">検索</a></td>
