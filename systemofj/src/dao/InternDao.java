@@ -74,6 +74,7 @@ public class InternDao {
 		pStmt.setString(7,iAttend);
 		pStmt.setString(8,applyflag);
 
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -81,7 +82,7 @@ public class InternDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate();
+		return ans;
 	}
 	public int internUpdate(int iId,String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
@@ -102,6 +103,8 @@ public class InternDao {
 		pStmt.setInt(8,iId);
 
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -110,7 +113,7 @@ public class InternDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 
 	public int internDelete(int sId) throws SQLException {
@@ -125,6 +128,9 @@ public class InternDao {
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
+
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -132,7 +138,7 @@ public class InternDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 
@@ -143,6 +149,9 @@ public class InternDao {
 		String sql = "update Intern" + sqlContents;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
+
+		int ans = pStmt.executeUpdate();
+
 		// SQL文を完成させる
 		if (conn != null) {
 			conn.close();
@@ -152,7 +161,7 @@ public class InternDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 
 

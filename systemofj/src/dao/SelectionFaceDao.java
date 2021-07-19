@@ -67,6 +67,8 @@ public class SelectionFaceDao {
 		pStmt.setString(2,sfName);
 		pStmt.setInt(3,sfScore);
 
+		int ans = pStmt.executeUpdate();
+
 		if (conn != null) {
 			conn.close();
 		}
@@ -74,7 +76,9 @@ public class SelectionFaceDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate();
+		return ans;
+
+
 	}
 	// 更新
 	public int selectionfaceUpdate(String sfCategory,String sfName, int sfScore,int sfId) throws SQLException {
@@ -92,7 +96,7 @@ public class SelectionFaceDao {
 		pStmt.setInt(3,sfScore);
 		pStmt.setInt(4,sfId);
 
-
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -102,7 +106,8 @@ public class SelectionFaceDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
 	}
 	// 削除
 	public int selectionfaceDelete(int sId) throws SQLException {
@@ -117,7 +122,7 @@ public class SelectionFaceDao {
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
-
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -127,7 +132,7 @@ public class SelectionFaceDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
 	}

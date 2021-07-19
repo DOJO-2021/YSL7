@@ -14,6 +14,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
+import model.SEvent;
+import model.SIntern;
+import model.SSelectionFace;
+import model.SSelectionText;
 import service.UploadService;
 
 public class UploadAction {
@@ -37,11 +41,18 @@ public class UploadAction {
 				String line = null;
 				//配列を入れるリスト
 				ArrayList<ArrayList<String>> listInList = new ArrayList<>();
+
+				//insertに必要な情報が入っているリスト
+				ArrayList<SEvent> eventList = new ArrayList<>();
+				ArrayList<SIntern> internList = new ArrayList<>();
+				ArrayList<SSelectionText> textList = new ArrayList<>();
+				ArrayList<SSelectionFace> faceList = new ArrayList<>();
+
 				//結果を収納するもの
 				String result = "アップロードできませんでした。もう一度アップロードしてください。";
 
 				//申込分類を入手する。
-				String apply = request.getParameter("apply");
+				String apply = request.getParameter("site");
 
 				//ファイルを1行ずつ読み込む
 				try(BufferedReader br = Files.newBufferedReader(path, charset)){
@@ -133,14 +144,262 @@ public class UploadAction {
 
 					}
 
+					//学生を登録すると同時にすべてインサートする
+
+
+					String event = request.getParameter("event");
+					if (event.equals("entry")) {
+
+
+
+						String[] events = {"合説","模擬面接申し込み" ,"模擬面接予約" ,"模擬面接参加" ,"座談会1", "座談会2" };
+						for (String i : events) {
+							SEvent inEvent = new SEvent();
+							inEvent.seteCategory(i);
+							inEvent.seteDate("　");
+							inEvent.seteId(0);
+							eventList.add(inEvent);
+						}
+
+
+						String[] interns = {"1day","3days" ,"初級" ,"中級" ,"準備" ,"説明会"};
+						for (String i : interns) {
+							SIntern inIntern = new SIntern();
+							inIntern.setiCategory(i);
+							inIntern.setiDate("　");
+							inIntern.setiMeeting("　");
+							inIntern.setiSubmit("　");
+							inIntern.setiAcceptance("　");
+							inIntern.setiDocument("　");
+							inIntern.setiAttend("　");
+							inIntern.setApplyflag("　");
+							inIntern.setAlleditflag(0);
+							internList.add(inIntern);
+
+						}
+
+
+
+						String[] texts = {"自己PR文","履歴書" ,"書類選考"};
+						String[] textNames = {"松野","藤原" ,"板谷" ,"菅澤"};
+						for (String i : texts) {
+							for (String j : textNames) {
+								SSelectionText inText = new SSelectionText();
+								inText.setStCategory(i);
+								inText.setStName(j);
+								inText.setStScore(0);
+								inText.setStId(0);
+								textList.add(inText);
+							}
+						}
+
+
+
+						String[] faces = {"一次", "二次"};
+						String[] names1 = {"松野", "板谷", "菅澤"};
+						String[] names2 = {"湯澤", "藤原"};
+						for (String i : faces) {
+								if (i.equals("一次")) {
+									for (String j : names1) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								} else if (i.equals("二次")) {
+									for (String j : names2) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								}
+						}
+
+
+					} else if (event.equals("intern") || event.equals("infosession")) {
+						String date = request.getParameter("date");
+
+
+						String[] events = {"合説","模擬面接申し込み" ,"模擬面接予約" ,"模擬面接参加" ,"座談会1", "座談会2" };
+						for (String i : events) {
+							SEvent inEvent = new SEvent();
+							inEvent.seteCategory(i);
+							inEvent.seteDate("　");
+							inEvent.seteId(0);
+							eventList.add(inEvent);
+						}
+
+
+						String[] interns = {"1day","3days" ,"初級" ,"中級" ,"準備" ,"説明会"};
+						for (String i : interns) {
+							SIntern inIntern = new SIntern();
+
+							inIntern.setiCategory(i);
+
+							if (event.equals("intern")) {
+								String category = request.getParameter("i_category");
+
+
+								if (category.equals(i)) {
+									inIntern.setiDate(date);
+								} else {
+									inIntern.setiDate("　");
+								}
+							} else if (event.equals("infosession")) {
+								if (i.equals("説明会")) {
+									inIntern.setiDate(date);
+								} else {
+									inIntern.setiDate("　");
+								}
+							}
+
+							inIntern.setiMeeting("　");
+							inIntern.setiSubmit("　");
+							inIntern.setiAcceptance("　");
+							inIntern.setiDocument("　");
+							inIntern.setiAttend("　");
+							inIntern.setApplyflag("　");
+							inIntern.setAlleditflag(0);
+							internList.add(inIntern);
+
+						}
+
+
+
+						String[] texts = {"自己PR文","履歴書" ,"書類選考"};
+						String[] textNames = {"松野","藤原" ,"板谷" ,"菅澤"};
+						for (String i : texts) {
+							for (String j : textNames) {
+								SSelectionText inText = new SSelectionText();
+								inText.setStCategory(i);
+								inText.setStName(j);
+								inText.setStScore(0);
+								inText.setStId(0);
+								textList.add(inText);
+							}
+						}
+
+
+
+						String[] faces = {"一次", "二次"};
+						String[] names1 = {"松野", "板谷", "菅澤"};
+						String[] names2 = {"湯澤", "藤原"};
+						for (String i : faces) {
+								if (i.equals("一次")) {
+									for (String j : names1) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								} else if (i.equals("二次")) {
+									for (String j : names2) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								}
+						}
+
+					} else if (event.equals("infosession2")) {
+						String date = request.getParameter("date");
+
+
+						String[] events = {"合説","模擬面接申し込み" ,"模擬面接予約" ,"模擬面接参加" ,"座談会1", "座談会2" };
+						for (String i : events) {
+							SEvent inEvent = new SEvent();
+							inEvent.seteCategory(i);
+							if (i.equals("合説")) {
+								inEvent.seteDate(date);
+							} else {
+								inEvent.seteDate("　");
+							}
+							inEvent.seteId(0);
+							eventList.add(inEvent);
+						}
+
+
+						String[] interns = {"1day","3days" ,"初級" ,"中級" ,"準備" ,"説明会"};
+						for (String i : interns) {
+							SIntern inIntern = new SIntern();
+							inIntern.setiCategory(i);
+							inIntern.setiDate("　");
+							inIntern.setiMeeting("　");
+							inIntern.setiSubmit("　");
+							inIntern.setiAcceptance("　");
+							inIntern.setiDocument("　");
+							inIntern.setiAttend("　");
+							inIntern.setApplyflag("　");
+							inIntern.setAlleditflag(0);
+							internList.add(inIntern);
+
+						}
+
+
+
+						String[] texts = {"自己PR文","履歴書" ,"書類選考"};
+						String[] textNames = {"松野","藤原" ,"板谷" ,"菅澤"};
+						for (String i : texts) {
+							for (String j : textNames) {
+								SSelectionText inText = new SSelectionText();
+								inText.setStCategory(i);
+								inText.setStName(j);
+								inText.setStScore(0);
+								inText.setStId(0);
+								textList.add(inText);
+							}
+						}
+
+
+
+						String[] faces = {"一次", "二次"};
+						String[] names1 = {"松野", "板谷", "菅澤"};
+						String[] names2 = {"湯澤", "藤原"};
+						for (String i : faces) {
+								if (i.equals("一次")) {
+									for (String j : names1) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								} else if (i.equals("二次")) {
+									for (String j : names2) {
+										SSelectionFace inFace = new SSelectionFace();
+										inFace.setSfCategory(i);
+										inFace.setSfName(j);
+										inFace.setSfScore(0);
+										inFace.setSfId(0);
+										faceList.add(inFace);
+									}
+								}
+						}
+
+					}
+
+
+
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 
+
 				UploadService service = new UploadService();
-				if (service.insert(listInList)) {//登録できた場合
+				if (service.insert(listInList, eventList, internList, textList, faceList)) {//登録できた場合
 
 					request.setAttribute("msg", "登録が成功しました");
 					return "/WEB-INF/jsp/upload.jsp";

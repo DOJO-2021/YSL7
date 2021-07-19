@@ -64,13 +64,16 @@ public class SelectionTextDao {
 			pStmt.setString(2,stName);
 			pStmt.setInt(3,stScore);
 
+			int ans = pStmt.executeUpdate();
+
 			if (conn != null) {
 				conn.close();
 			}
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
-			return pStmt.executeUpdate();
+			return ans;
+
 		}
 
 		public int selectiontextUpdate(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
@@ -85,13 +88,20 @@ public class SelectionTextDao {
 			pStmt.setInt(3,stScore);
 			pStmt.setInt(4,stId);
 
+
+
+			int ans = pStmt.executeUpdate();
+
 			if (conn != null) {
 				conn.close();
 			}
+
+
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
-			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+			return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
 		}
 		public int selectiontextDelete(int sId) throws SQLException {
 
@@ -101,13 +111,21 @@ public class SelectionTextDao {
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+
+
+			int ans = pStmt.executeUpdate();
+
+
 			if (conn != null) {
 				conn.close();
 			}
+
+
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
-			return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+			return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 		}
 
 }
