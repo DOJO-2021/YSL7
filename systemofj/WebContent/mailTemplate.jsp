@@ -21,7 +21,7 @@
 			<select name="kind1">
 			<!-- プルダウンメニューの中身 -->
 			<c:forEach var="e" items="${templateSeminarList}">
-				<option><c:out value="${e.tTitle}"/></option>
+				<option value = "${e.tTitle}">${e.tTitle}</option>
 			</c:forEach>
 
 						<!-- <option value="">合同説明会のご案内</option>
