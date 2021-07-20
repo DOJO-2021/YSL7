@@ -386,6 +386,7 @@ public class UpdateDeleteService {
 		int test4 =dao.selectionfaceUpdate( sfCategory2, sfName1, sfScore2_1,  sfId);
 		int test5 =dao.selectionfaceUpdate( sfCategory2, sfName2, sfScore2_2,  sfId);
 
+
 		if(test1 == 1 && test2 == 1 && test3 == 1 && test4 == 1 && test5 == 1 ) {
 			result = true;
 		}
