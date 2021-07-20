@@ -55,7 +55,7 @@ public class SelectionTextDao {
 		public int selectiontextInsert(String stCategory, String stName, int stScore) throws SQLException {
 
 			// SQL文を準備する
-			String sql =  "insert into SelectionText (s_id, st_category, st_score)"
+			String sql =  "insert into SelectionText (s_id, st_category,st_name, st_score)"
 					+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?)";;
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
