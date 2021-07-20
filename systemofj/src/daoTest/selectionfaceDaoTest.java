@@ -22,12 +22,12 @@ public class selectionfaceDaoTest {
 //		int selectionFace = dao.selectionfaceInsert("一次面接"," 菅澤",1);
 //アップデート
 		//DAOを実体化
-//		SelectionFaceDao dao = new SelectionFaceDao(conn);
+		SelectionFaceDao dao = new SelectionFaceDao(conn);
 //デリート
 		//DAOを実体化
-		SelectionFaceDao dao = new SelectionFaceDao(conn);
+//		SelectionFaceDao dao = new SelectionFaceDao(conn);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.selectionfaceDelete(1);
+//		int test =dao.selectionfaceDelete(1);
 
 //セレクト
 		//DAOを実体化
@@ -36,11 +36,21 @@ public class selectionfaceDaoTest {
 		//引数を渡し、取得地をbeanに渡す
 //		ArrayList<SSelectionFace> bean =sfDao.selectionfaceSelect(1);
 		//引数を渡し、取得地をbeanに渡す
-//		int test1 =dao.selectionfaceUpdate( "一次面接", "菅澤", 1,1);
-//		int test2=dao.selectionfaceUpdate(  "一次面接", "板谷", 2,2);
-//		int test3 =dao.selectionfaceUpdate( "一次面接", "藤原", 3, 3 );
-//		int test4 =dao.selectionfaceUpdate(  "二次面接", "菅澤", 1, 4);
-//		int test5 =dao.selectionfaceUpdate(  "二次面接", "板谷", 2,  5);
+		System.out.println("test");
+		int test1 =dao.selectionfaceUpdate( "一次面接", "菅澤", 1,1);
+		System.out.println("test2");
+		dao = new SelectionFaceDao(conn);
+		System.out.println("test3");
+		int test2=dao.selectionfaceUpdate(  "一次面接", "板谷", 2,2);
+		System.out.println("test4");
+		dao = new SelectionFaceDao(conn);
+		int test3 =dao.selectionfaceUpdate( "一次面接", "藤原", 3, 3 );
+		dao = new SelectionFaceDao(conn);
+
+		int test4 =dao.selectionfaceUpdate(  "二次面接", "菅澤", 1, 4);
+		dao = new SelectionFaceDao(conn);
+
+		int test5 =dao.selectionfaceUpdate(  "二次面接", "板谷", 2,  5);
 
 //select
 //		if (bean.size() != 0) {
@@ -56,37 +66,20 @@ public class selectionfaceDaoTest {
 //		}
 //	}
 //update
-//		if(test1 != 0) {
+		if(test1 == 1 && test2 == 1 && test3 == 1 && test4 == 1 && test5 == 1 ) {
+			System.out.println("成功");
+		} else {
+			System.out.println("失敗");
+		}
+
+
+
+		//delete
+//		if(test != 0) {
 //				System.out.println("成功");
 //			} else {
 //				System.out.println("失敗");
 //			}
-//		if(test2 != 0) {
-//			System.out.println("成功");
-//		} else {
-//			System.out.println("失敗");
-//		}
-//		if(test3 != 0) {
-//			System.out.println("成功");
-//		} else {
-//			System.out.println("失敗");
-//		}
-//		if(test4 != 0) {
-//			System.out.println("成功");
-//		} else {
-//			System.out.println("失敗");
-//		}
-//		if(test5 != 0) {
-//			System.out.println("成功");
-//		} else {
-//			System.out.println("失敗");
-//		}
-		//delete
-		if(test != 0) {
-				System.out.println("成功");
-			} else {
-				System.out.println("失敗");
-			}
 
 	}
 }
