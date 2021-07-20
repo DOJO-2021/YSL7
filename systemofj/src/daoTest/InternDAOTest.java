@@ -1,5 +1,6 @@
 package daoTest;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -203,7 +204,7 @@ class InternDAOTest {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡す - 成功パターン
-		int newIntern = dao.allUpdate(" set i_date='2020-05-06', i_attend='' where alleditflag = 1","中級");
+		int newIntern = dao.uploadUpdate("");
 
 
 
