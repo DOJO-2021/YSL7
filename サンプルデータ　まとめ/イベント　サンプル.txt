@@ -12,34 +12,125 @@ e_date varchar (10)
 insert into Event values (
 null,
 '1',
-'合同説明会',
-'2020-10-12'
+'合説',
+'2020-05-20'
 );
 
 insert into Event values (
 null,
-'2',
-'模擬面接',
-'2021-03-22'
+'1',
+'模擬面接申し込み',
+'2021-04-15'
 );
 
 insert into Event values (
 null,
 '3',
-'座談会',
-'2020-4-21'
+'合説',
+'2020-09-12'
+);
+
+insert into Event values (
+null,
+'3',
+'模擬面接申し込み',
+'2021-04-15'
+);
+
+insert into Event values (
+null,
+'3',
+'模擬面接予約',
+'2020-04-16'
+);
+
+insert into Event values (
+null,
+'3',
+'模擬面接参加',
+'2020-04-22'
+);
+
+insert into Event values (
+null,
+'3',
+'座談会2',
+'2021-05-04'
 );
 
 insert into Event values (
 null,
 '4',
-'模擬面接',
-'2021-07-15'
+'模擬面接申し込み',
+'2021-03-22'
+);
+
+insert into Event values (
+null,
+'4',
+'模擬面接予約',
+'2021-03-25'
+);
+
+insert into Event values (
+null,
+'4',
+'模擬面接参加',
+'2021-04-03'
+);
+
+insert into Event values (
+null,
+'4',
+'座談会2',
+'2021-05-04'
 );
 
 insert into Event values (
 null,
 '5',
-'合同説明会',
-'2020-10-12'
+'合説',
+'2020-05-20'
+);
+
+insert into Event values (
+null,
+'7',
+'合説',
+'2020-05-20'
+);
+
+insert into Event values (
+null,
+'7',
+'座談会1',
+'2020-10-04'
+);
+
+insert into Event values (
+null,
+'8',
+'模擬面接申し込み',
+'2021-03-22'
+);
+
+insert into Event values (
+null,
+'8',
+'模擬面接予約',
+'2020-03-25'
+);
+
+insert into Event values (
+null,
+'8',
+'座談会2',
+'2021-05-04'
+);
+
+insert into Event values (
+null,
+'9',
+'座談会1',
+'2020-10-04'
 );
