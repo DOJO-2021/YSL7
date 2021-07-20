@@ -51,7 +51,7 @@
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</c:forEach>
 					</tr>
@@ -82,7 +82,7 @@
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
 					</c:forEach>
@@ -112,7 +112,7 @@
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
 
@@ -144,10 +144,9 @@
 							<td>${e.s_Faculty}</td>
 							<td>${e.s_Department}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
-
 					</c:forEach>
 				</table>
 				</form>
@@ -166,6 +165,10 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
+						<tr>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
+							<td><input type="submit" name="detail" value="詳細ページ"></td>
+						</tr>
 				</table>
 </c:if>
 </div>
@@ -181,7 +184,7 @@
 
 <script>
 'use strict';
-
+//ページを読み込んだらflagが1のものを0に戻すメソッド
 window.onload = function flagdelete(indexNo){
 	var che = document.getElementById('checkId'+indexNo);
 	$.ajax({
@@ -190,7 +193,7 @@ window.onload = function flagdelete(indexNo){
 		data: {	int : sId }
 	});
 }
-
+//checkされたflagを0から1に変更するメソッド
 function changeflag(indexNo){
 	//チェックボックスの取得
 	var ch = document.getElementById('checkId'+indexNo);
@@ -214,7 +217,7 @@ $(document).ready(function(){
 <script>
 'use strict';
 
-//全選択・解除のチェックボックス
+//全選択・解除のチェックボックスのメソッド
 let checkbox_all = document.querySelector('#checkbox_all');
 //チェックボックスのリスト
 let checkbox_list = document.querySelectorAll('.checkbox_list');
@@ -243,10 +246,7 @@ function change_all() {
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");
-
 //checkbox_all.addEventListener('change', allselect);
-
 //}
-
 </script>
 </html>
