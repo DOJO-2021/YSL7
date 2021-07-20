@@ -14,6 +14,8 @@ public class SelectionTextDao {
 		public SelectionTextDao(Connection conn) {
 			this.conn=conn;
 		}
+
+
 		public ArrayList<SSelectionText> selectiontextSelect(int sId) throws SQLException {
 
 			ArrayList<SSelectionText> stsList = new ArrayList<SSelectionText>(); //SFeedback型の要素をしまうListを作る
@@ -52,6 +54,9 @@ public class SelectionTextDao {
 			}
 			return stsList;
 		}
+
+
+
 		public int selectiontextInsert(String stCategory, String stName, int stScore) throws SQLException {
 
 			// SQL文を準備する
@@ -66,15 +71,14 @@ public class SelectionTextDao {
 
 			int ans = pStmt.executeUpdate();
 
-			if (conn != null) {
-				conn.close();
-			}
 			// SQL文を実行する
 			// ここは変えなくていい
 			// 件数を返す
 			return ans;
 
 		}
+
+
 
 		public int selectiontextUpdate(int sId,String stCategory,String stName, int stScore,int stId) throws SQLException {
 
@@ -103,6 +107,9 @@ public class SelectionTextDao {
 			return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 		}
+
+
+
 		public int selectiontextDelete(int sId) throws SQLException {
 
 			// SQL文を準備する
@@ -129,5 +136,4 @@ public class SelectionTextDao {
 		}
 
 }
-
 

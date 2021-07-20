@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
 
@@ -19,7 +20,7 @@ import model.SIntern;
 import model.SSelectionFace;
 import model.SSelectionText;
 import service.UploadService;
-
+@MultipartConfig(location = "C:\\pleiades\\workspace\\YSL7\\systemofj\\WebContent\\uploaded")
 public class UploadAction {
 
 
@@ -35,6 +36,9 @@ public class UploadAction {
 				String fileName = csv.getSubmittedFileName();
 				//ファイルの絶対パスを取得
 				Path path = Path.of(context.getRealPath(fileName));
+
+				csv.write(context.getRealPath(fileName));
+
 				Charset charset = StandardCharsets.UTF_8;
 
 				//CSV１行分が入る変数
@@ -91,7 +95,7 @@ public class UploadAction {
 
 
 
-					} else if (apply.equals("s_rikunavi")) {//リクナビの場合
+					} else if (apply.equals("s_mynavi")) {//マイナビの場合
 
 						while((line = br.readLine()) != null) {
 							//1行を「,」分割したものを入れる配列
@@ -111,14 +115,14 @@ public class UploadAction {
 							array.add(contents[4]);
 							array.add(contents[5]);
 							array.add("　");
-							array.add("　");
 							array.add("〇");
+							array.add("　");
 							array.add("　");
 
 							listInList.add(array);
 						}
 
-					} else if (apply.equals("s_mynavi")) {//マイナビの場合
+					} else if (apply.equals("s_rikunavi")) {//リクナビの場合
 
 						while((line = br.readLine()) != null) {
 							//1行を「,」分割したものを入れる配列
@@ -138,8 +142,8 @@ public class UploadAction {
 							array.add(contents[9]);
 							array.add(contents[10]);
 							array.add("　");
-							array.add("〇");
 							array.add("　");
+							array.add("〇");
 							array.add("　");
 
 							listInList.add(array);

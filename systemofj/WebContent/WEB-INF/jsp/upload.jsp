@@ -17,8 +17,9 @@
 </head>
 <body>
 	<h1>アップロード</h1>
+	${msg}
 	<!-- ヘッダー後で追加 -->
-	<form action="/systemofj/Servlet.java">
+	<form method="POST" action="/systemofj/SwaragiServlet" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>
@@ -70,10 +71,10 @@
 			<tr>
 				<td>
 					<div id="upcsv">
-						<input type="file" name="file" accept=".csv" id="file1">
+						<input type="file" name="csv" accept=".csv" id="file1">
 					</div>
 					<div id="uppdf">
-						<input type="file" name="file" accept=".pdf" id="file2">
+						<input type="file" name="pdf" accept=".pdf" id="file2">
 					</div>
 				</td>
 			</tr>

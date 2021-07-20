@@ -52,9 +52,6 @@ public class StudentDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
 
 		// SQL文を実行する
 		// ここは変えなくていい
@@ -307,13 +304,13 @@ public class StudentDao {
 		ArrayList<SearchResult> searchName = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する
-		String sql = "select s.s_id, s.s_name, s.s_univercity, s.s_faculty, s.s_department, se.se_situation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.s_id=se.s_id where s.s_name like %?%";
+		String sql = "select s.s_id, s.s_name, s.s_univercity, s.s_faculty, s.s_department, se.se_situation FROM Student AS s LEFT JOIN SelectionEasy AS se ON s.s_id=se.s_id where s.s_name like ?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
-		pStmt.setString(1, sName); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(1, "%" + sName + "%"); //1つ目の?(=NAME)に入力値をいれる
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -400,9 +397,7 @@ public class StudentDao {
 
 			bean.setsId(rs.getInt("s_Id"));
 		}
-		if (conn != null) {
-			conn.close();
-		}
+
 		return bean;
 	}
 
