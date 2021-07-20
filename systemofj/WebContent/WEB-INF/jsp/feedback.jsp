@@ -48,7 +48,10 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="text" name="f_name"></td>
-				<td><input type="submit" name="fr_regist_button" value="登録"></td>
+				<td>
+					<input type="submit" name="fr_regist_button" value="登録">
+					<input type="hidden" name="page_id" value="result">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
@@ -78,6 +81,7 @@
 					<option value="予備">予備</option>
 				</select>
 				<input type="submit" id="fr_search_button" value="検索">
+				<input type="hidden" name="page_id" value="searchResult">
 				</td>
 			</tr>
 			</table>
@@ -90,8 +94,14 @@
 				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
 			</tr>
 			<tr>
-				<td id="f_regist_button"><input type="submit" value="フィードバックまとめを更新"></td>
-				<td id="f_update_button"><input type="submit"  value="フィードバックまとめを登録"></td>
+				<td id="f_regist_button">
+					<input type="submit" value="フィードバックまとめを更新">
+					<input type="hidden" name="page_id" value="result">
+				</td>
+					<td id="f_update_button">
+					<input type="submit"  value="フィードバックまとめを登録">
+					<input type="hidden" name="page_id" value="result">
+				</td>
 			</tr>
 			</table>
 			</form>
@@ -110,7 +120,10 @@
 			</tr>
 			<tr>
 				<td colspan="2"><input type="text" name="fName"></td>
-				<td><input type="submit" name="fu_update_button" value="更新"></td>
+				<td>
+					<input type="submit" name="fu_update_button" value="更新">
+					<input type="hidden" name="page_id" value="result">
+				</td>
 			</tr>
 			<tr>
 				<td colspan="3"><textarea name=fContent rows="20" cols="50"></textarea></td>

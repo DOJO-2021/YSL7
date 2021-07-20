@@ -7,12 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>searchResult</title>
-<!-- ファイル読み込み--------------------------- -->
+<!-- ファイル読み込み
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
-
+--------------------------- -->
 </head>
 <body>
 <h1>検索結果</h1>
@@ -23,7 +23,6 @@
 	<input type="radio" id="name" name="line" onclick="sort(1)">
 	<label for="name">名前で並び替え</label>
 
-
 	<input type="radio" id="day" name="line" onclick="sort(2)">
 	<label for="day">日付で並び替え</label>
 </div>
@@ -31,6 +30,7 @@
 <!-- インターン検索 -->
 <c:if test="${searchInternList != null} ">
 			<form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -61,6 +61,8 @@
 <!-- イベント検索 -->
 <c:if test="${searchEventList != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -91,6 +93,8 @@
 
 <c:if test="${searchEntryList != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -119,6 +123,8 @@
 <!-- 名前検索 -->
 <c:if test="${searchName != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -147,6 +153,8 @@
 				</form>
 </c:if>
 <c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -161,9 +169,10 @@
 				</table>
 </c:if>
 </div>
-	<label for="selection">
-		<input type="checkbox" id="checkbox_all"  >全選択/解除
-	</label>
+
+		<input type="checkbox" id="checkbox_all"  >
+		<label for="selection">全選択/解除</label>
+
 	<input type="submit" name="edit" value="一括編集ページ">
 
 </body>
@@ -223,8 +232,6 @@ function change_all() {
 	}
 
 };
-
-
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");
@@ -232,9 +239,6 @@ function change_all() {
 //checkbox_all.addEventListener('change', allselect);
 
 //}
-
-
-
 
 </script>
 </html>

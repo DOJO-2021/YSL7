@@ -75,26 +75,27 @@ margin-top: 70px;
 <div class="container">
 <table class="top_tbl">
 	<tr align="center">
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=アップロード" id="t_upload" class="btn">アップロード</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=検索" id="t_search" class="btn">検索</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=テンプレート登録" id="t_template" class="btn">テンプレート登録</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=upload" id="t_upload" class="btn">アップロード</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=search" id="t_search" class="btn">検索</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=templateRegist" id="t_template" class="btn">テンプレート登録</a></td>
 	</tr>
 
 	<tr align="center">
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=分析" id="t_analysis" class="btn">分析</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=学生の新規登録" id="t_regist" class="btn">学生の新規登録</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=ログアウト" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=analysis" id="t_analysis" class="btn">分析</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=studentRegist" id="t_regist" class="btn">学生の新規登録</a></td>
+		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=logout" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
 	</tr>
 </table>
 
+
 <br><hr><br>
 <p align="center">その他、臨時で入ってるリンクたち。不要になったら消します。</p>
-<a href="/systemofj/TestServlet?FLG=テンプレ編集" id="t_t_edit" class="btn">テンプレ編集</a>
-<a href="/systemofj/TestServlet?FLG=学生データ詳細" id="t_detail" class="btn">学生データ詳細</a>
-<a href="/systemofj/TestServlet?FLG=フィードバック登録・更新" id="t_feedback" class="btn">フィードバック登録・更新</a>
-<a href="/systemofj/TestServlet?FLG=検索結果" id="t_s_result" class="btn">検索結果</a>
-<a href="/systemofj/TestServlet?FLG=一括編集" id="t_all_edit" class="btn">一括編集</a>
-<a href="/systemofj/TestServlet?FLG=処理結果" id="t_result" class="btn">リザルト</a>
+<a href="/systemofj/TestServlet?FLG=templateEdit" id="t_t_edit" class="btn">テンプレ編集</a>
+<a href="/systemofj/TestServlet?FLG=detail" id="t_detail" class="btn">学生データ詳細</a>
+<a href="/systemofj/TestServlet?FLG=feecback" id="t_feedback" class="btn">フィードバック登録・更新</a>
+<a href="/systemofj/TestServlet?FLG=searchResult" id="t_s_result" class="btn">検索結果</a>
+<a href="/systemofj/TestServlet?FLG=allEdit" id="t_all_edit" class="btn">一括編集</a>
+<a href="/systemofj/TestServlet?FLG=result" id="t_result" class="btn">リザルト</a>
 
 
 

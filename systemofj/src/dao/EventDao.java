@@ -97,6 +97,20 @@ public class EventDao {
 		return ans;
 	}
 
+	public int uploadUpdate(int sId, String event, String date) throws SQLException {
+
+		String sql = "update Event set e_date = ? where s_id = ? and e_category = ?;";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setString(1, date);
+		pStmt.setInt(2, sId);
+		pStmt.setString(2, date);
+
+		int ans = pStmt.executeUpdate();
+
+		return ans;
+	}
+
 	//削除
 	public int eventDelete(int sId) throws SQLException {
 
