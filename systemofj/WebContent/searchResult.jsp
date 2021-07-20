@@ -139,6 +139,10 @@
 					<c:forEach var="e" items="${searchName}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
+							<td><input type="hidden" name="submit" value="aj"></td>
+							<td><input type="hidden" name="checkbox" value="checkbox"></td>
+
+							<td><input type="hidden"  value="${e.s_id }"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
@@ -190,7 +194,7 @@ window.onload = function flagdelete(indexNo){
 	$.ajax({
 		type:'post',
 		url: '/systemofj/Servlet',
-		data: {	int : sId }
+		data:{str : submit}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
@@ -201,7 +205,7 @@ function changeflag(indexNo){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
-				data: {	int : sId }
+				data: {	int : sId },{str: checkbox}
 			});
 }
 </script>

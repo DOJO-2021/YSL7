@@ -1,10 +1,6 @@
 package daoTest;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-
-import dao.SelectionTextDao;
 
 public class SelectionTextDaoTest {
 
@@ -47,20 +43,20 @@ public class SelectionTextDaoTest {
 //selectiontextInsertメソッドのテスト
 
 //		try {
-			//ドライバの登録
-			Class.forName("org.h2.Driver");
-			//データベースに接続する
-			Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-
-			//Daoを実体化
-			SelectionTextDao dao = new SelectionTextDao(conn);
-
-			//引数を渡す
-			int stInsert = dao.selectiontextInsert("履歴書", "よしだ", 2);
-
-			if(stInsert != 0) {
-				System.out.println("成功");
-			}
+//			//ドライバの登録
+//			Class.forName("org.h2.Driver");
+//			//データベースに接続する
+//			Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//			//Daoを実体化
+//			SelectionTextDao dao = new SelectionTextDao(conn);
+//
+//			//引数を渡す
+//			int stInsert = dao.selectiontextInsert("履歴書", "よしだ", 1);
+//
+//			if(stInsert != 0) {
+//				System.out.println("成功");
+//			}
 //		}
 //		catch(SQLException e) {
 //			System.out.println("失敗");
@@ -70,6 +66,56 @@ public class SelectionTextDaoTest {
 //		}
 
 //ここまで-------------------------------------------------------
+
+
+//selectiontextUpdateメソッドのテスト----------------------------
+
+//		//ドライバの登録
+//		Class.forName("org.h2.Driver");
+//		//データベースに接続する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//		//Daoを実体化
+//		SelectionTextDao dao = new SelectionTextDao(conn);
+//
+//		//引数を渡す - 成功パターン
+//		int stUpdate = dao.selectiontextUpdate(9, "履歴書", "よしだ", 3, 25);
+//
+//		//失敗パターン（存在しないID）
+//		//int stUpdate = dao.selectiontextUpdate(9, "履歴書", "よしだ", 3, 30);
+//
+//		if(stUpdate != 0) {
+//			System.out.println("成功");
+//		}else {
+//			System.out.println("失敗");
+//		}
+
+//ここまで-------------------------------------------------------
+
+
+//selectiontextDeleteメソッドのテスト----------------------------
+
+//		//ドライバの登録
+//		Class.forName("org.h2.Driver");
+//		//データベースに接続する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//		//Daoを実体化
+//		SelectionTextDao dao = new SelectionTextDao(conn);
+//
+//		//引数を渡す - 成功パターン
+//		//int stDelete = dao.selectiontextDelete(9);
+//
+//		//失敗パターン（存在しないID）
+//		int stDelete = dao.selectiontextDelete(90);
+//
+//		if(stDelete != 0) {
+//			System.out.println("成功");
+//		}else {
+//			System.out.println("失敗");
+//		}
+
+//ここまで--------------------------------------------------------
 
 	}
 
