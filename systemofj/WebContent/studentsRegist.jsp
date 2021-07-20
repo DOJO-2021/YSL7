@@ -269,7 +269,7 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_resume1" value="　"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="st_score_resume4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
@@ -452,7 +452,8 @@ width: 800px;
 </table>
 </div>
 <div align="center">
-<input type="submit" name="regist" value="登録" style="width: 200px">
+<input type="submit" value="登録" style="width: 200px">
+<input type="hidden" name="page_id" value="studentRegist">
 </div>
 </form>
 </body>

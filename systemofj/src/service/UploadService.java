@@ -31,6 +31,7 @@ public class UploadService {
 
 			//データベースへの接続情報を設定する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\db\\db", "sa", "sa");
+			conn.setAutoCommit(false);
 
 
 			StudentDao sdao = new StudentDao(conn);
@@ -55,7 +56,7 @@ public class UploadService {
 
 					} else if (event.equals("infosession")) {//会社説明会の場合・・・会社説明会のみ
 
-						idal.uploadUpdate(s.getsId(), "説明会", date);
+						idao.uploadUpdate(s.getsId(), "説明会", date);
 
 					} else if (event.equals("infosession2")) {//合同説明会の場合・・・合同説明会のみ
 
@@ -84,59 +85,7 @@ public class UploadService {
 
 					sedao.selectionEasyInsert("　", 0, 0, "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　", "　");
 				}
-//				//Eventの更新
-//				for(String j : eList) {
-//					if(eCategory.equals(j)) {
-//						edao.eventUpdate(eCategory, eDate);
-//					}
-//				}
-//
 
-//
-//				//Internの更新
-//				for(String j : iList) {
-//					if(iCategory.equals(j)) {
-//						idao.internUpdate(iCategory,iDate,iMeeting,iSubmit,iAcceptance,iDocument,iAttend,applyFlag);
-//					}
-//				}
-//
-
-//
-//				//SelectionTextの更新
-//				for(String j : stList) {
-//					if(stCategory.equals(j)) {
-//						for(String k : stnList) {
-//							if(stName.equals(k)) {
-//								stdao.selectiontextUpdate(stCategory,stName,stScore);
-//							}
-//						}
-//					}
-//				}
-//
-
-//				//SelectionFaceの更新
-//				for(int j = 0; j < 2; j++) {
-//					if(j == 0) {
-//						if(sfCategory.equals(sfList[j])) {
-//							for(int k = 0; k < 3; k++) {
-//								if(sfName.equals(sfnList[k])) {
-//									sfdao.selectionfaceUpdate(sfCategory,sfName,sfScore);
-//								}
-//							}
-//						}
-//					} else {
-//						if(sfCategory.equals(sfList[j])) {
-//							for(int k = 3; k < 5; k++) {
-//								if(sfName.equals(sfnList[k])) {
-//									sfdao.selectionfaceUpdate(sfCategory,sfName,sfScore);
-//								}
-//							}
-//						}
-//					}
-//				}
-//
-//				//SelectionEasyの更新
-//				sedao.selectionEasyUpdate(seSelectionDate,seScore,seTextScore,seTextResult,seGetTextDate,seNo,seOk,seNoReason,seSendOk,seEarlyOk,seEarlyNo,seFirstResult,seSecondResult,seFirstNo,seFirstDate,seSecondNo,seSecondDate,seThirdDate,seThirdResult,seRemarks,seSituation,seDecide);
 			}
 			conn.commit();
 			result = true;
@@ -156,6 +105,7 @@ public class UploadService {
 			}
 		}
 		catch(ClassNotFoundException e) {
+			conn.rollback();
 			e.printStackTrace();
 		}
 
