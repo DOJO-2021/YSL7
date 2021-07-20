@@ -180,6 +180,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 <script>
+'use strict';
+
 window.onload = function flagdelete(indexNo){
 	var che = document.getElementById('checkId'+indexNo);
 	$.ajax({
@@ -207,9 +209,11 @@ function changeflag(indexNo){
 $(document).ready(function(){
 	        $("#myTable").tablesorter();
 }
-</script>--------------------------- -->
+</script> --------------------------- -->
 
 <script>
+'use strict';
+
 //全選択・解除のチェックボックス
 let checkbox_all = document.querySelector('#checkbox_all');
 //チェックボックスのリスト

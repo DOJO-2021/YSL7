@@ -24,21 +24,18 @@
 			<c:forEach var="e" items="${templateSeminarList}">
 				<option value = "${e.tTitle}">${e.tTitle}</option>
 			</c:forEach>
-
 						<!-- <option value="">合同説明会のご案内</option>
 						<option value="1">合同説明会参加のお礼</option>
 						<option value="2">合同説明会当日案内</option>
 						<option value="3">会社説明会のご案内</option>
 						<option value="4">会社説明会参加のお礼</option>
  						-->
-
 			 </select><br>
 			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
 			 <input type="submit" name="templateedit" value="テンプレ編集" >
-
 		 </div>
 		<div id="interntemplate" style="display: none">
-					カテゴリを選択してください：
+				カテゴリを選択してください：
 			<select name="kind2">
 				<!-- プルダウンメニューの中身 -->
 				<c:forEach var="e" items="${templateInternList}">
@@ -54,8 +51,7 @@
 			 </select><br>
 			 <input type="submit" name="search" value="テンプレ使用"onclick="yesno()" >
 			 <input type="submit" name="templateedit" value="テンプレ編集" >
-
-		 </div>
+		</div>
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
 			<select name="kind3">
@@ -70,10 +66,9 @@
 			 </select><br>
 			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
 			 <input type="submit" name="templateedit" value="テンプレ編集" >
-
 		</div>
 		<div id="othertemplate" style="display: none">
-					カテゴリを選択してください：
+				カテゴリを選択してください：
 			<select name="kind4">
 				<!-- プルダウンメニューの名身 -->
 				<c:forEach var="e" items="${templateOtherList}">
@@ -86,10 +81,10 @@
 			 </select><br>
 			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
 			 <input type="submit" name="templateedit" value="テンプレ編集" >
-
 		</div>
 </form>
 </body>
+
 <script>
 'use strict';
 
@@ -106,7 +101,6 @@ function show(){
 }
 
 function yesno(){
-
 	//確認ダイアログを表示
 	if(window.confirm('このテンプレを使用してよろしいですか？')){
 		//「OK」時は送信実行
@@ -119,6 +113,5 @@ function yesno(){
 		return false;
 	}
 }
-
 </script>
 </html>
