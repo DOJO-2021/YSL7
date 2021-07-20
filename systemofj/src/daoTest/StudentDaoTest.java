@@ -505,7 +505,7 @@ public class StudentDaoTest {
 
 			//引数を渡し、取得値をbeanに渡す
 
-			ArrayList<SearchResult> searchName = dao.searchName("内々定");
+			ArrayList<SearchResult> searchName = dao.searchName("鈴木");
 
 			 if(searchName.size() != 0) {
 
@@ -515,6 +515,8 @@ public class StudentDaoTest {
 				 System.out.println(bean.getsId());
 				 System.out.println(bean.getsName());
 				 System.out.println(bean.getsUnivercity());
+				 System.out.println(bean.getsFaculty());
+				 System.out.println(bean.getsDepartment());
 				 System.out.println(bean.getSeSituation());
 
 
@@ -524,6 +526,7 @@ public class StudentDaoTest {
 
 				 System.out.println("失敗");
 			 }
+
 
 
 
