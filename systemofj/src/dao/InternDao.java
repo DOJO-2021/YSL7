@@ -76,9 +76,7 @@ public class InternDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
@@ -170,9 +168,6 @@ public class InternDao {
 		pStmt.setInt(2,sId);
 		pStmt.setString(3,iCategory);
 
-		if (conn != null) {
-			conn.close();
-		}
 
 		int ans = pStmt.executeUpdate();
 

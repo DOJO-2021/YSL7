@@ -9,6 +9,7 @@ import dao.SelectionFaceDao;
 public class selectionfaceDaoTest {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException{
+		try {
 		//面接insert
 		//ドライバの登録
 		Class.forName("org.h2.Driver");
@@ -32,25 +33,34 @@ public class selectionfaceDaoTest {
 //セレクト
 		//DAOを実体化
 //		SelectionFaceDao sfDao = new SelectionFaceDao(conn);
-
 		//引数を渡し、取得地をbeanに渡す
 //		ArrayList<SSelectionFace> bean =sfDao.selectionfaceSelect(1);
+
 		//引数を渡し、取得地をbeanに渡す
-		System.out.println("test");
-		int test1 =dao.selectionfaceUpdate( "一次面接", "菅澤", 1,1);
-		System.out.println("test2");
-		dao = new SelectionFaceDao(conn);
-		System.out.println("test3");
-		int test2=dao.selectionfaceUpdate(  "一次面接", "板谷", 2,2);
-		System.out.println("test4");
-		dao = new SelectionFaceDao(conn);
-		int test3 =dao.selectionfaceUpdate( "一次面接", "藤原", 3, 3 );
-		dao = new SelectionFaceDao(conn);
+		int test1 =dao.selectionfaceUpdate( "一次面接", "菅澤", 1,5);
+		//データベースに接続する
+		Connection conn1= DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
 
-		int test4 =dao.selectionfaceUpdate(  "二次面接", "菅澤", 1, 4);
-		dao = new SelectionFaceDao(conn);
+		SelectionFaceDao dao1 = new SelectionFaceDao(conn1);
+		int test2=dao1.selectionfaceUpdate(  "一次面接", "板谷", 2,5);
+		//データベースに接続する
+		Connection conn2 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
+		SelectionFaceDao dao2 = new SelectionFaceDao(conn2);
+		int test3 =dao2.selectionfaceUpdate( "一次面接", "藤原", 3, 5 );
+		//データベースに接続する
+		Connection conn3 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
+		SelectionFaceDao dao3 = new SelectionFaceDao(conn3);
+		int test4 =dao3.selectionfaceUpdate(  "二次面接", "菅澤", 1, 5);
+		//データベースに接続する
+		Connection conn4 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
 
-		int test5 =dao.selectionfaceUpdate(  "二次面接", "板谷", 2,  5);
+		SelectionFaceDao dao4 = new SelectionFaceDao(conn4);
+
+		int test5 =dao4.selectionfaceUpdate(  "二次面接", "板谷", 2,  5);
 
 //select
 //		if (bean.size() != 0) {
@@ -66,7 +76,13 @@ public class selectionfaceDaoTest {
 //		}
 //	}
 //update
-		if(test1 == 1 && test2 == 1 && test3 == 1 && test4 == 1 && test5 == 1 ) {
+//		System.out.println(test1+":1");
+//		System.out.println(test2+"2");
+//		System.out.println(test3+"3");
+//		System.out.println(test4+"4");
+//		System.out.println(test5+"5");
+
+		if(test1 != 0 && test2 != 0 && test3 != 0 && test4 != 0 && test5 != 0 ) {
 			System.out.println("成功");
 		} else {
 			System.out.println("失敗");
@@ -80,6 +96,9 @@ public class selectionfaceDaoTest {
 //			} else {
 //				System.out.println("失敗");
 //			}
-
+		}catch(Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 	}
 }
