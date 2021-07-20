@@ -30,19 +30,10 @@ width: 800px;
 
 </head>
 <body>
-<!-- メール作成ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="メール作成">
-  </form>
 
-<!-- フィードバックボタン -->
+<!-- アップロード画面へ遷移 -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="フィードバック">
-  </form>
-
-<!-- 履歴書ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="履歴書PDFを表示">
+    <input type="SUBMIT" value="履歴書PDFを登録">
   </form>
 <br>
 <!-- 基本情報テーブル -->
