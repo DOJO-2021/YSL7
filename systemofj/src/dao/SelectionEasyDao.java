@@ -78,8 +78,8 @@ public class SelectionEasyDao {
 			String seOk,
 			String seNoReason,
 			String seSendOk,
-			String seEaryOk,
-			String seEaryNo,
+			String seEarlyOk,
+			String seEarlyNo,
 			String seFirstResult,
 			String seSecondResult,
 			String seFirstNo,
@@ -108,8 +108,8 @@ public class SelectionEasyDao {
 		pStmt.setString(7, seOk);
 		pStmt.setString(8, seNoReason);
 		pStmt.setString(9, seSendOk);
-		pStmt.setString(10, seEaryOk);
-		pStmt.setString(11, seEaryNo);
+		pStmt.setString(10, seEarlyOk);
+		pStmt.setString(11, seEarlyNo);
 		pStmt.setString(12, seFirstResult);
 		pStmt.setString(13, seSecondResult);
 		pStmt.setString(14, seFirstNo);
@@ -144,8 +144,8 @@ public class SelectionEasyDao {
 			String seOk,
 			String seNoReason,
 			String seSendOk,
-			String seEaryOk,
-			String seEaryNo,
+			String seEarlyOk,
+			String seEarlyNo,
 			String seFirstResult,
 			String seSecondResult,
 			String seFirstNo,
@@ -160,27 +160,28 @@ public class SelectionEasyDao {
 
 		// SQL文を準備する
 
-		String sql = "update SelectionEasy set"
+		String sql = "update SelectionEasy set "
 				+ "se_selectiondate=?,"
 				+ "se_score=?,"
 				+ "se_textscore=?,"
 				+ "se_textresult=?,"
 				+ "se_gettextdate=?,"
-				+ "se_no=?,se_ok=?,"
+				+ "se_no=?,"
+				+ "se_ok=?,"
 				+ "se_noreason=?,"
 				+ "se_sendok=?,"
-				+ "se_earyok=?,"
-				+ "se_earyno=?,"
+				+ "se_earlyok=?,"
+				+ "se_earlyno=?,"
 				+ "se_firstresult=?,"
 				+ "se_secondresult=?,"
 				+ "se_firstno=?,"
 				+ "se_firstdate=?,"
 				+ "se_secondno=?,"
 				+ "se_seconddate=?,"
-				+ "se_seconddate=?,"
 				+ "se_thirddate=?,"
 				+ "se_thirdresult=?,"
-				+ "se_situation=?"
+				+ "se_remarks=?,"
+				+ "se_situation=?,"
 				+ "se_decide=?"
 				+ "where s_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
@@ -196,8 +197,8 @@ public class SelectionEasyDao {
 		pStmt.setString(7, seOk);
 		pStmt.setString(8, seNoReason);
 		pStmt.setString(9, seSendOk);
-		pStmt.setString(10, seEaryOk);
-		pStmt.setString(11, seEaryNo);
+		pStmt.setString(10, seEarlyOk);
+		pStmt.setString(11, seEarlyNo);
 		pStmt.setString(12, seFirstResult);
 		pStmt.setString(13, seSecondResult);
 		pStmt.setString(14, seFirstNo);
@@ -207,8 +208,9 @@ public class SelectionEasyDao {
 		pStmt.setString(18, seThirdDate);
 		pStmt.setString(19, seThirdResult);
 		pStmt.setString(20, seRemarks);
-		pStmt.setString(21, seDecide);
-		pStmt.setInt(22, sId);
+		pStmt.setString(21, seSituation);
+		pStmt.setString(22, seDecide);
+		pStmt.setInt(23, sId);
 
 
 		int ans = pStmt.executeUpdate();
