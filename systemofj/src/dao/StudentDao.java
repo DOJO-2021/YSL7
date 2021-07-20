@@ -397,9 +397,7 @@ public class StudentDao {
 
 			bean.setsId(rs.getInt("s_Id"));
 		}
-		if (conn != null) {
-			conn.close();
-		}
+
 		return bean;
 	}
 
