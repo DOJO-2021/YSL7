@@ -159,6 +159,7 @@ public class InternDao {
 		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 
+	//重複しているところをアップデート
 	public int uploadUpdate(int sId, String iDate, String iCategory) throws SQLException {
 
 		String sql = "update Intern set i_date = ? where s_id = ? and i_category = ?;";
