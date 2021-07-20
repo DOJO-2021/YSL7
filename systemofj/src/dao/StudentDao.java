@@ -310,7 +310,7 @@ public class StudentDao {
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
-		pStmt.setString(1, "%" + sName + "%"); //1つ目の?(=NAME)に入力値をいれる
+		pStmt.setString(1, "%"+sName+"%"); //1つ目の?(=NAME)に入力値をいれる
 
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
@@ -318,12 +318,13 @@ public class StudentDao {
 		if (rs.next()) { // 1件でもあれば実行される
 			SearchResult student = new SearchResult();
 			student.setsId(rs.getInt("s_id"));
-			student.setsName(rs.getString("s_Name"));
+			student.setsName(rs.getString("s_name"));
 			student.setsUnivercity(rs.getString("s_Univercity"));
 			student.setsFaculty(rs.getString("s_Faculty"));
 			student.setsDepartment(rs.getString("s_Department"));
 			student.setSeSituation(rs.getString("se_Situation"));
 
+			searchName.add(student);
 		}
 		if(conn != null) {
 			conn.close();
@@ -331,24 +332,25 @@ public class StudentDao {
 		return searchName;
 	}
 
-	// フラグ更新
+	// フラグ更新 一括編集フラグを0から1に更新
 	public int flagUpdate(int sId) throws SQLException {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set (alleditflag) values(1) where s_Id=?";
+		String sql = "update Intern set alleditflag=1 where s_Id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
 
 		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
 
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
 		}
 
-		int ans = pStmt.executeUpdate();
+
 
 		// SQL文を実行する
 		// ここは変えなくていい
@@ -357,7 +359,7 @@ public class StudentDao {
 
 	}
 
-	// フラグ削除
+	// フラグ削除 一括編集フラグを1から0に更新
 	public int flagDelete() throws SQLException {
 
 		// SQL文を準備する
