@@ -93,6 +93,51 @@ public class SelectionTextDaoTest {
 //ここまで-------------------------------------------------------
 
 
+//selectiontextUpdateメソッドのテスト改--------------------------
+
+//		//ドライバの登録
+//		Class.forName("org.h2.Driver");
+//
+//
+//		//データベースに接続する①
+//		Connection conn1 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa", "sa");
+//		//DAOを実体化
+//		SelectionTextDao dao1 = new SelectionTextDao(conn1);
+//		//引数を渡す - 成功パターン
+//		int test1 = dao1.selectiontextUpdate(1, "履歴書", "松野", 3, 5);
+//
+//		//データベースに接続する②
+//		Connection conn2 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa", "sa");
+//		//DAOを実体化
+//		SelectionTextDao dao2 = new SelectionTextDao(conn2);
+//		//引数を渡す - 成功パターン
+//		int test2 = dao2.selectiontextUpdate(1, "履歴書", "藤原", 2, 6);
+//
+//		//データベースに接続する③
+//		Connection conn3 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa", "sa");
+//		//DAOを実体化
+//		SelectionTextDao dao3 = new SelectionTextDao(conn3);
+//		//引数を渡す - 成功パターン
+//		int test3 = dao3.selectiontextUpdate(1, "履歴書", "板谷", 2, 7);
+//
+//		//データベースに接続する④
+//		Connection conn4 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa", "sa");
+//		//DAOを実体化
+//		SelectionTextDao dao4 = new SelectionTextDao(conn4);
+//		//引数を渡す - 成功パターン
+//		int test4 = dao4.selectiontextUpdate(1, "履歴書", "菅澤", 3, 8);
+//
+//
+//		//処理成功チェック
+//		if(test1 != 0 && test2 != 0 && test3 != 0 && test4 != 0) {
+//			System.out.println("成功");
+//		} else {
+//			System.out.println("失敗");
+//		}
+
+//ここまで-------------------------------------------------------
+
+
 //selectiontextDeleteメソッドのテスト----------------------------
 
 //		//ドライバの登録
