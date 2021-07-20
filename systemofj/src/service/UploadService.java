@@ -55,7 +55,7 @@ public class UploadService {
 
 					} else if (event.equals("infosession")) {//会社説明会の場合・・・会社説明会のみ
 
-						idal.uploadUpdate(s.getsId(), "説明会", date);
+						idao.uploadUpdate(s.getsId(), "説明会", date);
 
 					} else if (event.equals("infosession2")) {//合同説明会の場合・・・合同説明会のみ
 
