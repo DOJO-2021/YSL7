@@ -1,6 +1,5 @@
 package daoTest;
 
-import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -139,7 +138,34 @@ class InternDAOTest {
 //			System.out.println("削除失敗");
 //		}
 
+
 //		//allUpdateテスト 成功！
+		//H2でALLEDITFLAGが1の人を追加
+//		//ドライバの登録
+//		Class.forName("org.h2.Driver");
+//		//データベースに接続する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+//				"sa", "sa");
+//
+//		//Daoを実体化
+//		InternDao dao = new InternDao(conn);
+//
+//		//引数を渡す - 成功パターン
+//		int newIntern = dao.allUpdate(" set i_date='2020-05-06', i_attend='' where alleditflag = 1","中級");
+//
+//
+//
+//		if (newIntern != 0) {
+//			System.out.println("成功");
+//		}
+//
+//	  else {
+//		System.out.println("失敗");
+//
+//	}
+	//ここまで-------------------------------------------
+
+//		//allUpdateテスト 失敗！
 //
 //		//ドライバの登録
 //		Class.forName("org.h2.Driver");
@@ -151,7 +177,7 @@ class InternDAOTest {
 //		InternDao dao = new InternDao(conn);
 //
 //		//引数を渡す - 成功パターン
-//		int newIntern = dao.allUpdate(" set i_date='2020-07-07'","1dayインターン");
+//		int newIntern = dao.allUpdate(" set i_date='2020-09-07' where alleditflag = 1","1day");
 //
 //
 //
@@ -164,8 +190,9 @@ class InternDAOTest {
 //
 //	}
 //	//ここまで-------------------------------------------
-		//allUpdateテスト 失敗！
 
+		//allUpdateテスト 成功！
+		//H2でALLEDITFLAGが1の人を追加
 		//ドライバの登録
 		Class.forName("org.h2.Driver");
 		//データベースに接続する
@@ -176,7 +203,7 @@ class InternDAOTest {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡す - 成功パターン
-		int newIntern = dao.allUpdate(" set i_date='2020-05-06'","初級");
+		int newIntern = dao.allUpdate(" set i_date='2020-05-06', i_attend='' where alleditflag = 1","中級");
 
 
 
