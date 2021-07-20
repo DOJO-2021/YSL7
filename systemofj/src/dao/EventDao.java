@@ -80,8 +80,8 @@ public class EventDao {
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQL文を完成させる
-		pStmt.setInt(1, eId);
-		pStmt.setString(2, eDate);
+		pStmt.setString(1, eDate);
+		pStmt.setInt(2, eId);
 
 
 		int ans = pStmt.executeUpdate();
