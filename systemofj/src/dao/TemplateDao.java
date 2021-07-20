@@ -15,10 +15,10 @@ public class TemplateDao {
 	}
 
 	//登録
-	public int templeteInsert (String tTitle, String tCategory, String tContent) throws SQLException {
+	public int templateInsert (String tTitle, String tCategory, String tContent) throws SQLException {
 
 		//SQL文を準備する
-		String sql = "insert into Template values (?, ?, ?)";
+		String sql = "insert into Template values (null,?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//SQL文を完成させる
@@ -78,7 +78,9 @@ public class TemplateDao {
 		//テンプレートIDと一致するテンプレートがあるかチェックする
 		if (rs.next()) {
 			template = new Template();
-			template.settId(rs.getInt("t_id"));
+			template.settTitle(rs.getString("t_title"));
+			template.settContent(rs.getString("t_content"));
+			template.settCategory(rs.getString("t_category"));
 		}
 
 		if (conn != null) {
