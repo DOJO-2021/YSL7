@@ -13,14 +13,15 @@
 	<input type ="button" value="一括コピー" onclick="return textCopy()">
 </div>
 </body>
+
 <script >
+'use strict';
+
 	function textCopy(){
 		 var urltext = document.getElementById("text");
 		 urltext.select();
 		 document.execCommand("copy");
 		 alert("コピーしました");
 	}
-
-
 </script>
 </html>

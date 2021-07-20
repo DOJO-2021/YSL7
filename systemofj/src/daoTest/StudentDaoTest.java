@@ -12,7 +12,7 @@ public class StudentDaoTest {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 
 		//studentInsert
-
+		try {
 //		//ドライバの登録
 //		Class.forName("org.h2.Driver");
 //		//データベースに接続する
@@ -26,8 +26,10 @@ public class StudentDaoTest {
 //
 //		if(newStudent != 0) {
 //			System.out.println("登録成功");
+
+//		}
 //
-//		} else {
+//		} catch (SQLException e){
 //
 //			System.out.println("登録失敗");
 //
@@ -123,6 +125,7 @@ public class StudentDaoTest {
 
 
 
+	}
 	}
 
 

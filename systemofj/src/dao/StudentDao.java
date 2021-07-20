@@ -378,4 +378,33 @@ public class StudentDao {
 		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
+
+
+	//重複チェックのためのメソッド
+	public Student check(String name, String address) throws SQLException {
+
+		//リターンするためのUserBeanを実体化
+		Student bean =null;
+
+		String sql = "select * from Student where s_name like ? and s_address like ?;";
+
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setString(1, "%" + name + "%");
+		pStmt.setString(2, "%" + address + "%");
+
+		ResultSet rs = pStmt.executeQuery();
+
+		if (rs.next()) {
+			bean = new Student();
+
+			bean.setsId(rs.getInt("s_Id"));
+		}
+		if (conn != null) {
+			conn.close();
+		}
+		return bean;
+	}
+
+
 }

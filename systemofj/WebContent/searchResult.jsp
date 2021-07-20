@@ -44,14 +44,14 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${searchInternList}" varStatus="status">
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.s_Name }</td>
 							<td>${e.s_Univercity }</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</c:forEach>
 					</tr>
@@ -76,13 +76,13 @@
 						</tr>
 					<c:forEach var="e" items="${searchEventList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}u</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
 					</c:forEach>
@@ -107,12 +107,12 @@
 						</tr>
 					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
 
@@ -138,16 +138,19 @@
 						</tr>
 					<c:forEach var="e" items="${searchName}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
+							<td><input type="hidden" name="submit" value="aj"></td>
+							<td><input type="hidden" name="checkbox" value="checkbox"></td>
+
+							<td><input type="hidden"  value="${e.s_id }"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.s_Department}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="mail" value="メール送信" ></td>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
 							<td><input type="submit" name="detail" value="詳細ページ"></td>
 						</tr>
-
 					</c:forEach>
 				</table>
 				</form>
@@ -166,6 +169,10 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
+						<tr>
+							<td><input type="submit" name="createMail" value="メール送信" ></td>
+							<td><input type="submit" name="detail" value="詳細ページ"></td>
+						</tr>
 				</table>
 </c:if>
 </div>
@@ -176,39 +183,50 @@
 	<input type="submit" name="edit" value="一括編集ページ">
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
 
-function valueChange(indexNo){
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+'use strict';
+//ページを読み込んだらflagが1のものを0に戻すメソッド
+window.onload = function flagdelete(indexNo){
+	var che = document.getElementById('checkId'+indexNo);
+	$.ajax({
+		type:'post',
+		url: '/systemofj/Servlet',
+		data:{str : submit}
+	});
+}
+//checkされたflagを0から1に変更するメソッド
+function changeflag(indexNo){
 	//チェックボックスの取得
 	var ch = document.getElementById('checkId'+indexNo);
-//検索リストのチェックボックスのチェック判定
-		if(ch.checked){
+//検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
-				data: {	int : sId }
+				data: {	int : sId },{str: checkbox}
 			});
-		}
 }
 </script>
-<!-- ソート --------------------------- -->
+
+<!-- ソート
 <script>
 //ページを読み込み後に、ソートを開始
 $(document).ready(function(){
 	        $("#myTable").tablesorter();
 }
-</script>
+</script> --------------------------- -->
 
 <script>
-//全選択・解除のチェックボックス
+'use strict';
+
+//全選択・解除のチェックボックスのメソッド
 let checkbox_all = document.querySelector('#checkbox_all');
 //チェックボックスのリスト
 let checkbox_list = document.querySelectorAll('.checkbox_list');
-
 //全選択のチェックボックスイベント
 checkbox_all.addEventListener('change', change_all);
-
 
 function change_all() {
 
@@ -220,7 +238,6 @@ function change_all() {
 				checkbox_list[i].checked = true;
 			}
 		}
-
 	} else {
 		//全て解除
 		for (let i in checkbox_list) {
@@ -228,17 +245,12 @@ function change_all() {
 				checkbox_list[i].checked = false;
 			}
 		}
-
 	}
-
 };
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");
-
 //checkbox_all.addEventListener('change', allselect);
-
 //}
-
 </script>
 </html>
