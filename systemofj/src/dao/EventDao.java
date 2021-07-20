@@ -68,10 +68,6 @@ public class EventDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
-
 		return ans;
 
 	}
