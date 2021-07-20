@@ -12,6 +12,8 @@
 <body>
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="mailTemplate">
+
 	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
 	<input type="radio" id="intern" name="template" onclick="show()" >インターン
 	<input type="radio" id="face" name="template" onclick="show()" >面接

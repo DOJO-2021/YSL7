@@ -43,7 +43,7 @@
 <body>
 	<div class="templatehead">
 		<h2 class="inline">テンプレ登録ページ</h2>
-		<a href = "/systemofj/Servlet?FLG=テンプレ編集ページ" class="inline">テンプレ編集ページへ</a>
+		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ編集ページへ</a>
 	</div>
 	<form action ="/systemofj/Servlet" method="POST">
 	<select name="tr_category">
@@ -57,7 +57,8 @@
 
 	<!-- <p>${requestScope.template.t_title}</p>-->
 
-		<input type="submit" class="sub_button" name="tr_regist_button" value="テンプレ登録ボタン">
+		<input type="submit" class="sub_button" value="テンプレ登録ボタン">
+		<input type="hidden" name="page_id" value="templateRegist">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
 		<textarea></textarea>
 		<ul>

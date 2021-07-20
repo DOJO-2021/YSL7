@@ -35,7 +35,8 @@
 					</tr>
 					<tr>
 						<th colspan="2">
-							<input type="submit" name="login" value="LOGIN" onclick="return checkData()">
+							<input type="submit" value="LOGIN" onclick="return checkData()">
+							<input type="hidden" name="page_id" value="login">
 						</th>
 
 					</tr>
