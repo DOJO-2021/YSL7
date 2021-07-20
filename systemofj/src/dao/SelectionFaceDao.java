@@ -69,6 +69,9 @@ public class SelectionFaceDao {
 
 		int ans = pStmt.executeUpdate();
 
+		if (conn != null) {
+			conn.close();
+		}
 
 		// SQL文を実行する
 		// ここは変えなくていい
