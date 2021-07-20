@@ -87,7 +87,7 @@
 
 <script>
 'use strict';
-
+//radioボタンを選択されたプルダウンを表示させるメソッド
 function show(){
 	var explanation = document.getElementById("explanation");
 	var intern = document.getElementById("intern");
@@ -99,7 +99,7 @@ function show(){
 	facetemplate.style.display =face.checked ? "block" : "none";
 	othertemplate.style.display =other.checked ? "block" : "none";
 }
-
+//テンプレを使用するを押されたときにアラートを表示させるメソッド
 function yesno(){
 	//確認ダイアログを表示
 	if(window.confirm('このテンプレを使用してよろしいですか？')){

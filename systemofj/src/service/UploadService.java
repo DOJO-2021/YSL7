@@ -46,7 +46,7 @@ public class UploadService {
 
 				//重複のチェック
 				//select s_id name address from student where name = ? address = ?;
-				Student s = sdao.check();
+				Student s = sdao.check(i.get(0), i.get(0));
 				if (s != null) {//重複していた場合
 					if (event.equals("entry")) {//エントリーの場合・・・何もしない
 
@@ -105,8 +105,7 @@ public class UploadService {
 			}
 		}
 		catch(ClassNotFoundException e) {
-			conn.rollback();
-			e.printStackTrace();
+				e.printStackTrace();
 		}
 
 		finally {
