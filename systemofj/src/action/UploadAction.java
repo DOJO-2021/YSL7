@@ -47,9 +47,12 @@ public class UploadAction {
 				ArrayList<SIntern> internList = new ArrayList<>();
 				ArrayList<SSelectionText> textList = new ArrayList<>();
 				ArrayList<SSelectionFace> faceList = new ArrayList<>();
+				String category = null;
+				String event = null;
+				String date = null;
 
 				//結果を収納するもの
-				String result = "アップロードできませんでした。もう一度アップロードしてください。";
+				//String result = "アップロードできませんでした。もう一度アップロードしてください。";
 
 				//申込分類を入手する。
 				String apply = request.getParameter("site");
@@ -147,7 +150,7 @@ public class UploadAction {
 					//学生を登録すると同時にすべてインサートする
 
 
-					String event = request.getParameter("event");
+					event = request.getParameter("event");
 					if (event.equals("entry")) {
 
 
@@ -222,7 +225,7 @@ public class UploadAction {
 
 
 					} else if (event.equals("intern") || event.equals("infosession")) {
-						String date = request.getParameter("date");
+						date = request.getParameter("date");
 
 
 						String[] events = {"合説","模擬面接申し込み" ,"模擬面接予約" ,"模擬面接参加" ,"座談会1", "座談会2" };
@@ -242,7 +245,7 @@ public class UploadAction {
 							inIntern.setiCategory(i);
 
 							if (event.equals("intern")) {
-								String category = request.getParameter("i_category");
+								category = request.getParameter("i_category");
 
 
 								if (category.equals(i)) {
@@ -312,7 +315,7 @@ public class UploadAction {
 						}
 
 					} else if (event.equals("infosession2")) {
-						String date = request.getParameter("date");
+						date = request.getParameter("date");
 
 
 						String[] events = {"合説","模擬面接申し込み" ,"模擬面接予約" ,"模擬面接参加" ,"座談会1", "座談会2" };
@@ -389,8 +392,6 @@ public class UploadAction {
 
 					}
 
-
-
 				} catch (FileNotFoundException e) {
 					e.printStackTrace();
 				} catch (IOException e) {
@@ -399,7 +400,7 @@ public class UploadAction {
 
 
 				UploadService service = new UploadService();
-				if (service.insert(listInList, eventList, internList, textList, faceList)) {//登録できた場合
+				if (service.insert(listInList, eventList, internList, textList, faceList, event, category, date)) {//登録できた場合
 
 					request.setAttribute("msg", "登録が成功しました");
 					return "/WEB-INF/jsp/upload.jsp";
@@ -416,8 +417,8 @@ public class UploadAction {
 				e.printStackTrace();
 			}
 
-
-
+			request.setAttribute("msg", "どこかのifに入れていないよ！");
+			return "/WEB-INF/jsp/upload.jsp";
 
 	}
 }

@@ -7,12 +7,12 @@
 <head>
 <meta charset="UTF-8">
 <title>searchResult</title>
-<!-- ファイル読み込み--------------------------- -->
+<!-- ファイル読み込み
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
-
+--------------------------- -->
 </head>
 <body>
 <h1>検索結果</h1>
@@ -23,7 +23,6 @@
 	<input type="radio" id="name" name="line" onclick="sort(1)">
 	<label for="name">名前で並び替え</label>
 
-
 	<input type="radio" id="day" name="line" onclick="sort(2)">
 	<label for="day">日付で並び替え</label>
 </div>
@@ -31,6 +30,7 @@
 <!-- インターン検索 -->
 <c:if test="${searchInternList != null} ">
 			<form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -44,7 +44,7 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${searchInternList}" varStatus="status">
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.s_Name }</td>
 							<td>${e.s_Univercity }</td>
@@ -61,6 +61,8 @@
 <!-- イベント検索 -->
 <c:if test="${searchEventList != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -74,7 +76,7 @@
 						</tr>
 					<c:forEach var="e" items="${searchEventList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}u</td>
 							<td>${e.s_Faculty}</td>
@@ -91,6 +93,8 @@
 
 <c:if test="${searchEntryList != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -103,7 +107,7 @@
 						</tr>
 					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
@@ -119,6 +123,8 @@
 <!-- 名前検索 -->
 <c:if test="${searchName != null}">
 <form method="POST" action="/systemofj/Servlet">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -132,7 +138,7 @@
 						</tr>
 					<c:forEach var="e" items="${searchName}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
@@ -147,6 +153,8 @@
 				</form>
 </c:if>
 <c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
+			<input type="hidden" name="page_id" value="searchResult">
+
 				<table id="myTable">
 						<tr>
 							<th></th>
@@ -161,45 +169,57 @@
 				</table>
 </c:if>
 </div>
-	<label for="selection">
-		<input type="checkbox" id="checkbox_all"  >全選択/解除
-	</label>
+
+		<input type="checkbox" id="checkbox_all"  >
+		<label for="selection">全選択/解除</label>
+
 	<input type="submit" name="edit" value="一括編集ページ">
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script>
 
-function valueChange(indexNo){
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script>
+'use strict';
+
+window.onload = function flagdelete(indexNo){
+	var che = document.getElementById('checkId'+indexNo);
+	$.ajax({
+		type:'post',
+		url: '/systemofj/Servlet',
+		data: {	int : sId }
+	});
+}
+
+function changeflag(indexNo){
 	//チェックボックスの取得
 	var ch = document.getElementById('checkId'+indexNo);
-//検索リストのチェックボックスのチェック判定
-		if(ch.checked){
+//検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
 				data: {	int : sId }
 			});
-		}
 }
 </script>
-<!-- ソート --------------------------- -->
+
+<!-- ソート
 <script>
 //ページを読み込み後に、ソートを開始
 $(document).ready(function(){
 	        $("#myTable").tablesorter();
 }
-</script>
+</script> --------------------------- -->
 
 <script>
+'use strict';
+
 //全選択・解除のチェックボックス
 let checkbox_all = document.querySelector('#checkbox_all');
 //チェックボックスのリスト
 let checkbox_list = document.querySelectorAll('.checkbox_list');
-
 //全選択のチェックボックスイベント
 checkbox_all.addEventListener('change', change_all);
-
 
 function change_all() {
 
@@ -211,7 +231,6 @@ function change_all() {
 				checkbox_list[i].checked = true;
 			}
 		}
-
 	} else {
 		//全て解除
 		for (let i in checkbox_list) {
@@ -219,12 +238,8 @@ function change_all() {
 				checkbox_list[i].checked = false;
 			}
 		}
-
 	}
-
 };
-
-
 //function allcheck() {
 //let checkbox_all= document.getElementById("allselect");
 //let checkbox_list= document.querySelectorAll("checkbox");
@@ -232,9 +247,6 @@ function change_all() {
 //checkbox_all.addEventListener('change', allselect);
 
 //}
-
-
-
 
 </script>
 </html>

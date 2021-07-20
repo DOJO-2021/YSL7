@@ -60,8 +60,8 @@ public class InternDao {
 
 		// SQL文を準備する
 
-		String sql =  "insert into Intern (s_id,i_category, i_date, i_meeting,i_submit,i_acceptance,i_document,i_attend)"
-				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?, ?, ?, ?,?)";;
+		String sql =  "insert into Intern (s_id,i_category, i_date, i_meeting,i_submit,i_acceptance,i_document,i_attend, applyflag)"
+				+ " values ((SELECT s_id FROM Student ORDER BY s_id DESC LIMIT 1), ?, ?, ?, ?, ?, ?, ?, ?)";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		//beanに値をひとつずつセットする
@@ -74,6 +74,7 @@ public class InternDao {
 		pStmt.setString(7,iAttend);
 		pStmt.setString(8,applyflag);
 
+		int ans = pStmt.executeUpdate();
 
 		if (conn != null) {
 			conn.close();
@@ -81,7 +82,7 @@ public class InternDao {
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
-		return pStmt.executeUpdate();
+		return ans;
 	}
 	public int internUpdate(int iId,String iCategory, String iDate,String iMeeting,String iSubmit,String iAcceptance,String iDocument,String iAttend) throws SQLException {
 
@@ -135,7 +136,7 @@ public class InternDao {
 		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
-
+	//一括編集の内容変更
 	public int allUpdate(String sqlContents, String categorys) throws SQLException {
 
 		// SQL文を準備する
@@ -155,5 +156,22 @@ public class InternDao {
 		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 
+	public int uploadUpdate(int sId, String iDate, String iCategory) throws SQLException {
+
+		String sql = "update Intern set i_date = ? where s_id = ? and i_category = ?;";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setString(1,iDate);
+		pStmt.setInt(2,sId);
+		pStmt.setString(3,iCategory);
+
+		if (conn != null) {
+			conn.close();
+		}
+
+		int ans = pStmt.executeUpdate();
+
+		return ans;
+	}
 
 }
