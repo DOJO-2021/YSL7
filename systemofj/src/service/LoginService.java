@@ -13,7 +13,7 @@ public class LoginService {
 		Class.forName("org.h2.Driver");
 
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/YSL7/date/systemofj/", "sa", "sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/YSL7/data/systemofj", "sa", "sa");
 
 		//DAOを実体化
 		UserDao dao = new UserDao(conn);

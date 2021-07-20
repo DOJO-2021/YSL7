@@ -25,7 +25,7 @@ public class TemplateDaoTest {
 			dao.templateInsert("テスト","テストコンテンツ","その他");
 
 			//引数を渡してメソッドを使う(失敗)
-			dao.templateInsert("テスト","２０文字以上２０文字以上２０文字以上２０文字以上");
+			dao.templateInsert("テスト","テストコンテンツ","２０文字以上２０文字以上２０文字以上２０文字以上");
 
 			System.out.println("成功");
 		}
