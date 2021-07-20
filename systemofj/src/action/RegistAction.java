@@ -173,53 +173,57 @@ try {
 
 		//学生基本情報
 		RegistService regist = new RegistService();
-		boolean result1 = regist.studentInsert(sName,sKana,sContexts,sUnivercity,sFaculty,sDepartment,sAddress,sPcmail,sMobilemail,sCareertasu,sMynavi,sRikunavi,sOther,alleditflag);
+		 boolean result = regist.studentInsert(sName, sKana, sContexts, sUnivercity, sFaculty, sDepartment, sAddress, sPcmail, sMobilemail, sCareertasu, sMynavi, sRikunavi, sOther, alleditflag,
+				 			eDate1, eDate2, eDate3, eDate4, eDate5, eDate6, eCategory1, eCategory2, eCategory3, eCategory4, eCategory5, eCategory6,
+				 			iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2, iMeeting3, iMeeting4, iMeeting5, iSubmit1, iSubmit2, iSubmit3, iSubmit4, iSubmit5, iAcceptance1, iAcceptance2, iAcceptance3, iAcceptance4, iAcceptance5, iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iCategory6, iAttend, applyFlag, iDate6,
+				 			sfScore1, sfScore2, sfScore3, sfScore4, sfScore5, sfCategory1, sfCategory2, sfName1, sfName2, sfName3,
+				 			stScore1, stScore2, stScore3, stScore4, stScore5, stScore6, stScore7, stScore8, stScore9, stScore10, stScore11, stScore12, stCategory1, stCategory2, stCategory3, stName1, stName2, stName3, stName4,
+				 			seSelectionDate, seScore, seTextScore, seTextresult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEaryOk, seEaryNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
+//		//選考データ
+//		boolean result2 = regist.selectionEasyInsert(seSelectionDate, seScore, seTextScore, seTextresult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEaryOk, seEaryNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
+//
+//		//イベント情報登録
+//		boolean result3 = regist.eventInsert(eCategory1,  eDate1);
+//		boolean result4 = regist.eventInsert(eCategory2,  eDate2);
+//		boolean result5 = regist.eventInsert(eCategory3,  eDate3);
+//		boolean result6 = regist.eventInsert(eCategory4,  eDate4);
+//		boolean result7 = regist.eventInsert(eCategory5,  eDate5);
+//		boolean result8 = regist.eventInsert(eCategory6,  eDate6);
+//
+//		//インターン参加情報登録
+//		boolean result9 = regist.internInsert(iCategory1, iDate1, iMeeting1, iSubmit1, iAcceptance1, iDocument1, iAttend, applyFlag);
+//		boolean result10 = regist.internInsert(iCategory2, iDate2, iMeeting2, iSubmit2, iAcceptance2, iDocument2, iAttend, applyFlag);
+//		boolean result11 = regist.internInsert(iCategory3, iDate3, iMeeting3, iSubmit3, iAcceptance3, iDocument3, iAttend, applyFlag);
+//		boolean result12 = regist.internInsert(iCategory4, iDate4, iMeeting4, iSubmit4, iAcceptance4, iDocument4, iAttend, applyFlag);
+//		boolean result13 = regist.internInsert(iCategory5, iDate5, iMeeting5, iSubmit5, iAcceptance5, iDocument5, iAttend, applyFlag);
+//		boolean result14 = regist.internInsert(iCategory6, iDate6, null, null, null, null, iAttend, applyFlag);
+//
+//		//面接情報登録
+//		boolean result15 = regist.selectionfaceInsert(sfCategory1, sfName1, sfScore1); //一次　藤原さん
+//		boolean result16 = regist.selectionfaceInsert(sfCategory1, sfName2, sfScore2);//一次　板谷さん
+//		boolean result17 = regist.selectionfaceInsert(sfCategory1, sfName3, sfScore3); //一次　菅澤さん
+//		boolean result18 = regist.selectionfaceInsert(sfCategory2, sfName1, sfScore4);//二次　藤原さん
+//		boolean result19 = regist.selectionfaceInsert(sfCategory2, sfName2, sfScore5); //二次　板谷さん
+//
+//		//書類選考情報登録
+//		boolean result20 = regist.selectiontextInsert(stCategory2, stName1, stScore1); //履歴書　松野さん
+//		boolean result21 = regist.selectiontextInsert(stCategory2, stName2, stScore2); //履歴書　藤原さん
+//		boolean result22 = regist.selectiontextInsert(stCategory2, stName3, stScore3); //履歴書　板谷さん
+//		boolean result23 = regist.selectiontextInsert(stCategory2, stName4, stScore4); //履歴書　菅澤さん
+//
+//		boolean result24 = regist.selectiontextInsert(stCategory1, stName1, stScore5);//自己PR文　松野さん
+//		boolean result25= regist.selectiontextInsert(stCategory1, stName2, stScore6); //自己PR　藤原さん
+//		boolean result26 = regist.selectiontextInsert(stCategory1, stName3, stScore7); //自己PR　板谷さん
+//		boolean result27 = regist.selectiontextInsert(stCategory1, stName4, stScore8); //自己PR　菅澤さん
+//
+//		boolean result28 = regist.selectiontextInsert(stCategory3, stName1, stScore9); //書類選考　松野さん
+//		boolean result29 = regist.selectiontextInsert(stCategory3, stName2, stScore10); //書類選考　藤原さん
+//		boolean result30 = regist.selectiontextInsert(stCategory3, stName3, stScore11); //書類選考　板谷さん
+//		boolean result31 = regist.selectiontextInsert(stCategory3, stName4, stScore12); //書類選考　菅澤さん
 
-		//選考データ
-		boolean result2 = regist.selectionEasyInsert(seSelectionDate, seScore, seTextScore, seTextresult, seGetTextDate, seNo, seOk, seNoReason, seSendOk, seEaryOk, seEaryNo, seFirstResult, seSecondResult, seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate, seThirdResult, seRemarks, seSituation, seDecide);
-
-		//イベント情報登録
-		boolean result3 = regist.eventInsert(eCategory1,  eDate1);
-		boolean result4 = regist.eventInsert(eCategory2,  eDate2);
-		boolean result5 = regist.eventInsert(eCategory3,  eDate3);
-		boolean result6 = regist.eventInsert(eCategory4,  eDate4);
-		boolean result7 = regist.eventInsert(eCategory5,  eDate5);
-		boolean result8 = regist.eventInsert(eCategory6,  eDate6);
-
-		//インターン参加情報登録
-		boolean result9 = regist.internInsert(iCategory1, iDate1, iMeeting1, iSubmit1, iAcceptance1, iDocument1, iAttend, applyFlag);
-		boolean result10 = regist.internInsert(iCategory2, iDate2, iMeeting2, iSubmit2, iAcceptance2, iDocument2, iAttend, applyFlag);
-		boolean result11 = regist.internInsert(iCategory3, iDate3, iMeeting3, iSubmit3, iAcceptance3, iDocument3, iAttend, applyFlag);
-		boolean result12 = regist.internInsert(iCategory4, iDate4, iMeeting4, iSubmit4, iAcceptance4, iDocument4, iAttend, applyFlag);
-		boolean result13 = regist.internInsert(iCategory5, iDate5, iMeeting5, iSubmit5, iAcceptance5, iDocument5, iAttend, applyFlag);
-		boolean result14 = regist.internInsert(iCategory6, iDate6, null, null, null, null, iAttend, applyFlag);
-
-		//面接情報登録
-		boolean result15 = regist.selectionfaceInsert(sfCategory1, sfName1, sfScore1); //一次　藤原さん
-		boolean result16 = regist.selectionfaceInsert(sfCategory1, sfName2, sfScore2);//一次　板谷さん
-		boolean result17 = regist.selectionfaceInsert(sfCategory1, sfName3, sfScore3); //一次　菅澤さん
-		boolean result18 = regist.selectionfaceInsert(sfCategory2, sfName1, sfScore4);//二次　藤原さん
-		boolean result19 = regist.selectionfaceInsert(sfCategory2, sfName2, sfScore5); //二次　板谷さん
-
-		//書類選考情報登録
-		boolean result20 = regist.selectiontextInsert(stCategory2, stName1, stScore1); //履歴書　松野さん
-		boolean result21 = regist.selectiontextInsert(stCategory2, stName2, stScore2); //履歴書　藤原さん
-		boolean result22 = regist.selectiontextInsert(stCategory2, stName3, stScore3); //履歴書　板谷さん
-		boolean result23 = regist.selectiontextInsert(stCategory2, stName4, stScore4); //履歴書　菅澤さん
-
-		boolean result24 = regist.selectiontextInsert(stCategory1, stName1, stScore5);//自己PR文　松野さん
-		boolean result25= regist.selectiontextInsert(stCategory1, stName2, stScore6); //自己PR　藤原さん
-		boolean result26 = regist.selectiontextInsert(stCategory1, stName3, stScore7); //自己PR　板谷さん
-		boolean result27 = regist.selectiontextInsert(stCategory1, stName4, stScore8); //自己PR　菅澤さん
-
-		boolean result28 = regist.selectiontextInsert(stCategory3, stName1, stScore9); //書類選考　松野さん
-		boolean result29 = regist.selectiontextInsert(stCategory3, stName2, stScore10); //書類選考　藤原さん
-		boolean result30 = regist.selectiontextInsert(stCategory3, stName3, stScore11); //書類選考　板谷さん
-		boolean result31 = regist.selectiontextInsert(stCategory3, stName4, stScore12); //書類選考　菅澤さん
 
 
-
-		if(result1 && result2 && result3 && result4 && result5 && result6 && result7 && result8 && result9 && result10 && result11 && result12 && result13 && result14 && result15 && result16 && result17 && result18 && result19 && result20 && result21 && result22 && result23 && result24 && result25 && result26 && result27 && result28 && result29 && result30 && result31) {
+		if(result) {
 			request.setAttribute("result5", "登録が完了しました");
 		}else {
 			request.setAttribute("result5", "登録に失敗しました");
