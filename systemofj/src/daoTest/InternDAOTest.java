@@ -204,7 +204,7 @@ class InternDAOTest {
 		InternDao dao = new InternDao(conn);
 
 		//引数を渡す - 成功パターン
-		int newIntern = dao.uploadUpdate("");
+		int newIntern = dao.uploadUpdate(1, "2020-6-18", "1day");
 
 
 

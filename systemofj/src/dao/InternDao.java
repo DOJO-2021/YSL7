@@ -168,9 +168,6 @@ public class InternDao {
 		pStmt.setInt(2,sId);
 		pStmt.setString(3,iCategory);
 
-		if (conn != null) {
-			conn.close();
-		}
 
 		int ans = pStmt.executeUpdate();
 
