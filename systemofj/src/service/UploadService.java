@@ -46,7 +46,7 @@ public class UploadService {
 
 				//重複のチェック
 				//select s_id name address from student where name = ? address = ?;
-				Student s = sdao.check(i.get(0), i.get(0));
+				Student s = sdao.check(i.get(0), i.get(6));
 				if (s != null) {//重複していた場合
 					if (event.equals("entry")) {//エントリーの場合・・・何もしない
 
@@ -64,6 +64,7 @@ public class UploadService {
 
 					}
 				} else {
+
 
 					sdao.studentInsert(i.get(0),i.get(1),i.get(2),i.get(3),i.get(4),i.get(5),i.get(6),i.get(7),i.get(8),i.get(9),i.get(10),i.get(11),i.get(12));
 
@@ -88,6 +89,9 @@ public class UploadService {
 
 			}
 			conn.commit();
+			if (conn != null) {
+				conn.close();
+			}
 			result = true;
 		}
 
@@ -100,6 +104,7 @@ public class UploadService {
 		catch(SQLException e) {
 			try {
 				conn.rollback();
+				conn.close();
 			} catch (SQLException ee) {
 				ee.printStackTrace();
 			}
