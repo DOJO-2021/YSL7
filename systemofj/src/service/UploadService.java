@@ -15,6 +15,7 @@ import model.SEvent;
 import model.SIntern;
 import model.SSelectionFace;
 import model.SSelectionText;
+import model.Student;
 
 
 
@@ -44,12 +45,22 @@ public class UploadService {
 
 				//重複のチェック
 				//select s_id name address from student where name = ? address = ?;
-				if (sdao.check() != null) {//重複していた場合
+				Student s = sdao.check();
+				if (s != null) {//重複していた場合
 					if (event.equals("entry")) {//エントリーの場合・・・何もしない
 
-					}else if () {//インターンの場合・・・そのインターンのdateのみupdate
-					} else if () {//会社説明会の場合・・・会社説明会のみ
-					}else if () {//合同説明会の場合・・・合同説明会のみ
+					}else if (event.equals("intern")) {//インターンの場合・・・そのインターンのdateのみupdate
+
+						idao.uploadUpdate(s.getsId(), category, date);
+
+					} else if (event.equals("infosession")) {//会社説明会の場合・・・会社説明会のみ
+
+						idal.uploadUpdate(s.getsId(), "説明会", date);
+
+					} else if (event.equals("infosession2")) {//合同説明会の場合・・・合同説明会のみ
+
+						edao.uploadUpdate(s.getsId(), "合説", date);
+
 					}
 				} else {
 
