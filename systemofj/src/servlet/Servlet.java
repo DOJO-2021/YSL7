@@ -22,23 +22,22 @@ import action.UploadAction;
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Servlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public Servlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user") == null) {
-			response.sendRedirect("/systemofj/LoginAction");
-			return;
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			dispatcher.forward(request, response);
 		}
 		this.doPost(request, response);
 	}
@@ -47,205 +46,202 @@ public class Servlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("user") == null) {
-			response.sendRedirect("/systemofj/LoginAction");
-			return;
-		}
-		request.setCharacterEncoding("UTF-8");
-		String path = null;
-		String result = null;
-		String submit = request.getParameter("submit");
+		try {
+			HttpSession session = request.getSession();
+			//			if (session.getAttribute("user") == null) {
+			//				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
+			//				dispatcher.forward(request, response);
+			//			}
+			request.setCharacterEncoding("UTF-8");
+			String path = null;
+			String result = null;
+			String submit = request.getParameter("submit");
+			String page_id = request.getParameter("page_id");
+			String FLG = request.getParameter("FLG");
 
-		UpdateDeleteAction UpdateDeleteAction = new UpdateDeleteAction();
-		SelectAction SelectAction = new SelectAction();
-		RegistAction RegistAction = new RegistAction();
-		LoginAction LoginAction = new LoginAction();
-		UploadAction UploadAction = new UploadAction();
-
-		if(request.getParameter("FLG")!= null) {
-			if(request.getParameter("FLG").equals("アップロード")) {
-				//アップロードページへのパスを入れる
-				path = "/WEB-INF/jsp/upload.jsp";
-			}
-			if(request.getParameter("FLG").equals("検索")) {
-				//検索ページへのパスを入れる
-				path = "/WEB-INF/jsp/search.jsp";
-			}
-			if(request.getParameter("FLG").equals("分析")) {
-				//分析ぺージへのパスを入れる
-				path = "/WEB-INF/jsp/analysis.jsp";
-			}
-			if(request.getParameter("FLG").equals("学生の新規登録")) {
-				//学生登録ページへのパスを入れる
-				path = "/WEB-INF/jsp/studentResult.jsp";
-			}
-			if(request.getParameter("FLG").equals("テンプレート登録")) {
-				//テンプレート登録ページへのパスを入れる
-				path = "/WEB-INF/jsp/templateRegist.jsp";
-			}
-			if(request.getParameter("FLG").equals("テンプレート検索")) {
-				//テンプレート編集ページへのパスを入れる
-				path = SelectAction.selectTemplate(request);
-
-			}
-			if(request.getParameter("FLG").equals("ログアウト")) {
-				//ログインページへのパスを入れる
+			System.out.println(FLG);
+			UpdateDeleteAction UpdateDeleteAction = new UpdateDeleteAction();
+			SelectAction SelectAction = new SelectAction();
+			RegistAction RegistAction = new RegistAction();
+			LoginAction LoginAction = new LoginAction();
+			UploadAction UploadAction = new UploadAction();
+			if (session.getAttribute("user") == null) {
 				path = "/WEB-INF/jsp/login.jsp";
 			}
+			if(FLG!= null) {
+				if(FLG.equals("upload")) {
+					//アップロードページへのパスを入れる
+					path = "/WEB-INF/jsp/upload.jsp";
+				}
+				if(FLG.equals("search")) {
+					//検索ページへのパスを入れる
+					path = "/WEB-INF/jsp/search.jsp";
+				}
+				if(FLG.equals("analysis")) {
+					//分析ぺージへのパスを入れる
+					path = "/WEB-INF/jsp/analysis.jsp";
+				}
+				if(FLG.equals("studentRegist")) {
+					//学生登録ページへのパスを入れる
+					path = "/WEB-INF/jsp/studentResult.jsp";
+				}
+				if(FLG.equals("templateRegist")) {
+					//テンプレート登録ページへのパスを入れる
+					path = "/WEB-INF/jsp/templateRegist.jsp";
+					System.out.println(path);
+				}
+				if(FLG.equals("templateEdit")) {
+					//テンプレート編集ページへのパスを入れる
+					path = SelectAction.selectTemplate(request);
+
+				}
+				if(FLG.equals("login")) {
+					//ログインページへのパスを入れる
+					session.invalidate();
+					path = "/WEB-INF/jsp/login.jsp";
+				}
+			}
+			System.out.println(FLG);
+			//ログイン画面
+			if(FLG == null && page_id != null) {
+				if(page_id.equals("login")) {
+					if(submit.equals("LOGIN")) {
+						path = LoginAction.Login(request);
+					}
+				}
+				//アップロード画面
+				//アップロード
+				if(page_id.equals("upload")) {
+					if(submit.equals("アップロード")){
+						path = UploadAction.upload(request, getServletContext());
+					}
+					//削除
+					if(submit.equals("削除")) {
+						result = "アップロードした内容を削除しました。";
+						request.setAttribute("result", result);
+						path = "/WEB-INF/jsp/result.jsp";
+					}
+				}
+				//トップページ
+				//検索画面
+				if(page_id.equals("search")) {
+					//検索
+					if(submit.equals("検索") || submit.equals("検索する")) {
+						path = SelectAction.search(request);
+					}
+				}
+				//検索結果画面
+				if(page_id.equals("searchResult")) {
+					//チェックボックス入力時
+					//*************************注意***********************
+					if(submit.equals("aj")) {
+						path = UpdateDeleteAction.flagUpdate(request);
+					}
+					//編集ボタン
+					if(submit.equals("編集")) {
+						path = "/WEB-INF/jsp/allEdit.jsp";
+					}
+					//詳細ボタン
+					if(submit.equals("詳細")) {
+						path = SelectAction.goToDetail(request);
+					}
+				}
+				//詳細画面
+				if(page_id.equals("detail")) {
+					//メール作成ボタン
+					if(submit.equals("メール作成") || submit.equals("ts_regist_button")) {
+						path = SelectAction.selectTemplate(request);
+					}
+					//フィードバックボタン
+					if(submit.equals("フィードバック")) {
+						path = SelectAction.goToFeedbak(request);
+					}
+					//編集ボタン
+					if(submit.equals("編集")) {
+						path = SelectAction.goToDetail(request);
+					}
+					//削除ボタン
+					if(submit.equals("削除")) {
+						path = UpdateDeleteAction.studentDelete(request);
+						UpdateDeleteAction.selectionEasyDelete(request);
+						UpdateDeleteAction.eventDelete(request);
+						UpdateDeleteAction.internDelete(request);
+						UpdateDeleteAction.selectionFaceDelete(request);
+						UpdateDeleteAction.selectionTextDelete(request);
+					}
+				}
+				//データ編集画面
+				if(page_id.equals("studentsEdit")) {
+					//更新ボタン
+					if(submit.equals("更新")) {
+						path = UpdateDeleteAction.studentUpdate(request);
+						UpdateDeleteAction.selectionEasyUpdate(request);
+						UpdateDeleteAction.eventUpdate(request);
+						UpdateDeleteAction.internUpdate(request);
+						UpdateDeleteAction.selectionFaceUpdate(request);
+						UpdateDeleteAction.selectionTextUpdate(request);
+					}
+					if(submit.equals("詳細")) {
+						path = SelectAction.goToDetail(request);
+					}
+				}
+				//一括編集画面
+				if(page_id.equals("allEdit")) {
+					//更新ボタン
+					if(submit.equals("一括更新")) {
+						path = UpdateDeleteAction.allUpdate(request);
+					}
+				}
+				//学生の新規登録画面
+				if(page_id.equals("studentsRegist")) {
+					//登録ボタン
+					if(submit.equals( "登録")) {
+						path = RegistAction.StudentRegist(request);
+					}
+				}
+				//フィードバック画面
+				if(page_id.equals("feedback")) {
+					//検索ボタン
+					if(submit.equals("検索")) {
+						path = SelectAction.goToFeedbak(request);
+					}
+					//登録ボタン・フィードバックまとめ登録ボタン
+					if(submit.equals("登録ボタン") || submit.equals( "フィードバックまとめ登録ボタン")) {
+						path = RegistAction.FeedbackRegist(request);
+					}
+					//更新ボタン・フィードバックまとめ更新ボタン
+					if(submit.equals("更新ボタン" )|| submit.equals( "フィードバックまとめ更新ボタン")) {
+						path = UpdateDeleteAction.feedbackUpdate(request);
+					}
+				}
+				//テンプレ登録画面
+				if(page_id.equals( "templateRegist")) {
+					//テンプレ登録ボタン
+					if(submit.equals("テンプレ登録ボタン")){
+						path = RegistAction.TemplateRegist(request);
+					}
+				}
+				//テンプレ検索画面
+				if(page_id.equals("templateEdit")) {
+					//検索ボタン
+					if(submit.equals("検索")) {
+						path = SelectAction.selectTemplate(request);
+					}
+				}
+				//テンプレ更新画面
+				if(page_id.equals("templateEdit")) {
+					//テンプレ更新ボタン
+					if(submit.equals("テンプレ更新ボタン")) {
+						path = UpdateDeleteAction.templateUpdate(request);
+					}
+				}
+				System.out.println("最後です");
+			}
+			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
+			dispatcher.forward(request, response);
+		}catch(Exception e) {
+			e.printStackTrace();
 		}
 
-
-	//ログイン画面
-
-
-	//アップロード画面
-		//アップロード
-		if(request.getParameter("FLG")== null) {
-			if(submit == "u_upload"){
-				path = UploadAction.upload(request, getServletContext());
-			}
-			//削除
-			if(submit == "u_delete") {
-				result = "アップロードした内容を削除しました。";
-				request.setAttribute("result", result);
-				path = "/WEB-INF/jsp/result.jsp";
-			}
-			if(submit == "t_upload"){
-				path = "/WEB-INF/jsp/upload.jsp";
-			}
-			if(submit == "t_search"){
-				path = "/WEB-INF/jsp/search.jsp";
-			}
-			if(submit == "t_template"){
-				path = "/WEB-INF/jsp/templateRegist.jsp";
-			}
-			if(submit == "t_analysis"){
-				path = "/WEB-INF/jsp/analysis.jsp";
-			}
-			if(submit == "t_regist"){
-				path = "/WEB-INF/jsp/studentRegist.jsp";
-			}
-			if(submit == "t_logout"){
-				session.invalidate();
-				path = "/WEB-INF/jsp/login.jsp";
-			}
-			if(request.getParameter("login")!= null){
-				path = LoginAction.Login(request);
-			}
-
-		//検索画面
-			//検索
-			if(submit == "search") {
-				path = SelectAction.search(request);
-			}
-			//インターンで検索
-//			if(submit == "searchIntern") {
-//				path = SelectAction.searchInternList(request);
-//			}
-//			//イベントで検索
-//			if(submit == "searchEvent") {
-//				path = SelectAction.searchEventList(request);
-//			}
-//			//進捗状況で検索
-//			if(submit == "searchEntry") {
-//				path = SelectAction.searchEntryList(request);
-//			}
-		//検索結果画面
-			//チェックボックス入力時
-			//*************************注意******************
-			String checkbox = null;
-			checkbox = request.getParameter(checkbox);
-			//*************************注意***********************
-			if(checkbox != null) {
-				path = UpdateDeleteAction.flagUpdate(request);
-			}
-			//編集ボタン
-			if(submit == "selectEdit") {
-				path = "/WEB-INF/jsp/allEdit.jsp";
-			}
-			//詳細ボタン
-			if(submit == "detail" || submit == "backToDetail") {
-				path = SelectAction.goToDetail(request);
-
-			}
-		//詳細画面
-			//メール作成ボタン
-			if(submit == "createMail" || submit == "ts_regist_button") {
-				path = SelectAction.selectTemplate(request);
-			}
-			//フィードバックボタン
-			if(submit == "feedback") {
-				path = SelectAction.goToFeedbak(request);
-			}
-
-
-			//編集ボタン
-			if(submit == "Edit") {
-				path = SelectAction.goToDetail(request);
-			}
-			//削除ボタン
-			if(submit == "Delete") {
-				path = UpdateDeleteAction.studentDelete(request);
-				UpdateDeleteAction.selectionEasyDelete(request);
-				UpdateDeleteAction.eventDelete(request);
-				UpdateDeleteAction.internDelete(request);
-				UpdateDeleteAction.selectionFaceDelete(request);
-				UpdateDeleteAction.selectionTextDelete(request);
-			}
-		//データ編集画面
-			//更新ボタン
-			if(submit == "update") {
-				path = UpdateDeleteAction.studentUpdate(request);
-				UpdateDeleteAction.selectionEasyUpdate(request);
-				UpdateDeleteAction.eventUpdate(request);
-				UpdateDeleteAction.internUpdate(request);
-				UpdateDeleteAction.selectionFaceUpdate(request);
-				UpdateDeleteAction.selectionTextUpdate(request);
-			}
-		//一括編集画面
-			//更新ボタン
-			if(submit == "allUpdate") {
-
-				path = UpdateDeleteAction.allUpdate(request);
-			}
-		//学生の新規登録画面
-			//登録ボタン
-			if(submit == "Regist") {
-				path = RegistAction.StudentRegist(request);
-			}
-		//フィードバック画面
-			//検索ボタン
-			if(submit == "fr_search_button") {
-				path = SelectAction.goToFeedbak(request);
-			}
-			//登録ボタン・フィードバックまとめ登録ボタン
-			if(submit == "fr_regist_button" || submit == "f_regist_button") {
-				path = RegistAction.FeedbackRegist(request);
-			}
-			//更新ボタン・フィードバックまとめ更新ボタン
-			if(submit == "fr_update_button" || submit == "f_update_button") {
-				path = UpdateDeleteAction.feedbackUpdate(request);
-			}
-		//テンプレ登録画面
-			//テンプレ登録ボタン
-			if(submit == "tr_regist_button") {
-				path = RegistAction.TemplateRegist(request);
-			}
-		//テンプレ検索画面
-			//検索ボタン
-			if(submit == "ts_regist_button") {
-				path = SelectAction.selectTemplate(request);
-			}
-		//テンプレ更新画面
-			//テンプレ更新ボタン
-			if(submit == "tu_update_button") {
-				path = UpdateDeleteAction.templateUpdate(request);
-			}
-		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
-		dispatcher.forward(request, response);
 	}
 }
