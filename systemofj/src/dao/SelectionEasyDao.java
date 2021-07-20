@@ -46,8 +46,9 @@ public class SelectionEasyDao {
 			bean.setSeNo(rs.getString("se_no"));
 			bean.setSeOk(rs.getString("se_ok"));
 			bean.setSeNoReason(rs.getString("se_noreason"));
-			bean.setSeSendOk(rs.getString("se_okreason"));
+			bean.setSeSendOk(rs.getString("se_sendok"));
 			bean.setSeEarlyOk(rs.getString("se_earlyok"));
+			bean.setSeEarlyNo(rs.getString("se_earlyno"));
 			bean.setSeFirstResult(rs.getString("se_firstresult"));
 			bean.setSeSecondResult(rs.getString("se_secondresult"));
 			bean.setSeFirstNo(rs.getString("se_firstno"));
@@ -58,11 +59,8 @@ public class SelectionEasyDao {
 			bean.setSeThirdResult(rs.getString("se_thirdresult"));
 			bean.setSeRemarks(rs.getString("se_remarks"));
 			bean.setSeSituation(rs.getString("se_situation"));
-			bean.setSeDecide(rs.getString("se_situation"));
+			bean.setSeDecide(rs.getString("se_decide"));
 
-		}
-		if (conn != null) {
-			conn.close();
 		}
 
 		return bean;
@@ -127,9 +125,6 @@ public class SelectionEasyDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
 		// SQL文を実行する
 		// ここは変えなくていい
 		// 件数を返す
