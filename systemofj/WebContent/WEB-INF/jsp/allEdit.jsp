@@ -30,7 +30,7 @@ width: 800px;
 </head>
 <body>
 <h3>インターン情報一括編集</h3>
-<form action="/systemofj/Servlet.java" method="POST">
+<form action="/systemofj/Servlet?FLG=allUpdate" method="POST">
 <table style="border: 0px #000000 solid; width: 900px;">
   <tr>
     <td style="border: 0px">
@@ -95,6 +95,7 @@ width: 800px;
   </tr>
 </table>
 <input type="submit" name="allUpdate" value="一括更新" style="width: 200px">
+<input type="hidden" name="page_id" value="allEdit.jsp">
 </form>
 <div align="center">
 </div>

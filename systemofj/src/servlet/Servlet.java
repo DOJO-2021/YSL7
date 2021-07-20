@@ -140,7 +140,7 @@ public class Servlet extends HttpServlet {
 			if(submit == "search") {
 				path = SelectAction.search(request);
 			}
-//			//インターンで検索
+			//インターンで検索
 //			if(submit == "searchIntern") {
 //				path = SelectAction.searchInternList(request);
 //			}
