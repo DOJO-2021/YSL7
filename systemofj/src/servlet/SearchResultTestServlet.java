@@ -196,10 +196,6 @@ public class SearchResultTestServlet extends HttpServlet {
 					}
 				}
 
-
-
-
-
 				//テンプレ登録画面
 				if(page_id.equals( "templateRegist")) {
 					//テンプレ登録ボタン
