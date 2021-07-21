@@ -34,16 +34,18 @@ width: 800px;
 <!-- アップロード画面へ遷移 -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
     <input type="SUBMIT" value="履歴書PDFを登録">
+    <input type="hidden" name="page_id" value="studentsRegist">
   </form>
 <br>
 <!-- 基本情報テーブル -->
 
 <h3>基本情報<input type="checkbox" id="s_info"  onclick="divOpen(this,'student')"></h3>
 
-<form action="/systemofj/Servlet.java" method="POST">
+<form action="/systemofj/Servlet" method="POST">
+<input type="hidden" name="page_id" value="studentsRegist">
+	<input type="hidden" name="s_id">
   <div id="student" style="display:none;">
 	<table style="border: 0px; width: 800px;">
-	<input type="hidden" name="s_id">
 	  <tr>
 	    <td>氏名<hr><input type="text" name="s_name" value="　"></td>
 	    <td>フリガナ<hr><input type="text" name="s_kana" value="　"></td>
@@ -443,8 +445,7 @@ width: 800px;
 </table>
 </div>
 <div align="center">
-<input type="submit" value="登録" style="width: 200px">
-<input type="hidden" name="page_id" value="studentsRegist">
+<input type="submit" name="submit" value="登録" style="width: 200px">
 </div>
 </form>
 </body>
