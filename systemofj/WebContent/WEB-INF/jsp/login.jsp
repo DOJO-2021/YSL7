@@ -13,6 +13,7 @@
 		<main>
 		<h1 style="text-align:center">ログイン</h1>
 			<form method="POST" action="/systemofj/Servlet" id="form">
+			<input type = "hidden" name = "page_id" value = "login">
 				<table align="center">
 					<tr>
 						<td align="right">ID：</td>
@@ -35,8 +36,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">
-							<input type="submit" value="LOGIN" onclick="return checkData()">
-							<input type="hidden" name="page_id" value="login">
+							<input type="submit" name="submit" value="LOGIN" onclick="return checkData()">
 						</th>
 
 					</tr>

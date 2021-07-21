@@ -14,8 +14,8 @@ public class LoginAction {
 		String page="/WEB-INF/jsp/login.jsp";
 
 		//idとpwをリクエスト領域から取得
-		String uId = request.getParameter("uId");
-		String uPw = request.getParameter("uPw");
+		String uId = request.getParameter("u_id");
+		String uPw = request.getParameter("u_pw");
 
 		//出力値を格納するBean
 		User user = null;
@@ -43,8 +43,10 @@ public class LoginAction {
 			}
 
 		}catch(SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg","SQL文おかしい");
 		}catch(ClassNotFoundException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "サーバーおかしい");
 		}
 

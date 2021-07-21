@@ -3,36 +3,34 @@ package daoTest;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import dao.InternDao;
-import model.SIntern;
 
 
 class InternDAOTest {
 	public static void main(String args[]) throws ClassNotFoundException, SQLException{
 
 
-		//selectのテスト 成功
-
-		//ドライバの登録
-		Class.forName("org.h2.Driver");
-		//データベースに接続する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
-				"sa", "sa");
-		//DAOを実体化
-		InternDao dao = new InternDao (conn);
-		//引数を渡し、取得地をbeanに渡す
-		ArrayList<SIntern> bean = dao.internDSelect(1);
-
-		if (bean.size() != 0) {
-			System.out.println("成功");
-		}
-		//
-		else {
-			System.out.println("失敗");
-
-		}
+//		//selectのテスト 成功
+//
+//		//ドライバの登録
+//		Class.forName("org.h2.Driver");
+//		//データベースに接続する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+//				"sa", "sa");
+//		//DAOを実体化
+//		InternDao dao = new InternDao (conn);
+//		//引数を渡し、取得地をbeanに渡す
+//		ArrayList<SIntern> bean = dao.internDSelect(1);
+//
+//		if (bean.size() != 0) {
+//			System.out.println("成功");
+//		}
+//		//
+//		else {
+//			System.out.println("失敗");
+//
+//		}
 
 		//ここまで-------------------------------------------
 
@@ -194,31 +192,31 @@ class InternDAOTest {
 		//ここまで-------------------------------------------
 
 
-//		//allUpdateテスト 成功！
+		//allUpdateテスト 成功！
 
-		//H2でALLEDITFLAGが1の人を追加
-//		//ドライバの登録
-//		Class.forName("org.h2.Driver");
-//		//データベースに接続する
-//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
-//				"sa", "sa");
-//
-//		//Daoを実体化
-//		InternDao dao = new InternDao(conn);
-//
-//		//引数を渡す - 成功パターン
-//		int newIntern = dao.allUpdate(" set i_date='2020-05-06', i_attend='' where alleditflag = 1","中級");
-//
-//
-//
-//		if (newIntern != 0) {
-//			System.out.println("成功");
-//		}
-//
-//	  else {
-//		System.out.println("失敗");
-//
-//	}
+		//H2でALLEDITFLAGが1の人を追加  update Intern set alleditflag = 1 where i_id = 6
+		//ドライバの登録
+		Class.forName("org.h2.Driver");
+		//データベースに接続する
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
+
+		//Daoを実体化
+		InternDao dao = new InternDao(conn);
+
+		//引数を渡す - 成功パターン
+		int newIntern = dao.allUpdate(" set i_date='2020-05-03', i_attend='' where i_category ='中級' AND alleditflag = 1","中級");
+
+
+
+		if (newIntern != 0) {
+		System.out.println("成功");
+		}
+
+	  else {
+		System.out.println("失敗");
+
+	}
 	//ここまで-------------------------------------------
 
 
