@@ -190,9 +190,12 @@ public class searchResultTestServlet extends HttpServlet {
 
 				//メール作成（テンプレ選択）画面
 				if(page_id.equals( "mailtemplate")) {
-					//テンプレ登録ボタン
-					if(submit.equals("テンプレ登録ボタン")){
-						path = RegistAction.TemplateRegist(request);
+					//テンプレ選択ボタン
+					if(submit.equals("テンプレ使用")){
+						path = SelectAction.selectTemplate(request);
+					}
+					if(submit.equals("テンプレ編集")){
+						path = SelectAction.selectTemplate(request);
 					}
 				}
 
