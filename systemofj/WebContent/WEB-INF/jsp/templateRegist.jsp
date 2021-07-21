@@ -57,7 +57,7 @@
 
 	<!-- <p>${requestScope.template.t_title}</p>-->
 
-		<input type="submit" class="sub_button" value="テンプレ登録ボタン">
+		<input type="submit" class="sub_button" name="submit" value="テンプレ登録ボタン">
 		<input type="hidden" name="page_id" value="templateRegist">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
 		<textarea></textarea>

@@ -340,6 +340,7 @@ public class StudentDao {
 			student.setSeSituation(rs.getString("se_Situation"));
 
 			searchName.add(student);
+
 		}
 		if(conn != null) {
 			conn.close();

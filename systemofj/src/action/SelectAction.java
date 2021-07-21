@@ -28,14 +28,19 @@ public class SelectAction {
 			String mode = request.getParameter("mode");
 			//ラジオボタンのvalueを取得
 			String searchValue = request.getParameter("serch_item");
+			System.out.println(searchValue);
+
 			String year = "";
 			String date = "";
 			//検索結果を入れる配列
-			ArrayList<SearchResult> list = new ArrayList<>();
+			ArrayList<SearchResult> internlist = new ArrayList<>();
+			ArrayList<SearchResult> eventlist = new ArrayList<>();
+			ArrayList<SearchResult> facelist = new ArrayList<>();
+			ArrayList<SearchResult> namelist = new ArrayList<>();
 
 			//年か日付は必ず注力した状態でのみ検索できる
 			//ただし、選考で検索された場合は日付、年ともに送られてこない
-			if (!mode.equals("selection")) {
+			if (!mode.equals("selection") || !mode.equals("name")) {
 				year = request.getParameter("year");
 				date = request.getParameter("date");
 				if (year == null) {//年未入力の場合
@@ -54,9 +59,9 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 				if (searchValue.equals("internAll")) {
-					list = service.searchInternList("%", date);
+					internlist = service.searchInternList("%", date);
 				} else {
-					list = service.searchInternList(searchValue, date);
+					internlist = service.searchInternList(searchValue, date);
 				}
 
 			} else if(mode.equals("event")) {//イベント検索がされた場合
@@ -64,27 +69,37 @@ public class SelectAction {
 				//説明会だけはインターンテーブルに入ってるから
 				if (searchValue.equals("説明会")) {
 
-					list = service.searchInternList(searchValue, date);
+					eventlist = service.searchInternList(searchValue, date);
 
 				} else {
 
-					list = service.searchEventList(searchValue, date);
+					eventlist = service.searchEventList(searchValue, date);
 
 				}
 
 
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
-				list = service.searchEntryList(searchValue);
+				facelist = service.searchEntryList(searchValue);
 
 
 			} else {//個人名検索
 
-				list = service.searchName(searchValue);
+				namelist = service.searchName(searchValue);
+				System.out.println(searchValue);
 
 			}
 
-			request.setAttribute("list", list);
+			request.setAttribute("internlist", internlist);
+			request.setAttribute("eventlist", eventlist);
+			request.setAttribute("facelist", facelist);
+			request.setAttribute("namelist", namelist);
+
+
+
+
+
+
 			return "/WEB-INF/jsp/searchResult.jsp";
 
 
@@ -289,10 +304,13 @@ public class SelectAction {
 				return "/WEB-INF/jsp/mail.jsp";
 			}
 		}catch(SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/detail.jsp";
 		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/detail.jsp";

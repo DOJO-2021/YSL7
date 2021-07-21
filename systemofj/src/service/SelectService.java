@@ -212,6 +212,8 @@ public class SelectService {
 
 	//個人名検索ボタン
 	public ArrayList<SearchResult> searchName(String sName) throws ClassNotFoundException, SQLException {
+		System.out.println(sName);
+
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する

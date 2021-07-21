@@ -28,7 +28,7 @@
 </div>
 <div class="list_box">
 <!-- インターン検索 -->
-<c:if test="${searchInternList != null} ">
+<c:if test="${internlist != null} ">
 			<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 				<table id="myTable">
@@ -62,7 +62,7 @@
 			</form>
 </c:if>
 <!-- イベント検索 -->
-<c:if test="${searchEventList != null}">
+<c:if test="${eventlist != null}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
@@ -97,7 +97,7 @@
 </c:if>
 <!-- 選考検索 -->
 
-<c:if test="${searchEntryList != null}">
+<c:if test="${facelist != null}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
@@ -130,7 +130,7 @@
 				</form>
 </c:if>
 <!-- 名前検索 -->
-<c:if test="${searchName != null}">
+<c:if test="${namelist != null}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
