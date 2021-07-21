@@ -75,15 +75,15 @@ margin-top: 70px;
 <div class="container">
 <table class="top_tbl">
 	<tr align="center">
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=upload" id="t_upload" class="btn">アップロード</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=search" id="t_search" class="btn">検索</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=templateRegist" id="t_template" class="btn">テンプレート登録</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=upload" id="t_upload" class="btn">アップロード</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=search" id="t_search" class="btn">検索</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=templateRegist" id="t_template" class="btn">テンプレート登録</a></td>
 	</tr>
 
 	<tr align="center">
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=analysis" id="t_analysis" class="btn">分析</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=studentRegist" id="t_regist" class="btn">学生の新規登録</a></td>
-		<td class="btn-td"><a href="/systemofj/TestServlet?FLG=logout" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=analysis" id="t_analysis" class="btn">分析</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=studentRegist" id="t_regist" class="btn">学生の新規登録</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=logout" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
 	</tr>
 </table>
 

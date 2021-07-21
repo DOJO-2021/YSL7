@@ -45,14 +45,17 @@
 						<tr>
 						<c:forEach var="e" items="${searchInternList}" varStatus="status">
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
+							<td><input type="hidden" name="pageload" value="aj"></td>
+							<td><input type="hidden" name="checkbox" value="checkbox"></td>
+
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.s_Name }</td>
 							<td>${e.s_Univercity }</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="createMail" value="メール送信" ></td>
-							<td><input type="submit" name="detail" value="詳細ページ"></td>
+							<td><input type="submit" name="submit" value="メール送信" ></td>
+							<td><input type="submit" name="submit" value="詳細"></td>
 						</c:forEach>
 					</tr>
 				</table>
@@ -77,13 +80,16 @@
 					<c:forEach var="e" items="${searchEventList}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
+							<td><input type="hidden" name="pageload" value="aj"></td>
+							<td><input type="hidden" name="checkbox" value="checkbox"></td>
+
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}u</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.i_Category}</td>
 							<td>${e.i_Date}</td>
-							<td><input type="submit" name="createMail" value="メール送信" ></td>
-							<td><input type="submit" name="detail" value="詳細ページ"></td>
+							<td><input type="submit" name="submit" value="メール送信" ></td>
+							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -108,12 +114,15 @@
 					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
+							<td><input type="hidden" name="pageload" value="aj"></td>
+							<td><input type="hidden" name="checkbox" value="checkbox"></td>
+
 							<td>${e.s_Name}</td>
 							<td>${e.s_Univercity}</td>
 							<td>${e.s_Faculty}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="createMail" value="メール送信" ></td>
-							<td><input type="submit" name="detail" value="詳細ページ"></td>
+							<td><input type="submit" name="submit" value="メール送信" ></td>
+							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
 
 					</c:forEach>
@@ -139,7 +148,7 @@
 					<c:forEach var="e" items="${searchName}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="submit" value="aj"></td>
+							<td><input type="hidden" name="pageload" value="aj"></td>
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
 							<td><input type="hidden"  value="${e.s_id }"></td>
@@ -148,8 +157,8 @@
 							<td>${e.s_Faculty}</td>
 							<td>${e.s_Department}</td>
 							<td>${e.se_Situation}</td>
-							<td><input type="submit" name="createMail" value="メール送信" ></td>
-							<td><input type="submit" name="detail" value="詳細ページ"></td>
+							<td><input type="submit" name="submit" value="メール送信" ></td>
+							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
 					</c:forEach>
 				</table>
@@ -170,8 +179,8 @@
 							<th></th>
 						</tr>
 						<tr>
-							<td><input type="submit" name="createMail" value="メール送信" ></td>
-							<td><input type="submit" name="detail" value="詳細ページ"></td>
+							<td><input type="submit" name="submit" value="メール送信" ></td>
+							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
 				</table>
 </c:if>
@@ -180,7 +189,7 @@
 		<input type="checkbox" id="checkbox_all"  >
 		<label for="selection">全選択/解除</label>
 
-	<input type="submit" name="edit" value="一括編集ページ">
+	<input type="submit" name="submit" value="編集">
 
 </body>
 
@@ -194,7 +203,7 @@ window.onload = function flagdelete(indexNo){
 	$.ajax({
 		type:'post',
 		url: '/systemofj/Servlet',
-		data:{str : submit}
+		data:{str : pageload}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
