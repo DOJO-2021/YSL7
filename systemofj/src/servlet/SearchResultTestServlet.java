@@ -217,7 +217,6 @@ public class SearchResultTestServlet extends HttpServlet {
 						path = UpdateDeleteAction.templateUpdate(request);
 					}
 				}
-				System.out.println("最後です");
 
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
