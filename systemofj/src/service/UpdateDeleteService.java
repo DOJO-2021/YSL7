@@ -75,21 +75,72 @@ public class UpdateDeleteService {
 	}
 
 	public boolean studentDelete(int sId) throws ClassNotFoundException, SQLException {
-		boolean result = false;
+		boolean result1 = false;
+		boolean result2 = false;
+		boolean result3 = false;
+		boolean result4 = false;
+		boolean result5 = false;
+		boolean result6 = false;
+		boolean result7 = false;
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
-		StudentDao dao = new StudentDao(conn);
-		//引数を渡し、取得地をbeanに渡す
-		int test =dao.delete(sId);
+		StudentDao dao1 = new StudentDao(conn);
+		SelectionEasyDao dao2 = new SelectionEasyDao(conn);
+		EventDao dao3 = new EventDao(conn);
+		InternDao dao4 = new InternDao(conn);
+		SelectionFaceDao dao5 = new SelectionFaceDao(conn);
+		SelectionTextDao dao6 = new SelectionTextDao(conn);
+		FeedbackDao dao7 = new FeedbackDao(conn);
 
-		if(test == 1) {
-			result = true;
+
+		//引数を渡し、取得地をbeanに渡す
+		int test1 =dao1.delete(sId);
+
+		if(test1 != 0) {
+			result1 = true;
+		}
+		int test2 =dao2.selectionEasyDelete(sId);
+
+		if(test2 != 0) {
+			result2 = true;
 		}
 
-		return result;
+		int test3 =dao3.eventDelete(sId);
+
+		if(test3 != 0) {
+			result3 = true;
+		}
+		int test4 =dao4.internDelete(sId);
+
+		if(test4 != 0) {
+			result4 = true;
+		}
+		int test5 =dao5.selectionfaceDelete(sId);
+
+		if(test5 != 0) {
+			result5 = true;
+		}
+		int test6 =dao6.selectiontextDelete(sId);
+
+		if(test6 != 0) {
+			result6 = true;
+		}
+		int test7 =dao7.delete(sId);
+
+		if(test7 != 0) {
+			result7 = true;
+		}
+
+
+
+		boolean allresult = false;
+		if(result1 && result2 && result3 && result4  && result5  && result6  && result7) {
+			allresult  = true;
+		}
+		return allresult;
 
 
 	}

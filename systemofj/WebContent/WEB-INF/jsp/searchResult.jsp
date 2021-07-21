@@ -49,11 +49,11 @@
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
-							<td>${e.s_Name }</td>
-							<td>${e.s_Univercity }</td>
-							<td>${e.s_Faculty}</td>
-							<td>${e.i_Category}</td>
-							<td>${e.i_Date}</td>
+							<td>${e.sName }</td>
+							<td>${e.sUnivercity }</td>
+							<td>${e.sFaculty}</td>
+							<td>${e.iCategory}</td>
+							<td>${e.iDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</c:forEach>
@@ -83,11 +83,11 @@
 							<td><input type="hidden" name="pageload" value="aj"></td>
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
-							<td>${e.s_Name}</td>
-							<td>${e.s_Univercity}u</td>
-							<td>${e.s_Faculty}</td>
-							<td>${e.i_Category}</td>
-							<td>${e.i_Date}</td>
+							<td>${e.sName}</td>
+							<td>${e.sUnivercity}u</td>
+							<td>${e.sFaculty}</td>
+							<td>${e.iCategory}</td>
+							<td>${e.iDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
@@ -117,10 +117,10 @@
 							<td><input type="hidden" name="pageload" value="aj"></td>
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
-							<td>${e.s_Name}</td>
-							<td>${e.s_Univercity}</td>
-							<td>${e.s_Faculty}</td>
-							<td>${e.se_Situation}</td>
+							<td>${e.sName}</td>
+							<td>${e.sUnivercity}</td>
+							<td>${e.sFaculty}</td>
+							<td>${e.seSituation}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
@@ -152,11 +152,11 @@
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
 							<td><input type="hidden"  value="${e.s_id }"></td>
-							<td>${e.s_Name}</td>
-							<td>${e.s_Univercity}</td>
-							<td>${e.s_Faculty}</td>
-							<td>${e.s_Department}</td>
-							<td>${e.se_Situation}</td>
+							<td>${e.sName}</td>
+							<td>${e.sUnivercity}</td>
+							<td>${e.sFaculty}</td>
+							<td>${e.sDepartment}</td>
+							<td>${e.seSituation}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
@@ -179,8 +179,7 @@
 							<th></th>
 						</tr>
 						<tr>
-							<td><input type="submit" name="submit" value="メール送信" ></td>
-							<td><input type="submit" name="submit" value="詳細"></td>
+							<td><a href="/systemofj/Servlet?FLG=search">検索</a></td>
 						</tr>
 				</table>
 </c:if>
@@ -214,7 +213,7 @@ function changeflag(indexNo){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
-				data: {	int : sId },{str: checkbox}
+				data: {	int : sId , str: checkbox}
 			});
 }
 </script>
