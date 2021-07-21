@@ -40,7 +40,7 @@
 ※フィードバック入力後は必ず登録ボタンを押してください
 
 
-<table align="center" class="fb-tbl">
+<table style="text-align:center" class="fb-tbl">
 	<tr>
 		<td>
 
