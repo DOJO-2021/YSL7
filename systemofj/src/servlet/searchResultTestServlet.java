@@ -18,17 +18,13 @@ import action.UploadAction;
 /**
  * Servlet implementation class Servlet
  */
-@WebServlet("/Servlet")
-public class searchResultTestServlet extends HttpServlet {
+@WebServlet("/SearchResultTestServlet")
+public class SearchResultTestServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public searchResultTestServlet() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
