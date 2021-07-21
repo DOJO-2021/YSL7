@@ -138,7 +138,7 @@ public class searchResultTestServlet extends HttpServlet {
 						path = SelectAction.goToDetail(request);
 					}
 				}
-
+			}
 			//検索ページへとぶ
 			if(FLG!= null) {
 				if(FLG.equals("search")) {
@@ -147,7 +147,7 @@ public class searchResultTestServlet extends HttpServlet {
 				}
 			}
 
-				}
+
 				//詳細画面
 				if(page_id.equals("detail")) {
 					//メール作成ボタン
@@ -162,15 +162,7 @@ public class searchResultTestServlet extends HttpServlet {
 					if(submit.equals("編集")) {
 						path = SelectAction.goToDetail(request);
 					}
-					//削除ボタン
-					if(submit.equals("削除")) {
-						path = UpdateDeleteAction.studentDelete(request);
-						UpdateDeleteAction.selectionEasyDelete(request);
-						UpdateDeleteAction.eventDelete(request);
-						UpdateDeleteAction.internDelete(request);
-						UpdateDeleteAction.selectionFaceDelete(request);
-						UpdateDeleteAction.selectionTextDelete(request);
-					}
+
 				}
 				//データ編集画面
 				if(page_id.equals("studentsEdit")) {
@@ -197,7 +189,7 @@ public class searchResultTestServlet extends HttpServlet {
 
 
 				//メール作成（テンプレ選択）画面
-				if(page_id.equals( "templateRegist")) {
+				if(page_id.equals( "mailtemplate")) {
 					//テンプレ登録ボタン
 					if(submit.equals("テンプレ登録ボタン")){
 						path = RegistAction.TemplateRegist(request);
@@ -230,7 +222,7 @@ public class searchResultTestServlet extends HttpServlet {
 					}
 				}
 				System.out.println("最後です");
-			}
+
 
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 			dispatcher.forward(request, response);
