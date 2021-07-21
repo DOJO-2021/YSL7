@@ -23,8 +23,8 @@ public class TemplateDao {
 
 		//SQL文を完成させる
 		pStmt.setString(1, tTitle);
-		pStmt.setString(2, tCategory);
-		pStmt.setString(3, tContent);
+		pStmt.setString(2, tContent);
+		pStmt.setString(3, tCategory);
 
 		int ans = pStmt.executeUpdate();
 
