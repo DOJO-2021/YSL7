@@ -36,7 +36,7 @@ public class SelectionFaceDao {
 		ResultSet rs = pStmt.executeQuery();
 
 		//Beanにもらってきたデータを入れ替える
-		if(rs.next()) {
+		while(rs.next()) {
 			//ここでbeanを実体化（これがなければbeanはnullのまま)
 			bean = new SSelectionFace();
 
