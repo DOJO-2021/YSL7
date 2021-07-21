@@ -345,8 +345,8 @@ width: 800px;
         <tr>
           <td style="width: 143px"><input type="date" name="se_secondno" value="　"></td>
           <td style="width: 143px"><input type="date" name="se_seconddate" value="　"></td>
-          <td><select name="sf_score_second1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_second2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="se_secondresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
@@ -392,7 +392,7 @@ width: 800px;
           <th>辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7"><textarea style="width: 1069px" name="se_noreason"　>　</textarea></td>
+          <td colspan="7"><textarea style="width: 1069px" name="se_noreason">　</textarea></td>
         </tr>
       </table>
     </td>
