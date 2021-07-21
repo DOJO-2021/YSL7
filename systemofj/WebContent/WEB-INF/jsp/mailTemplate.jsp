@@ -11,7 +11,7 @@
 <body>
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
-			<input type="hidden" name="page_id" value="mailTemplate">
+	<input type="hidden" name="page_id" value="mailTemplate">
 
 	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
 	<input type="radio" id="intern" name="template" onclick="show()" >インターン
@@ -31,8 +31,8 @@
 						<option value="4">会社説明会参加のお礼</option>
  						-->
 			 </select><br>
-			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
-			 <input type="submit" name="templateedit" value="テンプレ編集" >
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ編集" >
 		 </div>
 		<div id="interntemplate" style="display: none">
 				カテゴリを選択してください：
@@ -49,8 +49,8 @@
 						<option value="5">3dayインターン当日案内</option>
 				 -->
 			 </select><br>
-			 <input type="submit" name="search" value="テンプレ使用"onclick="yesno()" >
-			 <input type="submit" name="templateedit" value="テンプレ編集" >
+			 <input type="submit" name="submit" value="テンプレ使用"onclick="yesno()" >
+			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
@@ -64,8 +64,8 @@
 						<option value="2">面接当日案内</option>
 					 -->
 			 </select><br>
-			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
-			 <input type="submit" name="templateedit" value="テンプレ編集" >
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 		<div id="othertemplate" style="display: none">
 				カテゴリを選択してください：
@@ -79,8 +79,8 @@
 						<option value="2">面接当日案内</option>
 					 -->
 			 </select><br>
-			 <input type="submit" name="search" value="テンプレ使用" onclick="yesno()">
-			 <input type="submit" name="templateedit" value="テンプレ編集" >
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>
 </body>
