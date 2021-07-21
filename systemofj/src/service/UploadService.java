@@ -30,7 +30,7 @@ public class UploadService {
 			Class.forName("org.h2.Driver");
 
 			//データベースへの接続情報を設定する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\db\\db", "sa", "sa");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj", "sa", "sa");
 			conn.setAutoCommit(false);
 
 
