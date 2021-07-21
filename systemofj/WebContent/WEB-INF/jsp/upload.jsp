@@ -19,7 +19,7 @@
 	<h1>アップロード</h1>
 	${msg}
 	<!-- ヘッダー後で追加 -->
-	<form method="POST" action="/systemofj/SwaragiServlet" enctype="multipart/form-data">
+	<form method="POST" action="/systemofj/Sawaragi" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>
