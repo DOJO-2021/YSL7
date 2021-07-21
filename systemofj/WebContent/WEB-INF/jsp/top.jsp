@@ -82,7 +82,7 @@ margin-top: 70px;
 
 	<tr align="center">
 		<td class="btn-td"><a href="/systemofj/Servlet?FLG=analysis" id="t_analysis" class="btn">分析</a></td>
-		<td class="btn-td"><a href="/systemofj/Servlet?FLG=studentRegist" id="t_regist" class="btn">学生の新規登録</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=studentsRegist" id="t_regist" class="btn">学生の新規登録</a></td>
 		<td class="btn-td"><a href="/systemofj/Servlet?FLG=logout" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
 	</tr>
 </table>
