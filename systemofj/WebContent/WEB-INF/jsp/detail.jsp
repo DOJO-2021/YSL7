@@ -73,7 +73,7 @@ background-color: #e0e0e0;
 	    	  <td>キャリタス<hr>${student.sCareertasu}</td>
 	    	  <td>リクナビ<hr>${student.sRikunavi}</td>
 	    	  <td>マイナビ<hr>${student.sMynavi}</td>
-	    	  <td>その他<hr>${student.Other}</td>
+	    	  <td>その他<hr>${student.sOther}</td>
 	        </tr>
 	      </table>
 	    </td>
@@ -95,7 +95,7 @@ background-color: #e0e0e0;
           <td>参加日</td>
         </tr>
         <tr>
-          <td>2021-07-07</td>
+          <td>${con}</td>
         </tr>
       </table>
     </td>
@@ -112,7 +112,7 @@ background-color: #e0e0e0;
         <tr>
 
           <c:forEach items="${mock}" var="mock">
-			<td>${mock.eDate}</td>>
+			<td>${mock.eDate}</td>
           </c:forEach>
 
         </tr>

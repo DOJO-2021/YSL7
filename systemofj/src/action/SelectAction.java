@@ -138,6 +138,7 @@ public class SelectAction {
 			//説明会とそれ以外を分ける。
 
 			for (SIntern e : interns) {
+				System.out.println(e.getiCategory());
 				if(e.getiCategory().contains("説明会")) {
 					exp = e;
 				} else {
@@ -157,9 +158,9 @@ public class SelectAction {
 
 			//1次面接、２次面接に分類する
 			for (SSelectionFace e : faces) {
-				if (e.getSfCategory().contains("1次")) {
+				if (e.getSfCategory().contains("一次")) {
 					face1.add(e);
-				} else if (e.getSfCategory().contains("2次")) {
+				} else if (e.getSfCategory().contains("二次")) {
 					face2.add(e);
 				}
 			}
@@ -199,6 +200,7 @@ public class SelectAction {
 			request.setAttribute("pr", pr);
 			request.setAttribute("text", text);
 
+
 			String submit = request.getParameter("submit");
 
 			//編集画面に飛びます
@@ -212,6 +214,7 @@ public class SelectAction {
 			return "/WEB-INF/jsp/detail.jsp";
 
 		} catch(SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";

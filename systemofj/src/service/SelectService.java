@@ -31,7 +31,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 //		EventDao Edao = new EventDao(conn);
 //		InternDao Idao = new InternDao(conn);
@@ -74,7 +74,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 
 		//DAOを実体化
 			EventDao eDao = new EventDao(conn);
@@ -94,7 +94,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		InternDao iDao = new InternDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -113,7 +113,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		SelectionEasyDao seDao = new SelectionEasyDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -129,7 +129,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		SelectionFaceDao sfDao = new SelectionFaceDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -151,7 +151,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		SelectionTextDao stDao = new SelectionTextDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -174,7 +174,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -187,7 +187,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -201,7 +201,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -215,7 +215,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -229,7 +229,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -244,7 +244,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -258,7 +258,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -272,7 +272,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -286,7 +286,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		TemplateDao tDao = new TemplateDao(conn);
 		//引数を渡し、取得地をbeanに渡す
@@ -300,7 +300,7 @@ public class SelectService {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj ","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		FeedbackDao tDao = new FeedbackDao(conn);
 		//引数を渡し、取得地をbeanに渡す
