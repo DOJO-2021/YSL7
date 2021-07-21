@@ -90,12 +90,12 @@ margin-top: 70px;
 
 <br><hr><br>
 <p align="center">その他、臨時で入ってるリンクたち。不要になったら消します。</p>
-<a href="/systemofj/Servlet?FLG=templateEdit" id="t_t_edit" class="btn">テンプレ編集</a>
-<a href="/systemofj/Servlet?FLG=detail" id="t_detail" class="btn">学生データ詳細</a>
-<a href="/systemofj/Servlet?FLG=feecback" id="t_feedback" class="btn">フィードバック登録・更新</a>
-<a href="/systemofj/Servlet?FLG=searchResult" id="t_s_result" class="btn">検索結果</a>
-<a href="/systemofj/Servlet?FLG=allEdit" id="t_all_edit" class="btn">一括編集</a>
-<a href="/systemofj/Servlet?FLG=result" id="t_result" class="btn">リザルト</a>
+<a href="/systemofj/TestServlet?FLG=templateEdit" id="t_t_edit" class="btn">テンプレ編集</a>
+<a href="/systemofj/TestServlet?FLG=detail" id="t_detail" class="btn">学生データ詳細</a>
+<a href="/systemofj/TestServlet?FLG=feecback" id="t_feedback" class="btn">フィードバック登録・更新</a>
+<a href="/systemofj/TestServlet?FLG=searchResult" id="t_s_result" class="btn">検索結果</a>
+<a href="/systemofj/TestServlet?FLG=allEdit" id="t_all_edit" class="btn">一括編集</a>
+<a href="/systemofj/TestServlet?FLG=result" id="t_result" class="btn">リザルト</a>
 
 
 
