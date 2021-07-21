@@ -75,6 +75,10 @@ public class Servlet extends HttpServlet {
 					//アップロードページへのパスを入れる
 					path = "/WEB-INF/jsp/upload.jsp";
 				}
+				if(FLG.equals("top")) {
+					//トップページへのパスを入れる
+					path = "/WEB-INF/jsp/top.jsp";
+				}
 				if(FLG.equals("search")) {
 					//検索ページへのパスを入れる
 					path = "/WEB-INF/jsp/search.jsp";
@@ -83,7 +87,7 @@ public class Servlet extends HttpServlet {
 					//分析ぺージへのパスを入れる
 					path = "/WEB-INF/jsp/analysis.jsp";
 				}
-				if(FLG.equals("studentRegist")) {
+				if(FLG.equals("studentsRegist")) {
 					//学生登録ページへのパスを入れる
 					path = "/WEB-INF/jsp/studentsRegist.jsp";
 				}
@@ -200,7 +204,7 @@ public class Servlet extends HttpServlet {
 					}
 				}
 				//学生の新規登録画面
-				if(page_id.equals("studentRegist")) {
+				if(page_id.equals("studentsRegist")) {
 					//登録ボタン
 					if(submit.equals( "登録")) {
 						path = RegistAction.StudentRegist(request);
