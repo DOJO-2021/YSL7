@@ -80,14 +80,18 @@ input[name="tab_item"] {
 <body>
 
 <header>
-	<%-- <jsp:include page="/header.jsp"/> --%>
+ <%-- <jsp:include page="../../header.jsp"> --%>
 </header>
+
 <h1>検索</h1>
 
 
 <!-- 個人名で検索できる場所 -->
-<form method="POST" action="/systemofj/Servlet">
+<form method="POST" action="/systemofj/Servlet" >
+	<input type="hidden" name="page_id" value="search">
+
 	<input type="hidden" value="name" name="mode">
+
 	<input type="text" name="search_item" placeholder="個人名検索">
 	<input type="submit" name="submit" value="検索">
 </form>
@@ -104,6 +108,7 @@ input[name="tab_item"] {
 <!-- 検索小項目(インターン) -->
 <div class="tab_content" id="intern">
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="search">
 
 	<input type="hidden" value="intern" name="mode">
 
@@ -167,6 +172,7 @@ input[name="tab_item"] {
 <!-- 検索小項目(イベント) -->
 <div class="tab_content" id="briefing">
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="search">
 
 	<input type="hidden" value="event" name="mode">
 
@@ -232,6 +238,7 @@ input[name="tab_item"] {
 <!-- 検索小項目(選考参加者) -->
 <div class="tab_content" id="selection">
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="search">
 
 	<input type="hidden" value="selection" name="mode">
 
