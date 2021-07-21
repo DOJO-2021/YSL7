@@ -57,6 +57,7 @@ public class SearchResultTestServlet extends HttpServlet {
 			String page_id = request.getParameter("page_id");
 			String FLG = request.getParameter("FLG");
 
+
 			System.out.println(FLG);
 			UpdateDeleteAction UpdateDeleteAction = new UpdateDeleteAction();
 			SelectAction SelectAction = new SelectAction();
