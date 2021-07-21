@@ -67,9 +67,9 @@
 	</div>
 	<p class="title">選考準備編セミナー参加のお礼</p>
 	<!-- <p>${requestScope.template.t_title}</p>-->
-	<form action ="/systemofj/Servlet?FLG=templateUpdate" method="POST">
-		<input type="submit" class="sub_button" name="tu_update_button" value="templateEdit"><br><br>
-		<input type="hidden" name="page_id" value="templateEdit.jsp">
+	<form action ="/systemofj/Servlet" method="POST">
+		<input type="submit" class="sub_button" name="submit" value="テンプレ更新ボタン"><br><br>
+		<input type="hidden" name="page_id" value="templateEdit">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
 		<textarea></textarea>
 		<ul>
