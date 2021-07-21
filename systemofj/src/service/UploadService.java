@@ -20,7 +20,7 @@ import model.Student;
 
 
 public class UploadService {
-	public boolean insert(ArrayList<ArrayList<String>> list,ArrayList<SEvent> eventList ,ArrayList<SIntern> internList ,ArrayList<SSelectionText> textList ,ArrayList<SSelectionFace> faceList, String event, String category, String date) {
+	public boolean insert(ArrayList<ArrayList<String>> list,ArrayList<SEvent> eventList ,ArrayList<SIntern> internList ,ArrayList<SSelectionText> textList ,ArrayList<SSelectionFace> faceList, String event, String category, String date, String apply) {
 		boolean result = false;
 
 		Connection conn = null;
@@ -48,7 +48,9 @@ public class UploadService {
 				//select s_id name address from student where name = ? address = ?;
 				Student s = sdao.check(i.get(0), i.get(6));
 				if (s != null) {//重複していた場合
-					if (event.equals("entry")) {//エントリーの場合・・・何もしない
+					if (event.equals("entry")) {//エントリーの場合
+
+						sdao.uploadUpdate(s.getsId(), apply);
 
 					}else if (event.equals("intern")) {//インターンの場合・・・そのインターンのdateのみupdate
 
@@ -103,6 +105,7 @@ public class UploadService {
 //		}
 		catch(SQLException e) {
 			try {
+				e.printStackTrace();
 				conn.rollback();
 				conn.close();
 			} catch (SQLException ee) {
