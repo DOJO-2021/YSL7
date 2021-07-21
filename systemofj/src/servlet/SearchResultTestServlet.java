@@ -57,6 +57,7 @@ public class SearchResultTestServlet extends HttpServlet {
 			String page_id = request.getParameter("page_id");
 			String FLG = request.getParameter("FLG");
 
+
 			System.out.println(FLG);
 			UpdateDeleteAction UpdateDeleteAction = new UpdateDeleteAction();
 			SelectAction SelectAction = new SelectAction();
@@ -186,15 +187,14 @@ public class SearchResultTestServlet extends HttpServlet {
 
 				//メール作成（テンプレ選択）画面
 				if(page_id.equals( "mailtemplate")) {
-					//テンプレ登録ボタン
-					if(submit.equals("テンプレ登録ボタン")){
-						path = RegistAction.TemplateRegist(request);
+					//テンプレ選択ボタン
+					if(submit.equals("テンプレ使用")){
+						path = SelectAction.selectTemplate(request);
+					}
+					if(submit.equals("テンプレ編集")){
+						path = SelectAction.selectTemplate(request);
 					}
 				}
-
-
-
-
 
 				//テンプレ登録画面
 				if(page_id.equals( "templateRegist")) {
