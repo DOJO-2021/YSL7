@@ -100,7 +100,7 @@ public class SearchResultTestServlet extends HttpServlet {
 					path = "/WEB-INF/jsp/login.jsp";
 				}
 			}
-			System.out.println(FLG);
+//			System.out.println(FLG);
 			//ログイン画面
 			if(FLG == null && page_id != null) {
 				if(page_id.equals("login")) {
@@ -164,14 +164,14 @@ public class SearchResultTestServlet extends HttpServlet {
 				//データ編集画面
 				if(page_id.equals("studentsEdit")) {
 					//更新ボタン
-					if(submit.equals("更新")) {
-						path = UpdateDeleteAction.studentUpdate(request);
-						UpdateDeleteAction.selectionEasyUpdate(request);
-						UpdateDeleteAction.eventUpdate(request);
-						UpdateDeleteAction.internUpdate(request);
-						UpdateDeleteAction.selectionFaceUpdate(request);
-						UpdateDeleteAction.selectionTextUpdate(request);
-					}
+//					if(submit.equals("更新")) {
+//						path = UpdateDeleteAction.studentUpdate(request);
+//						UpdateDeleteAction.selectionEasyUpdate(request);
+//						UpdateDeleteAction.eventUpdate(request);
+//						UpdateDeleteAction.internUpdate(request);
+//						UpdateDeleteAction.selectionFaceUpdate(request);
+//						UpdateDeleteAction.selectionTextUpdate(request);
+//					}
 					if(submit.equals("詳細")) {
 						path = SelectAction.goToDetail(request);
 					}

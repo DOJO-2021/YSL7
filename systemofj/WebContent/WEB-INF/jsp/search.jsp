@@ -95,7 +95,7 @@ input[name="tab_item"] {
 
 
 
-	<input type="text" name="search_item" placeholder="個人名検索">
+	  <input type="text" name="search_item" placeholder="個人名検索">
 	<input type="submit" name="submit" value="検索">
 </form>
 

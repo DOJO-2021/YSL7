@@ -330,7 +330,7 @@ public class StudentDao {
 		// SELECT文を実行し、結果表を取得する
 		ResultSet rs = pStmt.executeQuery();
 
-		if (rs.next()) { // 1件でもあれば実行される
+		while (rs.next()) { // 1件でもあれば実行される
 			SearchResult student = new SearchResult();
 			student.setsId(rs.getInt("s_id"));
 			student.setsName(rs.getString("s_name"));
@@ -341,6 +341,11 @@ public class StudentDao {
 
 			searchName.add(student);
 
+		}
+		for(SearchResult e : searchName) {
+			System.out.println(e.getsName());
+			System.out.println(e.getsUnivercity());
+			
 		}
 		if(conn != null) {
 			conn.close();
