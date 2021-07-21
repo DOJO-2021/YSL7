@@ -9,7 +9,7 @@
 <body>
 <h1>メール作成</h1>
 <div>
-	<textarea rows="10" cols="20" id="text">こんにちは！</textarea>
+	<textarea rows="10" cols="20" id="text">${Templete.tContent }</textarea>
 	<input type ="button" value="一括コピー" onclick="return textCopy()">
 </div>
 </body>
