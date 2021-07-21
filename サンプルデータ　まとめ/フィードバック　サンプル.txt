@@ -25,7 +25,7 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '1',
- '1dayインターン',
+ '1day',
  '菅澤',
  'インターンお疲れさまでした。経験者として専門的な知識を生かせていたと思います。周りのメンバーとも協力できていたと思います。'
  );
@@ -33,7 +33,7 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '1',
- '1dayインターン',
+ '1day',
  '藤原',
  'お疲れさまでした。運動部ということで周りとの連携がかなり上手な印象です。'
  );
@@ -41,7 +41,7 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '1',
- '1dayインターン',
+ '1day',
  'フィードバックまとめ',
  'インターンお疲れさまでした。今回の経験を生かしてこれからの学校生活、就職活動頑張っていただけたらと思います。'
  );
@@ -49,14 +49,14 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '2',
- '1dayインターン',
+ '1day',
  '板谷',
  'インターンお疲れさまでした。積極的な姿勢がとても印象的でした。'
  );
 insert into Feedback values (
  null,
  '2',
- '1dayインターン',
+ '1day',
  '菅澤',
  'インターンお疲れさまでした。経験者として専門的な知識を生かせていたと思います。周りのメンバーとも協力できていたと思います。'
  );
@@ -64,7 +64,7 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '2',
- '1dayインターン',
+ '1day',
  '藤原',
  'お疲れさまでした。運動部ということで周りとの連携がかなり上手な印象です。'
  );
@@ -72,7 +72,7 @@ insert into Feedback values (
 insert into Feedback values (
  null,
  '2',
- '1dayインターン',
+ '1day',
  'フィードバックまとめ',
  'インターンお疲れさまでした。今回の経験を生かしてこれからの学校生活、就職活動頑張っていただけたらと思います。'
  );
