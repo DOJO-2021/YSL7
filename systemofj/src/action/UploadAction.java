@@ -404,7 +404,7 @@ public class UploadAction {
 
 
 				UploadService service = new UploadService();
-				if (service.insert(listInList, eventList, internList, textList, faceList, event, category, date)) {//登録できた場合
+				if (service.insert(listInList, eventList, internList, textList, faceList, event, category, date, apply)) {//登録できた場合
 
 					request.setAttribute("msg", "登録が成功しました");
 					return "/WEB-INF/jsp/upload.jsp";

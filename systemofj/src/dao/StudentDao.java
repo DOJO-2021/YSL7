@@ -115,6 +115,21 @@ public class StudentDao {
 
 	}
 
+	//重複していた場合のメソッド
+	public int uploadUpdate(int sId, String apply) throws SQLException {
+
+
+
+		String sql = "update student set " + apply + " = '〇' where s_id = ?;";
+
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+		pStmt.setInt(1, sId);
+
+		int ans = pStmt.executeUpdate();
+
+		return ans;
+	}
+
 	//削除
 	public int delete(int sId) throws SQLException {
 
