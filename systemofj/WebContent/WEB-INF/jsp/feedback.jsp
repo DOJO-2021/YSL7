@@ -24,6 +24,11 @@
 	margin: auto;
 }
 
+#tArea{
+	height: 500px;
+	width: 700px;
+}
+
 </style>
 
 
@@ -35,257 +40,120 @@
 ※フィードバック入力後は必ず登録ボタンを押してください
 
 
-
 <table align="center" class="fb-tbl">
 	<tr>
 		<td>
-<form method="POST" action="/systemofj/Servlet" id="form">
-		<!-- tableの中のtable①ここから -->
-		<input type="hidden" name="f_category" value="${requestScope.fCategory}">
-			<table border="1" class="fb-tbl">
-			<tr>
-				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="text" name="f_name"></td>
-				<td>
-					<input type="submit" name="fr_regist_button" value="登録">
-					<input type="hidden" name="page_id" value="result">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
-			</tr>
 
-			</table>
-</form>
-		<!-- ここまで -->
+			<!-- tableの中のtable①（個人FB登録）ここから -->
+			<form method="POST" action="/systemofj/Servlet" id="form">
+				<input type="hidden" name="f_category" value="${requestScope.fCategory}">
+				<table border="1" class="fb-tbl">
+					<tr>
+						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="text" name="f_name"></td>
+						<td>
+							<input type="submit" name="fr_regist_button" value="登録">
+							<input type="hidden" name="page_id" value="result">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
+					</tr>
+				</table>
+			</form>
+			<!-- ここまで -->
 
 		</td>
-		<td rowspan="2">
+		<td rowspan="2" >
 
-		<!-- tableの中のtable②ここから -->
-		<form method="POST" action="/systemofj/Servlet" id="form">
-			<table border="1" class="fb-select">
-			<tr>
-				<td>
-				<select name="f_category">
-					<option value="1day">インターン1DAY</option>
-					<option value="3day">インターン3DAY</option>
-					<option value="初級">初級</option>
-					<option value="中級">中級</option>
-					<option value="模擬面接">模擬面接</option>
-					<option value="会社説明会">会社説明会</option>
-					<option value="一次面接">一次面接</option>
-					<option value="二次面接">二次面接</option>
-					<option value="予備">予備</option>
-				</select>
-				<input type="submit" id="fr_search_button" value="検索">
-				<input type="hidden" name="page_id" value="searchResult">
-				</td>
-			</tr>
-			</table>
+			<!-- tableの中のtable②（FBまとめ）ここから -->
+			<form method="POST" action="/systemofj/Servlet" id="form">
+				<table border="1" class="fb-select">
+					<tr>
+						<td>
+						<select name="f_category">
+							<option value="1day">インターン1DAY</option>
+							<option value="3day">インターン3DAY</option>
+							<option value="初級">初級</option>
+							<option value="中級">中級</option>
+							<option value="模擬面接">模擬面接</option>
+							<option value="会社説明会">会社説明会</option>
+							<option value="一次面接">一次面接</option>
+							<option value="二次面接">二次面接</option>
+							<option value="予備">予備</option>
+						</select>
+						<input type="submit" id="fr_search_button" value="検索">
+						<input type="hidden" name="page_id" value="searchResult">
+						</td>
+					</tr>
+				</table>
 			</form>
 
 			<form method="POST" action="/systemofj/Servlet" id="form">
-			<input type="hidden" name="f_category" value="${requestScope.fCategory }">
-			<table border="1" class="fb-matome">
-			<tr>
-				<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
-			</tr>
-			<tr>
-				<td id="f_regist_button">
-					<input type="submit" value="フィードバックまとめを更新">
-					<input type="hidden" name="page_id" value="result">
-				</td>
-					<td id="f_update_button">
-					<input type="submit"  value="フィードバックまとめを登録">
-					<input type="hidden" name="page_id" value="result">
-				</td>
-			</tr>
-			</table>
+				<input type="hidden" name="f_category" value="${requestScope.fCategory}">
+				<table border="1" class="fb-matome">
+					<tr>
+						<td colspan="3"><textarea name=f_content rows="20" cols="50" id="tArea"></textarea></td>
+					</tr>
+
+					<tr>
+						<td id="f_regist_button">
+							<input type="button" value="フィードバックまとめを更新">
+							<input type="hidden" name="page_id" value="result">
+						</td>
+						<td id="f_update_button">
+							 <input type="submit"  value="フィードバックまとめを登録">
+							<input type="hidden" name="page_id" value="result">
+						</td>
+					</tr>
+				</table>
 			</form>
-		<!-- ここまで -->
+			<!-- ここまで -->
 
 		</td>
 	</tr>
 	<tr>
 		<td>
 
-		<!-- tableの中のtable③ここから -->
-		<form method="POST" action="/systemofj/Servlet" id="form">
-			<table border="1" class="fb-tbl">
-			<tr>
-				<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="text" name="fName"></td>
-				<td>
-					<input type="submit" name="fu_update_button" value="更新">
-					<input type="hidden" name="page_id" value="result">
-				</td>
-			</tr>
-			<tr>
-				<td colspan="3"><textarea name=fContent rows="20" cols="50"></textarea></td>
-			</tr>
-			</table>
-		</form>
-		<!-- ここまで -->
-
-		</td>
-	</tr>
-</table>
-
-
-
-<!--
-<table border="1">
-	<tr>
-		<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
-	</tr>
-	<tr>
-		<td colspan="2">fr_name</td>
-		<td><button id=fr_regist_button value="登録">登録</button></td>
-	</tr>
-	<tr>
-		<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
-	</tr>
-</table>
-
-
-
-<table border="1">
-	<tr>
-		<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
-	</tr>
-	<tr>
-		<td colspan="2">fr_name</td>
-		<td><button id=fu_update_button value="更新">更新</button></td>
-	</tr>
-	<tr>
-		<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
-	</tr>
-</table>
-
-
-
-<table border="1">
-	<tr>
-		<td>
-			<form>
-			<select>
-				<option value="1day">インターン1DAY</option>
-				<option value="3day">インターン3DAY</option>
-				<option value="">初級</option>
-				<option value="">中級</option>
-				<option value="">模擬面接</option>
-				<option value="">会社説明会</option>
-				<option value="">一次面接</option>
-				<option value="">二次面接</option>
-				<option value="">予備</option>
-			</select>
-			<input type="button" id="fr_search_button" value="検索">
+			<!-- tableの中のtable③（FB更新）ここから -->
+			<form method="POST" action="/systemofj/Servlet" id="form">
+				<table border="1" class="fb-tbl">
+					<tr>
+						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
+					</tr>
+					<tr>
+						<td colspan="2"><input type="text" name="fName"></td>
+						<td>
+							<input type="submit" name="fu_update_button" value="更新">
+							<input type="hidden" name="page_id" value="result">
+						</td>
+					</tr>
+					<tr>
+						<td colspan="3"><textarea name=fContent rows="20" cols="50" ></textarea></td>
+					</tr>
+				</table>
 			</form>
+			<!-- ここまで -->
+
 		</td>
-	</tr>
-	<tr>
-		<td colspan="3"><textarea name=fr_content rows="20" cols="50"></textarea></td>
-	</tr>
-	<tr>
-		<td id="f_regist_button"><input type="submit" value="フィードバックまとめを更新"></td>
-		<td id="f_update_button"><input type="submit"  value="フィードバックまとめを登録"></td>
 	</tr>
 </table>
-
-
-
-
-
-<table border="1" align="center">
-	<tr>
-		<td>
-		<div class="feedback_regist">
-		<table align="center" border="1">
-			<tr>
-				<td>fr_name</td>
-				<td><button id=fr_regist_button value="登録">登録</button></td>
-			</tr>
-			<tr>
-				<td><textarea name=fr_content rows="20" cols="50"></textarea></td>
-			</tr>
-		</table>
-		<p>${fr_errormessage1}</p>
-		<p>${fr_errormessage2}</p>
-		</div>
-		</td>
-		<td rowspan="2" width="800px" align="center">
-		<form>
-		<select>
-			<option value="1day">インターン1DAY</option>
-			<option value="3day">インターン3DAY</option>
-			<option value="">初級</option>
-			<option value="">中級</option>
-			<option value="">模擬面接</option>
-			<option value="">会社説明会</option>
-			<option value="">一次面接</option>
-			<option value="">二次面接</option>
-			<option value="">予備</option>
-		</select>
-		<input type="button" id="fr_search_button" value="検索">
-		</form>
-
-<a href="">登録してメール作成へ</a>
-
-<div class="feedback_sum">
-	<form>
-		<table border="1">
-			<tr>
-				<td><textarea name=content rows="20" cols="50"></textarea></td>
-			</tr>
-			<tr>
-				<td>${fr_errormessage3}</td>
-			</tr>
-			<tr>
-				<td id="f_regist_button"><input type="submit" value="フィードバックまとめを更新"></td>
-				<td id="f_update_button"><input type="submit"  value="フィードバックまとめを登録"></td>
-			</tr>
-		</table>
-	</form>
-</div>
-</td>
-
-
-</tr>
-
-
-
-
-<tr>
-<td>
-<div class="feedback_update">
-	<c:forEach>
-		<table border="1">
-			<tr>
-				<td>f_name</td>
-				<td><button id=fu_update_button value="更新">更新</button></td>
-			</tr>
-			<tr>
-				<td><textarea name=fu_content rows="20" cols="50"></textarea></td>
-			</tr>
-		</table>
-	</c:forEach>
-</div>
-</td>
-</tr>
-
- -->
 
 
 </body>
 <script>
 
-	document.getElementById("f_regist_button").style.display="none";
-	document.getElementById("f_update_button").style.display="none";
+	window.onload = function(){
+		let e = document.getElementById("tArea").value;
+		if(e != ''){
+			document.getElementById("f_update_button").style.display="none";
+		}
+		if(e == ''){
+			document.getElementById("f_regist_button").style.display="none";
+		}
+	}
 
 </script>
 </html>
