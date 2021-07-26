@@ -228,6 +228,7 @@ public class SelectAction {
 			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
