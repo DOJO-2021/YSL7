@@ -43,7 +43,7 @@ public class UpdateDeleteAction {
 		} catch (SQLException e) {
 			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
-			
+
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
 			e.printStackTrace();
@@ -411,7 +411,7 @@ public class UpdateDeleteAction {
 	public String flagDelete(HttpServletRequest request) {
 
 		//戻り値に設定するページを初期設定しておく
-		String page = "/WEB-INF/jsp/result.jsp";
+		String page = "/WEB-INF/jsp/searchResult.jsp";
 
 		//リクエスト領域から取得
 
@@ -423,19 +423,19 @@ public class UpdateDeleteAction {
 			//入力されていたらサービスへ処理を委譲
 			UpdateDeleteService service = new UpdateDeleteService();
 
-			flag= service.flagDelete();
+			flag = service.flagDelete();
 
-			if (flag == true) {
-
-				request.setAttribute("errMsg", "更新成功");
-
-				//（更新成功）
-
-			}
-			else {
-				//更新がされていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "失敗");
-			}
+//			if (flag == true) {
+//
+//				request.setAttribute("errMsg", "更新成功");
+//
+//				//（更新成功）
+//
+//			}
+//			else {
+//				//更新がされていないので、エラーメッセージをセットしログイン画面へ
+//				request.setAttribute("errMsg", "失敗");
+//			}
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
