@@ -22,7 +22,7 @@
 					</tr>
 					<tr>
 						<td align="right">PASSWORD：</td>
-						<td><input type="text" name="u_pw" placeholder="PWを入力してください"></td>
+						<td><input type="password" name="u_pw" placeholder="PWを入力してください"></td>
 					</tr>
 					<tr>
 						<th colspan="2">

@@ -80,15 +80,15 @@
 					<tr>
 						<td>
 						<select name="category">
-							<option value="1day"<c:if test="${mode.equals('name')}">selected</c:if>>インターン1DAY</option>
-							<option value="3day">インターン3DAY</option>
-							<option value="初級">初級</option>
-							<option value="中級">中級</option>
-							<option value="模擬面接">模擬面接</option>
-							<option value="会社説明会">会社説明会</option>
-							<option value="一次面接">一次面接</option>
-							<option value="二次面接">二次面接</option>
-							<option value="予備">予備</option>
+							<option value="インターン1DAY"<c:if test="${param.category.equals('インターン1DAY')}">selected</c:if>>インターン1DAY</option>
+							<option value="インターン3DAY"<c:if test="${param.category.equals('インターン3DAY')}">selected</c:if>>インターン3DAY</option>
+							<option value="初級"<c:if test="${param.category.equals('初級')}">selected</c:if>>初級</option>
+							<option value="中級"<c:if test="${param.category.equals('中級')}">selected</c:if>>中級</option>
+							<option value="模擬面接"<c:if test="${param.category.equals('模擬面接')}">selected</c:if>>模擬面接</option>
+							<option value="会社説明会"<c:if test="${param.category.equals('会社説明会')}">selected</c:if>>会社説明会</option>
+							<option value="一次面接"<c:if test="${param.category.equals('一次面接')}">selected</c:if>>一次面接</option>
+							<option value="二次面接"<c:if test="${param.category.equals('二次面接')}">selected</c:if>>二次面接</option>
+							<option value="予備"<c:if test="${param.category.equals('予備')}">selected</c:if>>予備</option>
 						</select>
 						<input type="submit" name="submit" value="検索">
 						<input type="hidden" name="page_id" value="feedback">
