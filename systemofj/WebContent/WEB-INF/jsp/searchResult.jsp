@@ -98,7 +98,7 @@
 <!-- 選考検索 -->
 
 <c:if test="${mode.equals('selection')}">
-<form method="POST" action="/systemofj/Servlet">
+<form method="POST" action="/systemofj/SearchResultTestServlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
