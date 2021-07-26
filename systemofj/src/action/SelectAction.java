@@ -288,6 +288,7 @@ public class SelectAction {
 
 				//テンプレ選択の場合
 				String content = template.gettContent();
+				System.out.println(content+"content");
 				content = content.replace("学生の名前が入ります", sName);
 				content = content.replace("あなたの名前が入ります", uName);
 				content = content.replace("学生の大学名が入ります", sUnivercity);
