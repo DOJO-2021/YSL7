@@ -147,16 +147,13 @@
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
-<<<<<<< HEAD
+
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
-=======
-							<td><input type="hidden"  name="sId" value="${e.sId }"></td>
-						<!--<td><input type="hidden"  value="${e.sId }"></td>-->
->>>>>>> 54ac820b8e53ef04cb5c4976513f2892e9e4261f
+
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -169,7 +166,7 @@
 				</table>
 				</form>
 </c:if>
-<!--<c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
+<c:if test="${list == null}" >
 			<input type="hidden" name="page_id" value="searchResult">
 
 				<table id="myTable">
@@ -187,7 +184,7 @@
 							<td><a href="/systemofj/Servlet?FLG=search">検索</a></td>
 						</tr>
 				</table>
-</c:if>-->
+</c:if>
 </div>
 
 		<input type="checkbox" id="checkbox_all"  >
@@ -216,7 +213,7 @@ window.onload = function(){
 function changeflag(indexNo, sId){
 	//チェックボックスの取得
 	var che = document.getElementById("alledit").value;
-	var ch = document.getElementById('checkId'+indexNo);
+	var ch = document.getElementById('checkId'+indexNo).value;
 	var fe = document.getElementById("flagup").value;
 	var sn = document.getElementById("idname").value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
