@@ -224,9 +224,9 @@ try {
 
 
 		if(result) {
-			request.setAttribute("result5", "登録が完了しました");
+			request.setAttribute("errMsg", "登録が完了しました");
 		}else {
-			request.setAttribute("result5", "登録に失敗しました");
+			request.setAttribute("errMsg", "登録に失敗しました");
 		}
 
 
