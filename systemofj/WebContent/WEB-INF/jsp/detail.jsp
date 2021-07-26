@@ -28,18 +28,21 @@ background-color: #e0e0e0;
 </head>
 <body>
 <!-- メール作成ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+  	<input type="hidden" name="page_id" value="detail">
+  	<input type="hidden" name=sId value="${student.sId}">
     <input type="submit" name="submit" value="メール作成">
   </form>
 
 <!-- フィードバックボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+  	<input type="hidden" name="page_id" value="detail">
     <input type="hidden" name="sId" value="${student.sId}">
     <input type="submit" name="submit" value="フィードバック">
   </form>
 
 <!-- 履歴書ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+  <form action="/systemofj/uploaded/${student.sName}${student.sAddress}.pdf" method="GET" target="_blank" style="display:inline-flex">
     <input type="submit" name="submit" value="履歴書PDFを表示">
   </form>
 <br>
@@ -426,13 +429,15 @@ background-color: #e0e0e0;
 </table>
 </div>
 <!-- 編集ボタン -->
-<form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+<form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+	<input type="hidden" name="page_id" value="detail">
 	<input type="hidden" name="sId" value="${student.sId}">
     <input type="submit" name="submit" value="編集">
   </form>
 
 <!-- 削除ボタン -->
-<form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+<form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+	<input type="hidden" name="page_id" value="detail">
 	<input type="hidden" name="sId" value="${student.sId}">
     <input type="submit" name="submit" value="削除">
   </form>
