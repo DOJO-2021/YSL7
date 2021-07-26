@@ -148,8 +148,8 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
@@ -201,7 +201,7 @@
 //ページを読み込んだらflagが1のものを0に戻すメソッド
 window.onload = function(){
 	var che = document.getElementById("alledit").value;
-	var edi = document.getElementById("flagedit").value;
+	var edi = 'aj';
 
 	$.ajax({
 		type:'post',
