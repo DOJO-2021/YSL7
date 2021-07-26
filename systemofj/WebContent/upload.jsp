@@ -188,34 +188,128 @@
 		//アップロード時に内容確認のダイアログを表示
 		function uploadcheck() {
 
+			//サイトごとに分岐
+			//マイナビ
 			if(sites.value === "s_mynavi") {
+				//イベントごとに分岐
+				//エントリー
 				if(events.value === "entry") {
-					window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "infosession") {
-					window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					if(window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
 				}
-			} else if(sites.value === "s_rikunavi") {
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else if(events.value === "infosession") {
+					if(window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//リクナビ
+			else if(sites.value === "s_rikunavi") {
+				//イベントごとに分岐
+				//エントリー
 				if(events.value === "entry") {
-					window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					if(window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else {
+					if(window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//キャリタス
+			else if(sites.value === "s_careertasu") {
+				//イベントごとに分岐
+				//エントリー
+				if(events.value === "entry") {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else if(events.value === "infosession"){
+					if(window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//合同説明会
+				else {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//履歴書
+			else {
+				if(window.confirm("登録します。よろしいですか？")) {
+					//「OK」の時は送信して画面遷移
+					return true;
 				} else {
-					window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					//「キャンセル」の時は画面遷移なし
+					return false;
 				}
-			} else if(sites.value === "s_careertasu") {
-				if(events.value === "entry") {
-					window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "infosession"){
-					window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else {
-					window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				}
-			} else {
-				window.confirm("登録します。よろしいですか？");
 			}
 
 		}
