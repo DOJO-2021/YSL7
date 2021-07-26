@@ -132,8 +132,7 @@
 <!-- 名前検索 -->
 <c:if test="${mode.equals('name')}">
 <form method="POST" action="/systemofj/SearchResultTestServlet">
-			<input type="hidden" name="page_id" value="searchResult"id="flagedit">
-			<input type="hidden" name="pageload" value="pageload"id="alledit">
+			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
 						<tr>
@@ -149,8 +148,8 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"></td>
-							<td><input type="hidden" name="checkbox" value="cb"></td>
+							<td><input type="hidden" name="submit" value="aj"></td>
+							<td><input type="hidden" name="pageload" value="cb"id="flagedit"></td>
 
 							<td><input type="hidden"  value="${e.sId }"></td>
 							<td>${e.sName}</td>
@@ -205,7 +204,7 @@ window.onload = function(){
 	$.ajax({
 		type:'post',
 		url: '/systemofj/SearchResultTestServlet',
-		data:{str : searchResult,str : pageload}
+		data:{str : searchResult, str : pageload}
 	});
 }
 //checkされたflagを0から1に変更するメソッド

@@ -56,6 +56,8 @@ public class SearchResultTestServlet extends HttpServlet {
 			String submit = request.getParameter("submit");
 			String page_id = request.getParameter("page_id");
 			String FLG = request.getParameter("FLG");
+			String pageload = request.getParameter("pageload");
+			String checkbox = request.getParameter("checkbox");
 
 
 			System.out.println(FLG);
@@ -119,9 +121,21 @@ public class SearchResultTestServlet extends HttpServlet {
 				if(page_id.equals("searchResult")) {
 					//チェックボックス入力時
 					//*************************注意***********************
-					if(submit.equals("aj")) {
-						path = UpdateDeleteAction.flagUpdate(request);
+//					if(submit.equals("aj")) {
+//						path = UpdateDeleteAction.flagUpdate(request);
+//					}
+					if(pageload != null) {
+						if(pageload.equals("aj")) {
+							path = UpdateDeleteAction.flagDelete(request);
+						}
 					}
+					//チェックボックスに記入された人のフラグを1に
+					if(checkbox != null) {
+						if(checkbox.equals("checkbox")) {
+							path = UpdateDeleteAction.flagUpdate(request);
+						}
+					}
+
 					//編集ボタン
 					if(submit.equals("編集")) {
 						path = "/WEB-INF/jsp/allEdit.jsp";
