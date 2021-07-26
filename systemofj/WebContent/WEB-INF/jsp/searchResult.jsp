@@ -198,13 +198,13 @@
 'use strict';
 //ページを読み込んだらflagが1のものを0に戻すメソッド
 window.onload = function(){
-	var che = document.getElementById("alledit");
-	var edi = document.getElementById("flagedit");
+	var che = document.getElementById("alledit").value;
+	var edi = document.getElementById("flagedit").value;
 
 	$.ajax({
 		type:'post',
 		url: '/systemofj/SearchResultTestServlet',
-		data:{str : searchResult, str : pageload}
+		data:{che : page_id, str : pageload}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
