@@ -8,7 +8,7 @@
 <title>リザルトページ</title>
 </head>
 <body>
-<header> </header>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 
 <p class="result">
 	<c:out value="${errMsg}"/>

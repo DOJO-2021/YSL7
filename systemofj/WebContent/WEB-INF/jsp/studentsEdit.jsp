@@ -30,6 +30,7 @@ width: 800px;
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <!-- 戻る -->
   <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
     <input type="hidden" name="sId" value="${student.sId}">
