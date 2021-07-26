@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import action.UploadAction;
  * Servlet implementation class Servlet
  */
 @WebServlet("/Servlet")
+@MultipartConfig(location = "C:\\pleiades\\workspace\\YSL7\\systemofj\\WebContent\\uploaded")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -38,8 +40,9 @@ public class Servlet extends HttpServlet {
 		if (session.getAttribute("user") == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
-		}
+		}else {
 		this.doPost(request, response);
+		}
 	}
 
 	/**
@@ -98,9 +101,7 @@ public class Servlet extends HttpServlet {
 				}
 				if(FLG.equals("templateEdit")) {
 					//テンプレート編集ページへのパスを入れる
-					System.out.println("実行しました");
 					path = SelectAction.selectTemplate(request);
-					System.out.println(path);
 
 				}
 				if(FLG.equals("logout")) {
@@ -141,19 +142,6 @@ public class Servlet extends HttpServlet {
 				}
 				//検索結果画面
 				if(page_id.equals("searchResult")) {
-					//検索結果画面に遷移したタイミングでフラグ1のものを0に
-					//*************************注意***********************
-					if(pageload != null) {
-						if(pageload.equals("aj")) {
-							path = UpdateDeleteAction.flagDelete(request);
-						}
-					}
-					//チェックボックスに記入された人のフラグを1に
-					if(checkbox != null) {
-						if(checkbox.equals("checkbox")) {
-							path = UpdateDeleteAction.flagUpdate(request);
-						}
-					}
 					//編集ボタン
 					if(submit.equals("編集")) {
 						path = "/WEB-INF/jsp/allEdit.jsp";
@@ -165,6 +153,19 @@ public class Servlet extends HttpServlet {
 					//メール送信ボタン
 					if(submit.equals("メール送信")) {
 						path = SelectAction.selectTemplate(request);
+					}
+					//検索結果画面に遷移したタイミングでフラグ1のものを0に
+					//*************************注意***********************
+					if(pageload != null) {
+						if(pageload.equals("aj")) {
+							path = UpdateDeleteAction.flagDelete(request);
+						}
+					}
+					//チェックボックスに記入された人のフラグを1に
+					if(checkbox != null) {
+						if(checkbox.equals("cb")) {
+							path = UpdateDeleteAction.flagUpdate(request);
+						}
 					}
 				}
 				//詳細画面
@@ -237,7 +238,7 @@ public class Servlet extends HttpServlet {
 					}
 				}
 				//テンプレ検索画面
-				if(page_id.equals("templateEdit")) {
+				if(page_id.equals("mailTemplate")) {
 					//検索ボタン
 					if(submit.equals("テンプレ編集")) {
 						path = SelectAction.selectTemplate(request);
