@@ -17,7 +17,7 @@
 				<table align="center">
 					<tr>
 						<td align="right">ID：</td>
-						<td><input type="text" name="u_id" placeholder="IDを入力してください">
+						<td><input type="text" name="u_id" value="${param.u_id}" placeholder="IDを入力してください">
 						</td>
 					</tr>
 					<tr>
@@ -26,7 +26,7 @@
 					</tr>
 					<tr>
 						<th colspan="2">
-						error1
+						${l_error1}
 						</th>
 					</tr>
 					<tr>
