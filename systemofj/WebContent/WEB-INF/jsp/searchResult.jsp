@@ -148,8 +148,8 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="submit" value="aj"></td>
-							<td><input type="hidden" name="pageload" value="cb"id="flagedit"></td>
+							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
 							<td><input type="hidden"  value="${e.sId }"></td>
 							<td>${e.sName}</td>
@@ -204,18 +204,19 @@ window.onload = function(){
 	$.ajax({
 		type:'post',
 		url: '/systemofj/SearchResultTestServlet',
-		data:{che : page_id, str : pageload}
+		data:{page_id : che, pageload : edi ,submit:''}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
 function changeflag(indexNo){
 	//チェックボックスの取得
 	var ch = document.getElementById('checkId'+indexNo);
+	var fe = document.getElementById("flagup").value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	int : sId , str: checkbox}
+				data: {	int : sId , fe: checkbox }
 			});
 }
 </script>

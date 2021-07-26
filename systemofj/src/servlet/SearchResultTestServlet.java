@@ -127,6 +127,7 @@ public class SearchResultTestServlet extends HttpServlet {
 					if(pageload != null) {
 						if(pageload.equals("aj")) {
 							path = UpdateDeleteAction.flagDelete(request);
+							System.out.println("ajax入ったよ");
 						}
 					}
 					//チェックボックスに記入された人のフラグを1に
