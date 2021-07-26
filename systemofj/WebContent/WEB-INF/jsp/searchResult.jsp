@@ -44,6 +44,7 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${list}" varStatus="status">
+						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
@@ -57,6 +58,7 @@
 							<td>${e.iDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
+						</tr>
 						</c:forEach>
 					</tr>
 				</table>
