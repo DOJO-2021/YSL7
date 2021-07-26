@@ -59,7 +59,7 @@
 							<input type="hidden" name="sId" value="${param.sId}">
 							<input type="hidden" name="s_id" value="${param.sId}">
 
-							<input type="submit" name="submit" value="登録">
+							<input type="submit" name="submit" value="登録ボタン">
 
 						</td>
 					</tr>
@@ -144,7 +144,7 @@
 								<input type="hidden" name="f_category" value="${list.fCategory}">
 								<input type="hidden" name="sId" value="${param.sId}">
 								<input type="hidden" name="s_id" value="${param.sId}">
-								<input type="submit" name="submit" value="更新">
+								<input type="submit" name="submit" value="更新ボタン">
 							</td>
 						</tr>
 						<tr>
