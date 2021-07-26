@@ -38,9 +38,8 @@ public class Servlet extends HttpServlet {
 		if (session.getAttribute("user") == null) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/login.jsp");
 			dispatcher.forward(request, response);
-		}else {
-		this.doPost(request, response);
 		}
+		this.doPost(request, response);
 	}
 
 	/**
@@ -99,7 +98,9 @@ public class Servlet extends HttpServlet {
 				}
 				if(FLG.equals("templateEdit")) {
 					//テンプレート編集ページへのパスを入れる
+					System.out.println("実行しました");
 					path = SelectAction.selectTemplate(request);
+					System.out.println(path);
 
 				}
 				if(FLG.equals("logout")) {
@@ -140,6 +141,19 @@ public class Servlet extends HttpServlet {
 				}
 				//検索結果画面
 				if(page_id.equals("searchResult")) {
+					//検索結果画面に遷移したタイミングでフラグ1のものを0に
+					//*************************注意***********************
+					if(pageload != null) {
+						if(pageload.equals("aj")) {
+							path = UpdateDeleteAction.flagDelete(request);
+						}
+					}
+					//チェックボックスに記入された人のフラグを1に
+					if(checkbox != null) {
+						if(checkbox.equals("checkbox")) {
+							path = UpdateDeleteAction.flagUpdate(request);
+						}
+					}
 					//編集ボタン
 					if(submit.equals("編集")) {
 						path = "/WEB-INF/jsp/allEdit.jsp";
@@ -151,19 +165,6 @@ public class Servlet extends HttpServlet {
 					//メール送信ボタン
 					if(submit.equals("メール送信")) {
 						path = SelectAction.selectTemplate(request);
-					}
-					//検索結果画面に遷移したタイミングでフラグ1のものを0に
-					//*************************注意***********************
-					if(pageload != null) {
-						if(pageload.equals("aj")) {
-							path = UpdateDeleteAction.flagDelete(request);
-						}
-					}
-					//チェックボックスに記入された人のフラグを1に
-					if(checkbox != null) {
-						if(checkbox.equals("cb")) {
-							path = UpdateDeleteAction.flagUpdate(request);
-						}
 					}
 				}
 				//詳細画面
