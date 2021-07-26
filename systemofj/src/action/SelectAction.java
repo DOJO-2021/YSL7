@@ -319,22 +319,53 @@ public class SelectAction {
 			String fCategory = request.getParameter("fCategory");
 
 			//フィードバックを入れるリスト
+			ArrayList<SFeedback> subList = new ArrayList<>();
+
+			//入れ替えるためのリスト
+			//まとめ以外
 			ArrayList<SFeedback> list = new ArrayList<>();
+
+			//まとめのみ
+			SFeedback all = new SFeedback();
 
 			//selectServiceを実体化
 			SelectService service = new SelectService();
 
 
 			if (fCategory == null) {//詳細ページからフィードバックページに飛ぶとき
-				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
+				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
+
+				if (subList != null) {
+				//まとめとそれ以外に分類する
+					for (SFeedback i : subList) {
+						if (i.getfName().equals("まとめ")) {
+							all = i;
+						} else {
+							list.add(i);
+						}
+					}
+				}
+
 
 			} else {//フィードバックのカテゴリーを変更した場合
 				request.setAttribute("fCategory", fCategory);
-				list = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
+				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, fCategory);
+
+				if (subList != null) {
+				//まとめとそれ以外に分類する
+					for (SFeedback i : subList) {
+						if (i.getfName().equals("まとめ")) {
+							all = i;
+						} else {
+							list.add(i);
+						}
+					}
+				}
 
 			}
 
 			request.setAttribute("list", list);
+			request.setAttribute("all", all);
 			return "/WEB-INF/jsp/feedback.jsp";
 
 		} catch(SQLException e) {

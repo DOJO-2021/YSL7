@@ -160,7 +160,7 @@ public class InternDao {
 	}
 
 	//重複しているところをアップデート
-	public int uploadUpdate(int sId, String iDate, String iCategory) throws SQLException {
+	public int uploadUpdate(int sId, String iCategory, String iDate) throws SQLException {
 
 		String sql = "update Intern set i_date = ? where s_id = ? and i_category = ?;";
 		PreparedStatement pStmt = conn.prepareStatement(sql);

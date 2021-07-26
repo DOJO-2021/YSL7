@@ -9,6 +9,7 @@
 <title>mailTemplate</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
@@ -24,7 +25,7 @@
 					カテゴリを選択してください：
 			<select name="kind1">
 			<!-- プルダウンメニューの中身 -->
-			<c:forEach var="e" items="${templateSeminarList}">
+			<c:forEach var="e" items="${event}">
 				<option value = "${e.tTitle}">${e.tTitle}</option>
 			</c:forEach>
 						<!-- <option value="">合同説明会のご案内</option>
@@ -41,7 +42,7 @@
 				カテゴリを選択してください：
 			<select name="kind2">
 				<!-- プルダウンメニューの中身 -->
-				<c:forEach var="e" items="${templateInternList}">
+				<c:forEach var="e" items="${intern}">
 					<option><c:out value="${e.tTitle}"/></option>
 				</c:forEach>
 				<!-- <option value="0">1dayインターンのご案内</option>
@@ -59,7 +60,7 @@
 					カテゴリを選択してください：
 			<select name="kind3">
 				<!-- プルダウンメニューの中身 -->
-				<c:forEach var="e" items="${templateFaceList}">
+				<c:forEach var="e" items="${selection}">
 					<option><c:out value="${e.tTitle}"/></option>
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
@@ -74,7 +75,7 @@
 				カテゴリを選択してください：
 			<select name="kind4">
 				<!-- プルダウンメニューの名身 -->
-				<c:forEach var="e" items="${templateOtherList}">
+				<c:forEach var="e" items="${other}">
 					<option><c:out value="${e.tTitle}"/></option>
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
