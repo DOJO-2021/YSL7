@@ -48,7 +48,8 @@
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
-							<input type ="hidden" name ="s_id" value ="${e.s_id }">
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
+
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
 							<td>${e.sFaculty}</td>
@@ -83,6 +84,8 @@
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
+
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}u</td>
 							<td>${e.sFaculty}</td>
@@ -116,6 +119,8 @@
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
