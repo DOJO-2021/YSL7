@@ -319,7 +319,7 @@ public class SelectAction {
 		try {
 			//リクエスト領域からsIdとfCategoryを持ってくる。
 			int sId = Integer.parseInt(request.getParameter("sId"));
-			String fCategory = request.getParameter("fCategory");
+			String fCategory = request.getParameter("category");
 
 			//フィードバックを入れるリスト
 			ArrayList<SFeedback> subList = new ArrayList<>();
