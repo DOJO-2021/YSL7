@@ -10,18 +10,12 @@
 <body>
 <header> </header>
 
-<p>アップロードが完了しました。</p>
-
-<h1 class="result">
-	<c:out value="${errMsg.title}"/>
-</h1>
-
 <p class="result">
-	<c:out value="${errMsg.message}"/>
+	<c:out value="${errMsg}"/>
 </p>
 
 
-<a href="/systemofj/Servlet">トップページに戻る</a>
+<a href="/systemofj/Servlet?FLG=top">トップページに戻る</a>
 
 
 

@@ -58,6 +58,8 @@ public class Servlet extends HttpServlet {
 			String submit = request.getParameter("submit");
 			String page_id = request.getParameter("page_id");
 			String FLG = request.getParameter("FLG");
+			String pageload = request.getParameter("pageload");
+			String checkbox = request.getParameter("checkbox");
 
 			System.out.println(FLG);
 			UpdateDeleteAction UpdateDeleteAction = new UpdateDeleteAction();
@@ -73,6 +75,10 @@ public class Servlet extends HttpServlet {
 					//アップロードページへのパスを入れる
 					path = "/WEB-INF/jsp/upload.jsp";
 				}
+				if(FLG.equals("top")) {
+					//トップページへのパスを入れる
+					path = "/WEB-INF/jsp/top.jsp";
+				}
 				if(FLG.equals("search")) {
 					//検索ページへのパスを入れる
 					path = "/WEB-INF/jsp/search.jsp";
@@ -81,9 +87,9 @@ public class Servlet extends HttpServlet {
 					//分析ぺージへのパスを入れる
 					path = "/WEB-INF/jsp/analysis.jsp";
 				}
-				if(FLG.equals("studentRegist")) {
+				if(FLG.equals("studentsRegist")) {
 					//学生登録ページへのパスを入れる
-					path = "/WEB-INF/jsp/studentResult.jsp";
+					path = "/WEB-INF/jsp/studentsRegist.jsp";
 				}
 				if(FLG.equals("templateRegist")) {
 					//テンプレート登録ページへのパスを入れる
@@ -95,7 +101,7 @@ public class Servlet extends HttpServlet {
 					path = SelectAction.selectTemplate(request);
 
 				}
-				if(FLG.equals("login")) {
+				if(FLG.equals("logout")) {
 					//ログインページへのパスを入れる
 					session.invalidate();
 					path = "/WEB-INF/jsp/login.jsp";
@@ -127,15 +133,24 @@ public class Servlet extends HttpServlet {
 				if(page_id.equals("search")) {
 					//検索
 					if(submit.equals("検索") || submit.equals("検索する")) {
+						System.out.println("test");
 						path = SelectAction.search(request);
 					}
 				}
 				//検索結果画面
 				if(page_id.equals("searchResult")) {
-					//チェックボックス入力時
+					//検索結果画面に遷移したタイミングでフラグ1のものを0に
 					//*************************注意***********************
-					if(submit.equals("aj")) {
-						path = UpdateDeleteAction.flagUpdate(request);
+					if(pageload != null) {
+						if(pageload.equals("aj")) {
+							path = UpdateDeleteAction.flagDelete(request);
+						}
+					}
+					//チェックボックスに記入された人のフラグを1に
+					if(checkbox != null) {
+						if(checkbox.equals("checkbox")) {
+							path = UpdateDeleteAction.flagUpdate(request);
+						}
 					}
 					//編集ボタン
 					if(submit.equals("編集")) {
@@ -145,11 +160,15 @@ public class Servlet extends HttpServlet {
 					if(submit.equals("詳細")) {
 						path = SelectAction.goToDetail(request);
 					}
+					//メール送信ボタン
+					if(submit.equals("メール送信")) {
+						path = SelectAction.selectTemplate(request);
+					}
 				}
 				//詳細画面
 				if(page_id.equals("detail")) {
 					//メール作成ボタン
-					if(submit.equals("メール作成") || submit.equals("ts_regist_button")) {
+					if(submit.equals("メール送信") || submit.equals("ts_regist_button")) {
 						path = SelectAction.selectTemplate(request);
 					}
 					//フィードバックボタン
@@ -163,11 +182,6 @@ public class Servlet extends HttpServlet {
 					//削除ボタン
 					if(submit.equals("削除")) {
 						path = UpdateDeleteAction.studentDelete(request);
-						UpdateDeleteAction.selectionEasyDelete(request);
-						UpdateDeleteAction.eventDelete(request);
-						UpdateDeleteAction.internDelete(request);
-						UpdateDeleteAction.selectionFaceDelete(request);
-						UpdateDeleteAction.selectionTextDelete(request);
 					}
 				}
 				//データ編集画面
@@ -175,13 +189,8 @@ public class Servlet extends HttpServlet {
 					//更新ボタン
 					if(submit.equals("更新")) {
 						path = UpdateDeleteAction.studentUpdate(request);
-						UpdateDeleteAction.selectionEasyUpdate(request);
-						UpdateDeleteAction.eventUpdate(request);
-						UpdateDeleteAction.internUpdate(request);
-						UpdateDeleteAction.selectionFaceUpdate(request);
-						UpdateDeleteAction.selectionTextUpdate(request);
 					}
-					if(submit.equals("詳細")) {
+					if(submit.equals("戻る")) {
 						path = SelectAction.goToDetail(request);
 					}
 				}
@@ -191,12 +200,16 @@ public class Servlet extends HttpServlet {
 					if(submit.equals("一括更新")) {
 						path = UpdateDeleteAction.allUpdate(request);
 					}
+					if(submit.equals("戻る")) {
+
+					}
 				}
 				//学生の新規登録画面
 				if(page_id.equals("studentsRegist")) {
 					//登録ボタン
 					if(submit.equals( "登録")) {
 						path = RegistAction.StudentRegist(request);
+						System.out.println(path);
 					}
 				}
 				//フィードバック画面
@@ -224,8 +237,11 @@ public class Servlet extends HttpServlet {
 				//テンプレ検索画面
 				if(page_id.equals("templateEdit")) {
 					//検索ボタン
-					if(submit.equals("検索")) {
+					if(submit.equals("テンプレ編集")) {
 						path = SelectAction.selectTemplate(request);
+					}
+					if(submit.equals("テンプレ使用")) {
+
 					}
 				}
 				//テンプレ更新画面

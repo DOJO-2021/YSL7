@@ -34,16 +34,18 @@ width: 800px;
 <!-- アップロード画面へ遷移 -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
     <input type="SUBMIT" value="履歴書PDFを登録">
+    <input type="hidden" name="page_id" value="studentsRegist">
   </form>
 <br>
 <!-- 基本情報テーブル -->
 
 <h3>基本情報<input type="checkbox" id="s_info"  onclick="divOpen(this,'student')"></h3>
 
-<form action="/systemofj/Servlet.java" method="POST">
+<form action="/systemofj/Servlet" method="POST">
+<input type="hidden" name="page_id" value="studentsRegist">
+	<input type="hidden" name="s_id">
   <div id="student" style="display:none;">
 	<table style="border: 0px; width: 800px;">
-	<input type="hidden" name="s_id">
 	  <tr>
 	    <td>氏名<hr><input type="text" name="s_name" value="　"></td>
 	    <td>フリガナ<hr><input type="text" name="s_kana" value="　"></td>
@@ -230,7 +232,7 @@ width: 800px;
         </tr>
         <tr>
           <td><input type="date" name="se_selectiondate" value="　"></td>
-          <td><input type="text" name="se_score" value="　"></td>
+          <td><input type="text" name="se_score" value="0"></td>
         </tr>
       </table>
     </td>
@@ -241,7 +243,7 @@ width: 800px;
           <th>書類合否</th>
         </tr>
         <tr>
-          <td><input type="text" name="se_textscore" value="　"></td>
+          <td><input type="text" name="se_textscore" value="0"></td>
           <td><select name="se_textresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
@@ -260,10 +262,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_resume1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume3"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume4"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -279,10 +281,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_pr1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr3"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_pr4"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -298,10 +300,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_text1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text4"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text3"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text4"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
         </tr>
       </table>
     </td>
@@ -323,9 +325,9 @@ width: 800px;
         <tr>
           <td style="width: 143px"><input type="date" name="se_firstno" value="　"></td>
           <td style="width: 143px"><input type="date" name="se_firstdate" value="　"></td>
-          <td><select name="sf_score_one1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one3"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_one1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_one2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_one3"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="se_firstresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
@@ -345,8 +347,8 @@ width: 800px;
         <tr>
           <td style="width: 143px"><input type="date" name="se_secondno" value="　"></td>
           <td style="width: 143px"><input type="date" name="se_seconddate" value="　"></td>
-          <td><select name="sf_score_second1"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_second2"><option value="　"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second1"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="sf_score_second2"><option value="0"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
           <td><select name="se_secondresult"><option value="　"></option><option value="合">合</option><option value="否">否</option></select></td>
         </tr>
       </table>
@@ -392,7 +394,7 @@ width: 800px;
           <th>辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7"><textarea style="width: 1069px" name="se_noreason"　>　</textarea></td>
+          <td colspan="7"><textarea style="width: 1069px" name="se_noreason">　</textarea></td>
         </tr>
       </table>
     </td>
@@ -443,8 +445,7 @@ width: 800px;
 </table>
 </div>
 <div align="center">
-<input type="submit" value="登録" style="width: 200px">
-<input type="hidden" name="page_id" value="studentRegist">
+<input type="submit" name="submit" value="登録" style="width: 200px">
 </div>
 </form>
 </body>

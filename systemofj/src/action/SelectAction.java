@@ -27,15 +27,17 @@ public class SelectAction {
 			//何で検索されたかを判断するためのmode
 			String mode = request.getParameter("mode");
 			//ラジオボタンのvalueを取得
-			String searchValue = request.getParameter("serch_item");
+			String searchValue = request.getParameter("search_item");
+			System.out.println(mode);
+
 			String year = "";
 			String date = "";
 			//検索結果を入れる配列
-			ArrayList<SearchResult> list = new ArrayList<>();
+			ArrayList<SearchResult>list = new ArrayList<>();
 
 			//年か日付は必ず注力した状態でのみ検索できる
 			//ただし、選考で検索された場合は日付、年ともに送られてこない
-			if (!mode.equals("selection")) {
+			if (!mode.equals("selection") || !mode.equals("name")) {
 				year = request.getParameter("year");
 				date = request.getParameter("date");
 				if (year == null) {//年未入力の場合
@@ -81,10 +83,16 @@ public class SelectAction {
 			} else {//個人名検索
 
 				list = service.searchName(searchValue);
+				System.out.println(searchValue);
 
 			}
 
-			request.setAttribute("list", list);
+			request.setAttribute("list",list);
+			request.setAttribute("mode", mode);
+			for(SearchResult e : list ) {
+				System.out.println(e.getsName()+"aaa");
+
+			}
 			return "/WEB-INF/jsp/searchResult.jsp";
 
 
@@ -268,7 +276,7 @@ public class SelectAction {
 				SelectService service = new SelectService();
 
 				//テンプレに実名や大学名を入れる。
-				Template template = service.tenplateSelect(tId);
+				Template template = service.templateSelect(tId);
 
 				//テンプレ検索の場合
 				if(submit != null) {
@@ -289,10 +297,13 @@ public class SelectAction {
 				return "/WEB-INF/jsp/mail.jsp";
 			}
 		}catch(SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/detail.jsp";
 		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/detail.jsp";

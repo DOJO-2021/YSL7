@@ -30,28 +30,26 @@ width: 800px;
 </style>
 </head>
 <body>
-<!-- メール作成ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="メール作成">
-  </form>
-
-<!-- フィードバックボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+<!-- 戻る -->
+  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
     <input type="hidden" name="sId" value="${student.sId}">
-    <input type="SUBMIT" value="フィードバック">
+    <input type="hidden" name="page_id" value="studentsEdit">
+    <input type="SUBMIT" name="submit" value="戻る">
   </form>
 
 <!-- 履歴書ボタン -->
-  <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
+  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
     <input type="SUBMIT" value="履歴書PDFを表示">
+  	<input type="hidden" name="page_id" value="studentsEdit">
   </form>
 <br>
 <!-- 基本情報テーブル -->
 
 <h3>基本情報<input type="checkbox" id="s_info"  onclick="divOpen(this,'student')"></h3>
 
-<form action="/systemofj/Servlet.java" method="POST">
+<form action="/systemofj/Servlet" method="POST">
   <div id="student" style="display:none;">
+  <input type="hidden" name="page_id" value="studentsEdit">
   <input type="hidden" name="s_id" value="${student.s_id}">
 	<table style="border: 0px; width: 800px;">
 	  <tr>
@@ -451,7 +449,8 @@ width: 800px;
 </table>
 </div>
 <div align="center">
-<input type="submit" name="update" value="更新" style="width: 200px">
+<input type="submit" name="submit" value="更新" style="width: 200px">
+<input type="submit" name="submit" value="削除" style="width: 200px">
 </div>
 </form>
 </body>

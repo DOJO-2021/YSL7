@@ -28,7 +28,7 @@
 </div>
 <div class="list_box">
 <!-- インターン検索 -->
-<c:if test="${searchInternList != null} ">
+<c:if test="${mode.equals('intern')}">
 			<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 				<table id="myTable">
@@ -62,7 +62,7 @@
 			</form>
 </c:if>
 <!-- イベント検索 -->
-<c:if test="${searchEventList != null}">
+<c:if test="${mode.equals('event')}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
@@ -97,7 +97,7 @@
 </c:if>
 <!-- 選考検索 -->
 
-<c:if test="${searchEntryList != null}">
+<c:if test="${mode.equals('selection')}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
@@ -130,7 +130,7 @@
 				</form>
 </c:if>
 <!-- 名前検索 -->
-<c:if test="${searchName != null}">
+<c:if test="${mode.equals('name')}">
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult">
 
@@ -145,13 +145,13 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchName}" varStatus="status">
+					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="pageload" value="aj"></td>
 							<td><input type="hidden" name="checkbox" value="checkbox"></td>
 
-							<td><input type="hidden"  value="${e.s_id }"></td>
+							<td><input type="hidden"  value="${e.sId }"></td>
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -164,7 +164,7 @@
 				</table>
 				</form>
 </c:if>
-<c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
+<!--<c:if test="${searchInternList == null} && ${searchEventList == null} && ${searchEntryList == null} && ${searchName == null}">
 			<input type="hidden" name="page_id" value="searchResult">
 
 				<table id="myTable">
@@ -182,7 +182,7 @@
 							<td><a href="/systemofj/Servlet?FLG=search">検索</a></td>
 						</tr>
 				</table>
-</c:if>
+</c:if>-->
 </div>
 
 		<input type="checkbox" id="checkbox_all"  >
