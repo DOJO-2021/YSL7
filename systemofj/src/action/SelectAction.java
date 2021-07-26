@@ -78,6 +78,7 @@ public class SelectAction {
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
 				list = service.searchEntryList(searchValue);
+				System.out.println(searchValue);
 
 
 			} else {//個人名検索

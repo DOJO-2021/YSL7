@@ -98,7 +98,7 @@
 <!-- 選考検索 -->
 
 <c:if test="${mode.equals('selection')}">
-<form method="POST" action="/systemofj/Servlet">
+<form method="POST" action="/systemofj/SearchResultTestServlets">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
@@ -145,7 +145,7 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${list}" varStatus="status">
+				 	<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
@@ -166,7 +166,7 @@
 				</table>
 				</form>
 </c:if>
-<c:if test="${list == null}" >
+<!--<c:if test="${list == null}" >
 			<input type="hidden" name="page_id" value="searchResult">
 
 				<table id="myTable">
@@ -184,7 +184,7 @@
 							<td><a href="/systemofj/Servlet?FLG=search">検索</a></td>
 						</tr>
 				</table>
-</c:if>
+</c:if> -->
 </div>
 
 		<input type="checkbox" id="checkbox_all"  >
@@ -213,14 +213,14 @@ window.onload = function(){
 function changeflag(indexNo, sId){
 	//チェックボックスの取得
 	var che = document.getElementById("alledit").value;
-	var ch = document.getElementById('checkId'+indexNo).value;
+	var ch = document.getElementById('checkId'+indexNo);
 	var fe = document.getElementById("flagup").value;
 	var sn = document.getElementById("idname").value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : che,	check1 : ch ,  checkbox: fe, submit:''}
+				data: {	page_id : che, sId : sn , checkbox: fe, submit:''}
 			});
 }
 </script>

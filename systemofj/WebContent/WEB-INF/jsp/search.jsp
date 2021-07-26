@@ -278,7 +278,7 @@ input[name="tab_item"] {
 	       <td><input type="radio" name=search_item value="不合格">不合格</td>
 		</tr>
 		<tr>
-	       <td colspan="2" align="right"><input type="submit" name="submitt" value="検索"></td>
+	       <td colspan="2" align="right"><input type="submit" name="submit" value="検索"></td>
 		</tr>
 	</table>
 </form>
