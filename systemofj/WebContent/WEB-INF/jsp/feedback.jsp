@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,17 +46,21 @@
 		<td>
 
 			<!-- tableの中のtable①（個人FB登録）ここから -->
-			<form method="POST" action="/systemofj/Servlet" id="form">
-				<input type="hidden" name="f_category" value="${requestScope.fCategory}">
+			<form method="POST" action="/systemofj/Servlet">
 				<table border="1" class="fb-tbl">
 					<tr>
-						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
+						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td><!-- これの存在している意味が分からないけど消すの怖いから放置しておくｂｙ椹 -->
 					</tr>
 					<tr>
-						<td colspan="2"><input type="text" name="f_name"></td>
+						<td colspan="2"><input type="text" name="f_name" value="${user.uName}"></td>
 						<td>
-							<input type="submit" name="fr_regist_button" value="登録">
-							<input type="hidden" name="page_id" value="result">
+							<input type="hidden" name="page_id" value="feedback">
+							<input type="hidden" name="f_category" value="${param.category}">
+							<input type="hidden" name="sId" value="${param.sId}">
+							<input type="hidden" name="s_id" value="${param.sId}">
+
+							<input type="submit" name="submit" value="登録ボタン">
+
 						</td>
 					</tr>
 					<tr>
@@ -69,11 +74,12 @@
 		<td rowspan="2" >
 
 			<!-- tableの中のtable②（FBまとめ）ここから -->
-			<form method="POST" action="/systemofj/Servlet" id="form">
+			<form method="POST" action="/systemofj/Servlet">
+				<input type="hidden" name="sId" value="${param.sId}">
 				<table border="1" class="fb-select">
 					<tr>
 						<td>
-						<select name="f_category">
+						<select name="category">
 							<option value="1day">インターン1DAY</option>
 							<option value="3day">インターン3DAY</option>
 							<option value="初級">初級</option>
@@ -84,18 +90,23 @@
 							<option value="二次面接">二次面接</option>
 							<option value="予備">予備</option>
 						</select>
-						<input type="submit" id="fr_search_button" value="検索">
-						<input type="hidden" name="page_id" value="searchResult">
+						<input type="submit" id="submit" value="検索">
+						<input type="hidden" name="page_id" value="feedback">
 						</td>
 					</tr>
 				</table>
 			</form>
 
-			<form method="POST" action="/systemofj/Servlet" id="form">
-				<input type="hidden" name="f_category" value="${requestScope.fCategory}">
+			<form method="POST" action="/systemofj/Servlet">
+				<input type="hidden" name="page_id" value="feedback">
+				<input type="hidden" name="f_category" value="${param.category}">
+				<input type="hidden" name="sId" value="${param.sId}">
+				<input type="hidden" name="s_id" value="${param.sId}">
+				<input type="hidden" name="f_name" value="まとめ">
+
 				<table border="1" class="fb-matome">
 					<tr>
-						<td colspan="3"><textarea name=f_content rows="20" cols="50" id="tArea"></textarea></td>
+						<td colspan="3"><textarea name=f_content rows="20" cols="50" id="tArea">${all.fContent}</textarea></td>
 					</tr>
 
 					<tr>
@@ -114,31 +125,38 @@
 
 		</td>
 	</tr>
-	<tr>
-		<td>
 
-			<!-- tableの中のtable③（FB更新）ここから -->
-			<form method="POST" action="/systemofj/Servlet" id="form">
-				<table border="1" class="fb-tbl">
-					<tr>
-						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
-					</tr>
-					<tr>
-						<td colspan="2"><input type="text" name="fName"></td>
-						<td>
-							<input type="submit" name="fu_update_button" value="更新">
-							<input type="hidden" name="page_id" value="result">
-						</td>
-					</tr>
-					<tr>
-						<td colspan="3"><textarea name=fContent rows="20" cols="50" ></textarea></td>
-					</tr>
-				</table>
-			</form>
-			<!-- ここまで -->
 
-		</td>
-	</tr>
+	<c:forEach items="${list}" var="list">
+		<tr>
+			<td>
+				<!-- tableの中のtable③（FB更新）ここから -->
+				<form method="POST" action="/systemofj/Servlet">
+					<table border="1" class="fb-tbl">
+						<tr>
+							<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td>
+						</tr>
+						<tr>
+							<td colspan="2"><input type="text" name="fName" value="${list.fName}"></td>
+							<td>
+								<input type="hidden" name="fId" value="${list.fId}">
+								<input type="hidden" name="page_id" value="feedback">
+								<input type="hidden" name="f_category" value="${list.fCategory}">
+								<input type="hidden" name="sId" value="${param.sId}">
+								<input type="hidden" name="s_id" value="${param.sId}">
+								<input type="submit" name="submit" value="更新ボタン">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3"><textarea name=fContent rows="20" cols="50" >${list.fContent}</textarea></td>
+						</tr>
+					</table>
+				</form>
+				<!-- ここまで -->
+
+			</td>
+		</tr>
+	</c:forEach>
 </table>
 
 

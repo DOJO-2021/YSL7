@@ -38,6 +38,7 @@ background-color: #e0e0e0;
   <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
   	<input type="hidden" name="page_id" value="detail">
     <input type="hidden" name="sId" value="${student.sId}">
+    <input type="hidden" name="category" value="インターン1DAY">
     <input type="submit" name="submit" value="フィードバック">
   </form>
 
