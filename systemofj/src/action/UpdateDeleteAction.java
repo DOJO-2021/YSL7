@@ -369,9 +369,9 @@ public class UpdateDeleteAction {
 	}
 
 	public String flagUpdate(HttpServletRequest request) {
-
 		//戻り値に設定するページを初期設定しておく
-		String page = "/WEB-INF/jsp/result.jsp";
+		String page = "/WEB-INF/jsp/searchResult.jsp";
+
 		//リクエスト領域から取得
 		int sId = Integer.parseInt(request.getParameter("sId"));
 		System.out.println(sId);
@@ -385,17 +385,17 @@ public class UpdateDeleteAction {
 
 			flag= service.flagUpdate(sId);
 
-			if (flag == true) {
-
-				return "/WEB-INF/jsp/studentEdit.jsp";
-				//（更新成功）
-
-			}
-			else {
-				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "失敗");
-			}
-
+//			if (flag == true) {
+//
+//				return page;
+//				//（更新成功）
+//
+//			}
+//			else {
+//				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+//				request.setAttribute("errMsg", "失敗");
+//			}
+//
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
 			request.setAttribute("errMsg", "SQL文おかしい");
