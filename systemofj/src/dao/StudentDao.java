@@ -358,7 +358,7 @@ public class StudentDao {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set alleditflag=1 where s_Id=?";
+		String sql = "update Intern set alleditflag=1 where s_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -367,9 +367,6 @@ public class StudentDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
 
 
 

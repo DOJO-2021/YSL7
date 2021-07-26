@@ -45,8 +45,8 @@
 						<tr>
 						<c:forEach var="e" items="${searchInternList}" varStatus="status">
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"></td>
-							<td><input type="hidden" name="checkbox" value="cb"></td>
+							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.sName }</td>
@@ -80,8 +80,8 @@
 					<c:forEach var="e" items="${searchEventList}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"></td>
-							<td><input type="hidden" name="checkbox" value="cb"></td>
+							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}u</td>
@@ -114,8 +114,8 @@
 					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"></td>
-							<td><input type="hidden" name="checkbox" value="cb"></td>
+							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -147,11 +147,11 @@
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
+							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')"></td>
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
-							<td><input type="hidden"  value="${e.sId }"></td>
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -208,15 +208,17 @@ window.onload = function(){
 	});
 }
 //checkされたflagを0から1に変更するメソッド
-function changeflag(indexNo){
+function changeflag(indexNo, sId){
 	//チェックボックスの取得
+	var che = document.getElementById("alledit").value;
 	var ch = document.getElementById('checkId'+indexNo);
 	var fe = document.getElementById("flagup").value;
+	var sn = document.getElementById("idname").value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	int : sId , fe: checkbox }
+				data: {	page_id : che,	check1 : ch ,  checkbox: fe, submit:''}
 			});
 }
 </script>

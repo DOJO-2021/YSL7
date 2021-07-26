@@ -9,87 +9,87 @@ import service.UpdateDeleteService;
 public class UpdateDeleteAction {
 
 
-	public String userUpdate(HttpServletRequest request) {
-
-		//戻り値に設定するページを初期設定しておく
-		String page = "/WEB-INF/jsp/result.jsp";
-
-		//idをリクエスト領域から取得
-		String uId = request.getParameter("uId");
-
-		//出力値を格納するBean
-		boolean update = false;
-
-		try {
-
-			//入力されていたらサービスへ処理を委譲
-			UpdateDeleteService service = new UpdateDeleteService();
-
-			update = service.userUpdate(uId);
-
-			if (update == true) {
-
-				request.setAttribute("update", update);
-				//（更新成功）
-				request.setAttribute("errMsg", "更新成功");
-
-			}
-			else {
-				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "更新失敗");
-			}
-
-			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
-		} catch (SQLException e) {
-			request.setAttribute("errMsg", "SQL文おかしい");
-		} catch (ClassNotFoundException e) {
-			request.setAttribute("errMsg", "サーバーおかしい");
-		}
-
-		return page;
-	}
-
-
-	public String userDelete(HttpServletRequest request) {
-
-		//戻り値に設定するページを初期設定しておく
-		String page = "/WEB-INF/jsp/result.jsp";
-
-		//idをリクエスト領域から取得
-		String uId = request.getParameter("uId");
-
-		//出力値を格納するBean
-		boolean delete = false;
-
-		try {
-
-			//入力されていたらサービスへ処理を委譲
-			UpdateDeleteService service = new UpdateDeleteService();
-
-			delete = service.userDelete(uId);
-
-			if (delete == true) {
-
-				request.setAttribute("update", delete);
-				//（削除成功）
-				request.setAttribute("errMsg", "削除成功");
-
-			}
-			else {
-				//値が入っていないので、エラーメッセージをセットしログイン画面へ
-				request.setAttribute("errMsg", "削除失敗");
-			}
-
-			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
-		} catch (SQLException e) {
-			request.setAttribute("errMsg", "SQL文おかしい");
-		} catch (ClassNotFoundException e) {
-			request.setAttribute("errMsg", "サーバーおかしい");
-		}
-
-		return page;
-	}
-
+//	public String userUpdate(HttpServletRequest request) {
+//
+//		//戻り値に設定するページを初期設定しておく
+//		String page = "/WEB-INF/jsp/result.jsp";
+//
+//		//idをリクエスト領域から取得
+//		String uId = request.getParameter("uId");
+//
+//		//出力値を格納するBean
+//		boolean update = false;
+//
+//		try {
+//
+//			//入力されていたらサービスへ処理を委譲
+//			UpdateDeleteService service = new UpdateDeleteService();
+//
+//			update = service.userUpdate(uId);
+//
+//			if (update == true) {
+//
+//				request.setAttribute("update", update);
+//				//（更新成功）
+//				request.setAttribute("errMsg", "更新成功");
+//
+//			}
+//			else {
+//				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+//				request.setAttribute("errMsg", "更新失敗");
+//			}
+//
+//			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+//		} catch (SQLException e) {
+//			request.setAttribute("errMsg", "SQL文おかしい");
+//		} catch (ClassNotFoundException e) {
+//			request.setAttribute("errMsg", "サーバーおかしい");
+//		}
+//
+//		return page;
+//	}
+//
+//
+//	public String userDelete(HttpServletRequest request) {
+//
+//		//戻り値に設定するページを初期設定しておく
+//		String page = "/WEB-INF/jsp/result.jsp";
+//
+//		//idをリクエスト領域から取得
+//		String uId = request.getParameter("uId");
+//
+//		//出力値を格納するBean
+//		boolean delete = false;
+//
+//		try {
+//
+//			//入力されていたらサービスへ処理を委譲
+//			UpdateDeleteService service = new UpdateDeleteService();
+//
+//			delete = service.userDelete(uId);
+//
+//			if (delete == true) {
+//
+//				request.setAttribute("update", delete);
+//				//（削除成功）
+//				request.setAttribute("errMsg", "削除成功");
+//
+//			}
+//			else {
+//				//値が入っていないので、エラーメッセージをセットしログイン画面へ
+//				request.setAttribute("errMsg", "削除失敗");
+//			}
+//
+//			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+//		} catch (SQLException e) {
+//			request.setAttribute("errMsg", "SQL文おかしい");
+//		} catch (ClassNotFoundException e) {
+//			request.setAttribute("errMsg", "サーバーおかしい");
+//		}
+//
+//		return page;
+//	}
+//
 
 	public String studentUpdate(HttpServletRequest request) {
 
