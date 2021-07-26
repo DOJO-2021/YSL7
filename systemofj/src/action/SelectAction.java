@@ -333,7 +333,7 @@ public class SelectAction {
 
 
 			if (fCategory == null) {//詳細ページからフィードバックページに飛ぶとき
-				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
+				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1DAY");
 
 				if (subList != null) {
 				//まとめとそれ以外に分類する
