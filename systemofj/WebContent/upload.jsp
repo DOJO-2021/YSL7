@@ -81,7 +81,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="upload" value="アップロード" onclick="uploadcheck()">
+					<input type="submit" name="submit" value="アップロード" onclick="return uploadcheck()">
 				</td>
 			</tr>
 
