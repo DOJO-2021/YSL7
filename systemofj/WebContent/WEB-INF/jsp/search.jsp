@@ -87,7 +87,7 @@ input[name="tab_item"] {
 
 
 <!-- 個人名で検索できる場所 -->
-<form method="POST" action="/systemofj/SearchResultTestServlet" >
+<form method="POST" action="/systemofj/Servlet" >
 	<input type="hidden" name="page_id" value="search">
 
 	<input type="hidden" value="name" name="mode">

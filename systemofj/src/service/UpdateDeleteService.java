@@ -16,24 +16,54 @@ import dao.UserDao;
 
 
 public class UpdateDeleteService {
+	Connection conn = null;
 
 	public boolean userUpdate(String uId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
+		try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		UserDao dao = new UserDao(conn);
+
+		conn.setAutoCommit(false);
+
 		//引数を渡し、取得地をbeanに渡す
 		int test =dao.update(uId);
 
 		if(test == 1) {
+			conn.commit();
 			result = true;
+		}
+		else {
+			conn.rollback();
 		}
 
 		return result;
 
+		}catch(ClassNotFoundException e) {
+			return result;
+		}catch(SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+
+			}
+			return result;
+		}finally {
+		 if(conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+			}
+		}
+	}
 	}
 
 	public boolean userDelete(String uId) throws ClassNotFoundException, SQLException {

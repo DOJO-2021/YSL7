@@ -27,16 +27,13 @@ public class SelectAction {
 			//何で検索されたかを判断するためのmode
 			String mode = request.getParameter("mode");
 			//ラジオボタンのvalueを取得
-			String searchValue = request.getParameter("serch_item");
-			System.out.println(searchValue);
+			String searchValue = request.getParameter("search_item");
+			System.out.println(mode);
 
 			String year = "";
 			String date = "";
 			//検索結果を入れる配列
-			ArrayList<SearchResult> internlist = new ArrayList<>();
-			ArrayList<SearchResult> eventlist = new ArrayList<>();
-			ArrayList<SearchResult> facelist = new ArrayList<>();
-			ArrayList<SearchResult> namelist = new ArrayList<>();
+			ArrayList<SearchResult>list = new ArrayList<>();
 
 			//年か日付は必ず注力した状態でのみ検索できる
 			//ただし、選考で検索された場合は日付、年ともに送られてこない
@@ -59,9 +56,9 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 				if (searchValue.equals("internAll")) {
-					internlist = service.searchInternList("%", date);
+					list = service.searchInternList("%", date);
 				} else {
-					internlist = service.searchInternList(searchValue, date);
+					list = service.searchInternList(searchValue, date);
 				}
 
 			} else if(mode.equals("event")) {//イベント検索がされた場合
@@ -69,37 +66,33 @@ public class SelectAction {
 				//説明会だけはインターンテーブルに入ってるから
 				if (searchValue.equals("説明会")) {
 
-					eventlist = service.searchInternList(searchValue, date);
+					list = service.searchInternList(searchValue, date);
 
 				} else {
 
-					eventlist = service.searchEventList(searchValue, date);
+					list = service.searchEventList(searchValue, date);
 
 				}
 
 
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
-				facelist = service.searchEntryList(searchValue);
+				list = service.searchEntryList(searchValue);
 
 
 			} else {//個人名検索
 
-				namelist = service.searchName(searchValue);
+				list = service.searchName(searchValue);
 				System.out.println(searchValue);
 
 			}
 
-			request.setAttribute("internlist", internlist);
-			request.setAttribute("eventlist", eventlist);
-			request.setAttribute("facelist", facelist);
-			request.setAttribute("namelist", namelist);
+			request.setAttribute("list",list);
+			request.setAttribute("mode", mode);
+			for(SearchResult e : list ) {
+				System.out.println(e.getsName()+"aaa");
 
-
-
-
-
-
+			}
 			return "/WEB-INF/jsp/searchResult.jsp";
 
 
@@ -283,7 +276,7 @@ public class SelectAction {
 				SelectService service = new SelectService();
 
 				//テンプレに実名や大学名を入れる。
-				Template template = service.tenplateSelect(tId);
+				Template template = service.templateSelect(tId);
 
 				//テンプレ検索の場合
 				if(submit != null) {
