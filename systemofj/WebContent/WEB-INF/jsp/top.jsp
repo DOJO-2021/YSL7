@@ -51,13 +51,19 @@
 		background-color: #0096AE85;
 		color: #696969;
 		height: 180px;
+		text-align: center;
 	}
 
 	.logo{
-		margin-left:40%;
-		margin-right: 90%;
+
 
 	}
+	.account{
+		width:50px;
+		height:60px;
+		margin-top: 0;
+	}
+
 
 
 
@@ -69,7 +75,12 @@
 <body>
 
 <header>
-	<img src="images/logo3.png"  alt="ysl_logo" class="logo">
+	<img src="images/logo3.png"  alt="ysl_logo" class="logo float_l">
+	<img src="images/account.png"  alt="account" class ="account" >
+		<!--${u_name}
+		${u_first}-->
+	<p>ログアウト</p>
+
 
 </header>
 
