@@ -98,7 +98,9 @@ public class Servlet extends HttpServlet {
 				}
 				if(FLG.equals("templateEdit")) {
 					//テンプレート編集ページへのパスを入れる
+					System.out.println("実行しました");
 					path = SelectAction.selectTemplate(request);
+					System.out.println(path);
 
 				}
 				if(FLG.equals("logout")) {
@@ -241,7 +243,7 @@ public class Servlet extends HttpServlet {
 						path = SelectAction.selectTemplate(request);
 					}
 					if(submit.equals("テンプレ使用")) {
-
+						path = SelectAction.selectTemplate(request);
 					}
 				}
 				//テンプレ更新画面
