@@ -308,6 +308,10 @@ public class SelectService {
 		//引数を渡し、取得地をbeanに渡す
 		ArrayList<SFeedback>  bean= tDao.feedbackSelect(sId,fCategory);
 
+		if(bean.size()==0) {
+			bean=null;
+		}
+
 		return bean;
 	}
 
