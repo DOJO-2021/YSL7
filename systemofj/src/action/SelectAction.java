@@ -78,6 +78,7 @@ public class SelectAction {
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
 				list = service.searchEntryList(searchValue);
+				System.out.println(searchValue);
 
 
 			} else {//個人名検索
@@ -334,7 +335,7 @@ public class SelectAction {
 
 
 			if (fCategory == null) {//詳細ページからフィードバックページに飛ぶとき
-				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1day");
+				subList = (ArrayList<SFeedback>)service.feedbackSelect(sId, "インターン1DAY");
 
 				if (subList != null) {
 				//まとめとそれ以外に分類する

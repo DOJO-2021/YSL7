@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import action.UploadAction;
  * Servlet implementation class Servlet
  */
 @WebServlet("/Servlet")
+@MultipartConfig(location = "C:\\pleiades\\workspace\\YSL7\\systemofj\\WebContent\\uploaded")
 public class Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

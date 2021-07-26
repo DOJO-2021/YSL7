@@ -9,50 +9,69 @@
 <style>
 
 
-.container {
-  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
-  text-align: center;
-}
+	.container {
+	  font-family: "Yu Gothic", YuGothic, Verdana, 'Hiragino Kaku Gothic ProN','Hiragino Kaku Gothic Pro', 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, sans-serif;
+	  text-align: center;
+	}
 
-.top_tbl{
-text-align: center;
-margin: auto;
-margin-top: 70px;
-}
+	.top_tbl{
+	text-align: center;
+	margin: auto;
+	margin-top: 70px;
+	}
 
 
-.btn {
-  display: inline-block;
-  height: 100px;
-  width: 200px;
-  text-align: center;
-  border: 2px solid #59b9c6;
-  font-size: 16px;
-  color: #59b9c6;
-  text-decoration: none;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 4px;
-  transition: .4s;
-}
+	.btn {
+	  display: inline-block;
+	  height: 100px;
+	  width: 200px;
+	  text-align: center;
+	  border: 2px solid #59b9c6;
+	  font-size: 16px;
+	  color: #59b9c6;
+	  text-decoration: none;
+	  font-weight: bold;
+	  padding: 8px 16px;
+	  border-radius: 4px;
+	  transition: .4s;
+	}
 
-.btn:hover {
-  background-color: #59b9c6;
-  border-color: #59b9c6;
-  color: #FFF;
-}
+	.btn:hover {
+	  background-color: #59b9c6;
+	  border-color: #59b9c6;
+	  color: #FFF;
+	}
 
-.btn-td{
-  padding: 10px;
-  line-height: 100px;
-}
+	.btn-td{
+	  padding: 10px;
+	  line-height: 100px;
+	}
+
+	header{
+		background-color: #0096AE85;
+		color: #696969;
+		height: 180px;
+	}
+
+	.logo{
+		margin-left:40%;
+		margin-right: 90%;
+
+	}
+
 
 
 </style>
 
+
+
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+
+<header>
+	<img src="images/logo3.png"  alt="ysl_logo" class="logo">
+
+</header>
 
 <!-- ボタンの場合
 <table align="center">
@@ -77,13 +96,12 @@ margin-top: 70px;
 	<tr align="center">
 		<td class="btn-td"><a href="/systemofj/Servlet?FLG=upload" id="t_upload" class="btn">アップロード</a></td>
 		<td class="btn-td"><a href="/systemofj/Servlet?FLG=search" id="t_search" class="btn">検索</a></td>
-		<td class="btn-td"><a href="/systemofj/Servlet?FLG=templateRegist" id="t_template" class="btn">テンプレート登録</a></td>
 	</tr>
 
 	<tr align="center">
-		<td class="btn-td"><a href="/systemofj/Servlet?FLG=analysis" id="t_analysis" class="btn">分析</a></td>
+		<td class="btn-td"><a href="/systemofj/Servlet?FLG=templateRegist" id="t_template" class="btn">テンプレート登録</a></td>
 		<td class="btn-td"><a href="/systemofj/Servlet?FLG=studentsRegist" id="t_regist" class="btn">学生の新規登録</a></td>
-		<td class="btn-td"><a href="/systemofj/Servlet?FLG=logout" id="t_logout" onclick="return onLogout()" class="btn">ログアウト</a></td>
+
 	</tr>
 </table>
 

@@ -51,17 +51,17 @@ width: 800px;
 <form action="/systemofj/Servlet" method="POST">
   <div id="student" style="display:none;">
   <input type="hidden" name="page_id" value="studentsEdit">
-  <input type="hidden" name="s_id" value="${student.sId}">
-	<table style="border: 0px; width: 800px;">
+  <input type="hidden" name="sId" value="${student.s_id}">
+	<table style="border: 0px; width: 800px;" class = table>
 	  <tr>
-	    <td>氏名<hr><input type="text" name="s_name" value="${student.sName}"></td>
-	    <td>フリガナ<hr><input type="text" name="s_kana" value="${student.sKana}"></td>
-	    <td colspan="2">住所<hr><input type="text" name="s_address" value="${student.sAddress}"></td>
+	    <td>氏名<hr><input type="text" name="s_name" value="${student.sName}" required></td>
+	    <td>フリガナ<hr><input type="text" name="s_kana" value="${student.sKana}" required></td>
+	    <td colspan="2">住所<hr><input type="text" name="s_address" value="${student.sAddress}" required></td>
 	  </tr>
 	  <tr>
-	    <td>学校名<hr><input type="text" name="s_university" value="${student.sUnivercity}"></td>
-	    <td>学部<hr><input type="text" name="s_faculty" value="${student.sFaculty}"></td>
-	    <td>学科<hr><input type="text" name="s_department" value="${student.sDepartment}"></td>
+	    <td>学校名<hr><input type="text" name="s_university" value="${student.sUnivercity}" required></td>
+	    <td>学部<hr><input type="text" name="s_faculty" value="${student.sFaculty}" required></td>
+	    <td>学科<hr><input type="text" name="s_department" value="${student.sDepartment}" required></td>
 	    <td>文理<hr><select name="s_contexts"><option value="${student.sContexts}"></option><option value="文">文</option><option value="理">理</option></select></td>
 	  </tr>
 	  <tr>
@@ -70,7 +70,7 @@ width: 800px;
 	  </tr>
 	  <tr>
 	    <td colspan="4">
-	      <table style="width: 800px;">
+	      <table style="width: 800px;" class = table>
 	        <tr>
 	          <th colspan="4">申込分類</th>
 	        </tr>
@@ -89,10 +89,10 @@ width: 800px;
 
 <h3>イベント<input type="checkbox" id="e_info" onclick="divOpen(this,'event')"></h3>
 <div id="event" style="display:none;">
-<table style="border: 0px; width: 700px;">
+<table style="border: 0px; width: 700px;" class = table>
   <tr>
     <td style="border: 0px">
-      <table>
+      <table class=table>
         <tr>
           <th>合同説明会</th>
         </tr>
@@ -105,7 +105,7 @@ width: 800px;
       </table>
     </td>
     <td style="border: 0px">
-      <table>
+      <table class = table>
         <tr>
           <th colspan="3">模擬面接</th>
         </tr>
@@ -122,7 +122,7 @@ width: 800px;
       </table>
     </td>
     <td style="border: 0px">
-      <table>
+      <table class = table>
         <tr>
           <th colspan="2">座談会</th>
         </tr>
@@ -143,13 +143,13 @@ width: 800px;
 
 <h3>インターン<input type="checkbox" id="i_info" onclick="divOpen(this,'intern')"></h3>
 <div id="intern" style="display:none;">
-<table style="border: 0px #000000 solid; width: 900px;">
+<table style="border: 0px #000000 solid; width: 900px;" class = table>
   <tr>
     <td style="border: 0px">
       <table style="border: 0px">
         <tr>
           <td style="border: 0px">
-            <table>
+            <table class=table>
               <tr>
                 <td style="border: 0px"></td>
                 <th>1day</th>
@@ -211,10 +211,10 @@ width: 800px;
 
 <h3>選考<input type="checkbox" id="sele_info"  onclick="divOpen(this,'selection')"></h3>
 <div id="selection" style="display:none;">
-<table style="border: 0px #000000 solid; width: 800px;">
+<table style="border: 0px #000000 solid; width: 800px;" class = table>
   <tr>
     <td style="border: 0px">
-      <table style="width: 265px">
+      <table style="width: 265px" class = table>
         <tr>
           <th colspan="4">説明会</th>
         </tr>
@@ -231,7 +231,7 @@ width: 800px;
       </table>
     </td>
     <td style="border: 0px">
-      <table style="width: 350px">
+      <table style="width: 350px" class = table>
         <tr>
          <th>選考受験日</th>
          <th>適正点数</th>
@@ -243,7 +243,7 @@ width: 800px;
       </table>
     </td>
     <td style="border: 0px">
-      <table style="width: 170px">
+      <table style="width: 170px" class = table>
         <tr>
           <th>書類点数</th>
           <th>書類合否</th>
@@ -257,7 +257,7 @@ width: 800px;
   </tr>
   <tr>
     <td style="border: 0px">
-      <table style="width: 500px">
+      <table style="width: 500px" class = table>
         <tr>
           <th colspan="4">履歴書評価</th>
         </tr>
@@ -276,7 +276,7 @@ width: 800px;
       </table>
     </td>
     <td style="border: 0px">
-      <table style="width: 400px">
+      <table style="width: 400px" class >
         <tr>
           <th colspan="4">自己PR文評価</th>
         </tr>
@@ -465,6 +465,7 @@ if(checkBox.checked){
 }
 
 }
+
 
 </script>
 </html>
