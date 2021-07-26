@@ -80,7 +80,7 @@
 					<tr>
 						<td>
 						<select name="category">
-							<option value="1day">インターン1DAY</option>
+							<option value="1day"<c:if test="${mode.equals('name')}">selected</c:if>>インターン1DAY</option>
 							<option value="3day">インターン3DAY</option>
 							<option value="初級">初級</option>
 							<option value="中級">中級</option>
@@ -90,7 +90,7 @@
 							<option value="二次面接">二次面接</option>
 							<option value="予備">予備</option>
 						</select>
-						<input type="submit" id="submit" value="検索">
+						<input type="submit" name="submit" value="検索">
 						<input type="hidden" name="page_id" value="feedback">
 						</td>
 					</tr>
