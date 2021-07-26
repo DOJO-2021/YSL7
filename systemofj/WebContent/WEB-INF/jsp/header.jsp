@@ -11,20 +11,20 @@
 
 
 		<main>
-			<header >
+			<header>
 				<img src="images/logo3.png"  alt="ysl_logo" class="logo float_l">
 
 				<table  class ="float_l">
-					<tr><td>　　</td><td>　　</td><td>　　</td></tr>
+					<tr><td class="td1">　　</td><td class="td1">　　</td><td class="td1">　　</td></tr>
 					<tr>
-						<td><a href="/systemofj/Servlet?FLG=upload" class="btn-flat-border">　アップロード　></a></td>
-						<td><a href="/systemofj/Servlet?FLG=analysis" class="btn-flat-border">　分析　></a></td>
-						<td><a href="/systemofj/Servlet?FLG=search" class="btn-flat-border">　検索　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　アップロード　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　分析　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　検索　></a></td>
 					</tr>
 					<tr>
-						<td><a href="/systemofj/Servlet?FLG=studentsRegist" class="btn-flat-border">　学生の新規登録　></a></td>
-						<td><a href="/systemofj/Servlet?FLG=templateRegist" class="btn-flat-border">　テンプレート登録　></a></td>
-						<td><a href="/systemofj/Servlet?FLG=logout" class="btn-flat-border">　ログアウト　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　学生の新規登録　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　テンプレート登録　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet" class="btn-flat-border">　ログアウト　></a></td>
 					</tr>
 				</table>
 
@@ -42,6 +42,9 @@
 
 	.float_l{
 		float: left;
+		text-align: center;
+		margin-right: auto;
+		margin-left: 130px;
 	}
 	.logo{
 		width:200px;
@@ -55,13 +58,8 @@
 		height: 180px;
 	}
 
-	table{
-		text-align: center;
-		margin-right: auto;
-		margin-left: 130px;
-	}
 
-	td{
+	.td1{
 		padding: 0.5em 2em;
 	}
 
@@ -74,6 +72,7 @@
 		color: #ffffff;
 	 	border: solid 2px #ffffff;
 		transition: .4s;
+		padding: 0.5em 2em;
 	}
 	.btn-flat-border:hover {
 		background: #ffffff;

@@ -32,9 +32,9 @@ width: 800px;
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h3>インターン情報一括編集</h3>
 <form action="/systemofj/Servlet?FLG=allUpdate" method="POST">
-<table style="border: 0px #000000 solid; width: 900px;">
+<table>
   <tr>
-    <td style="border: 0px">
+    <td1 style="border: 0px">
       <table style="border: 0px">
         <tr>
           <td style="border: 0px">
