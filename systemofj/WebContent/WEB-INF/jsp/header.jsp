@@ -17,14 +17,14 @@
 				<table  class ="float_l">
 					<tr><td>　　</td><td>　　</td><td>　　</td></tr>
 					<tr>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　アップロード　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　分析　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　検索　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=upload" class="btn-flat-border">　アップロード　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=analysis" class="btn-flat-border">　分析　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=search" class="btn-flat-border">　検索　></a></td>
 					</tr>
 					<tr>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　学生の新規登録　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　テンプレート登録　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　ログアウト　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=studentsRegist" class="btn-flat-border">　学生の新規登録　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=templateRegist" class="btn-flat-border">　テンプレート登録　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=logout" class="btn-flat-border">　ログアウト　></a></td>
 					</tr>
 				</table>
 
