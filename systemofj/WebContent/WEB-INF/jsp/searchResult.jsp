@@ -151,7 +151,12 @@
 							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
 
+<<<<<<< HEAD
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
+=======
+							<td><input type="hidden"  name="sId" value="${e.sId }"></td>
+						<!--<td><input type="hidden"  value="${e.sId }"></td>-->
+>>>>>>> 54ac820b8e53ef04cb5c4976513f2892e9e4261f
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
