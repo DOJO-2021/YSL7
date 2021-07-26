@@ -30,7 +30,9 @@ background-color: #e0e0e0;
 <!-- メール作成ボタン -->
   <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
   	<input type="hidden" name="page_id" value="detail">
-  	<input type="hidden" name=sId value="${student.sId}">
+  	<input type="hidden" name="sId" value="${student.sId}">
+  	<input type="hidden" name="sName" value="${student.sName}">
+  	<input type="hidden" name="sUnivercity" value="${student.sUnivercity}">
     <input type="submit" name="submit" value="メール作成">
   </form>
 
