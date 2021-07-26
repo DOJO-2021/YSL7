@@ -190,29 +190,29 @@
 
 			if(sites.value === "s_mynavi") {
 				if(events.value === "entry") {
-					window.confirm("マイナビnエントリー");
+					window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
 				} else if(events.value === "intern") {
-					window.confirm("マイナビ・インターン・" + i_category.value +"・" + date.value);
+					window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				} else if(events.value === "infosession") {
-					window.confirm("マイナビ・会社説明会・" + date.value);
+					window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				}
 			} else if(sites.value === "s_rikunavi") {
 				if(events.value === "entry") {
-					window.confirm("リクナビ・エントリー");
+					window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
 				} else if(events.value === "intern") {
-					window.confirm("リクナビ・インターン・" + i_category.value + "・" + date.value);
+					window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				} else {
-					window.confirm("リクナビ・会社説明会・" + date.value);
+					window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				}
 			} else if(sites.value === "s_careertasu") {
 				if(events.value === "entry") {
-					window.confirm("キャリタス・エントリー");
+					window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
 				} else if(events.value === "intern") {
-					window.confirm("キャリタス・インターン・" + i_category.value + "・" + date.value);
+					window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				} else if(events.value === "infosession"){
-					window.cinfirm("キャリタス・会社説明会・" + date.value);
+					window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				} else {
-					window.confirm("キャリタス・合同説明会・" + date.value);
+					window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
 				}
 			} else {
 				window.confirm("登録します。よろしいですか？");
