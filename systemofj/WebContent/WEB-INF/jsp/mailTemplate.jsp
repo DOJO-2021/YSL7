@@ -14,8 +14,8 @@
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sName) }">
-	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sUnivercity) }">
+	<input type ="text" name ="sName" value ="${param.sName}">
+	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
 
 
 	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
@@ -25,10 +25,10 @@
 		<div id="explanationtemplate" style="display: none">
 					カテゴリを選択してください：
 			<select name="kind1">
-			<!-- プルダウンメニューの中身 -->
+			<!-- 説明会プルダウンメニューの中身 -->
 			<c:forEach var="e" items="${event}">
-				<option value = "${e.tTitle}">${e.tTitle}</option>
-				 <input type="hidden" name="tId" value="${e.tId}">
+				<option value = "${e.tTitle}"></option>
+				 <input type="text" name="tId" value="${e.tId}">
 			</c:forEach>
 						<!-- <option value="">合同説明会のご案内</option>
 						<option value="1">合同説明会参加のお礼</option>
@@ -43,9 +43,10 @@
 		<div id="interntemplate" style="display: none">
 				カテゴリを選択してください：
 			<select name="kind2">
-				<!-- プルダウンメニューの中身 -->
+				<!-- インターンプルダウンメニューの中身 -->
 				<c:forEach var="e" items="${intern}">
-					<option><c:out value="${e.tTitle}"/></option>
+					<option value="${e.tId}"><c:out value="${e.tTitle}"/></option>
+
 				</c:forEach>
 				<!-- <option value="0">1dayインターンのご案内</option>
 						<option value="1">1dayインターン参加のお礼</option>
@@ -62,7 +63,7 @@
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
 			<select name="kind3">
-				<!-- プルダウンメニューの中身 -->
+				<!-- 面接プルダウンメニューの中身 -->
 				<c:forEach var="e" items="${selection}">
 					<option><c:out value="${e.tTitle}"/></option>
 					<input type="hidden" name="tId" value="${e.tId}">
@@ -79,7 +80,7 @@
 		<div id="othertemplate" style="display: none">
 				カテゴリを選択してください：
 			<select name="kind4">
-				<!-- プルダウンメニューの名身 -->
+				<!-- その他プルダウンメニューの名身 -->
 				<c:forEach var="e" items="${other}">
 					<option><c:out value="${e.tTitle}"/></option>
 					<input type="hidden" name="tId" value="${e.tId}">

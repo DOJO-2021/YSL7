@@ -171,8 +171,9 @@ public class Servlet extends HttpServlet {
 				//詳細画面
 				if(page_id.equals("detail")) {
 					//メール作成ボタン
-					if(submit.equals("メール送信") || submit.equals("ts_regist_button")) {
+					if(submit.equals("メール作成") || submit.equals("ts_regist_button")) {
 						path = SelectAction.selectTemplate(request);
+						System.out.println(path);
 					}
 					//フィードバックボタン
 					if(submit.equals("フィードバック")) {

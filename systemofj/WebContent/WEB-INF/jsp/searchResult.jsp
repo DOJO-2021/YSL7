@@ -43,10 +43,10 @@
 							<th></th>
 						</tr>
 						<tr>
-						<c:forEach var="e" items="${searchInternList}" varStatus="status">
+						<c:forEach var="e" items="${list}" varStatus="status">
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
 							<input type ="hidden" name ="s_id" value ="${e.s_id }">
 							<td>${e.sName }</td>
@@ -77,11 +77,11 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchEventList}" varStatus="status">
+					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}u</td>
@@ -98,7 +98,7 @@
 <!-- 選考検索 -->
 
 <c:if test="${mode.equals('selection')}">
-<form method="POST" action="/systemofj/Servlet">
+<form method="POST" action="/systemofj/Servlets">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
@@ -111,11 +111,11 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${searchEntryList}" varStatus="status">
+					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -131,7 +131,7 @@
 </c:if>
 <!-- 名前検索 -->
 <c:if test="${mode.equals('name')}">
-<form method="POST" action="/systemofj/SearchResultTestServlet">
+<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
@@ -145,11 +145,11 @@
 							<th>メール</th>
 							<th></th>
 						</tr>
-					<c:forEach var="e" items="${list}" varStatus="status">
+				 	<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td><input type="hidden" name="pageload" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="checkbox" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
+							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
@@ -166,7 +166,7 @@
 				</table>
 				</form>
 </c:if>
-<c:if test="${list == null}" >
+<!--<c:if test="${list == null}" >
 			<input type="hidden" name="page_id" value="searchResult">
 
 				<table id="myTable">
@@ -184,7 +184,7 @@
 							<td><a href="/systemofj/Servlet?FLG=search">検索</a></td>
 						</tr>
 				</table>
-</c:if>
+</c:if> -->
 </div>
 
 		<input type="checkbox" id="checkbox_all"  >
@@ -201,7 +201,7 @@
 //ページを読み込んだらflagが1のものを0に戻すメソッド
 window.onload = function(){
 	var che = document.getElementById("alledit").value;
-	var edi = document.getElementById("flagedit").value;
+	var edi = 'aj';
 
 	$.ajax({
 		type:'post',
@@ -213,14 +213,14 @@ window.onload = function(){
 function changeflag(indexNo, sId){
 	//チェックボックスの取得
 	var che = document.getElementById("alledit").value;
-	var ch = document.getElementById('checkId'+indexNo).value;
+	var ch = document.getElementById('checkId'+indexNo);
 	var fe = document.getElementById("flagup").value;
 	var sn = document.getElementById("idname").value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : che,	check1 : ch ,  checkbox: fe, submit:''}
+				data: {	page_id : che, sId : sn , checkbox: fe, submit:''}
 			});
 }
 </script>

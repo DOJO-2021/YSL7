@@ -78,6 +78,7 @@ public class SelectAction {
 			} else if(mode.equals("selection")) {//選考検索がされた場合
 
 				list = service.searchEntryList(searchValue);
+				System.out.println(searchValue);
 
 
 			} else {//個人名検索
@@ -227,6 +228,7 @@ public class SelectAction {
 			System.out.println("SQLExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
 		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
 			return "/WEB-INF/jsp/search.jsp";
@@ -288,6 +290,7 @@ public class SelectAction {
 
 				//テンプレ選択の場合
 				String content = template.gettContent();
+				System.out.println(content+"content");
 				content = content.replace("学生の名前が入ります", sName);
 				content = content.replace("あなたの名前が入ります", uName);
 				content = content.replace("学生の大学名が入ります", sUnivercity);
@@ -316,7 +319,7 @@ public class SelectAction {
 		try {
 			//リクエスト領域からsIdとfCategoryを持ってくる。
 			int sId = Integer.parseInt(request.getParameter("sId"));
-			String fCategory = request.getParameter("fCategory");
+			String fCategory = request.getParameter("category");
 
 			//フィードバックを入れるリスト
 			ArrayList<SFeedback> subList = new ArrayList<>();
