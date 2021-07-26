@@ -19,7 +19,8 @@
 	<h1>アップロード</h1>
 	${msg}
 	<!-- ヘッダー後で追加 -->
-	<form method="POST" action="/systemofj/Sawaragi" enctype="multipart/form-data">
+	<form method="POST" action="/systemofj/Servlet" enctype="multipart/form-data" id="upload">
+	<input type="hidden" name="page_id" value="upload">
 		<table>
 			<tr>
 				<td>
@@ -35,7 +36,7 @@
 				<td>
 					<span id="events">
 						<input type="radio" name="event" value="entry" onclick="entry()">エントリー
-						<input type="radio" name="event" value="intern" onclick="intern()">インターン
+						<input type="radio" name="event" value="intern" checked onclick="intern()">インターン
 						<input type="radio" name="event" value="infosession" onclick="info()">会社説明会
 					</span>
 					<span id="eventsForC">
@@ -80,7 +81,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="upload" value="アップロード">
+					<input type="submit" name="submit" value="アップロード" onclick="return uploadcheck()">
 				</td>
 			</tr>
 
@@ -96,6 +97,13 @@
 		document.getElementById("date").style.display = "none";
 		document.getElementById("upcsv").style.display = "none";
 		document.getElementById("uppdf").style.display = "none";
+
+
+		var elements = document.getElementById('upload');
+		var sites = elements.site;
+		var events = elements.event;
+		var i_category = elements.i_category;
+		var date = elements.date;
 
 
 		//履歴書の場合
@@ -172,10 +180,45 @@
 
 			document.getElementById("interns").style.display = "";
 			document.getElementById("date").style.display = "";
+			document.getElementById("upcsv").style.display = "";
+			document.getElementById("uppdf").style.display = "none";
 
 		};
 
+		//アップロード時に内容確認のダイアログを表示
+		function uploadcheck() {
 
+			if(sites.value === "s_mynavi") {
+				if(events.value === "entry") {
+					window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
+				} else if(events.value === "intern") {
+					window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				} else if(events.value === "infosession") {
+					window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				}
+			} else if(sites.value === "s_rikunavi") {
+				if(events.value === "entry") {
+					window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
+				} else if(events.value === "intern") {
+					window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				} else {
+					window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				}
+			} else if(sites.value === "s_careertasu") {
+				if(events.value === "entry") {
+					window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
+				} else if(events.value === "intern") {
+					window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				} else if(events.value === "infosession"){
+					window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				} else {
+					window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+				}
+			} else {
+				window.confirm("登録します。よろしいですか？");
+			}
+
+		}
 
 
 	</script>

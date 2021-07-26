@@ -29,6 +29,7 @@ width: 800px;
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h3>インターン情報一括編集</h3>
 <form action="/systemofj/Servlet?FLG=allUpdate" method="POST">
 <table style="border: 0px #000000 solid; width: 900px;">

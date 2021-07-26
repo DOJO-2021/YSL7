@@ -12,78 +12,83 @@ import dao.SelectionFaceDao;
 import dao.SelectionTextDao;
 import dao.StudentDao;
 import dao.TemplateDao;
-import dao.UserDao;
+//import dao.UserDao;
 
 
 public class UpdateDeleteService {
 	Connection conn = null;
 
-	public boolean userUpdate(String uId) throws ClassNotFoundException, SQLException {
-		boolean result = false;
-		try {
-		//ドライバの登録を行う
-		Class.forName("org.h2.Driver");
-		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-		//DAOを実体化
-		UserDao dao = new UserDao(conn);
-
-		conn.setAutoCommit(false);
-
-		//引数を渡し、取得地をbeanに渡す
-		int test =dao.update(uId);
-
-		if(test == 1) {
-			conn.commit();
-			result = true;
-		}
-		else {
-			conn.rollback();
-		}
-
-		return result;
-
-		}catch(ClassNotFoundException e) {
-			return result;
-		}catch(SQLException e) {
-			e.printStackTrace();
-			try {
-				conn.rollback();
-			} catch (SQLException e1) {
-				e1.printStackTrace();
-
-			}
-			return result;
-		}finally {
-		 if(conn != null) {
-			try {
-				conn.close();
-			} catch (SQLException e) {
-
-				e.printStackTrace();
-			}
-		}
-	}
-	}
-
-	public boolean userDelete(String uId) throws ClassNotFoundException, SQLException {
-		boolean result = false;
-		//ドライバの登録を行う
-		Class.forName("org.h2.Driver");
-		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-		//DAOを実体化
-		UserDao dao = new UserDao(conn);
-		//引数を渡し、取得地をbeanに渡す
-		int test =dao.delete(uId);
-
-		if(test == 1) {
-			result = true;
-		}
-
-		return result;
-
-	}
+//	public boolean userUpdate(String uId) throws ClassNotFoundException, SQLException {
+//		boolean result = false;
+//		try {
+//		//ドライバの登録を行う
+//		Class.forName("org.h2.Driver");
+//		//データベースへの接続情報を設定する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//		//DAOを実体化
+//		UserDao dao = new UserDao(conn);
+//
+//		conn.setAutoCommit(false);
+//
+//		//引数を渡し、取得地をbeanに渡す
+//		int test =dao.update(uId);
+//
+//		if(test == 1) {
+//			conn.commit();
+//			result = true;
+//		}
+//		else {
+//			conn.rollback();
+//		}
+//
+//		return result;
+//
+//
+//		}catch(ClassNotFoundException e) {
+//
+//			return result;
+//
+//		}catch(SQLException e) {
+//			e.printStackTrace();
+//			try {
+//				conn.rollback();
+//			} catch (SQLException e1) {
+//				e1.printStackTrace();
+//
+//			}
+//			return result;
+//
+//		}finally {
+//		 if(conn != null) {
+//			try {
+//				conn.close();
+//			} catch (SQLException e) {
+//
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+//	}
+//
+//	public boolean userDelete(String uId) throws ClassNotFoundException, SQLException {
+//		boolean result = false;
+//
+//		//ドライバの登録を行う
+//		Class.forName("org.h2.Driver");
+//		//データベースへの接続情報を設定する
+//		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//		//DAOを実体化
+//		UserDao dao = new UserDao(conn);
+//		//引数を渡し、取得地をbeanに渡す
+//		int test =dao.delete(uId);
+//
+//		if(test == 1) {
+//			result = true;
+//		}
+//
+//		return result;
+//
+//	}
 
 	public boolean studentUpdate(int sId,String sName,String sKana,String sContexts,String sUnivercity, String sFaculty,String sDepatment, String sAddress, String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String Other,
 			String seSelectionDate, int seScore, int seTextScore, String seTextResult,
@@ -132,86 +137,89 @@ public class UpdateDeleteService {
 			boolean result28 = false;
 			boolean result29 = false;
 			boolean result30 = false;
+			boolean allresult = false;
 
 
+		try {
 			//ドライバの登録を行う
 			Class.forName("org.h2.Driver");
 
 			//データベースへの接続情報を設定する
-			Connection conn1 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+			Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 
-			Connection conn2 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-
-			Connection conn3 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn4 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn5 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn6 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn7 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-
-			Connection conn8 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn9 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn10 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn11 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn12 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn13 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn14 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn15 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn16 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn17 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn18 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn19 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-
-			Connection conn20 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn21 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn22 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn23 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn24 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-
-			Connection conn25 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn26 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn27 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn28 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn29 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-			Connection conn30 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn2 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//			Connection conn3 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn4 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn5 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn6 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn7 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//			Connection conn8 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn9 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn10 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn11 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn12 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn13 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn14 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn15 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn16 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn17 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn18 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn19 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//			Connection conn20 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn21 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn22 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn23 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn24 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//
+//			Connection conn25 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn26 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn27 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn28 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn29 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+//			Connection conn30 = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 
 
 			//DAOを実体化
-			StudentDao dao1 = new StudentDao(conn1);
+			StudentDao dao1 = new StudentDao(conn);
 
-			SelectionEasyDao dao2 = new SelectionEasyDao(conn2);
+			SelectionEasyDao dao2 = new SelectionEasyDao(conn);
 
-			SelectionFaceDao dao3 = new SelectionFaceDao(conn3);
-			SelectionFaceDao dao4 = new SelectionFaceDao(conn4);
-			SelectionFaceDao dao5 = new SelectionFaceDao(conn5);
-			SelectionFaceDao dao6 = new SelectionFaceDao(conn6);
-			SelectionFaceDao dao7 = new SelectionFaceDao(conn7);
+			SelectionFaceDao dao3 = new SelectionFaceDao(conn);
+			SelectionFaceDao dao4 = new SelectionFaceDao(conn);
+			SelectionFaceDao dao5 = new SelectionFaceDao(conn);
+			SelectionFaceDao dao6 = new SelectionFaceDao(conn);
+			SelectionFaceDao dao7 = new SelectionFaceDao(conn);
 
-			SelectionTextDao dao8 = new SelectionTextDao(conn8);
-			SelectionTextDao dao9 = new SelectionTextDao(conn9);
-			SelectionTextDao dao10 = new SelectionTextDao(conn10);
-			SelectionTextDao dao11 = new SelectionTextDao(conn11);
-			SelectionTextDao dao12 = new SelectionTextDao(conn12);
-			SelectionTextDao dao13 = new SelectionTextDao(conn13);
-			SelectionTextDao dao14 = new SelectionTextDao(conn14);
-			SelectionTextDao dao15 = new SelectionTextDao(conn15);
-			SelectionTextDao dao16 = new SelectionTextDao(conn16);
-			SelectionTextDao dao17 = new SelectionTextDao(conn17);
-			SelectionTextDao dao18 = new SelectionTextDao(conn18);
-			SelectionTextDao dao19 = new SelectionTextDao(conn19);
+			SelectionTextDao dao8 = new SelectionTextDao(conn);
+			SelectionTextDao dao9 = new SelectionTextDao(conn);
+			SelectionTextDao dao10 = new SelectionTextDao(conn);
+			SelectionTextDao dao11 = new SelectionTextDao(conn);
+			SelectionTextDao dao12 = new SelectionTextDao(conn);
+			SelectionTextDao dao13 = new SelectionTextDao(conn);
+			SelectionTextDao dao14 = new SelectionTextDao(conn);
+			SelectionTextDao dao15 = new SelectionTextDao(conn);
+			SelectionTextDao dao16 = new SelectionTextDao(conn);
+			SelectionTextDao dao17 = new SelectionTextDao(conn);
+			SelectionTextDao dao18 = new SelectionTextDao(conn);
+			SelectionTextDao dao19 = new SelectionTextDao(conn);
 
-			InternDao dao20 = new InternDao(conn20);
-			InternDao dao21 = new InternDao(conn21);
-			InternDao dao22 = new InternDao(conn22);
-			InternDao dao23 = new InternDao(conn23);
-			InternDao dao24 = new InternDao(conn24);
+			InternDao dao20 = new InternDao(conn);
+			InternDao dao21 = new InternDao(conn);
+			InternDao dao22 = new InternDao(conn);
+			InternDao dao23 = new InternDao(conn);
+			InternDao dao24 = new InternDao(conn);
 
-			EventDao dao25 = new EventDao(conn25);
-			EventDao dao26 = new EventDao(conn26);
-			EventDao dao27 = new EventDao(conn27);
-			EventDao dao28 = new EventDao(conn28);
-			EventDao dao29 = new EventDao(conn29);
-			EventDao dao30 = new EventDao(conn30);
+			EventDao dao25 = new EventDao(conn);
+			EventDao dao26 = new EventDao(conn);
+			EventDao dao27 = new EventDao(conn);
+			EventDao dao28 = new EventDao(conn);
+			EventDao dao29 = new EventDao(conn);
+			EventDao dao30 = new EventDao(conn);
 
+			conn.setAutoCommit(false);
 
 
 
@@ -367,15 +375,40 @@ public class UpdateDeleteService {
 
 
 
-			boolean allresult = false;
 
 
 			if(result1 && result2 && result3 && result4 && result5 && result6 && result7 && result8 && result9 && result10 && result11 && result12 && result13 && result14 && result15 && result16 && result17 && result18 && result19 && result20 && result21 && result22 && result23 && result24 && result25 && result26 && result27 && result28 && result29 && result30) {
+				conn.commit();
 				allresult = true ;
+			}
+			else {
+				conn.rollback();
 			}
 
 			return allresult;
+
+		}catch(ClassNotFoundException e) {
+			return allresult;
+		}catch(SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			}catch(SQLException e1) {
+				e1.printStackTrace();
+			}
+			return allresult;
+
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch(SQLException e) {
+					e.printStackTrace();
 				}
+			}
+		}
+
+	}
 
 
 //	public boolean studentUpdate(int sId,String sName,String sKana,String sContexts,String sUnivercity, String sFaculty,String sDepatment, String sAddress, String sPcmail, String sMobilemail, String sCareertasu, String sMynavi, String sRikunavi, String Other ) throws ClassNotFoundException, SQLException {
@@ -405,6 +438,9 @@ public class UpdateDeleteService {
 		boolean result5 = false;
 		boolean result6 = false;
 		boolean result7 = false;
+		boolean allresult = false;
+
+	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
@@ -417,6 +453,8 @@ public class UpdateDeleteService {
 		SelectionFaceDao dao5 = new SelectionFaceDao(conn);
 		SelectionTextDao dao6 = new SelectionTextDao(conn);
 		FeedbackDao dao7 = new FeedbackDao(conn);
+
+		conn.setAutoCommit(false);
 
 
 		//引数を渡し、取得地をbeanに渡す
@@ -459,53 +497,130 @@ public class UpdateDeleteService {
 
 
 
-		boolean allresult = false;
 		if(result1 && result2 && result3 && result4  && result5  && result6  && result7) {
+			conn.commit();
 			allresult  = true;
+		}else {
+			conn.rollback();
 		}
 		return allresult;
 
+	}catch(ClassNotFoundException e) {
+		return allresult;
+
+	}catch(SQLException e){
+		e.printStackTrace();
+		try {
+			conn.rollback();
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		return allresult;
+
+		}finally {
+			if(conn != null) {
+				try {
+					conn.close();
+				}catch(SQLException e) {
+
+					e.printStackTrace();
+				}
+			}
+		}
 
 	}
 
+
+
 	public boolean flagUpdate( int sId) throws ClassNotFoundException, SQLException {
 		boolean result = false;
+	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao dao = new StudentDao(conn);
+		conn.setAutoCommit(false);
 		//引数を渡し、取得地をbeanに渡す
 		int test =dao.flagUpdate(sId);
 
 		if(test != 0) {
+			conn.commit();
 			result = true;
+
+		}else {
+			conn.rollback();
 		}
 
 		return result;
+
+	}catch(ClassNotFoundException e) {
+		return result;
+	}catch(SQLException e) {
+		e.printStackTrace();
+		try {
+			conn.rollback();
+
+		}catch(SQLException e1) {
+			e1.printStackTrace();
+		}
+		return result;
+	}finally {
+		if(conn!= null) {
+			try {
+				conn.close();
+			}catch(SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	}
 
 	public boolean flagDelete() throws ClassNotFoundException, SQLException {
 		boolean result = false;
-		//ドライバの登録を行う
-		Class.forName("org.h2.Driver");
-		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
-		//DAOを実体化
-		StudentDao dao = new StudentDao(conn);
-		//引数を渡し、取得地をbeanに渡す
-		int test =dao.flagDelete();
+		try {
+			//ドライバの登録を行う
+			Class.forName("org.h2.Driver");
+			//データベースへの接続情報を設定する
+			Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+					"sa", "sa");
+			//DAOを実体化
+			StudentDao dao = new StudentDao(conn);
+			conn.setAutoCommit(false);
+			//引数を渡し、取得地をbeanに渡す
+			int test = dao.flagDelete();
 
-		if(test  != 0) {
-			result = true;
+			if (test != 0) {
+				conn.commit();
+				result = true;
+			} else {
+				conn.rollback();
+			}
+
+			return result;
+
+		} catch (ClassNotFoundException e) {
+			return result;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
+			return result;
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-
-		return result;
-
 	}
-
 
 //	public boolean selectionEasyUpdate(int sId, String seSelectionDate, int seScore, int seTextScore, String seTextResult,
 //											String seGetTextDate,String seNo, String seOk, String seNoreason, String seSendOk,
@@ -552,26 +667,49 @@ public class UpdateDeleteService {
 //
 //	}
 
-	public boolean templateUpdate(int tId, String tTitle, String tContent) throws ClassNotFoundException, SQLException {
-		boolean result = false;
+public boolean templateUpdate(int tId, String tTitle, String tContent) throws ClassNotFoundException, SQLException {
+	boolean result = false;
+	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
 		//DAOを実体化
 		TemplateDao dao = new TemplateDao(conn);
-		//引数を渡し、取得地をbeanに渡す
-		int test =dao.templateUpdate(tId, tTitle, tContent);
+		conn.setAutoCommit(false);
 
-		if(test != 0) {
+		int test = dao.templateUpdate(tId, tTitle, tContent);
+
+		if (test != 0) {
+			conn.commit();
 			result = true;
+		} else {
+			conn.rollback();
 		}
 
 		return result;
 
+	} catch (ClassNotFoundException e) {
+		return result;
+	} catch (SQLException e) {
+		e.printStackTrace();
+		try {
+			conn.rollback();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return result;
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-
-
+}
 
 //	public boolean eventUpdate( int eId, String eDate1, String eDate2, String eDate3, String eDate4, String eDate5, String eDate6 ) throws ClassNotFoundException, SQLException {
 //		boolean result = false;
@@ -620,25 +758,47 @@ public class UpdateDeleteService {
 //
 //	}
 
-	public boolean feedbackUpdate(int fId,  String fName, String fContent) throws ClassNotFoundException, SQLException {
-		boolean result = false;
+public boolean feedbackUpdate(int fId, String fName, String fContent) throws ClassNotFoundException, SQLException {
+	boolean result = false;
+	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
 		//DAOを実体化
 		FeedbackDao dao = new FeedbackDao(conn);
+		conn.setAutoCommit(false);
 		//引数を渡し、取得地をbeanに渡す
-		int test =dao.update(fId, fName, fContent);
+		int test = dao.update(fId, fName, fContent);
 
-		if(test != 0) {
+		if (test != 0) {
+			conn.commit();
 			result = true;
-		}
+		} else
+			conn.rollback();
 
 		return result;
-
+	} catch (ClassNotFoundException e) {
+		return result;
+	} catch (SQLException e) {
+		e.printStackTrace();
+		try {
+			conn.rollback();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return result;
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
-
+}
 //	public boolean feedbackDelete(int sId) throws ClassNotFoundException, SQLException {
 //		boolean result = false;
 //		//ドライバの登録を行う
@@ -706,14 +866,19 @@ public class UpdateDeleteService {
 //
 //	}
 
-	public boolean allUpdate(String sqlContents1, String sqlContents2,String sqlContents3,String sqlContents4,String sqlContents5,String categorys1,String categorys2,String categorys3,String categorys4,String categorys5) throws ClassNotFoundException, SQLException {
-		boolean result = false;
+public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlContents3, String sqlContents4,
+		String sqlContents5, String categorys1, String categorys2, String categorys3, String categorys4,
+		String categorys5) throws ClassNotFoundException, SQLException {
+	boolean result = false;
+	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
 		//データベースへの接続情報を設定する
-		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj",
+				"sa", "sa");
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
+		conn.setAutoCommit(false);
 		//引数を渡し、取得地をbeanに渡す
 		if (sqlContents1.equals("\"set where ;")) {
 			int test1 = dao.allUpdate(sqlContents1, categorys1);
@@ -731,11 +896,13 @@ public class UpdateDeleteService {
 							int test5 = dao.allUpdate(sqlContents5, categorys5);
 
 							if (test1 != 0 && test2 != 0 && test3 != 0 && test4 != 0 && test5 != 0) {
+								conn.commit();
+
 								result = true;
+							} else {
+								conn.rollback();
+
 							}
-
-							return result;
-
 						}
 					}
 				}
@@ -743,7 +910,29 @@ public class UpdateDeleteService {
 		}
 		return result;
 
+	} catch (ClassNotFoundException e) {
+
+		return result;
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+		try {
+			conn.rollback();
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+		return result;
+	} finally {
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	}
+
+}
 
 //	public boolean selectionFaceUpdate( String sfCategory1, String sfCategory2, String sfName1, String sfName2, String sfName3, int sfScore1_1, int sfScore1_2, int sfScore1_3, int sfScore2_1, int sfScore2_2, int sfId) throws ClassNotFoundException, SQLException {
 //		boolean result = false;

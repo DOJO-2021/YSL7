@@ -131,7 +131,7 @@
 </c:if>
 <!-- 名前検索 -->
 <c:if test="${mode.equals('name')}">
-<form method="POST" action="/systemofj/Servlet">
+<form method="POST" action="/systemofj/SearchResultTestServlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table id="myTable">
@@ -148,8 +148,8 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="pageload" value="aj"></td>
-							<td><input type="hidden" name="checkbox" value="cb"></td>
+							<td><input type="hidden" name="submit" value="aj"></td>
+							<td><input type="hidden" name="pageload" value="cb"id="flagedit"></td>
 
 							<td><input type="hidden"  value="${e.sId }"></td>
 							<td>${e.sName}</td>
@@ -197,12 +197,14 @@
 <script>
 'use strict';
 //ページを読み込んだらflagが1のものを0に戻すメソッド
-window.onload = function flagdelete(indexNo){
-	var che = document.getElementById("alledit");
+window.onload = function(){
+	var che = document.getElementById("alledit").value;
+	var edi = document.getElementById("flagedit").value;
+
 	$.ajax({
 		type:'post',
-		url: '/systemofj/Servlet',
-		data:{str : pageload}
+		url: '/systemofj/SearchResultTestServlet',
+		data:{che : page_id, str : pageload}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
@@ -212,7 +214,7 @@ function changeflag(indexNo){
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
 			$.ajax({
 				type:'post',
-				url: '/systemofj/Servlet',
+				url: '/systemofj/SearchResultTestServlet',
 				data: {	int : sId , str: checkbox}
 			});
 }
