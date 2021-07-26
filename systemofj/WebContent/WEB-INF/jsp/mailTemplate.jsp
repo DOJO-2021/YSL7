@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>mailTemplate</title>
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
@@ -27,6 +28,7 @@
 			<!-- プルダウンメニューの中身 -->
 			<c:forEach var="e" items="${event}">
 				<option value = "${e.tTitle}">${e.tTitle}</option>
+				 <input type="hidden" name="tId" value="${e.tId}">
 			</c:forEach>
 						<!-- <option value="">合同説明会のご案内</option>
 						<option value="1">合同説明会参加のお礼</option>
@@ -53,6 +55,7 @@
 						<option value="5">3dayインターン当日案内</option>
 				 -->
 			 </select><br>
+			 <input type="hidden" name="tId" value="${e.tId}">
 			 <input type="submit" name="submit" value="テンプレ使用"onclick="yesno()" >
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
@@ -62,12 +65,14 @@
 				<!-- プルダウンメニューの中身 -->
 				<c:forEach var="e" items="${selection}">
 					<option><c:out value="${e.tTitle}"/></option>
+					<input type="hidden" name="tId" value="${e.tId}">
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
 						<option value="1">面接参加のお礼</option>
 						<option value="2">面接当日案内</option>
 					 -->
 			 </select><br>
+
 			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
@@ -77,6 +82,7 @@
 				<!-- プルダウンメニューの名身 -->
 				<c:forEach var="e" items="${other}">
 					<option><c:out value="${e.tTitle}"/></option>
+					<input type="hidden" name="tId" value="${e.tId}">
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
 						<option value="1">面接参加のお礼</option>
