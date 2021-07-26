@@ -345,7 +345,7 @@ public class StudentDao {
 		for(SearchResult e : searchName) {
 			System.out.println(e.getsName());
 			System.out.println(e.getsUnivercity());
-			
+
 		}
 		if(conn != null) {
 			conn.close();
@@ -358,7 +358,7 @@ public class StudentDao {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set alleditflag=1 where s_Id=?";
+		String sql = "update Intern set alleditflag=1 where s_id=?";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		// SQL文を完成させる
@@ -367,9 +367,6 @@ public class StudentDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
 
 
 
@@ -385,12 +382,10 @@ public class StudentDao {
 
 		// SQL文を準備する
 
-		String sql = "update Intern set (alleditflag) values(0) where alleditflag=1";
+		String sql = "update Intern set alleditflag=0 ";
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
-		if (conn != null) {
-			conn.close();
-		}
+
 
 		// SQL文を実行する
 		// ここは変えなくていい

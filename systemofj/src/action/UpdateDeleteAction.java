@@ -414,7 +414,7 @@ public class UpdateDeleteAction {
 		String page = "/WEB-INF/jsp/searchResult.jsp";
 
 		//リクエスト領域から取得
-
+System.out.println("mine");
 		//出力値を格納するBean
 		boolean flag = false;
 
