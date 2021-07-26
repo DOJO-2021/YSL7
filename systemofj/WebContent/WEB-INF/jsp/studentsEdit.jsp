@@ -51,7 +51,7 @@ width: 800px;
 <form action="/systemofj/Servlet" method="POST">
   <div id="student" style="display:none;">
   <input type="hidden" name="page_id" value="studentsEdit">
-  <input type="hidden" name="s_id" value="${student.s_id}">
+  <input type="hidden" name="s_id" value="${student.sId}">
 	<table style="border: 0px; width: 800px;">
 	  <tr>
 	    <td>氏名<hr><input type="text" name="s_name" value="${student.sName}"></td>

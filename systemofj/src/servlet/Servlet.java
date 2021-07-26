@@ -236,7 +236,7 @@ public class Servlet extends HttpServlet {
 					}
 				}
 				//テンプレ検索画面
-				if(page_id.equals("templateEdit")) {
+				if(page_id.equals("mailTemplate")) {
 					//検索ボタン
 					if(submit.equals("テンプレ編集")) {
 						path = SelectAction.selectTemplate(request);
