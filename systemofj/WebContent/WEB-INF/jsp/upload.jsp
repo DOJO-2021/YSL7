@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,6 +22,7 @@
 	${msg}
 	<form method="POST" action="/systemofj/Servlet" enctype="multipart/form-data" id="upload">
 	<input type="hidden" name="page_id" value="upload">
+
 		<table>
 			<tr>
 				<td>
@@ -72,10 +74,10 @@
 			<tr>
 				<td>
 					<div id="upcsv">
-						<input type="file" name="csv" accept=".csv" id="file1" onclick="activate1()" required>
+						<input type="file" name="csv" id="file1" accept=".csv">
 					</div>
 					<div id="uppdf">
-						<input type="file" name="pdf" accept=".pdf" id="file2" onclick="activate2()" required>
+						<input type="file" name="pdf" id="file2" accept=".pdf">
 					</div>
 				</td>
 			</tr>
@@ -86,6 +88,17 @@
 			</tr>
 
 		</table>
+
+			 <!--ファイルをドラッグするエリア-->
+    <div id="drop-zone" style="border: 1px solid; padding: 30px;">
+        <p>ファイルをドラッグ＆ドロップ</p>
+        <br><br><br>
+        <div id="saito"></div>
+        <!-- <input type="file" name="file" id="file-input">-->
+        <!--ボタン-->
+        <!-- <input type="submit" name="button" style="margin-top: 200px" value="送信" onclick="return check()">-->
+    </div>
+
 	</form>
 
 	<script>
@@ -105,8 +118,8 @@
 		var events = elements.event;
 		var i_category = elements.i_category;
 		var date = elements.date;
-		var file1 = document.getElementById("file1");
-		var file2 = document.getElementById("file2");
+		var file1 = elements.csv;
+		var file2 = elements.pdf;
 
 
 		//履歴書の場合
@@ -316,15 +329,98 @@
 
 		}
 
-		//ファイルが選択された時にアップロードボタンを活性化
-		function activate1() {
-			document.getElementById("button").disabled = false;
-		}
+		//CSVファイルが選択された時にアップロードボタンを活性化
+		file1.addEventListener("change",function() {
+			if(file1.files.length > 0) {
+				document.getElementById("button").disabled = false;
+			}
+		},false);
 
-		//ファイルが選択された時にアップロードボタンを活性化
-		function activate2() {
-			document.getElementById("button").disabled = false;
-		}
+		//PDFファイルが選択された時にアップロードボタンを活性化
+		file2.addEventListener("change",function() {
+			if(file2.files.length > 0) {
+				document.getElementById("button").disabled = false;
+			}
+		},false);
+
+		var dropZone = document.getElementById('drop-zone');
+	    var preview = document.getElementById('preview');
+	    var fileInput = document.getElementById('file-input');
+	    function check(){
+	    	if(fileInput.value==""){
+	    		alert('ファイルを選択してください');
+	    		return false;
+	    	}
+	    }
+	    dropZone.addEventListener('dragover', function(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        this.style.background = '#E1E7F0';
+	    }, false);
+	    dropZone.addEventListener('dragleave', function(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        this.style.background = '#FFFFFF';
+	    }, false);
+	    fileInput.addEventListener('change', function () {
+	        previewFile(this.files[0]);
+	    });
+	    dropZone.addEventListener('drop', function(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        this.style.background = '#FFFFFF'; //背景色を白に戻す
+	        var files = e.dataTransfer.files; //ドロップしたファイルを取得
+	        //if (files.length > 1) return alert('アップロードできるファイルは1つだけです。');
+	        let tsuji = '';
+			for(let i=0; i<files.length; i++){
+				tsuji=tsuji+files[i].name + "<br>";
+			}
+			let target=document.getElementById("saito");
+			target.innerHTML =tsuji;
+			//ファイル名の文字列を分割して配列に格納
+			var str = Array.from(files[0].name);
+			//ファイル名の末尾４文字を文字列に格納
+			var str2 = str[str.length-4] + str[str.length-3] + str[str.length-2] + str[str.length-1];
+			alert(str2);
+			//ファイルがPDFファイルじゃなかったらエラーアラート
+			if (str2 !== '.pdf') return alert('PDFファイル以外のファイルはアップロードできません');
+	        fileInput.files = files; //inputのvalueをドラッグしたファイルに置き換える。
+	        previewFile(files[0]);
+	    }, false);
+	    function previewFile(file) {
+	        /* FileReaderで読み込み、プレビュー画像を表示。 */
+	        var fr = new FileReader();
+	        fr.readAsDataURL(file);
+	        fr.onload = function() {
+	            var img = document.createElement('img');
+	            img.setAttribute('src', fr.result);
+	            preview.innerHTML = '';
+	            preview.appendChild(img);
+	        };
+	    }
+	    var fr = new FileReader();
+	    fr.onload = function() {
+	        var img = document.createElement('img');
+	        img.setAttribute('src', fr.result);
+	        preview.innerHTML = '';
+	        preview.appendChild(img);
+	    };
+	    fr.readAsDataURL(file);
+	    fileInput.addEventListener('change', function () {
+	    	  previewFile(this.files[0]);
+	    	});
+	    dropZone.addEventListener('drop', function(e) {
+	        e.stopPropagation();
+	        e.preventDefault();
+	        this.style.background = '#FFFFFF'; //背景色を白に戻す
+	        var files = e.dataTransfer.files; //ドロップしたファイルを取得
+	        //if (files.length > 1) return alert('アップロードできるファイルは1つだけです。');
+	        fileInput.files = files; //inputのvalueをドラッグしたファイルに置き換える。
+	        previewFile(files[0]);
+	    }, false);
+	    var files = e.dataTransfer.files;
+	    fileInput.files = files;
+
 
 	</script>
 </body>
