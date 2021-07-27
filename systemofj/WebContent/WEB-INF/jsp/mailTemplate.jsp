@@ -14,8 +14,8 @@
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="text" name ="sName" value ="${param.sName}">
-	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 
 	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
@@ -43,8 +43,8 @@
 
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="text" name ="sName" value ="${param.sName}">
-	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 		<div id="interntemplate" style="display: none">
 				カテゴリを選択してください：
@@ -71,8 +71,8 @@
 
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="text" name ="sName" value ="${param.sName}">
-	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
@@ -95,8 +95,8 @@
 
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="text" name ="sName" value ="${param.sName}">
-	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 		<div id="othertemplate" style="display: none">
 				カテゴリを選択してください：

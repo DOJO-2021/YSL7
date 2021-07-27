@@ -57,16 +57,22 @@
 	.account{
 		width:50px;
 		height:60px;
+
+	}
+	.t_account{
+		margin-left:60%;
+		margin-right:10%
 	}
 
 	.aclog{
 
 	}
 
-/* 	.float_l{
+  	.float_l{
 		float: left;
+		margin-left:42%;
 	}
- */
+
 </style>
 
 
@@ -76,14 +82,25 @@
 
 <header>
 	<div>
-		<img src="images/logo3.png"  alt="ysl_logo" class="logo float_l">
-		<div>
-			<img src="images/account.png"  alt="account" class ="account" >
-				<!--${u_name}
-				${u_first}-->
+		<!-- YSLのロゴ -->
+		<img src="images/logo3.png"  alt="ysl_logo" class="float_l">
 			<br>
-			<p>ログアウト</p>
-		</div>
+			<!-- 人型のロゴ -->
+			<div class="t_account">
+			<table class="t_account">
+				<tr>
+					<td>
+						<img src="images/account.png"  alt="account" class ="account" >
+					</td>
+					<td  nowrap>
+						${user.uName}　${user.uFirst}
+					</td>
+
+				</tr>
+			</table>
+			</div>
+			<a href="/systemofj/Servlet?FLG=logout" class="logout">ログアウト</a>
+
 	</div>
 
 </header>
