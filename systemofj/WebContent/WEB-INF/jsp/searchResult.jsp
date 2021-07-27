@@ -89,7 +89,7 @@
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
-							<td>${e.sUnivercity}u</td>
+							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
 							<td>${e.iCategory}</td>
 							<td>${e.iDate}</td>
