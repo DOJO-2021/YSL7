@@ -768,27 +768,17 @@ public boolean feedbackUpdate(int fId, String fName, String fContent) throws Cla
 				"sa", "sa");
 		//DAOを実体化
 		FeedbackDao dao = new FeedbackDao(conn);
-		conn.setAutoCommit(false);
 		//引数を渡し、取得地をbeanに渡す
 		int test = dao.update(fId, fName, fContent);
 
 		if (test != 0) {
-			conn.commit();
 			result = true;
-		} else {
-			conn.rollback();
 		}
-
 		return result;
 	} catch (ClassNotFoundException e) {
 		return result;
 	} catch (SQLException e) {
 		e.printStackTrace();
-		try {
-			conn.rollback();
-		} catch (SQLException e1) {
-			e1.printStackTrace();
-		}
 		return result;
 	} finally {
 		if (conn != null) {
