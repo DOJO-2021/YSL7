@@ -46,12 +46,12 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="g" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="h" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="g" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="h" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
@@ -83,12 +83,12 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="e" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="f" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="e" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="f" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -119,12 +119,12 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="a" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="b" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="a" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="b" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -155,13 +155,13 @@
 							<th></th>
 						</tr>
 				 	<c:forEach var="e" items="${list}" varStatus="status">
-						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td><input type="hidden" name="c" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="d" value="cb" id="flagup${status.index}"></td>
-							<td><input type="hidden" name="z" value="${fn : length(list) }" id="fnsize"></td>
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}"></td>
+							<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="d" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
+						<tr>
+				 			<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -239,7 +239,7 @@ function changeflag(indexNo, sId){
 				});
 			}
 }
-function allchangflag(){
+/*function allchangflag(){
 	var che = document.getElementById("alledit").value;
 	var ch = document.getElementById('chId'+indexNo);
 	var sn = document.getElementById("idname"+indexNo).value;
@@ -259,7 +259,7 @@ function allchangflag(){
 				});
 		}
 	}
-}
+}*/
 </script>
 
 <!-- ソート
@@ -296,6 +296,35 @@ function change_all() {
 			if (checkbox_list.hasOwnProperty(i)) {
 				checkbox_list[i].checked = false;
 			}
+		}
+	}
+	let count = document.getElementById("fnsize").value;
+//	alert(count);
+//	let SNAME = '';
+	var ch = document.getElementById('chId'+indexNo);
+	var sn = document.getElementById("idname"+indexNo).value;
+
+	//チェックが付いたとき
+	if(document.getElementById('checkbox_all').checked){
+		for(let i=0;i<count;i++){
+//			SNAME = document.getElementById('sn'+i).value;
+			//alert(IID);
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : 'searchResult',  sId : sn , checkbox: 'cb', submit:''}
+			});
+		}
+	//チェックが外されたとき
+	}else{
+		for(let i=0;i<count;i++){
+//			SNAME = document.getElementById('sn'+i).value;
+			//alert(IID);
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : 'searchResult',  sId : sn , checkbox: 'ef', submit:''}
+			});
 		}
 	}
 };
