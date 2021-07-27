@@ -102,7 +102,7 @@ background-color: #e0e0e0;
           <td>参加日</td>
         </tr>
         <tr>
-          <td>${con}</td>
+          <td>${con.eDate}</td>
         </tr>
       </table>
     </td>
