@@ -33,7 +33,7 @@ width: 800px;
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <!-- アップロード画面へ遷移 -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
-    <input type="SUBMIT" value="履歴書PDFを登録">
+    <input type="SUBMIT" value="履歴書PDFを登録" style="margin: 20px 100px 0 50px">
     <input type="hidden" name="page_id" value="studentsRegist">
   </form>
 <br>
@@ -446,7 +446,7 @@ width: 800px;
 </div>
 <div align="center">
 <p id="error"></p>
-<input type="submit" name="submit" value="登録" style="width: 200px"  onclick="return checkData()">
+<input type="submit" name="submit" value="登録" style="width: 150px; margin: 10px 0 30px 0"  onclick="return checkData()">
 </div>
 </form>
 </body>
