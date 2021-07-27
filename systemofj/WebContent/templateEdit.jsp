@@ -62,12 +62,106 @@
 		}
 	.error{
 		color:#ff0000;
-		margin-left:100px;
+		margin-left:200px;
 
 		}
 		.title{
 		margin-left:205px;
 	}
+
+	.sub_button {
+  line-height:20px;
+  position:relative;
+  height:27px;
+  width:77px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.sub_button:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.sub_button:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+
+	.right_button1 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button1:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button1:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+.right_button2 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button2:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button2:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+	.right_button3 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button3:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button3:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
 
 </style>
 </head>
@@ -81,7 +175,7 @@
 	<p class="title">選考準備編セミナー参加のお礼</p>
 	<!-- <p>${requestScope.template.t_title}</p>-->
 	<form action ="/systemofj/Servlet?FLG=templateUpdate" method="POST" name ="templateArea" id ="form">
-		<input type="submit" class="sub_button" name="tu_update_button" value="templateEdit"><br>
+		<input type="submit" class="sub_button" name="tu_update_button" value="更新" ><br>
 		<input type="hidden" name="page_id" value="templateEdit.jsp">
 			<p id="output" class = "error"></p>
 
@@ -148,17 +242,23 @@ function addUname(){
 	function check(){
 		text = document.templateArea.textarea.value;
 		n = text.length;
-		if (n > 1000)
+		if (n > 1000){
 		document.getElementById('output').textContent ='※1000文字以内で入力してください';
+		}else if (n <= 0){
+		document.getElementById('output').textContent = '※文字を入力してください';
 
+
+		}
 	};
+
+
 	document.getElementById('form').onsubmit = function(event){
 		text = document.templateArea.textarea.value;
 		n = text.length;
-		if(n > 1000)
+		if(n > 1000 || n <= 0)
 			event.preventDefault();
 
-	}
+	};
 
 
 </script>
