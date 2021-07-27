@@ -119,6 +119,7 @@ public class UpdateDeleteAction {
 
 		//selectionEasy
 		String seSelectionDate = request.getParameter("seSelectionDate");
+		System.out.println((request.getParameter("seScore")));
 		int seScore = Integer.parseInt(request.getParameter("seScore"));
 		int seTextScore = Integer.parseInt(request.getParameter("seTextScore"));
 		String seTextResult = request.getParameter("seTextResult");
@@ -738,6 +739,7 @@ System.out.println("mine");
 		String page = "/WEB-INF/jsp/result.jsp";
 
 		//idとpwをリクエスト領域から取得
+		System.out.println(request.getParameter("fId"));
 		int fId = Integer.parseInt(request.getParameter("fId"));
 		String fName = request.getParameter("fName");
 		String fContent = request.getParameter("fContent");
