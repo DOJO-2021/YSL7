@@ -56,6 +56,8 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 				if (searchValue.equals("internAll")) {
+					System.out.println("yagi");
+					System.out.println(searchValue);
 					list = service.searchInternList("%", date);
 				} else {
 					list = service.searchInternList(searchValue, date);
@@ -64,18 +66,18 @@ public class SelectAction {
 			} else if(mode.equals("event")) {//イベント検索がされた場合
 
 				//説明会だけはインターンテーブルに入ってるから
-				if (searchValue.equals("説明会")) {
-
-					list = service.searchInternList(searchValue, date);
-
-				} else {
+//				if (searchValue.equals("説明会")) {
+//
+//					list = service.searchInternList(searchValue, date);
+//
+//				} else {
 
 					list = service.searchEventList(searchValue, date);
-
+					System.out.println(searchValue);
 				}
 
 
-			} else if(mode.equals("selection")) {//選考検索がされた場合
+			 else if(mode.equals("selection")) {//選考検索がされた場合
 
 				list = service.searchEntryList(searchValue);
 				System.out.println(searchValue);

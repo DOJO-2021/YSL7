@@ -51,7 +51,7 @@ width: 800px;
 <form action="/systemofj/Servlet" method="POST">
   <div id="student" style="display:none;">
   <input type="hidden" name="page_id" value="studentsEdit">
-  <input type="hidden" name="sId" value="${student.s_id}">
+  <input type="hidden" name="sId" value="${student.sId}">
 	<table style="border: 0px; width: 800px;" class = table>
 	  <tr>
 	    <td>氏名<hr><input type="text" name="s_name" value="${student.sName}" required></td>
@@ -62,7 +62,7 @@ width: 800px;
 	    <td>学校名<hr><input type="text" name="s_university" value="${student.sUnivercity}" required></td>
 	    <td>学部<hr><input type="text" name="s_faculty" value="${student.sFaculty}" required></td>
 	    <td>学科<hr><input type="text" name="s_department" value="${student.sDepartment}" required></td>
-	    <td>文理<hr><select name="s_contexts"><option value="${student.sContexts}"></option><option value="文">文</option><option value="理">理</option></select></td>
+	    <td>文理<hr><select name="s_contexts"><option value="　"></option><option value="文"<c:if test="${student.sContexts == '文'}" >selected</c:if>>文</option><option value="理"<c:if test="${student.sContexts == '理'}" >selected</c:if>>理</option></select></td>
 	  </tr>
 	  <tr>
 	    <td colspan="2">PCメール<hr><input type="text" name="s_pcmail" value="${student.sPcMail}"></td>
@@ -75,10 +75,16 @@ width: 800px;
 	          <th colspan="4">申込分類</th>
 	        </tr>
 	        <tr>
-	    	  <td>キャリタス<hr><select name="s_careertasu"><option value="${student.sCareertasu}"></option><option value="〇">〇</option></select></td>
-	    	  <td>リクナビ<hr><select name="s_rikunavi"><option value="${student.sRikunavi}"></option><option value="〇">〇</option></select></td>
-	    	  <td>マイナビ<hr><select name="s_mynavi"><option value="${student.sMynavi}"></option><option value="〇">〇</option></select></td>
-	    	  <td>その他<hr><select name="s_other"><option value="${student.Other}"></option><option value="〇">〇</option></select></td>
+	    	  <td>
+	    	  	キャリタス<hr>
+	    	  	<select name="s_careertasu">
+	    	  		<option value="　"></option>
+	    	  		<option value="〇" <c:if test="${student.sCareertasu == '〇'}" >selected</c:if>>〇</option>
+	    	  	</select>
+	    	  </td>
+	    	  <td>リクナビ<hr><select name="s_rikunavi"><option value="　"></option><option value="〇"<c:if test="${student.sRikunavi == '〇'}" >selected</c:if>>〇</option></select></td>
+	    	  <td>マイナビ<hr><select name="s_mynavi"><option value="　"></option><option value="〇"<c:if test="${student.sMynavi == '〇'}" >selected</c:if>>〇</option></select></td>
+	    	  <td>その他<hr><select name="s_other"><option value="　"></option><option value="〇"<c:if test="${student.sOther == '〇'}" >selected</c:if>>〇</option></select></td>
 	        </tr>
 	      </table>
 	    </td>
@@ -100,7 +106,7 @@ width: 800px;
           <td>参加日</td>
         </tr>
         <tr>
-          <td><input type="date" name="e_date1" value="${events[0].eDate}"></td>
+          <td><input type="date" name="e_date1" value="${con}"></td>
         </tr>
       </table>
     </td>
@@ -168,35 +174,36 @@ width: 800px;
               </tr>
               <tr>
                 <th>懇親会出欠</th>
-                <td><select name="i_meeting1"><option value="${intern[0].iMeeting}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting2"><option value="${intern[1].iMeeting}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting3"><option value="${intern[2].iMeeting}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting4"><option value="${intern[3].iMeeting}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_meeting5"><option value="${intern[4].iMeeting}"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_meeting1"><option value="　"></option><option value="〇"<c:if test="${intern[0].iMeeting == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_meeting2"><option value="　"></option><option value="〇"<c:if test="${intern[1].iMeeting == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_meeting3"><option value="　"></option><option value="〇"<c:if test="${intern[2].iMeeting == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_meeting4"><option value="　"></option><option value="〇"<c:if test="${intern[3].iMeeting == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_meeting5"><option value="　"></option><option value="〇"<c:if test="${intern[4].iMeeting == '〇'}" >selected</c:if>>〇</option></select></td>
               </tr>
               <tr>
                 <th>アンケート合否</th>
-                <td><select name="i_acceptance1"><option value="${intern[0].iAcceptance}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance2"><option value="${intern[1].iAcceptance}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance3"><option value="${intern[2].iAcceptance}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance4"><option value="${intern[3].iAcceptance}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_acceptance5"><option value="${intern[4].iAcceptance}"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_acceptance1"><option value="　"></option><option value="〇"<c:if test="${intern[0].iAcceptance == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_acceptance2"><option value="　"></option><option value="〇"<c:if test="${intern[1].iAcceptance == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_acceptance3"><option value="　"></option><option value="〇"<c:if test="${intern[2].iAcceptance == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_acceptance4"><option value="　"></option><option value="〇"<c:if test="${intern[3].iAcceptance == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_acceptance5"><option value="　"></option><option value="〇"<c:if test="${intern[4].iAcceptance == '〇'}" >selected</c:if>>〇</option></select></td>
               </tr>
               <tr>
                 <th>アンケート提出有無</th>
-                <td><select name="i_submit1"><option value="${intern[0].iSubmit}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit2"><option value="${intern[1].iSubmit}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit3"><option value="${intern[2].iSubmit}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit4"><option value="${intern[3].iSubmit}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_submit5"><option value="${intern[4].iSubmit}"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_submit1"><option value="　"></option><option value="〇"<c:if test="${intern[0].iSubmit == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_submit2"><option value="　"></option><option value="〇"<c:if test="${intern[1].iSubmit == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_submit3"><option value="　"></option><option value="〇"<c:if test="${intern[2].iSubmit == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_submit4"><option value="　"></option><option value="〇"<c:if test="${intern[3].iSubmit == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_submit5"><option value="　"></option><option value="〇"<c:if test="${intern[4].iSubmit == '〇'}" >selected</c:if>>〇</option></select></td>
               </tr>
               <tr>
                 <th>資料送付</th>
-                <td><select name="i_document1"><option value="${intern[0].iDocument}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document2"><option value="${intern[1].iDocument}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document3"><option value="${intern[2].iDocument}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document4"><option value="${intern[3].iDocument}"></option><option value="〇">〇</option></select></td>
-                <td><select name="i_document5"><option value="${intern[4].iDocument}"></option><option value="〇">〇</option></select></td>
+                <td><select name="i_document1"><option value="　"></option><option value="〇"<c:if test="${intern[0].iDocument == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_document2"><option value="　"></option><option value="〇"<c:if test="${intern[1].iDocument == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_document3"><option value="　"></option><option value="〇"<c:if test="${intern[2].iDocument == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_document4"><option value="　"></option><option value="〇"<c:if test="${intern[3].iDocument == '〇'}" >selected</c:if>>〇</option></select></td>
+                <td><select name="i_document5"><option value="　"></option><option value="〇"<c:if test="${intern[4].iDocument == '〇'}" >selected</c:if>>〇</option></select></td>
+
               </tr>
             </table>
           </td>
@@ -226,7 +233,7 @@ width: 800px;
         <tr>
           <td><input type="date" name="applyflag" value="${exp.applyflag}"></td>
           <td><input type="date" name="i_date6" value="${exp.iDate}"></td>
-          <td><select name="i_attend"><option value="${exp.iAttend}"></option><option value="〇">〇</option></select></td>
+          <td><select name="i_attend"><option value="　"></option><option value="〇"<c:if test="${exp.iAttend == '〇'}" >selected</c:if>>〇</option></select></td>
         </tr>
       </table>
     </td>
@@ -268,10 +275,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_resume1"><option value="${resume[0].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume2"><option value="${resume[1].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume3"><option value="${resume[2].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_resume4"><option value="${resume[3].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_resume1"><option value="0"<c:if test="${resume[0].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${resume[0].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${resume[0].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${resume[0].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${resume[0].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_resume2"><option value="0"<c:if test="${resume[1].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${resume[1].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${resume[1].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${resume[1].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${resume[1].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_resume3"><option value="0"<c:if test="${resume[2].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${resume[2].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${resume[2].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${resume[2].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${resume[2].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_resume4"><option value="0"<c:if test="${resume[3].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${resume[3].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${resume[3].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${resume[3].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${resume[3].stScore == '4'}" >selected</c:if>>4</option></select></td>
         </tr>
       </table>
     </td>
@@ -287,11 +294,11 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_pr1"><option value="${pr[0].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr2"><option value="${pr[1].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr3"><option value="${pr[2].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_pr4"><option value="${pr[3].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-        </tr>
+          <td><select name="st_score_pr1"><option value="0"<c:if test="${pr[0].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${pr[0].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${pr[0].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${pr[0].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${pr[0].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_pr2"><option value="0"<c:if test="${pr[1].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${pr[1].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${pr[1].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${pr[1].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${pr[1].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_pr3"><option value="0"<c:if test="${pr[2].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${pr[2].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${pr[2].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${pr[2].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${pr[2].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="st_score_pr4"><option value="0"<c:if test="${pr[3].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${pr[3].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${pr[3].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${pr[3].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${pr[3].stScore == '4'}" >selected</c:if>>4</option></select></td>
+          </tr>
       </table>
     </td>
     <td style="border: 0px">
@@ -306,10 +313,10 @@ width: 800px;
           <td>菅澤</td>
         </tr>
         <tr>
-          <td><select name="st_score_text1"><option value="${text[0].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text2"><option value="${text[1].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text3"><option value="${text[2].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="st_score_text4"><option value="${text[3].stScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
+          <td><select name="st_score_text1"><option value="0"<c:if test="${text[0].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${text[0].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${text[0].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${text[0].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${text[0].stScore == '4'}" >selected</c:if>>4</option></select></td>
+		  <td><select name="st_score_text2"><option value="0"<c:if test="${text[1].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${text[1].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${text[1].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${text[1].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${text[1].stScore == '4'}" >selected</c:if>>4</option></select></td>
+		  <td><select name="st_score_text3"><option value="0"<c:if test="${text[2].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${text[2].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${text[2].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${text[2].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${text[2].stScore == '4'}" >selected</c:if>>4</option></select></td>
+		  <td><select name="st_score_text4"><option value="0"<c:if test="${text[3].stScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${text[3].stScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${text[3].stScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${text[3].stScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${text[3].stScore == '4'}" >selected</c:if>>4</option></select></td>
         </tr>
       </table>
     </td>
@@ -331,10 +338,10 @@ width: 800px;
         <tr>
           <td style="width: 143px"><input type="date" name="se_firstno" value="${eazy.seFirstNo}"></td>
           <td style="width: 143px"><input type="date" name="se_firstdate" value="${eazy.seFirstDate}"></td>
-          <td><select name="sf_score_one1"><option value="${face1[0].sfScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one2"><option value="${face1[1].sfScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_one3"><option value="${face1[2].sfScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_firstresult"><option value="${eazy.seFirstResult}"></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><select name="sf_score_one1"><option value="0"<c:if test="${face1[0].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[0].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[0].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[0].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[0].sfScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="sf_score_one1"><option value="0"<c:if test="${face1[1].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[1].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[1].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[1].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[1].sfScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="sf_score_one1"><option value="0"<c:if test="${face1[2].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[2].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[2].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[2].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[2].sfScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="se_firstresult"><option value="　"></option><option value="合"<c:if test="${eazy.seFirstResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seFirstResult == '否'}" >selected</c:if>>否</option></select></td>
         </tr>
       </table>
     </td>
@@ -353,9 +360,9 @@ width: 800px;
         <tr>
           <td style="width: 143px"><input type="date" name="se_secondno" value="${eazy.seSecondNo}"></td>
           <td style="width: 143px"><input type="date" name="se_seconddate" value="${eazy.seSecondDate}"></td>
-          <td><select name="sf_score_second1"><option value="${face2[0].sfScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="sf_score_second2"><option value="${face2[1].sfScore}"></option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option></select></td>
-          <td><select name="se_secondresult"><option value="${eazy.seSecondResult}"></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><select name="sf_score_second1"><option value="0"<c:if test="${face2[0].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face2[0].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face2[0].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face2[0].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face2[0].sfScore == '4'}" >selected</c:if>>4</option></select></td>
+		  <td><select name="sf_score_second2"><option value="0"<c:if test="${face2[1].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face2[1].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face2[1].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face2[1].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face2[1].sfScore == '4'}" >selected</c:if>>4</option></select></td>
+          <td><select name="se_secondresult"><option value="　"></option><option value="合"<c:if test="${eazy.seSecondResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seSecondResult == '否'}" >selected</c:if>>否</option></select></td>
         </tr>
       </table>
     </td>
@@ -370,7 +377,7 @@ width: 800px;
         </tr>
         <tr>
           <td><input type="date" name="se_thirddate" value="${eazy.seThirdDate}"></td>
-          <td><select name="se_thirdresult"><option value="${eazy.seThirdResult}"></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td><select name="se_thirdresult"><option value="　"></option><option value="合"<c:if test="${eazy.seThirdResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seThirdResult == '否'}" >selected</c:if>>否</option></select></td>
         </tr>
       </table>
     </td>
@@ -422,22 +429,22 @@ width: 800px;
         </tr>
         <tr>
           <td><select name="se_situation">
-          <option value="${eazy.seSituation}">${eazy.seSituation}</option>
-          <option value="適性検査受験前">適性検査受験前</option>
-          <option value="適性検査受験済">適性検査受験済</option>
-          <option value="書類選考中">書類選考中</option>
-          <option value="書類選考合否">書類選考合否</option>
-          <option value="一次選考日程調整">一次選考日程調整</option>
-          <option value="一次選考実施中">一次選考実施中</option>
-          <option value="二次選考日程調整">二次選考日程調整</option>
-          <option value="二次選考実施中">二次選考実施中</option>
-          <option value="三次選考日程調整">三次選考日程調整</option>
-          <option value="三次選考実施中">三次選考実施中</option>
-          <option value="内々定決定">内々定決定</option>
-          <option value="内々定送付">内々定送付</option>
-          <option value="内々定応諾">内々定応諾</option>
-          <option value="辞退">辞退</option>
-          <option value="不合格">不合格</option>
+          <option value="　">${eazy.seSituation}</option>
+          <option value="適性検査受験前"<c:if test="${eazy.seSituation == '適性検査受験前'}">selected</c:if>>適性検査受験前</option>
+          <option value="適性検査受験済"<c:if test="${eazy.seSituation == '適性検査受験済'}">selected</c:if>>適性検査受験済</option>
+          <option value="書類選考中"<c:if test="${eazy.seSituation == '書類選考中'}">selected</c:if>>書類選考中</option>
+          <option value="書類選考合否"<c:if test="${eazy.seSituation == '書類選考合否'}">selected</c:if>>書類選考合否</option>
+          <option value="一次選考日程調整"<c:if test="${eazy.seSituation == '一次選考日程調整'}">selected</c:if>>一次選考日程調整</option>
+          <option value="一次選考実施中"<c:if test="${eazy.seSituation == '一次選考実施中'}">selected</c:if>>一次選考実施中</option>
+          <option value="二次選考日程調整"<c:if test="${eazy.seSituation == '二次選考日程調整'}">selected</c:if>>二次選考日程調整</option>
+          <option value="二次選考実施中"<c:if test="${eazy.seSituation == '二次選考実施中'}">selected</c:if>>二次選考実施中</option>
+          <option value="三次選考日程調整"<c:if test="${eazy.seSituation == '三次選考日程調整'}">selected</c:if>>三次選考日程調整</option>
+          <option value="三次選考実施中"<c:if test="${eazy.seSituation == '三次選考実施中'}">selected</c:if>>三次選考実施中</option>
+          <option value="内々定決定"<c:if test="${eazy.seSituation == '内々定決定'}">selected</c:if>>内々定決定</option>
+          <option value="内々定送付"<c:if test="${eazy.seSituation == '内々定送付'}">selected</c:if>>内々定送付</option>
+          <option value="内々定応諾"<c:if test="${eazy.seSituation == '内々定応諾'}">selected</c:if>>内々定応諾</option>
+          <option value="辞退"<c:if test="${eazy.seSituation == '辞退'}">selected</c:if>>辞退</option>
+          <option value="不合格"<c:if test="${eazy.seSituation == '不合格'}">selected</c:if>>不合格</option>
           </select>
           </td>
         </tr>
