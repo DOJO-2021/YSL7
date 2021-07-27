@@ -17,7 +17,7 @@
 				<table  class ="float_l">
 					<tr><td>　　</td><td>　　</td><td>　　</td></tr>
 					<tr>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　アップロード　></a></td>
+						<td><a href="/systemofj/Servlet?FLG=upload" class="btn-flat-border">　アップロード　></a></td>
 						<td><a href="/systemofj/Servlet" class="btn-flat-border">　分析　></a></td>
 						<td><a href="/systemofj/Servlet" class="btn-flat-border">　検索　></a></td>
 					</tr>

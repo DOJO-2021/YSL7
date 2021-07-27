@@ -44,11 +44,13 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${list}" varStatus="status">
+						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="" value="cb" id="flagup"></td>
 
-							<input type ="hidden" name ="s_id" value ="${e.s_id }">
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
+
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
 							<td>${e.sFaculty}</td>
@@ -56,6 +58,7 @@
 							<td>${e.iDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
+						</tr>
 						</c:forEach>
 					</tr>
 				</table>
@@ -82,6 +85,8 @@
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="" value="cb" id="flagup"></td>
+
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}u</td>
@@ -116,6 +121,8 @@
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
 							<td><input type="hidden" name="" value="cb" id="flagup"></td>
+
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
