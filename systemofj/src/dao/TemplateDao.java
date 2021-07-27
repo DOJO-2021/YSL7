@@ -51,9 +51,7 @@ public class TemplateDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if(conn != null) {
-			conn.close();
-		}
+
 
 		return ans;
 
@@ -78,6 +76,7 @@ public class TemplateDao {
 		//テンプレートIDと一致するテンプレートがあるかチェックする
 		if (rs.next()) {
 			template = new Template();
+			template.settId(rs.getInt("t_id"));
 			template.settTitle(rs.getString("t_title"));
 			template.settContent(rs.getString("t_content"));
 			template.settCategory(rs.getString("t_category"));
