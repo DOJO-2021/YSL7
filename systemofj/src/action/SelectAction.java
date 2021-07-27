@@ -40,9 +40,9 @@ public class SelectAction {
 			if (!mode.equals("selection") || !mode.equals("name")) {
 				year = request.getParameter("year");
 				date = request.getParameter("date");
-				if (year == null) {//年未入力の場合
+				if (year == null || year.equals("")) {//年未入力の場合
 					//何もしない
-				} else if (date == null) {//日付未入力の場合
+				} else if (date == null || date.equals("")) {//日付未入力の場合
 					date = year + "%";
 				} else {//日付も年度も入力されていた場合
 					//何もしない（日付が優先）
@@ -127,7 +127,7 @@ public class SelectAction {
 			//模擬面接、座談会、合説で分ける
 			ArrayList<SEvent> mock = new ArrayList<>();
 			ArrayList<SEvent> talk = new ArrayList<>();
-			String con = "　";
+			SEvent con = new SEvent();;
 
 			for (SEvent e : events) {
 				if (e.geteCategory().contains("模擬")) {//模擬面接だった場合
@@ -135,7 +135,7 @@ public class SelectAction {
 				} else if (e.geteCategory().contains("座談会")) {//座談会だった場合
 					talk.add(e);
 				} else if (e.geteCategory().contains("合")) {//合説だった場合
-					con = e.geteDate();
+					con = e;
 				}
 
 			}
@@ -266,6 +266,7 @@ public class SelectAction {
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
+				System.out.println(sName+"sNameだよ");
 
 				//人事の名前を入手
 				HttpSession session = request.getSession();
@@ -274,6 +275,7 @@ public class SelectAction {
 
 				//大学名を入手
 				String sUnivercity = request.getParameter("sUnivercity");
+				System.out.println(sUnivercity+"sUnivercityよ");
 
 
 				//selectServiceを実体化
@@ -293,9 +295,9 @@ public class SelectAction {
 				//テンプレ選択の場合
 				String content = template.gettContent();
 				System.out.println(content+"content");
-				content = content.replace("学生の名前が入ります", sName);
-				content = content.replace("あなたの名前が入ります", uName);
-				content = content.replace("学生の大学名が入ります", sUnivercity);
+				content = content.replace("\"学生の名前が入ります\"", sName);
+				content = content.replace("\"あなたの名前が入ります\"", uName);
+				content = content.replace("\"学生の大学名が入ります\"", sUnivercity);
 				System.out.println(content+"contentです");
 				template.settContent(content);
 

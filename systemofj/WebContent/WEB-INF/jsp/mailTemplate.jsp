@@ -7,7 +7,9 @@
 <head>
 <meta charset="UTF-8">
 <title>mailTemplate</title>
+<style>
 
+</style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
@@ -36,7 +38,7 @@
 						<option value="4">会社説明会参加のお礼</option>
  						-->
 			 </select><br>
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		 </div>
 </form>
@@ -63,7 +65,7 @@
 				 -->
 			 </select><br>
 			 <input type="hidden" name="tId" value="${e.tId}">
-			 <input type="submit" name="submit" value="テンプレ使用"onclick="yesno()" >
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()" >
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>
@@ -87,7 +89,7 @@
 					 -->
 			 </select><br>
 
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>
@@ -110,7 +112,7 @@
 						<option value="2">面接当日案内</option>
 					 -->
 			 </select><br>
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>

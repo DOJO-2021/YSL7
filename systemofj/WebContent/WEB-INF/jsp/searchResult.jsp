@@ -29,11 +29,13 @@
 	<label for="day">日付で並び替え</label>
 </div>
 <div class="list_box">
+							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize">
+
 <!-- インターン検索 -->
 <c:if test="${mode.equals('intern')}">
 			<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult" id="alledit">
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -46,12 +48,12 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="g" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="h" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="g" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="h" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
@@ -61,6 +63,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+						<input type="hidden" name="sName" value="${e.sName}">
+  						<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 						</c:forEach>
 					</tr>
 				</table>
@@ -71,7 +75,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -83,12 +87,12 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="e" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="f" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="e" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="f" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -98,6 +102,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -108,7 +114,7 @@
 <form method="POST" action="/systemofj/Servlets">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -119,12 +125,12 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="a" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="b" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="a" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="b" value="cb" id="flagup${status.index}"></td>
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -133,7 +139,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
-
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -143,7 +150,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -155,15 +162,12 @@
 							<th></th>
 						</tr>
 				 	<c:forEach var="e" items="${list}" varStatus="status">
+							<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
+							<input type="hidden" name="d" value="cb" id="flagup${status.index}">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+
 						<tr>
-							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td><input type="hidden" name="c" value="aj"id="flagedit${status.index}"></td>
-							<td><input type="hidden" name="d" value="cb" id="flagup${status.index}"></td>
-							<td><input type="hidden" name="z" value="${fn : length(list) }" id="fnsize"></td>
-
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}"></td>
-
+				 			<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -172,6 +176,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+						<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -196,11 +202,14 @@
 				</table>
 </c:if> -->
 </div>
+<c:forEach var="list" items="${list}" varStatus="status">
+	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
+</c:forEach>
 
-		<input type="checkbox" id="checkbox_all" onclick="allchangflag" >
+		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="selection">全選択/解除</label>
 
-	<input type="submit" name="submit" value="編集">
+	<input type="submit" name="submit" value="一括編集">
 
 </body>
 
@@ -241,7 +250,7 @@ function changeflag(indexNo, sId){
 				});
 			}
 }
-function allchangflag(){
+/*function allchangflag(){
 	var che = document.getElementById("alledit").value;
 	var ch = document.getElementById('chId'+indexNo);
 	var sn = document.getElementById("idname"+indexNo).value;
@@ -261,7 +270,7 @@ function allchangflag(){
 				});
 		}
 	}
-}
+}*/
 </script>
 
 <!-- ソート
@@ -282,7 +291,7 @@ let checkbox_list = document.querySelectorAll('.checkbox_list');
 //全選択のチェックボックスイベント
 checkbox_all.addEventListener('change', change_all);
 
-function change_all() {
+function change_all(indexNo) {
 
 	//チェックされているか
 	if (checkbox_all.checked) {
@@ -298,6 +307,37 @@ function change_all() {
 			if (checkbox_list.hasOwnProperty(i)) {
 				checkbox_list[i].checked = false;
 			}
+		}
+	}
+	let count = document.getElementById("fnsize").value;
+//	alert(count);
+	let SID = '';
+//	var sn = document.getElementById("idname"+indexNo).value;
+
+//	var ch = document.getElementById('chId'+indexNo);
+//	var sn = document.getElementById("idname"+indexNo).value;
+
+	//チェックが付いたとき
+	if(document.getElementById('checkbox_all').checked){
+		for(let i=0;i<count;i++){
+			SID = document.getElementById('sn'+i).value;
+			//alert(IID);
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'cb', submit:''}
+			});
+		}
+	//チェックが外されたとき
+	}else{
+		for(let i=0;i<count;i++){
+			SID = document.getElementById('sn'+i).value;
+			//alert(IID);
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'ef', submit:''}
+			});
 		}
 	}
 };

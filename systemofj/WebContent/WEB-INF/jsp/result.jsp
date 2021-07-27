@@ -9,13 +9,15 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<br>
+<br>
 
 <p class="result">
-	<c:out value="${errMsg}"/>
-</p>
+	<div align="center"><h2><c:out value="${errMsg}"/></h2></div>
 
+<br>
 
-<a href="/systemofj/Servlet?FLG=top">トップページに戻る</a>
+<div align="center"><a href="/systemofj/Servlet?FLG=top">トップページに戻る</a></div>
 
 
 
