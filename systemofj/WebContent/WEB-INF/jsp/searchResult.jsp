@@ -33,7 +33,7 @@
 <c:if test="${mode.equals('intern')}">
 			<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult" id="alledit">
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -71,7 +71,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -108,7 +108,7 @@
 <form method="POST" action="/systemofj/Servlets">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -143,7 +143,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -160,8 +160,6 @@
 							<td><input type="hidden" name="c" value="aj"id="flagedit${status.index}"></td>
 							<td><input type="hidden" name="d" value="cb" id="flagup${status.index}"></td>
 							<td><input type="hidden" name="z" value="${fn : length(list) }" id="fnsize"></td>
-
-
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}"></td>
 
 							<td>${e.sName}</td>
