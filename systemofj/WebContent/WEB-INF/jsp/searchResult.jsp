@@ -200,7 +200,7 @@
 		<input type="checkbox" id="checkbox_all" onclick="allchangflag" >
 		<label for="selection">全選択/解除</label>
 
-	<input type="submit" name="submit" value="編集">
+	<input type="submit" name="submit" value="一括編集">
 
 </body>
 
