@@ -89,19 +89,16 @@
 
 		</table>
 
-			 <!--ファイルをドラッグするエリア-->
+	<!--ファイルをドラッグするエリア-->
     <div id="drop-zone" style="border: 1px solid; padding: 30px;">
         <p>ファイルをドラッグ＆ドロップ</p>
         <br><br><br>
         <div id="saito"></div>
-        <!-- <input type="file" name="file" id="file-input">-->
-        <!--ボタン-->
-        <!-- <input type="submit" name="button" style="margin-top: 200px" value="送信" onclick="return check()">-->
     </div>
 
 	</form>
 
-	<script>
+	<script type="text/javascript">
 		'use strict';
 
 		document.getElementById("events").style.display = "none";
@@ -338,20 +335,13 @@
 
 		//PDFファイルが選択された時にアップロードボタンを活性化
 		file2.addEventListener("change",function() {
-			if(file2.files.length > 0) {
+			if(file2.files.length > 0 || dfiles.length > 0) {
 				document.getElementById("button").disabled = false;
 			}
 		},false);
 
 		var dropZone = document.getElementById('drop-zone');
-	    var preview = document.getElementById('preview');
-	    var fileInput = document.getElementById('file-input');
-	    function check(){
-	    	if(fileInput.value==""){
-	    		alert('ファイルを選択してください');
-	    		return false;
-	    	}
-	    }
+
 	    dropZone.addEventListener('dragover', function(e) {
 	        e.stopPropagation();
 	        e.preventDefault();
@@ -362,23 +352,21 @@
 	        e.preventDefault();
 	        this.style.background = '#FFFFFF';
 	    }, false);
-	    fileInput.addEventListener('change', function () {
-	        previewFile(this.files[0]);
-	    });
+
 	    dropZone.addEventListener('drop', function(e) {
 	        e.stopPropagation();
 	        e.preventDefault();
 	        this.style.background = '#FFFFFF'; //背景色を白に戻す
-	        var files = e.dataTransfer.files; //ドロップしたファイルを取得
-	        //if (files.length > 1) return alert('アップロードできるファイルは1つだけです。');
+	        var dfiles = e.dataTransfer.files; //ドロップしたファイルを取得
+
 	        let tsuji = '';
-			for(let i=0; i<files.length; i++){
-				tsuji=tsuji+files[i].name + "<br>";
+			for(let i=0; i<dfiles.length; i++){
+				tsuji=tsuji+dfiles[i].name + "<br>";
 			}
 			let target=document.getElementById("saito");
 			target.innerHTML =tsuji;
 			//ファイル名の文字列を分割して配列に格納
-			var str = Array.from(files[0].name);
+			var str = Array.from(dfiles[0].name);
 			//ファイル名の末尾４文字を文字列に格納
 			var str2 = str[str.length-4] + str[str.length-3] + str[str.length-2] + str[str.length-1];
 			alert(str2);
