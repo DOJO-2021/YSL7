@@ -30,7 +30,7 @@ width: 800px;
 
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <!-- アップロード画面へ遷移 -->
   <form action="/systemofj/Servlet.java" method="POST" style="display:inline-flex">
     <input type="SUBMIT" value="履歴書PDFを登録">
@@ -47,9 +47,9 @@ width: 800px;
   <div id="student" style="display:none;">
 	<table style="border: 0px; width: 800px;">
 	  <tr>
-	    <td>氏名<hr><input type="text" name="s_name" value="　"></td>
+	    <td>氏名<hr><input type="text" name="s_name" value="　" id="s_nameid"></td>
 	    <td>フリガナ<hr><input type="text" name="s_kana" value="　"></td>
-	    <td colspan="2">住所<hr><input type="text" name="s_address" value="　"></td>
+	    <td colspan="2">住所<hr><input type="text" name="s_address" value="　" id="s_addressid"></td>
 	  </tr>
 	  <tr>
 	    <td>学校名<hr><input type="text" name="s_university" value="　"></td>
@@ -445,7 +445,8 @@ width: 800px;
 </table>
 </div>
 <div align="center">
-<input type="submit" name="submit" value="登録" style="width: 200px">
+<p id="error"></p>
+<input type="submit" name="submit" value="登録" style="width: 200px"  onclick="return checkData()">
 </div>
 </form>
 </body>
@@ -458,7 +459,21 @@ if(checkBox.checked){
   document.getElementById(id).style.display = "none";
 }
 
-}
+};
+
+//登録ボタン押されたとき必須項目の記入がないと必須項目を入力するよう警告
+function checkData(){
+  const s_name = document.getElementById('s_nameid').value;
+  const s_address = document.getElementById('s_addressid').value;
+  if(s_name === "　" || s_address === "　"){
+  	event.preventDefault();
+ 	  document.getElementById('error').textContent = '※内容を全て入力してください';
+
+    return false;
+  }else{
+    return true;
+  }
+};
 
 </script>
 </html>
