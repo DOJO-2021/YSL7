@@ -72,10 +72,10 @@
 			<tr>
 				<td>
 					<div id="upcsv">
-						<input type="file" name="csv" accept=".csv" id="file1" onclick="activate1()" required>
+						<input type="file" name="csv" id="file1" accept=".csv">
 					</div>
 					<div id="uppdf">
-						<input type="file" name="pdf" accept=".pdf" id="file2" onclick="activate2()" required>
+						<input type="file" name="pdf" id="file2" accept=".pdf">
 					</div>
 				</td>
 			</tr>
@@ -105,8 +105,8 @@
 		var events = elements.event;
 		var i_category = elements.i_category;
 		var date = elements.date;
-		var file1 = document.getElementById("file1");
-		var file2 = document.getElementById("file2");
+		var file1 = elements.csv;
+		var file2 = elements.pdf;
 
 
 		//履歴書の場合
@@ -316,15 +316,20 @@
 
 		}
 
-		//ファイルが選択された時にアップロードボタンを活性化
-		function activate1() {
-			document.getElementById("button").disabled = false;
-		}
+		//CSVファイルが選択された時にアップロードボタンを活性化
+		file1.addEventListener("change",function() {
+			if(file1.files.length > 0) {
+				document.getElementById("button").disabled = false;
+			}
+		},false);
 
-		//ファイルが選択された時にアップロードボタンを活性化
-		function activate2() {
-			document.getElementById("button").disabled = false;
-		}
+		//PDFファイルが選択された時にアップロードボタンを活性化
+		file2.addEventListener("change",function() {
+			if(file2.files.length > 0) {
+				document.getElementById("button").disabled = false;
+			}
+		},false);
+
 
 	</script>
 </body>
