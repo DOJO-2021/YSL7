@@ -96,14 +96,14 @@ public class UpdateDeleteService {
 			String seEarlyOk,String seEarlyNo, String seFirstResult, String seSecondResult,
 			String seFirstNo,String seFirstDate, String seSecondNo, String seSecondDate,
 			String seThirdDate, String seThirdResult, String seRemarks, String seSituation, String seDecide,
-			String sfCategory1, String sfCategory2, String sfName1, String sfName2, String sfName3, int sfScore1_1, int sfScore1_2, int sfScore1_3, int sfScore2_1, int sfScore2_2, int sfId,
+			String sfCategory1, String sfCategory2, String sfName1, String sfName2, String sfName3, int sfScore1_1, int sfScore1_2, int sfScore1_3, int sfScore2_1, int sfScore2_2, int sfId1, int sfId2, int sfId3, int sfId4, int sfId5,
 			String stCategory1, String stCategory2, String stCategory3,
-			String stName1, String stName2, String stName3, String stName4, int stScore1, int stScore2, int stScore3, int stScore4, int stScore5, int stScore6, int stScore7, int stScore8, int stScore9,int stScore10, int stScore11, int stScore12, int stId,
+			String stName1, String stName2, String stName3, String stName4, int stScore1, int stScore2, int stScore3, int stScore4, int stScore5, int stScore6, int stScore7, int stScore8, int stScore9,int stScore10, int stScore11, int stScore12, int stId1, int stId2, int stId3, int stId4, int stId5, int stId6, int stId7, int stId8, int stId9, int stId10, int stId11,int stId12,
 			String iCategory1, String iCategory2, String iCategory3, String iCategory4, String iCategory5, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5, String iMeeting1, String iMeeting2,
 			String iMeeting3, String iMeeting4, String iMeeting5, String iSubmit1, String iSubmit2, String iSubmit3, String iSubmit4, String iSubmit5,
 			String iAcceptace1, String iAcceptace2, String iAcceptace3, String iAcceptace4, String iAcceptace5,
-			String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,  String iAttend, int iId,
-			int eId, String eDate1, String eDate2, String eDate3, String eDate4, String eDate5, String eDate6
+			String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,  String iAttend, int iId1, int iId2, int iId3, int iId4, int iId5,
+			int eId1, int eId2, int eId3, int eId4, int eId5, int eId6, String eDate1, String eDate2, String eDate3, String eDate4, String eDate5, String eDate6
 			) throws ClassNotFoundException, SQLException {
 
 			//resultを設定
@@ -234,141 +234,141 @@ public class UpdateDeleteService {
 			result2 = true;
 			}
 
-			int test3 =dao3.selectionfaceUpdate( sfCategory1, sfName1, sfScore1_1,  sfId);
+			int test3 =dao3.selectionfaceUpdate( sfCategory1, sfName1, sfScore1_1,  sfId1);
 			if(test3 != 0) {
 			result3 = true;
 			}
 
-			int test4=dao4.selectionfaceUpdate( sfCategory1, sfName2, sfScore1_2,  sfId);
+			int test4=dao4.selectionfaceUpdate( sfCategory1, sfName2, sfScore1_2,  sfId2);
 			if(test4 != 0) {
 			result4 = true;
 			}
 
-			int test5 =dao5.selectionfaceUpdate( sfCategory1, sfName3, sfScore1_3,  sfId);
+			int test5 =dao5.selectionfaceUpdate( sfCategory1, sfName3, sfScore1_3,  sfId3);
 			if(test5 != 0) {
 			result5 = true;
 			}
 
-			int test6 =dao6.selectionfaceUpdate( sfCategory2, sfName1, sfScore2_1,  sfId);
+			int test6 =dao6.selectionfaceUpdate( sfCategory2, sfName1, sfScore2_1,  sfId4);
 			if(test6 != 0) {
 			result6 = true;
 			}
 
-			int test7 =dao7.selectionfaceUpdate( sfCategory2, sfName2, sfScore2_2,  sfId);
+			int test7 =dao7.selectionfaceUpdate( sfCategory2, sfName2, sfScore2_2,  sfId5);
 			if(test7 != 0) {
 			result7 = true;
 			}
 
-			int test8 =dao8.selectiontextUpdate(sId, stCategory1, stName1, stScore1, stId);
+			int test8 =dao8.selectiontextUpdate(sId, stCategory1, stName1, stScore1, stId1);
 			if(test8 != 0) {
 			result8 = true;
 			}
 
-			int test9 =dao9.selectiontextUpdate(sId, stCategory1, stName2, stScore2, stId);
+			int test9 =dao9.selectiontextUpdate(sId, stCategory1, stName2, stScore2, stId2);
 			if(test9 != 0) {
 			result9 = true;
 			}
 
-			int test10 =dao10.selectiontextUpdate(sId, stCategory1, stName3, stScore3, stId);
+			int test10 =dao10.selectiontextUpdate(sId, stCategory1, stName3, stScore3, stId3);
 			if(test10 != 0) {
 			result10 = true;
 			}
 
-			int test11 =dao11.selectiontextUpdate(sId, stCategory1, stName4, stScore4, stId);
+			int test11 =dao11.selectiontextUpdate(sId, stCategory1, stName4, stScore4, stId4);
 			if(test11 != 0) {
 			result11 = true;
 			}
 
-			int test12 =dao12.selectiontextUpdate(sId, stCategory2, stName1, stScore1, stId);
+			int test12 =dao12.selectiontextUpdate(sId, stCategory2, stName1, stScore1, stId5);
 			if(test12 != 0) {
 			result12 = true;
 			}
 
-			int test13 =dao13.selectiontextUpdate(sId, stCategory2, stName2, stScore2, stId);
+			int test13 =dao13.selectiontextUpdate(sId, stCategory2, stName2, stScore2, stId6);
 			if(test13 != 0) {
 			result13 = true;
 			}
 
-			int test14 =dao14.selectiontextUpdate(sId, stCategory2, stName3, stScore3, stId);
+			int test14 =dao14.selectiontextUpdate(sId, stCategory2, stName3, stScore3, stId7);
 			if(test14 != 0) {
 			result14 = true;
 			}
 
-			int test15 =dao15.selectiontextUpdate(sId, stCategory2, stName4, stScore4, stId);
+			int test15 =dao15.selectiontextUpdate(sId, stCategory2, stName4, stScore4, stId8);
 			if(test15 != 0) {
 			result15 = true;
 			}
 
-			int test16 =dao16.selectiontextUpdate(sId, stCategory3, stName1, stScore1, stId);
+			int test16 =dao16.selectiontextUpdate(sId, stCategory3, stName1, stScore1, stId9);
 			if(test16 != 0) {
 			result16 = true;
 			}
 
-			int test17 =dao17.selectiontextUpdate(sId, stCategory3, stName2, stScore2, stId);
+			int test17 =dao17.selectiontextUpdate(sId, stCategory3, stName2, stScore2, stId10);
 			if(test17 != 0) {
 			result17 = true;
 			}
 
-			int test18 =dao18.selectiontextUpdate(sId, stCategory3, stName3, stScore3, stId);
+			int test18 =dao18.selectiontextUpdate(sId, stCategory3, stName3, stScore3, stId11);
 			if(test18 != 0) {
 			result18 = true;
 			}
 
-			int test19 =dao19.selectiontextUpdate(sId, stCategory3, stName4, stScore4, stId);
+			int test19 =dao19.selectiontextUpdate(sId, stCategory3, stName4, stScore4, stId12);
 			if(test19 != 0) {
 			result19 = true;
 			}
 
-			int test20 =dao20.internUpdate(iId, iDate1,  iMeeting1,  iSubmit1, iAcceptace1,  iDocument1, iAttend, iCategory1);
+			int test20 =dao20.internUpdate(iId1, iDate1,  iMeeting1,  iSubmit1, iAcceptace1,  iDocument1, iAttend, iCategory1);
 			if(test20 != 0) {
 				result20 = true;
 				}
 
-			int test21 =dao21.internUpdate(iId, iDate2,  iMeeting2,  iSubmit2, iAcceptace2,  iDocument2,  iCategory2, iAttend);
+			int test21 =dao21.internUpdate(iId2, iDate2,  iMeeting2,  iSubmit2, iAcceptace2,  iDocument2,  iCategory2, iAttend);
 			if(test21 != 0) {
 				result21 = true;
 				}
 
-			int test22 =dao22.internUpdate(iId, iDate3,  iMeeting3,  iSubmit3, iAcceptace3,  iDocument3,  iCategory3, iAttend);
+			int test22 =dao22.internUpdate(iId3, iDate3,  iMeeting3,  iSubmit3, iAcceptace3,  iDocument3,  iCategory3, iAttend);
 			if(test22 != 0) {
 				result22 = true;
 				}
 
-			int test23 =dao23.internUpdate(iId, iDate4,  iMeeting4,  iSubmit4, iAcceptace4,  iDocument4,  iCategory4, iAttend);
+			int test23 =dao23.internUpdate(iId4, iDate4,  iMeeting4,  iSubmit4, iAcceptace4,  iDocument4,  iCategory4, iAttend);
 			if(test23 != 0) {
 				result23 = true;
 				}
 
-			int test24 =dao24.internUpdate(iId, iDate5,  iMeeting5,  iSubmit5, iAcceptace5,  iDocument5,  iCategory5, iAttend);
+			int test24 =dao24.internUpdate(iId5, iDate5,  iMeeting5,  iSubmit5, iAcceptace5,  iDocument5,  iCategory5, iAttend);
 			if(test24 != 0) {
 				result24 = true;
 				}
-			int test25 =dao25.eventUpdate(eId,eDate1);
+			int test25 =dao25.eventUpdate(eId1, eDate1);
 			if(test25 != 0) {
 				result25 = true;
 				}
 
-			int test26 =dao26.eventUpdate(eId,eDate2);
+			int test26 =dao26.eventUpdate(eId2,eDate2);
 			if(test26 != 0) {
 				result26 = true;
 				}
 
-			int test27 =dao27.eventUpdate(eId,eDate3);
+			int test27 =dao27.eventUpdate(eId3,eDate3);
 			if(test27 != 0) {
 				result27 = true;
 				}
 
-			int test28 =dao28.eventUpdate(eId,eDate4);
+			int test28 =dao28.eventUpdate(eId4,eDate4);
 			if(test28 != 0) {
 				result28 = true;
 				}
 
-			int test29 =dao29.eventUpdate(eId,eDate5);
+			int test29 =dao29.eventUpdate(eId5,eDate5);
 			if(test29 != 0) {
 				result29 = true;
 				}
 
-			int test30 =dao30.eventUpdate(eId,eDate6);
+			int test30 =dao30.eventUpdate(eId6,eDate6);
 			if(test30 != 0) {
 				result30 = true;
 				}
