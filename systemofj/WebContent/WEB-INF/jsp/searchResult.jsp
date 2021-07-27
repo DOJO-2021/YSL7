@@ -203,7 +203,7 @@
 </c:if> -->
 </div>
 <c:forEach var="list" items="${list}" varStatus="status">
-	<input type="text" name="SN" value="${list.sId}" id="sn${status.index}">
+	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
