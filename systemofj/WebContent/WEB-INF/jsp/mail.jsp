@@ -12,7 +12,7 @@
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sName) }">
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sUnivercity) }">
 
-	<textarea rows="10" cols="20" id="text">${Templete.tContent }</textarea>
+	<textarea rows="10" cols="20" id="text">${template.tContent }</textarea>
 	<input type ="button" value="一括コピー" onclick="return textCopy()">
 </div>
 </body>
