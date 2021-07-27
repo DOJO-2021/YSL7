@@ -45,7 +45,8 @@
 		<h2 class="inline">テンプレ登録ページ</h2>
 		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ編集ページへ</a>
 	</div>
-	<form action ="/systemofj/Servlet" method="POST">
+	<p id="l_error"></p>
+	<form action ="/systemofj/Servlet" method="POST" id="template">
 	<select name="tr_category">
 		<option value="">テンプレートのカテゴリを選択</option>
 		<option value="説明会">説明会</option>
@@ -117,5 +118,15 @@ function addUname(){
 	textarea.value = sentence;
 	return false;
 }
+
+document.getElementById('form').onsubmit = function(event) {
+	const id_input = document.getElementById('template');
+
+	if (id_input === "") {
+		event.preventDefault();
+		document.getElementById('l_error').textContent = '内容を入力してください';
+	}
+};
+
 </script>
 </html>
