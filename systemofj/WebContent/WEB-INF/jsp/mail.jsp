@@ -5,8 +5,21 @@
 <head>
 <meta charset="UTF-8">
 <title>mail</title>
+<style>
+html {
+  text-align: center;
+}
+
+textarea {
+  resize: none;
+  width:1000px;
+  height:600px;
+  font-size: 15px;
+}
+</style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>メール作成</h1>
 <div>
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sName) }">
