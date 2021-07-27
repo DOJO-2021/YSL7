@@ -29,6 +29,8 @@
 	<label for="day">日付で並び替え</label>
 </div>
 <div class="list_box">
+							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize">
+
 <!-- インターン検索 -->
 <c:if test="${mode.equals('intern')}">
 			<form method="POST" action="/systemofj/Servlet">
@@ -162,7 +164,6 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 							<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="d" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
 						<tr>
@@ -201,6 +202,9 @@
 				</table>
 </c:if> -->
 </div>
+<c:forEach var="list" items="${list}" varStatus="status">
+	<input type="text" name="SN" value="${list.sId}" id="sn${status.index}">
+</c:forEach>
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="selection">全選択/解除</label>
@@ -287,7 +291,7 @@ let checkbox_list = document.querySelectorAll('.checkbox_list');
 //全選択のチェックボックスイベント
 checkbox_all.addEventListener('change', change_all);
 
-function change_all() {
+function change_all(indexNo) {
 
 	//チェックされているか
 	if (checkbox_all.checked) {
@@ -305,10 +309,10 @@ function change_all() {
 			}
 		}
 	}
-	let count = document.getElementById("fnsize${status.index}").value;
+	let count = document.getElementById("fnsize").value;
 //	alert(count);
 	let SID = '';
-	var sn = document.getElementById("idname"+indexNo).value;
+//	var sn = document.getElementById("idname"+indexNo).value;
 
 //	var ch = document.getElementById('chId'+indexNo);
 //	var sn = document.getElementById("idname"+indexNo).value;
