@@ -266,6 +266,7 @@ public class SelectAction {
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
+				System.out.println(sName+"sNameだよ");
 
 				//人事の名前を入手
 				HttpSession session = request.getSession();
@@ -274,6 +275,7 @@ public class SelectAction {
 
 				//大学名を入手
 				String sUnivercity = request.getParameter("sUnivercity");
+				System.out.println(sUnivercity+"sUnivercityよ");
 
 
 				//selectServiceを実体化
@@ -293,9 +295,9 @@ public class SelectAction {
 				//テンプレ選択の場合
 				String content = template.gettContent();
 				System.out.println(content+"content");
-				content = content.replace("学生の名前が入ります", sName);
-				content = content.replace("あなたの名前が入ります", uName);
-				content = content.replace("学生の大学名が入ります", sUnivercity);
+				content = content.replace("\"学生の名前が入ります\"", sName);
+				content = content.replace("\"あなたの名前が入ります\"", uName);
+				content = content.replace("\"学生の大学名が入ります\"", sUnivercity);
 				System.out.println(content+"contentです");
 				template.settContent(content);
 

@@ -153,7 +153,12 @@ public class UpdateDeleteAction {
 		int sfScore1_3 = Integer.parseInt(request.getParameter("sf_score_one3"));
 		int sfScore2_1 = Integer.parseInt(request.getParameter("se_textresult1"));
 		int sfScore2_2 = Integer.parseInt(request.getParameter("se_textresult2"));
-		int sfId = Integer.parseInt(request.getParameter("sfId"));
+		int sfId1 = Integer.parseInt(request.getParameter("sfId1"));
+		int sfId2 = Integer.parseInt(request.getParameter("sfId2"));
+		int sfId3 = Integer.parseInt(request.getParameter("sfId3"));
+		int sfId4 = Integer.parseInt(request.getParameter("sfId4"));
+		int sfId5 = Integer.parseInt(request.getParameter("sfId5"));
+
 
 		//selectionText
 		String stCategory1 ="履歴書評価";
@@ -175,7 +180,18 @@ public class UpdateDeleteAction {
 		int stScore10 = Integer.parseInt(request.getParameter("st_score_text2"));
 		int stScore11 = Integer.parseInt(request.getParameter("st_score_text3"));
 		int stScore12 = Integer.parseInt(request.getParameter("st_score_text4"));
-		int stId = Integer.parseInt(request.getParameter("stId"));
+		int stId1 = Integer.parseInt(request.getParameter("stId1"));
+		int stId2 = Integer.parseInt(request.getParameter("stId2"));
+		int stId3 = Integer.parseInt(request.getParameter("stId3"));
+		int stId4 = Integer.parseInt(request.getParameter("stId4"));
+		int stId5 = Integer.parseInt(request.getParameter("stId5"));
+		int stId6 = Integer.parseInt(request.getParameter("stId6"));
+		int stId7 = Integer.parseInt(request.getParameter("stId7"));
+		int stId8 = Integer.parseInt(request.getParameter("stId8"));
+		int stId9 = Integer.parseInt(request.getParameter("stId9"));
+		int stId10 = Integer.parseInt(request.getParameter("stId10"));
+		int stId11 = Integer.parseInt(request.getParameter("stId11"));
+		int stId12 = Integer.parseInt(request.getParameter("stId12"));
 
 		//internupdate
 		String iCategory1 ="1day";
@@ -218,10 +234,20 @@ public class UpdateDeleteAction {
 		String iAttend = request.getParameter("iAttend");
 
 
-		int   iId = Integer.parseInt(request.getParameter("iId"));
+		int   iId1 = Integer.parseInt(request.getParameter("iId1"));
+		int   iId2 = Integer.parseInt(request.getParameter("iId2"));
+		int   iId3 = Integer.parseInt(request.getParameter("iId3"));
+		int   iId4 = Integer.parseInt(request.getParameter("iId4"));
+		int   iId5 = Integer.parseInt(request.getParameter("iId5"));
 
 		//eventupdate
-		int eId = Integer.parseInt(request.getParameter("eId"));
+		int eId1 = Integer.parseInt(request.getParameter("eId1"));
+		int eId2 = Integer.parseInt(request.getParameter("eId2"));
+		int eId3 = Integer.parseInt(request.getParameter("eId3"));
+		int eId4 = Integer.parseInt(request.getParameter("eId4"));
+		int eId5 = Integer.parseInt(request.getParameter("eId5"));
+		int eId6 = Integer.parseInt(request.getParameter("eId6"));
+
 		String eDate1 = request.getParameter("e_date1");
 		String eDate2 = request.getParameter("e_date2");
 		String eDate3 = request.getParameter("e_date3");
@@ -244,14 +270,14 @@ public class UpdateDeleteAction {
 											seNo, seOk, seNoreason, seSendOk, seEarlyOk, seEarlyNo, seFirstResult,
 											seSecondResult,seFirstNo, seFirstDate, seSecondNo, seSecondDate, seThirdDate,
 											seThirdResult, seRemarks, seSituation, seDecide,
-											sfCategory1, sfCategory2, sfName1,sfName2, sfName3,  sfScore1_1, sfScore1_2, sfScore1_3 ,sfScore2_1, sfScore2_2,  sfId,
+											sfCategory1, sfCategory2, sfName1,sfName2, sfName3,  sfScore1_1, sfScore1_2, sfScore1_3 ,sfScore2_1, sfScore2_2,  sfId1, sfId2, sfId3, sfId4, sfId5,
 											stCategory1, stCategory2, stCategory3, stName1, stName2, stName3, stName4,
-											stScore1, stScore2, stScore3, stScore4, stScore5, stScore6, stScore7, stScore8, stScore9, stScore10, stScore11, stScore12, stId,
+											stScore1, stScore2, stScore3, stScore4, stScore5, stScore6, stScore7, stScore8, stScore9, stScore10, stScore11, stScore12, stId1, stId2, stId3, stId4, stId5, stId6, stId7, stId8, stId9, stId10, stId11, stId12,
 											iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2,
 											iMeeting3, iMeeting4, iMeeting5, iSubmit1, iSubmit2, iSubmit3, iSubmit4, iSubmit5,
 											iAcceptace1, iAcceptace2, iAcceptace3, iAcceptace4, iAcceptace5,
-											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iAttend,iId,
-											eId, eDate1, eDate2, eDate3, eDate4, eDate5, eDate6);
+											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iAttend,iId1, iId2, iId3, iId4, iId5,
+											eId1, eId2, eId3, eId4, eId5, eId6, eDate1, eDate2, eDate3, eDate4, eDate5, eDate6);
 
 			if (student == true) {
 
@@ -742,7 +768,7 @@ System.out.println("mine");
 		System.out.println(request.getParameter("fId"));
 		int fId = Integer.parseInt(request.getParameter("fId"));
 		String fName = request.getParameter("fName");
-		String fContent = request.getParameter("fContent");
+		String fContent = request.getParameter("f_content");
 
 
 		//出力値を格納するBean
