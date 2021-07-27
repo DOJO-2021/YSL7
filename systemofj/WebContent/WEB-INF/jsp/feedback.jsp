@@ -25,10 +25,16 @@
 	margin: auto;
 }
 
-#tArea{
+#allRegist{
 	height: 500px;
 	width: 700px;
 }
+
+#allupdate{
+	height: 500px;
+	width: 700px;
+}
+
 
 </style>
 
@@ -59,12 +65,12 @@
 							<input type="hidden" name="sId" value="${param.sId}">
 							<input type="hidden" name="s_id" value="${param.sId}">
 
-							<input type="submit" name="submit" value="登録ボタン">
+							<input type="submit" name="submit" value="登録ボタン" onclick="return check('regist')">
 
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3"><textarea name="f_content" rows="20" cols="50"></textarea></td>
+						<td colspan="3"><textarea name="f_content" rows="20" cols="50" id="regist"></textarea></td>
 					</tr>
 				</table>
 			</form>
@@ -99,22 +105,26 @@
 
 			<form method="POST" action="/systemofj/Servlet">
 				<input type="hidden" name="page_id" value="feedback">
+				<input type="hidden" name="fId" value="${all.fId}">
 				<input type="hidden" name="f_category" value="${param.category}">
+				<input type="hidden" name="fCategory" value="${param.category}">
 				<input type="hidden" name="sId" value="${param.sId}">
 				<input type="hidden" name="s_id" value="${param.sId}">
 				<input type="hidden" name="f_name" value="まとめ">
+				<input type="hidden" name="fName" value="まとめ">
 
 				<table border="1" class="fb-matome">
 					<tr>
-						<td colspan="3"><textarea name=f_content rows="20" cols="50" id="tArea">${all.fContent}</textarea></td>
+						<td colspan="3" id="regarea"><textarea name=f_content rows="20" cols="50" id="allRegist"></textarea></td>
+						<td colspan="3" id="uparea"><textarea name=fContent rows="20" cols="50" id="allupdate">${all.fContent}</textarea></td>
 					</tr>
 
 					<tr>
-						<td id="f_regist_button">
-							<input type="submit" name="submit" value="フィードバックまとめ更新ボタン">
-						</td>
 						<td id="f_update_button">
-							 <input type="submit" name="submit" value="フィードバックまとめ登録ボタン">
+							<input type="submit" name="submit" value="フィードバックまとめ更新ボタン" onclick="return check('allupdate')">
+						</td>
+						<td id="f_regist_button">
+							 <input type="submit" name="submit" value="フィードバックまとめ登録ボタン" onclick="return check('allRegist')">
 						</td>
 					</tr>
 				</table>
@@ -142,11 +152,11 @@
 								<input type="hidden" name="f_category" value="${list.fCategory}">
 								<input type="hidden" name="sId" value="${param.sId}">
 								<input type="hidden" name="s_id" value="${param.sId}">
-								<input type="submit" name="submit" value="更新ボタン">
+								<input type="submit" name="submit" value="更新ボタン" onclick="return check('update')">
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3"><textarea name="fContent" rows="20" cols="50" >${list.fContent}</textarea></td>
+							<td colspan="3"><textarea name="fContent" rows="20" cols="50"  id="update">${list.fContent}</textarea></td>
 						</tr>
 					</table>
 				</form>
@@ -162,12 +172,23 @@
 <script>
 
 	window.onload = function(){
-		let e = document.getElementById("tArea").value;
-		if(e != ''){
+		let e = document.getElementById("allRegist").value;
+		let i = document.getElementById("allupdate").value;
+		if(i == ''){
 			document.getElementById("f_update_button").style.display="none";
+			document.getElementById("uparea").style.display="none";
 		}
-		if(e == ''){
+		if(i != ''){
 			document.getElementById("f_regist_button").style.display="none";
+			document.getElementById("regarea").style.display="none";
+		}
+	}
+
+	function check(area) {
+		var area = document.getElementById(area).value;
+		if (area === null || area === "") {
+			window.alert("入力してから登録してください")
+			return false;
 		}
 	}
 
