@@ -7,15 +7,17 @@
 <head>
 <meta charset="UTF-8">
 <title>mailTemplate</title>
+<style>
 
+</style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
-	<input type ="text" name ="sName" value ="${param.sName}">
-	<input type ="text" name ="sUnivercity" value ="${param.sUnivercity}">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 
 	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
@@ -24,11 +26,10 @@
 	<input type="radio" id="other" name="template" onclick="show()" >その他<br>
 		<div id="explanationtemplate" style="display: none">
 					カテゴリを選択してください：
-			<select name="kind1">
+			<select name="kind">
 			<!-- 説明会プルダウンメニューの中身 -->
 			<c:forEach var="e" items="${event}">
-				<option value = "${e.tTitle}"></option>
-				 <input type="text" name="tId" value="${e.tId}">
+					<option value="${e.tId}"><c:out value="${e.tTitle}"/></option>
 			</c:forEach>
 						<!-- <option value="">合同説明会のご案内</option>
 						<option value="1">合同説明会参加のお礼</option>
@@ -37,12 +38,19 @@
 						<option value="4">会社説明会参加のお礼</option>
  						-->
 			 </select><br>
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		 </div>
+</form>
+
+<form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="mailTemplate">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
+
 		<div id="interntemplate" style="display: none">
 				カテゴリを選択してください：
-			<select name="kind2">
+			<select name="kind">
 				<!-- インターンプルダウンメニューの中身 -->
 				<c:forEach var="e" items="${intern}">
 					<option value="${e.tId}"><c:out value="${e.tTitle}"/></option>
@@ -57,16 +65,23 @@
 				 -->
 			 </select><br>
 			 <input type="hidden" name="tId" value="${e.tId}">
-			 <input type="submit" name="submit" value="テンプレ使用"onclick="yesno()" >
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()" >
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
+</form>
+
+
+<form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="mailTemplate">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
+
 		<div id="facetemplate" style="display: none">
 					カテゴリを選択してください：
-			<select name="kind3">
+			<select name="kind">
 				<!-- 面接プルダウンメニューの中身 -->
 				<c:forEach var="e" items="${selection}">
-					<option><c:out value="${e.tTitle}"/></option>
-					<input type="hidden" name="tId" value="${e.tId}">
+					<option value="${e.tId}"><c:out value="${e.tTitle}"/></option>
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
 						<option value="1">面接参加のお礼</option>
@@ -74,23 +89,30 @@
 					 -->
 			 </select><br>
 
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
+</form>
+
+
+<form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="mailTemplate">
+	<input type ="hidden" name ="sName" value ="${param.sName}">
+	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
+
 		<div id="othertemplate" style="display: none">
 				カテゴリを選択してください：
-			<select name="kind4">
+			<select name="kind">
 				<!-- その他プルダウンメニューの名身 -->
 				<c:forEach var="e" items="${other}">
-					<option><c:out value="${e.tTitle}"/></option>
-					<input type="hidden" name="tId" value="${e.tId}">
+					<option value="${e.tId}"><c:out value="${e.tTitle}"/></option>
 				</c:forEach>
 					<!-- 	<option value="0">面接のご案内</option>
 						<option value="1">面接参加のお礼</option>
 						<option value="2">面接当日案内</option>
 					 -->
 			 </select><br>
-			 <input type="submit" name="submit" value="テンプレ使用" onclick="yesno()">
+			 <input type="submit" name="submit" value="テンプレ使用" onclick="return yesno()">
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>

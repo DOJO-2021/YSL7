@@ -27,6 +27,7 @@ background-color: #e0e0e0;
 </style>
 </head>
 <body>
+
 <!-- メール作成ボタン -->
   <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
   	<input type="hidden" name="page_id" value="detail">

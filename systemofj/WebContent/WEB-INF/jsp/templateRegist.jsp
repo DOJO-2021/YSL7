@@ -41,11 +41,12 @@
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 	<div class="templatehead">
 		<h2 class="inline">テンプレ登録ページ</h2>
 		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ編集ページへ</a>
 	</div>
-	<form action ="/systemofj/Servlet" method="POST">
+	<form action ="/systemofj/Servlet" method="POST" name="form1" onSubmit="return check()">
 	<select name="tr_category">
 		<option value="">テンプレートのカテゴリを選択</option>
 		<option value="説明会">説明会</option>
@@ -117,5 +118,23 @@ function addUname(){
 	textarea.value = sentence;
 	return false;
 }
+
+
+//空欄のまま登録押すとアラート
+function check() {
+    if(document.form1.tr_title.value == "") {
+        alert("タイトルを入力してください");
+        return false;
+    }
+    if(document.form1.tr_content.value == "") {
+        alert("内容を入力してください");
+        return false;
+    }
+    if(document.form1.tr_category.value == "") {
+        alert("カテゴリーを選択してください");
+        return false;
+    }
+}
+
 </script>
 </html>

@@ -5,14 +5,25 @@
 <head>
 <meta charset="UTF-8">
 <title>mail</title>
+<style>
+
+textarea {
+  resize: none;
+  width:1000px;
+  height:600px;
+  font-size: 15px;
+}
+</style>
 </head>
-<body>
+
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>メール作成</h1>
-<div>
+<body>
+<div class="div">
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sName) }">
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sUnivercity) }">
 
-	<textarea rows="10" cols="20" id="text">${Templete.tContent }</textarea>
+	<textarea rows="10" cols="20" id="text">${template.tContent }</textarea>
 	<input type ="button" value="一括コピー" onclick="return textCopy()">
 </div>
 </body>

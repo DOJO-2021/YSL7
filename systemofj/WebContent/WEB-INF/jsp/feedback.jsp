@@ -102,7 +102,9 @@
 				<input type="hidden" name="f_category" value="${param.category}">
 				<input type="hidden" name="sId" value="${param.sId}">
 				<input type="hidden" name="s_id" value="${param.sId}">
+				<input type="hidden" name="fId" value="${all.fId}">
 				<input type="hidden" name="f_name" value="まとめ">
+				<input type="hidden" name="fName" value="まとめ">
 
 				<table border="1" class="fb-matome">
 					<tr>
@@ -146,7 +148,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3"><textarea name="fContent" rows="20" cols="50" >${list.fContent}</textarea></td>
+							<td colspan="3"><textarea name="f_content" rows="20" cols="50" >${list.fContent}</textarea></td>
 						</tr>
 					</table>
 				</form>

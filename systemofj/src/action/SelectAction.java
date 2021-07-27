@@ -56,8 +56,6 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 				if (searchValue.equals("internAll")) {
-					System.out.println("yagi");
-					System.out.println(searchValue);
 					list = service.searchInternList("%", date);
 				} else {
 					list = service.searchInternList(searchValue, date);
@@ -66,18 +64,18 @@ public class SelectAction {
 			} else if(mode.equals("event")) {//イベント検索がされた場合
 
 				//説明会だけはインターンテーブルに入ってるから
-//				if (searchValue.equals("説明会")) {
-//
-//					list = service.searchInternList(searchValue, date);
-//
-//				} else {
+				if (searchValue.equals("説明会")) {
+
+					list = service.searchInternList(searchValue, date);
+
+				} else {
 
 					list = service.searchEventList(searchValue, date);
-					System.out.println(searchValue);
+
 				}
 
 
-			 else if(mode.equals("selection")) {//選考検索がされた場合
+			} else if(mode.equals("selection")) {//選考検索がされた場合
 
 				list = service.searchEntryList(searchValue);
 				System.out.println(searchValue);
@@ -129,7 +127,7 @@ public class SelectAction {
 			//模擬面接、座談会、合説で分ける
 			ArrayList<SEvent> mock = new ArrayList<>();
 			ArrayList<SEvent> talk = new ArrayList<>();
-			String con = "　";
+			SEvent con = new SEvent();;
 
 			for (SEvent e : events) {
 				if (e.geteCategory().contains("模擬")) {//模擬面接だった場合
@@ -137,7 +135,7 @@ public class SelectAction {
 				} else if (e.geteCategory().contains("座談会")) {//座談会だった場合
 					talk.add(e);
 				} else if (e.geteCategory().contains("合")) {//合説だった場合
-					con = e.geteDate();
+					con = e;
 				}
 
 			}
@@ -242,7 +240,8 @@ public class SelectAction {
 
 		try {
 			//どのテンプレが選択されたかの情報を入手
-			String stringtId = request.getParameter("tId");
+			String stringtId = request.getParameter("kind");
+			System.out.println(stringtId+"tIdだよ");
 			//ボタンの値を入手
 			String submit = request.getParameter("submit");
 
@@ -263,9 +262,11 @@ public class SelectAction {
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
 				int tId = Integer.parseInt(stringtId);
+				System.out.println(tId+"intのtIdだよ");
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
+				System.out.println(sName+"sNameだよ");
 
 				//人事の名前を入手
 				HttpSession session = request.getSession();
@@ -274,6 +275,7 @@ public class SelectAction {
 
 				//大学名を入手
 				String sUnivercity = request.getParameter("sUnivercity");
+				System.out.println(sUnivercity+"sUnivercityよ");
 
 
 				//selectServiceを実体化
@@ -284,7 +286,7 @@ public class SelectAction {
 
 				//テンプレ検索の場合
 				if(submit != null) {
-					if(submit.equals("検索")) {
+					if(submit.equals("テンプレ編集")) {
 						request.setAttribute("template", template);
 						return "/WEB-INF/jsp/templateEdit.jsp";
 					}
@@ -293,9 +295,10 @@ public class SelectAction {
 				//テンプレ選択の場合
 				String content = template.gettContent();
 				System.out.println(content+"content");
-				content = content.replace("学生の名前が入ります", sName);
-				content = content.replace("あなたの名前が入ります", uName);
-				content = content.replace("学生の大学名が入ります", sUnivercity);
+				content = content.replace("\"学生の名前が入ります\"", sName);
+				content = content.replace("\"あなたの名前が入ります\"", uName);
+				content = content.replace("\"学生の大学名が入ります\"", sUnivercity);
+				System.out.println(content+"contentです");
 				template.settContent(content);
 
 				request.setAttribute("template", template);
@@ -305,13 +308,13 @@ public class SelectAction {
 			e.printStackTrace();
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");
-			return "/WEB-INF/jsp/detail.jsp";
+			return "/WEB-INF/jsp/result.jsp";
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
-			return "/WEB-INF/jsp/detail.jsp";
+			return "/WEB-INF/jsp/result.jsp";
 		}
 	}
 

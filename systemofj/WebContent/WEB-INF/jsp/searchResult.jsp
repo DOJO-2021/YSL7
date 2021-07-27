@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +16,7 @@
 --------------------------- -->
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>検索結果</h1>
 <div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
@@ -31,7 +33,7 @@
 <c:if test="${mode.equals('intern')}">
 			<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult" id="alledit">
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -46,8 +48,8 @@
 						<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="g" value="aj"id="flagedit${status.index}"></td>
+							<td><input type="hidden" name="h" value="cb" id="flagup${status.index}"></td>
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
@@ -69,7 +71,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -83,16 +85,16 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="e" value="aj"id="flagedit${status.index}"></td>
+							<td><input type="hidden" name="f" value="cb" id="flagup${status.index}"></td>
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
-							<td>${e.sUnivercity}u</td>
+							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
-							<td>${e.iCategory}</td>
-							<td>${e.iDate}</td>
+							<td>${e.eCategory}</td>
+							<td>${e.eDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
@@ -106,7 +108,7 @@
 <form method="POST" action="/systemofj/Servlets">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -119,8 +121,8 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="" value="cb" id="flagup"></td>
+							<td><input type="hidden" name="a" value="aj"id="flagedit${status.index}"></td>
+							<td><input type="hidden" name="b" value="cb" id="flagup${status.index}"></td>
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
@@ -141,7 +143,7 @@
 <form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
-				<table id="myTable">
+				<table border="1" id="myTable">
 						<tr>
 							<th></th>
 							<th>名前</th>
@@ -155,11 +157,10 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td><input type="hidden" name="" value="aj"id="flagedit"></td>
-							<td><input type="hidden" name="" value="cb" id="flagup"></td>
-
-
-							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
+							<td><input type="hidden" name="c" value="aj"id="flagedit${status.index}"></td>
+							<td><input type="hidden" name="d" value="cb" id="flagup${status.index}"></td>
+							<td><input type="hidden" name="z" value="${fn : length(list) }" id="fnsize"></td>
+							<td><input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}"></td>
 
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -194,7 +195,7 @@
 </c:if> -->
 </div>
 
-		<input type="checkbox" id="checkbox_all"  >
+		<input type="checkbox" id="checkbox_all" onclick="allchangflag" >
 		<label for="selection">全選択/解除</label>
 
 	<input type="submit" name="submit" value="編集">
@@ -206,29 +207,58 @@
 <script>
 'use strict';
 //ページを読み込んだらflagが1のものを0に戻すメソッド
-window.onload = function(){
+ window.onload = function(){
 	var che = document.getElementById("alledit").value;
-	var edi = 'aj';
+	//var edi = 'aj';
 
 	$.ajax({
 		type:'post',
 		url: '/systemofj/SearchResultTestServlet',
-		data:{page_id : che, pageload : edi ,submit:''}
+		data:{page_id : che, pageload :'aj' ,submit:''}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
 function changeflag(indexNo, sId){
 	//チェックボックスの取得
 	var che = document.getElementById("alledit").value;
-	var ch = document.getElementById('checkId'+indexNo);
-	var fe = document.getElementById("flagup").value;
-	var sn = document.getElementById("idname").value;
+	var ch = document.getElementById('chId'+indexNo);
+//	var fe = 'cb';
+	var sn = document.getElementById("idname"+indexNo).value;
 //検索リストのチェックボックスがチェンジしたボックスだけをajaxで送る
+			if(ch.checked){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : che, sId : sn , checkbox: fe, submit:''}
+				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
 			});
+			} else{
+				$.ajax({
+					type:'post',
+					url: '/systemofj/SearchResultTestServlet',
+					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+				});
+			}
+}
+function allchangflag(){
+	var che = document.getElementById("alledit").value;
+	var ch = document.getElementById('chId'+indexNo);
+	var sn = document.getElementById("idname"+indexNo).value;
+
+	for(int i=0; i < list.size(); i++){
+		if(ch.checked){
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
+			});
+		} else{
+				$.ajax({
+					type:'post',
+					url: '/systemofj/SearchResultTestServlet',
+					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+				});
+		}
+	}
 }
 </script>
 

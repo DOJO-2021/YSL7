@@ -62,10 +62,6 @@ public class FeedbackDao {
 		int ans = pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 
-		if (conn != null) {
-			conn.close();
-		}
-
 
 		// SQL文を実行する
 		// ここは変えなくていい

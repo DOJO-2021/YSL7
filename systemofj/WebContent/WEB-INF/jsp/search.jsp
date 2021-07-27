@@ -81,6 +81,7 @@ input[name="tab_item"] {
 
 <header>
  <%-- <jsp:include page="../../header.jsp"> --%>
+ <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 </header>
 
 <h1>検索</h1>
