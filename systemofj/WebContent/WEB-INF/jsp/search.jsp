@@ -78,7 +78,7 @@ input[name="tab_item"] {
 
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <header>
  <%-- <jsp:include page="../../header.jsp"> --%>
 </header>
