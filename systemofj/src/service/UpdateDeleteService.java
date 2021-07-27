@@ -775,8 +775,9 @@ public boolean feedbackUpdate(int fId, String fName, String fContent) throws Cla
 		if (test != 0) {
 			conn.commit();
 			result = true;
-		} else
+		} else {
 			conn.rollback();
+		}
 
 		return result;
 	} catch (ClassNotFoundException e) {

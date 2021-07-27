@@ -266,6 +266,7 @@ public class UpdateDeleteAction {
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -360,6 +361,7 @@ public class UpdateDeleteAction {
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -398,6 +400,7 @@ public class UpdateDeleteAction {
 //
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -438,6 +441,7 @@ System.out.println("mine");
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -612,6 +616,7 @@ System.out.println("mine");
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -762,6 +767,7 @@ System.out.println("mine");
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
@@ -1088,6 +1094,7 @@ System.out.println("mine");
 
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
+			e.printStackTrace();
 			request.setAttribute("errMsg", "SQL文おかしい");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
