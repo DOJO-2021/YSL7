@@ -40,9 +40,9 @@ public class SelectAction {
 			if (!mode.equals("selection") || !mode.equals("name")) {
 				year = request.getParameter("year");
 				date = request.getParameter("date");
-				if (year == null) {//年未入力の場合
+				if (year == null || year.equals("")) {//年未入力の場合
 					//何もしない
-				} else if (date == null) {//日付未入力の場合
+				} else if (date == null || date.equals("")) {//日付未入力の場合
 					date = year + "%";
 				} else {//日付も年度も入力されていた場合
 					//何もしない（日付が優先）
