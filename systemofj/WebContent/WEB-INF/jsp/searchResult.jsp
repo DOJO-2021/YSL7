@@ -90,10 +90,10 @@
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname"></td>
 
 							<td>${e.sName}</td>
-							<td>${e.sUnivercity}u</td>
+							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
-							<td>${e.iCategory}</td>
-							<td>${e.iDate}</td>
+							<td>${e.eCategory}</td>
+							<td>${e.eDate}</td>
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
@@ -195,7 +195,7 @@
 </c:if> -->
 </div>
 
-		<input type="checkbox" id="checkbox_all"  >
+		<input type="checkbox" id="checkbox_all" onclick="allchangflag" >
 		<label for="selection">全選択/解除</label>
 
 	<input type="submit" name="submit" value="編集">
@@ -238,6 +238,28 @@ function changeflag(indexNo, sId){
 					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
 				});
 			}
+}
+function allchangflag(){
+	var che = document.getElementById("alledit").value;
+	var ch = document.getElementById('chId'+indexNo);
+	var sn = document.getElementById("idname"+indexNo).value;
+
+	if(ch.checked){
+		$.ajax({
+			type:'post',
+			url: '/systemofj/SearchResultTestServlet',
+			data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
+		});
+		} else{
+			$.ajax({
+				type:'post',
+				url: '/systemofj/SearchResultTestServlet',
+				data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+			});
+		}
+
+
+
 }
 </script>
 
