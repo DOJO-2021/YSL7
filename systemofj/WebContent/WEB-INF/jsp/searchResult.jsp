@@ -61,6 +61,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+						<input type="hidden" name="sName" value="${e.sName}">
+  						<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 						</c:forEach>
 					</tr>
 				</table>
@@ -98,6 +100,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -133,7 +137,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
-
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -157,7 +162,7 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 							<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="d" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize">
+							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
 						<tr>
@@ -170,6 +175,8 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
+						<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
 				</form>
@@ -195,7 +202,7 @@
 </c:if> -->
 </div>
 
-		<input type="checkbox" id="checkbox_all" onclick="allchangflag" >
+		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="selection">全選択/解除</label>
 
 	<input type="submit" name="submit" value="一括編集">
@@ -298,32 +305,34 @@ function change_all() {
 			}
 		}
 	}
-	let count = document.getElementById("fnsize").value;
+	let count = document.getElementById("fnsize${status.index}").value;
 //	alert(count);
-//	let SNAME = '';
-	var ch = document.getElementById('chId'+indexNo);
+	let SID = '';
 	var sn = document.getElementById("idname"+indexNo).value;
+
+//	var ch = document.getElementById('chId'+indexNo);
+//	var sn = document.getElementById("idname"+indexNo).value;
 
 	//チェックが付いたとき
 	if(document.getElementById('checkbox_all').checked){
 		for(let i=0;i<count;i++){
-//			SNAME = document.getElementById('sn'+i).value;
+			SID = document.getElementById('sn'+i).value;
 			//alert(IID);
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : 'searchResult',  sId : sn , checkbox: 'cb', submit:''}
+				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'cb', submit:''}
 			});
 		}
 	//チェックが外されたとき
 	}else{
 		for(let i=0;i<count;i++){
-//			SNAME = document.getElementById('sn'+i).value;
+			SID = document.getElementById('sn'+i).value;
 			//alert(IID);
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : 'searchResult',  sId : sn , checkbox: 'ef', submit:''}
+				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'ef', submit:''}
 			});
 		}
 	}
