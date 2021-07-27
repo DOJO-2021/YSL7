@@ -16,9 +16,9 @@
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 	<h1>アップロード</h1>
 	${msg}
-	<!-- ヘッダー後で追加 -->
 	<form method="POST" action="/systemofj/Servlet" enctype="multipart/form-data" id="upload">
 	<input type="hidden" name="page_id" value="upload">
 		<table>
@@ -72,16 +72,16 @@
 			<tr>
 				<td>
 					<div id="upcsv">
-						<input type="file" name="csv" accept=".csv" id="file1">
+						<input type="file" name="csv" accept=".csv" id="file1" onclick="activate1()" required>
 					</div>
 					<div id="uppdf">
-						<input type="file" name="pdf" accept=".pdf" id="file2">
+						<input type="file" name="pdf" accept=".pdf" id="file2" onclick="activate2()" required>
 					</div>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="submit" value="アップロード" onclick="return uploadcheck()">
+					<input type="submit" name="submit" id="button" value="アップロード" onclick="return uploadcheck()" disabled>
 				</td>
 			</tr>
 
@@ -99,11 +99,14 @@
 		document.getElementById("uppdf").style.display = "none";
 
 
+
 		var elements = document.getElementById('upload');
 		var sites = elements.site;
 		var events = elements.event;
 		var i_category = elements.i_category;
 		var date = elements.date;
+		var file1 = document.getElementById("file1");
+		var file2 = document.getElementById("file2");
 
 
 		//履歴書の場合
@@ -187,39 +190,141 @@
 
 		//アップロード時に内容確認のダイアログを表示
 		function uploadcheck() {
-
+			//サイトごとに分岐
+			//マイナビ
 			if(sites.value === "s_mynavi") {
+				//イベントごとに分岐
+				//エントリー
 				if(events.value === "entry") {
-					window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "infosession") {
-					window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					if(window.confirm("サイト：マイナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
 				}
-			} else if(sites.value === "s_rikunavi") {
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：マイナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value +"\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else if(events.value === "infosession") {
+					if(window.confirm("サイト：マイナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//リクナビ
+			else if(sites.value === "s_rikunavi") {
+				//イベントごとに分岐
+				//エントリー
 				if(events.value === "entry") {
-					window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					if(window.confirm("サイト：リクナビ\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：リクナビ\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else {
+					if(window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//キャリタス
+			else if(sites.value === "s_careertasu") {
+				//イベントごとに分岐
+				//エントリー
+				if(events.value === "entry") {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//インターン
+				else if(events.value === "intern") {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//会社説明会
+				else if(events.value === "infosession"){
+					if(window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+				//合同説明会
+				else {
+					if(window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？")) {
+						//「OK」の時は送信して画面遷移
+						return true;
+					} else {
+						//「キャンセル」の時は画面遷移なし
+						return false;
+					}
+				}
+			}
+			//履歴書
+			else {
+				if(window.confirm("登録します。よろしいですか？")) {
+					//「OK」の時は送信して画面遷移
+					return true;
 				} else {
-					window.confirm("サイト：リクナビ\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
+					//「キャンセル」の時は画面遷移なし
+					return false;
 				}
-			} else if(sites.value === "s_careertasu") {
-				if(events.value === "entry") {
-					window.confirm("サイト：キャリタス\nカテゴリー：エントリー\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "intern") {
-					window.confirm("サイト：キャリタス\nカテゴリー：インターン\nインターンの種類：" + i_category.value + "\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else if(events.value === "infosession"){
-					window.confirm("サイト：キャリタス\nカテゴリー：会社説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				} else {
-					window.confirm("サイト：キャリタス\nカテゴリー：合同説明会\n日付：" + date.value + "\n以上の内容で登録します。よろしいですか？");
-				}
-			} else {
-				window.confirm("登録します。よろしいですか？");
 			}
 
 		}
 
+		//ファイルが選択された時にアップロードボタンを活性化
+		function activate1() {
+			document.getElementById("button").disabled = false;
+		}
+
+		//ファイルが選択された時にアップロードボタンを活性化
+		function activate2() {
+			document.getElementById("button").disabled = false;
+		}
 
 	</script>
 </body>

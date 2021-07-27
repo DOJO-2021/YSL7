@@ -5,10 +5,18 @@
 <head>
 <meta charset="UTF-8">
 <title>System of J</title>
+<style>
+		header{
+		background-color: #0096AE85;
+		color: #696969;
+		height: 180px;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<header>
-
+		<img src="images/logo3.png"  alt="ysl_logo" class="logo">
 	</header>
 		<main>
 		<h1 style="text-align:center">ログイン</h1>

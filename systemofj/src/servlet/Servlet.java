@@ -171,7 +171,7 @@ public class Servlet extends HttpServlet {
 				//詳細画面
 				if(page_id.equals("detail")) {
 					//メール作成ボタン
-					if(submit.equals("メール作成") || submit.equals("ts_regist_button")) {
+					if(submit.equals("作成") || submit.equals("ts_regist_button")) {
 						path = SelectAction.selectTemplate(request);
 						System.out.println(path);
 					}
@@ -213,7 +213,9 @@ public class Servlet extends HttpServlet {
 					//登録ボタン
 					if(submit.equals( "登録")) {
 						path = RegistAction.StudentRegist(request);
-						System.out.println(path);
+					}
+					if(submit.equals("履歴書PDFを登録")) {
+						path = "/WEB-INF/jsp/upload.jsp";
 					}
 				}
 				//フィードバック画面
@@ -251,7 +253,7 @@ public class Servlet extends HttpServlet {
 				//テンプレ更新画面
 				if(page_id.equals("templateEdit")) {
 					//テンプレ更新ボタン
-					if(submit.equals("テンプレ更新ボタン")) {
+					if(submit.equals("テンプレ更新")) {
 						path = UpdateDeleteAction.templateUpdate(request);
 					}
 				}

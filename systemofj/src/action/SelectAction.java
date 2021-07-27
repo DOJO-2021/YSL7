@@ -56,6 +56,8 @@ public class SelectAction {
 
 			if(mode.equals("intern")) {//インターン検索がされた場合
 				if (searchValue.equals("internAll")) {
+					System.out.println("yagi");
+					System.out.println(searchValue);
 					list = service.searchInternList("%", date);
 				} else {
 					list = service.searchInternList(searchValue, date);
