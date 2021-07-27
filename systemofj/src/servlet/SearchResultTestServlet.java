@@ -126,14 +126,18 @@ public class SearchResultTestServlet extends HttpServlet {
 //					}
 					if(pageload != null) {
 						if(pageload.equals("aj")) {
+							System.out.println("ajax入ったよ");
+
 							path = UpdateDeleteAction.flagDelete(request);
+
 						}
 					}
 					//チェックボックスに記入された人のフラグを1に
 					if(checkbox != null) {
 						if(checkbox.equals("cb")) {
 							path = UpdateDeleteAction.flagUpdate(request);
-							System.out.println("ajax入ったよ");
+						}else if(checkbox.equals("ef")) {
+							path = UpdateDeleteAction.flagDelete(request);
 
 						}
 					}

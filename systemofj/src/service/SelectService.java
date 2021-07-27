@@ -177,8 +177,10 @@ public class SelectService {
 		Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
 		//DAOを実体化
 		StudentDao sDao = new StudentDao(conn);
+		System.out.println(iCategory);
 		//引数を渡し、取得地をbeanに渡す
 		ArrayList<SearchResult> bean =sDao.searchInternList(iCategory,iDate);
+
 
 		return bean;
 	}

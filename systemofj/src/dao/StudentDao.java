@@ -212,7 +212,7 @@ public class StudentDao {
 		ArrayList<SearchResult> searchInternList = new ArrayList<SearchResult>(); //User型の要素をしまうListを作る
 
 		//SQL文を準備する		//i.iCategoryの部分怪しい
-		String sql = "select  s.s_id, s.s_name, s.s_univercity, s.s_faculty, i.i_category, i.i_date FROM Student AS s LEFT JOIN Intern AS i ON s.s_id=i.s_id where i.i_category=? AND i.i_date LIKE ?";
+		String sql = "select  s.s_id, s.s_name, s.s_univercity, s.s_faculty, i.i_category, i.i_date FROM Student AS s LEFT JOIN Intern AS i ON s.s_id=i.s_id where i.i_category LIKE ? AND i.i_date LIKE ?";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);

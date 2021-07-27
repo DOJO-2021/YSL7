@@ -117,7 +117,7 @@ input[name="tab_item"] {
 
     <table  class="width">
         <tr>
-        	<td><input type="radio" name=search_item value="1day">1DAY</td>
+        	<td><input type="radio" name=search_item value="1day" checked>1DAY</td>
         	<td><input type="radio" name=search_item value="3days">3DAY</td>
 			<td>年度選択　<select name="year" id="internYear">
 			<option hidden></option>
@@ -181,7 +181,7 @@ input[name="tab_item"] {
 
     <table  class="width">
     	<tr>
-			<td><input type="radio" name=search_item value="合説">合同説明会</td>
+			<td><input type="radio" name=search_item value="合説" checked>合同説明会</td>
 			<td><input type="radio" name=search_item value="模擬面接申込">模擬面接申し込み</td>
 			<td>年度選択　
 			<select name="year" id="eventYear">
@@ -247,7 +247,7 @@ input[name="tab_item"] {
 
     <table  class="selection_width">
 	    <tr>
-	       <td><input type="radio" name=search_item value="適性検査受験前">適性検査受験前</td>
+	       <td><input type="radio" name=search_item value="適性検査受験前" checked>適性検査受験前</td>
 	       <td><input type="radio" name=search_item value="適性検査受験済">適性検査受験済み</td>
 		</tr>
 		<tr>
