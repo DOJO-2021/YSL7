@@ -240,7 +240,8 @@ public class SelectAction {
 
 		try {
 			//どのテンプレが選択されたかの情報を入手
-			String stringtId = request.getParameter("tId");
+			String stringtId = request.getParameter("kind");
+			System.out.println(stringtId+"tIdだよ");
 			//ボタンの値を入手
 			String submit = request.getParameter("submit");
 
@@ -261,6 +262,7 @@ public class SelectAction {
 				return "/WEB-INF/jsp/mailTemplate.jsp";
 			} else {
 				int tId = Integer.parseInt(stringtId);
+				System.out.println(tId+"intのtIdだよ");
 
 				//学生の名前を入手
 				String sName = request.getParameter("sName");
@@ -282,7 +284,7 @@ public class SelectAction {
 
 				//テンプレ検索の場合
 				if(submit != null) {
-					if(submit.equals("検索")) {
+					if(submit.equals("テンプレ編集")) {
 						request.setAttribute("template", template);
 						return "/WEB-INF/jsp/templateEdit.jsp";
 					}
@@ -294,6 +296,7 @@ public class SelectAction {
 				content = content.replace("学生の名前が入ります", sName);
 				content = content.replace("あなたの名前が入ります", uName);
 				content = content.replace("学生の大学名が入ります", sUnivercity);
+				System.out.println(content+"contentです");
 				template.settContent(content);
 
 				request.setAttribute("template", template);
@@ -303,13 +306,13 @@ public class SelectAction {
 			e.printStackTrace();
 			request.setAttribute("errMsg", "SQLExceptionだよー");
 			System.out.println("SQLExceptionだよー");
-			return "/WEB-INF/jsp/detail.jsp";
+			return "/WEB-INF/jsp/result.jsp";
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();
 
 			request.setAttribute("errMsg", "lassNotFoundExceptionだよー");
 			System.out.println("lassNotFoundExceptionだよー");
-			return "/WEB-INF/jsp/detail.jsp";
+			return "/WEB-INF/jsp/result.jsp";
 		}
 	}
 

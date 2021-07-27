@@ -14,23 +14,24 @@
 			<header >
 				<img src="images/logo3.png"  alt="ysl_logo" class="logo float_l">
 
-				<table  class ="float_l">
-					<tr><td>　　</td><td>　　</td><td>　　</td></tr>
+				<table  class ="table1">
+					<tr><td class="td1">　　</td><td class="td1">　　</td></tr>
 					<tr>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　アップロード　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　分析　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　検索　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet?FLG=upload" class="btn-flat-border">　アップロード　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet?FLG=search" class="btn-flat-border">　検索　></a></td>
 					</tr>
 					<tr>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　学生の新規登録　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　テンプレート登録　></a></td>
-						<td><a href="/systemofj/Servlet" class="btn-flat-border">　ログアウト　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet?FLG=studentsRegist" class="btn-flat-border">　学生の新規登録　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet?FLG=templateRegist" class="btn-flat-border">　テンプレート登録　></a></td>
 					</tr>
 				</table>
 
-				<img src="images/account.png"  alt="account" class ="account" >
-				<!--${u_name}
-				${u_first}-->
+				<div>
+					<img src="images/account.png"  alt="account" class ="account" ><br><br>
+					${user.uName}　${user.uFirst}
+					<br><br><br>
+					<a href="/systemofj/Servlet?FLG=logout" class="logout">ログアウト</a>
+				</div>
 
 			</header>
 		</main>
@@ -40,28 +41,29 @@
 
 <style>
 
-	.float_l{
-		float: left;
-	}
-	.logo{
-		width:200px;
-		height:139px;
-		/*margin-right: 220px;  */
-	}
-
 	header{
 		background-color: #0096AE85;
 		color: #696969;
 		height: 180px;
+		weight: 95px;
 	}
 
-	table{
+
+	.logo{
+		width:200px;
+		height:139px;
+			float: left;
+		margin:15px 130px 0 30px;
+	}
+
+	.table1{
 		text-align: center;
-		margin-right: auto;
-		margin-left: 130px;
+		margin-right: 200px;
+		margin-left: 120px;
+		float: left;
 	}
 
-	td{
+	.td1{
 		padding: 0.5em 2em;
 	}
 
@@ -81,10 +83,16 @@
 	}
 
 	.account{
-		width:50px;
-		height:60px;
-		clear: both;
+		margin-top:10px;
+		width:80px;
+		height:80px;
+		float: left;
 	}
+
+	.logout{
+		margin-left:80px;
+	}
+
 
 </style>
 </html>

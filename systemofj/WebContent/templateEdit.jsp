@@ -62,12 +62,106 @@
 		}
 	.error{
 		color:#ff0000;
-		margin-left:100px;
+		margin-left:200px;
 
 		}
 		.title{
 		margin-left:205px;
 	}
+
+	.sub_button {
+  line-height:20px;
+  position:relative;
+  height:27px;
+  width:77px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.sub_button:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.sub_button:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+
+	.right_button1 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button1:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button1:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+.right_button2 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button2:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button2:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
+	.right_button3 {
+  line-height:20px;
+  position:relative;
+  height:30px;
+  width:180px;
+  font-size:13px;
+  text-decoration:none;
+  display:block;
+  text-align:center;
+  padding:0 auto 0 auto;
+  color:#0096AE85;
+  background-color: #ffffff;
+  border-color:#0096AE85
+}
+.right_button3:hover{
+     background-color: #e0ffff;/*ボタン色*/
+     border-bottom: solid 2px #00ced1; /*下線色*/
+}
+.right_button3:active {
+     margin-top: 1px;
+     -webkit-transform: translateY(0.5px); /*下移動*/
+     transform: translateY(0.5px);
+}
 
 </style>
 </head>
@@ -75,18 +169,16 @@
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 	<div class="templatehead">
 		<h2 class="inline">テンプレ編集ページ</h2>
-		<!-- <a href = "/systemofj/Servlet?FLG=テンプレ登録ページ" class="inline">テンプレ登録ページへ</a>-->
+		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ登録ページへ</a>
 	</div>
 	<br>
-	<p class="title">選考準備編セミナー参加のお礼</p>
-	<!-- <p>${requestScope.template.t_title}</p>-->
+	<p class="title">${requestScope.template.tTitle}</p>
 	<form action ="/systemofj/Servlet?FLG=templateUpdate" method="POST" name ="templateArea" id ="form">
-		<input type="submit" class="sub_button" name="tu_update_button" value="templateEdit"><br>
-		<input type="hidden" name="page_id" value="templateEdit.jsp">
+		<input type="submit" class="sub_button" name="tu_update_button" value="テンプレ更新" ><br>
+		<input type="hidden" name="page_id" value="templateEdit">
 			<p id="output" class = "error"></p>
 
-		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
-		<textarea name ="textarea" onChange="check()"></textarea>
+		<textarea name = "textarea" onChange="check()">${requestScope.template.tContent}</textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
@@ -148,17 +240,23 @@ function addUname(){
 	function check(){
 		text = document.templateArea.textarea.value;
 		n = text.length;
-		if (n > 1000)
+		if (n > 1000){
 		document.getElementById('output').textContent ='※1000文字以内で入力してください';
+		}else if (n <= 0){
+		document.getElementById('output').textContent = '※文字を入力してください';
 
+
+		}
 	};
+
+
 	document.getElementById('form').onsubmit = function(event){
 		text = document.templateArea.textarea.value;
 		n = text.length;
-		if(n > 1000)
+		if(n > 1000 || n <= 0)
 			event.preventDefault();
 
-	}
+	};
 
 
 </script>
