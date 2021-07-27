@@ -172,13 +172,18 @@
 		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ登録ページへ</a>
 	</div>
 	<br>
-	<p class="title">${requestScope.template.tTitle}</p>
-	<form action ="/systemofj/Servlet?FLG=templateUpdate" method="POST" name ="templateArea" id ="form">
-		<input type="submit" class="sub_button" name="tu_update_button" value="テンプレ更新" ><br>
+	<p class="title">${template.tTitle}</p>
+	<form action ="/systemofj/Servlet" method="POST" name ="templateArea" id ="form">
+
+		<input type="hidden" name="tId" value="${template.tId}">
+		<input type="hidden" name="tTitle" value="${template.tTitle}">
+
+
+		<input type="submit" class="sub_button" name="submit" value="テンプレ更新" ><br>
 		<input type="hidden" name="page_id" value="templateEdit">
 			<p id="output" class = "error"></p>
 
-		<textarea name = "textarea" onChange="check()">${requestScope.template.tContent}</textarea>
+		<textarea name = "tContent" onChange="check()">${requestScope.template.tContent}</textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
