@@ -158,6 +158,7 @@
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 							<td><input type="hidden" name="c" value="aj"id="flagedit${status.index}"></td>
 							<td><input type="hidden" name="d" value="cb" id="flagup${status.index}"></td>
+							<td><input type="hidden" name="z" value="${fn : length(list) }" id="fnsize"></td>
 
 
 							<td><input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}"></td>
@@ -244,22 +245,21 @@ function allchangflag(){
 	var ch = document.getElementById('chId'+indexNo);
 	var sn = document.getElementById("idname"+indexNo).value;
 
-	if(ch.checked){
-		$.ajax({
-			type:'post',
-			url: '/systemofj/SearchResultTestServlet',
-			data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
-		});
-		} else{
+	for(int i=0; i < list.size(); i++){
+		if(ch.checked){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/SearchResultTestServlet',
-				data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
 			});
+		} else{
+				$.ajax({
+					type:'post',
+					url: '/systemofj/SearchResultTestServlet',
+					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+				});
 		}
-
-
-
+	}
 }
 </script>
 
