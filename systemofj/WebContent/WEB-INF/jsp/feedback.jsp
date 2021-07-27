@@ -64,7 +64,7 @@
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3"><textarea name=f_content rows="20" cols="50"></textarea></td>
+						<td colspan="3"><textarea name="f_content" rows="20" cols="50"></textarea></td>
 					</tr>
 				</table>
 			</form>
@@ -111,12 +111,10 @@
 
 					<tr>
 						<td id="f_regist_button">
-							<input type="button" value="フィードバックまとめを更新">
-							<input type="hidden" name="page_id" value="result">
+							<input type="submit" name="submit" value="フィードバックまとめ更新ボタン">
 						</td>
 						<td id="f_update_button">
-							 <input type="submit"  value="フィードバックまとめを登録">
-							<input type="hidden" name="page_id" value="result">
+							 <input type="submit" name="submit" value="フィードバックまとめ登録ボタン">
 						</td>
 					</tr>
 				</table>
@@ -148,7 +146,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3"><textarea name=fContent rows="20" cols="50" >${list.fContent}</textarea></td>
+							<td colspan="3"><textarea name="fContent" rows="20" cols="50" >${list.fContent}</textarea></td>
 						</tr>
 					</table>
 				</form>
