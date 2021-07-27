@@ -55,8 +55,8 @@
 	}
 
 	.account{
-		width:50px;
-		height:60px;
+		width:80px;
+		height:80px;
 
 	}
 	.t_account{
@@ -99,7 +99,7 @@
 				</tr>
 			</table>
 			</div>
-			<a href="/systemofj/Servlet?FLG=logout" class="logout">ログアウト</a>
+			　　　　　　　　<a href="/systemofj/Servlet?FLG=logout" class="logout" onclick="return onLogout()">ログアウト</a>
 
 	</div>
 
