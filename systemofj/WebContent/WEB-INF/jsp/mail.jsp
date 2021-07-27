@@ -6,9 +6,6 @@
 <meta charset="UTF-8">
 <title>mail</title>
 <style>
-html {
-  text-align: center;
-}
 
 textarea {
   resize: none;
@@ -18,10 +15,11 @@ textarea {
 }
 </style>
 </head>
-<body>
+
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>メール作成</h1>
-<div>
+<body>
+<div class="div">
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sName) }">
 	<input type ="hidden" name ="" value ="${searchEventList.get(0).get(sUnivercity) }">
 

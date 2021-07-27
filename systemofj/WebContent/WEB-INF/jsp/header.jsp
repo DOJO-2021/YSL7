@@ -12,6 +12,7 @@
 
 		<main>
 			<header >
+				<!-- YSLのロゴ -->
 				<img src="images/logo3.png"  alt="ysl_logo" class="logo float_l">
 
 				<table  class ="table1">
@@ -29,7 +30,9 @@
 				</table>
 
 				<div>
+					<!-- 人型のロゴ -->
 					<img src="images/account.png"  alt="account" class ="account" ><br><br>
+					<!-- ログインユーザーの名前表示 -->
 					${user.uName}　${user.uFirst}
 					<br><br><br>
 					<!-- <a href="/systemofj/Servlet?FLG=logout" class="logout">ログアウト</a> -->
@@ -47,7 +50,7 @@
 		background-color: #0096AE85;
 		color: #696969;
 		height: 180px;
-		weight: 95px;
+		width: 95em;
 	}
 
 
