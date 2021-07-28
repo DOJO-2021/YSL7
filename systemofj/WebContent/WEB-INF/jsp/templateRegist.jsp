@@ -193,7 +193,7 @@
 		<input type="submit" class="sub_button" name="submit" value="テンプレ登録"><br>
 		<input type="hidden" name="page_id" value="templateRegist">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
-		<textarea name="tr_content"></textarea>
+		<textarea name="tr_content" maxlength="1000"></textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>

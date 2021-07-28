@@ -14,11 +14,24 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
 --------------------------- -->
+<style>
+.center{
+	text-align: center;
+}
 
+#myTable{
+	margin:auto;
+}
+.checkboxstyle{
+	text-align: center;
+}
+</style>
 </head>
 <body>
+<div class="center">
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>検索結果</h1>
+</div>
 <!-- <div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
 	<label for="regist">登録順で並び替え</label>
@@ -206,12 +219,16 @@
 <c:forEach var="list" items="${list}" varStatus="status">
 	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
-
+<br>
+<div class=checkboxstyle>
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="searchResult">
+	<br>
 	<input type="submit" name="submit" value="一括編集">
 </form>
+</div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -225,7 +242,7 @@
 
 	$.ajax({
 		type:'post',
-		url: '/systemofj/SearchResultTestServlet',
+		url: '/systemofj/Servlet',
 		data:{page_id : che, pageload :'aj' ,submit:''}
 	});
 }
@@ -240,13 +257,13 @@ function changeflag(indexNo, sId){
 			if(ch.checked){
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
 			});
 			} else{
 				$.ajax({
 					type:'post',
-					url: '/systemofj/SearchResultTestServlet',
+					url: '/systemofj/Servlet',
 					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
 				});
 			}
@@ -325,7 +342,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'cb', submit:''}
 			});
 		}
@@ -336,7 +353,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'ef', submit:''}
 			});
 		}

@@ -37,7 +37,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
-<p>フィードバックページ</p>
+<h1>フィードバックページ</h1>
 ※フィードバック入力後は必ず登録ボタンを押してください
 
 
@@ -46,7 +46,7 @@
 		<td>
 
 			<!-- tableの中のtable①（個人FB登録）ここから -->
-			<form method="POST" action="/systemofj/Servlet">
+			<form method="POST" action="/systemofj/Servlet" name="form1" onSubmit="return check()">
 				<table border="1" class="fb-tbl">
 					<tr>
 						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td><!-- これの存在している意味が分からないけど消すの怖いから放置しておくｂｙ椹 -->
@@ -97,7 +97,7 @@
 				</table>
 			</form>
 
-			<form method="POST" action="/systemofj/Servlet">
+			<form method="POST" action="/systemofj/Servlet"  name="form2" onSubmit="return emcheck()">
 				<input type="hidden" name="page_id" value="feedback">
 				<input type="hidden" name="f_category" value="${param.category}">
 				<input type="hidden" name="sId" value="${param.sId}">
@@ -171,6 +171,20 @@
 		if(e == ''){
 			document.getElementById("f_regist_button").style.display="none";
 		}
+	}
+
+	//空欄のまま登録押すとアラート
+	function check() {
+	    if(document.form1.f_content.value == "") {
+	        alert("内容を入力してください");
+	        return false;
+	    }
+	}
+	function emcheck() {
+	    if(document.form2.f_content.value == "") {
+	        alert("内容を入力してください");
+	        return false;
+	    }
 	}
 
 </script>

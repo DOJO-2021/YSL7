@@ -287,15 +287,16 @@ try {
 			RegistService service = new RegistService();
 			result = service.feedbackInsert(sId, fCategory, fName, fContent);
 
+
 			if(result){
-				request.setAttribute("result6", "フィードバックの登録が完了しました");
+				request.setAttribute("errMsg", "フィードバックの登録が完了しました");
 			} else {
-				request.setAttribute("result6", "フィードバックの登録に失敗しました");
+				request.setAttribute("errMsg", "フィードバックの登録に失敗しました");
 			}
 
 
 		}catch(SQLException e) {//例外処理
-			request.setAttribute("errMsg","SQL文おかしい");
+			request.setAttribute("errMsg","フィードバックの登録に失敗しました");
 		}catch(ClassNotFoundException e) {//例外処理
 			request.setAttribute("errMsg", "サーバーおかしい");
 		}
