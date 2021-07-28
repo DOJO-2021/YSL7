@@ -118,8 +118,8 @@ input[name="tab_item"] {
 
     <table  class="width">
         <tr>
-        	<td><input type="radio" name=search_item value="1day" checked>1DAY</td>
-        	<td><input type="radio" name=search_item value="3days">3DAY</td>
+        	<td><input type="radio" name=search_item value="1day" checked id="zza"><label for="zza">1DAY</label></td>
+        	<td><input type="radio" name=search_item value="3days" id="zzb"><label for="zzb">3DAY</label></td>
 			<td>年度選択　<select name="year" id="internYear">
 			<option hidden></option>
 			<option value="1998">1998</option>
@@ -158,12 +158,12 @@ input[name="tab_item"] {
 			</select></td>
         </tr>
         <tr>
-        	<td><input type="radio" name=search_item value="初級">初級</td>
-        	<td><input type="radio" name=search_item value="中級">中級</td>
+        	<td><input type="radio" name=search_item value="初級" id="zzc"><label for="zzc">初級</label></td>
+        	<td><input type="radio" name=search_item value="中級" id="zzd"><label for="zzd">中級</label></td>
         	<td><input type="date" name="date" id="internDay"></td>
         </tr>
         <tr>
-        	<td><input type="radio" name=search_item value="準備">選考準備</td>
+        	<td><input type="radio" name=search_item value="準備" id="zze"><label for="zze">選考準備</label></td>
 <!--         	<td><input type="radio" name=search_item value="internAll">インターン参加者</td>  -->
         </tr>
         <tr>
@@ -182,8 +182,8 @@ input[name="tab_item"] {
 
     <table  class="width">
     	<tr>
-			<td><input type="radio" name=search_item value="合説" checked>合同説明会</td>
-			<td><input type="radio" name=search_item value="模擬面接申込">模擬面接申し込み</td>
+			<td><input type="radio" name=search_item value="合説" checked id="zzf"><label for="zzf">合同説明会</label></td>
+			<td><input type="radio" name=search_item value="模擬面接申込" id="zzg"><label for="zzg">模擬面接申し込み</label></td>
 			<td>年度選択　
 			<select name="year" id="eventYear">
 			<option hidden></option>
@@ -224,13 +224,13 @@ input[name="tab_item"] {
 
     	</tr>
     	<tr>
-	    	<td><input type="radio" name=search_item value="模擬面接予約">模擬面接予約</td>
-	    	<td><input type="radio" name=search_item value="模擬面接参加">模擬面接参加</td>
+	    	<td><input type="radio" name=search_item value="模擬面接予約" id="zzh"><label for="zzh">模擬面接予約</label></td>
+	    	<td><input type="radio" name=search_item value="模擬面接参加" id="zzi"><label for="zzi">模擬面接参加</label></td>
 	    	<td><input type="date" name="date" id="eventDay"></td>
 		</tr>
 		<tr>
-			<td><input type="radio" name=search_item value="座談会1">座談会1</td>
-	    	<td><input type="radio" name=search_item value="座談会2">座談会2</td>
+			<td><input type="radio" name=search_item value="座談会1" id="zzj"><label for="zzj">座談会1</label></td>
+	    	<td><input type="radio" name=search_item value="座談会2" id="zzk"><label for="zzk">座談会2</label></td>
 		</tr>
 		<tr>
 	    	<td colspan="3" align="right"><input type="submit" name="submit" value="検索" onclick="return dateCheck('eventDay', 'eventYear')"></td>
