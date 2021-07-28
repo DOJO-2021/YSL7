@@ -97,12 +97,17 @@ width: 800px;
 
 <h3>イベント<input type="checkbox" id="e_info" onclick="divOpen(this,'event')"></h3>
 <div id="event" style="display:none;">
-<input type="hidden" name ="eId1" value ="${mock[0].eId}">
-<input type="hidden" name ="eId2" value ="${mock[1].eId}">
-<input type="hidden" name ="eId3" value ="${mock[2].eId}">
-<input type="hidden" name ="eId4" value ="${mock[3].eId}">
-<input type="hidden" name ="eId5" value ="${mock[4].eId}">
-<input type="hidden" name ="eId6" value ="${mock[5].eId}">
+<input type="text" name ="eId1" value ="${con.eId}">
+<input type="hidden" name ="eId2" value ="${mock[0].eId}">
+<input type="hidden" name ="eId3" value ="${mock[1].eId}">
+<input type="hidden" name ="eId4" value ="${mock[2].eId}">
+<p>eidを表示します<c:out value="${mock[0].eId}"/></p>
+<p>eidを表示します<c:out value="${mock[1].eId}"/></p>
+<p>eidを表示します<c:out value="${mock[2].eId}"/></p>
+<p>eidを表示します<c:out value="${talk[0].eId}"/></p>
+<p>eidを表示します<c:out value="${talk[1].eId}"/></p>
+<input type="text" name ="eId5" value ="${talk[0].eId}">
+<input type="text" name ="eId6" value ="${talk[0].eId}">
 
 
 <table style="border: 0px; width: 700px;" class = "table">
@@ -160,10 +165,10 @@ width: 800px;
 <h3>インターン<input type="checkbox" id="i_info" onclick="divOpen(this,'intern')"></h3>
 <div id="intern" style="display:none;">
 <input type="hidden" name ="iId1" value ="${intern[0].iId}">
-<input type="hidden" name ="iId2" value ="${intern[1].iId}">
-<input type="hidden" name ="iId3" value ="${intern[2].iId}">
-<input type="hidden" name ="iId4" value ="${intern[3].iId}">
-<input type="hidden" name ="iId5" value ="${intern[4].iId}">
+<input type="hidden" name ="iId2" value ="${intern[0].iId}">
+<input type="hidden" name ="iId3" value ="${intern[0].iId}">
+<input type="hidden" name ="iId4" value ="${intern[0].iId}">
+<input type="hidden" name ="iId5" value ="${intern[0].iId}">
 
 <table style="border: 0px #000000 solid; width: 900px;" class = "table">
   <tr>
@@ -235,23 +240,23 @@ width: 800px;
 <h3>選考<input type="checkbox" id="sele_info"  onclick="divOpen(this,'selection')"></h3>
 <div id="selection" style="display:none;">
 <input type="hidden" name ="sfId1" value ="${face1[0].sfId}">
-<input type="hidden" name ="sfId2" value ="${face1[1].sfId}">
-<input type="hidden" name ="sfId3" value ="${face1[2].sfId}">
-<input type="hidden" name ="sfId4" value ="${face2[3].sfId}">
-<input type="hidden" name ="sfId5" value ="${face2[4].sfId}">
+<input type="hidden" name ="sfId2" value ="${face1[0].sfId}">
+<input type="hidden" name ="sfId3" value ="${face1[0].sfId}">
+<input type="hidden" name ="sfId4" value ="${face2[0].sfId}">
+<input type="hidden" name ="sfId5" value ="${face2[0].sfId}">
 
-<input type="hidden" name ="eId1" value ="${resume[0].tId}">
-<input type="hidden" name ="eId2" value ="${resume[1].tId}">
-<input type="hidden" name ="eId3" value ="${resume[2].tId}">
-<input type="hidden" name ="eId4" value ="${resume[3].tId}">
-<input type="hidden" name ="eId5" value ="${pr[0].tId}">
-<input type="hidden" name ="eId6" value ="${pr[1].tId}">
-<input type="hidden" name ="eId7" value ="${pr[2].tId}">
-<input type="hidden" name ="eId8" value ="${pr[3].tId}">
-<input type="hidden" name ="eId9" value ="${text[0].tId}">
-<input type="hidden" name ="eId10" value ="${text[1].tId}">
-<input type="hidden" name ="eId11" value ="${text[2].tId}">
-<input type="hidden" name ="eId12" value ="${text[3].tId}">
+<input type="hidden" name ="stId1" value ="${resume[0].stId}">
+<input type="hidden" name ="stId2" value ="${resume[1].stId}">
+<input type="hidden" name ="stId3" value ="${resume[2].stId}">
+<input type="hidden" name ="stId4" value ="${resume[3].stId}">
+<input type="hidden" name ="stId5" value ="${pr[0].stId}">
+<input type="hidden" name ="stId6" value ="${pr[1].stId}">
+<input type="hidden" name ="stId7" value ="${pr[2].stId}">
+<input type="hidden" name ="stId8" value ="${pr[3].stId}">
+<input type="hidden" name ="stId9" value ="${text[0].stId}">
+<input type="hidden" name ="stId10" value ="${text[1].stId}">
+<input type="hidden" name ="stId11" value ="${text[2].stId}">
+<input type="hidden" name ="stId12" value ="${text[3].stId}">
 
 
 
