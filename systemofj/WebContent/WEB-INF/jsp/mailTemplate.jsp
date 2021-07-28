@@ -8,11 +8,17 @@
 <meta charset="UTF-8">
 <title>mailTemplate</title>
 <style>
+.mailtitle{
+		text-align: center;
+		width: 94em;
+		height:150px;
 
+}
 </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<div class="mailtitle">
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
@@ -20,10 +26,10 @@
 	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 
-	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
-	<input type="radio" id="intern" name="template" onclick="show()" >インターン
-	<input type="radio" id="face" name="template" onclick="show()" >面接
-	<input type="radio" id="other" name="template" onclick="show()" >その他<br>
+	<input type="radio" id="explanation" name="template" onclick="show()" ><label for=explanation>説明会</label>
+	<input type="radio" id="intern" name="template" onclick="show()" ><label for=intern>インターン</label>
+	<input type="radio" id="face" name="template" onclick="show()" ><label for=face>面接</label>
+	<input type="radio" id="other" name="template" onclick="show()" ><label for=other>その他</label><br>
 		<div id="explanationtemplate" style="display: none">
 					カテゴリを選択してください：
 			<select name="kind">
@@ -116,6 +122,7 @@
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>
+</div>
 </body>
 
 <script>

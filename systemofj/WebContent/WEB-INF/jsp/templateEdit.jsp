@@ -6,6 +6,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Insert title here</title>
 <style>
 
@@ -173,17 +175,17 @@
 	</div>
 	<br>
 	<p class="title">${template.tTitle}</p>
-	<form action ="/systemofj/Servlet" method="POST" name ="templateArea" id ="form">
+	<form action ="/systemofj/Servlet" method="POST" name ="templateArea" id ="form" onSubmit="return check()">
 
 		<input type="hidden" name="tId" value="${template.tId}">
 		<input type="hidden" name="tTitle" value="${template.tTitle}">
 
 
-		<input type="submit" class="sub_button" name="submit" value="テンプレ更新" ><br>
+		<input type="submit" class="sub_button" name="submit" id="btn" value="テンプレ更新"><br>
 		<input type="hidden" name="page_id" value="templateEdit">
 			<p id="output" class = "error"></p>
 
-		<textarea name = "tContent" onChange="check()">${requestScope.template.tContent}</textarea>
+		<textarea name="tContent" id="textarea" maxlength="1000">${requestScope.template.tContent}</textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
@@ -242,26 +244,33 @@ function addUname(){
 }
 
 
-	function check(){
-		text = document.templateArea.textarea.value;
-		n = text.length;
-		if (n > 1000){
-		document.getElementById('output').textContent ='※1000文字以内で入力してください';
-		}else if (n <= 0){
-		document.getElementById('output').textContent = '※文字を入力してください';
+//	function check(){
 
-
+		function check() {
+		    if(document.templateArea.tContent.value == "") {
+		        alert("内容を入力してください");
+		        return false;
+		    }
 		}
-	};
+//		text = document.templateArea.tContent.value;
+//		n = text.length;
+//		if (n > 1000){
+//		document.getElementById('output').textContent ='※1000文字以内で入力してください';
+//		}else if (n <= 0){
+//		document.getElementById('output').textContent = '※文字を入力してください';
 
 
-	document.getElementById('form').onsubmit = function(event){
-		text = document.templateArea.textarea.value;
-		n = text.length;
-		if(n > 1000 || n <= 0)
-			event.preventDefault();
+//		}
+//	};
 
-	};
+
+//	document.getElementById('form').onsubmit = function(event){
+//		text = document.templateArea.textarea.value;
+//		n = text.length;
+//		if(n > 1000 || n <= 0)
+//			event.preventDefault();
+
+//	};
 
 
 </script>

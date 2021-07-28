@@ -14,11 +14,24 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
 --------------------------- -->
+<style>
+.center{
+	text-align: center;
+}
 
+#myTable{
+	margin:auto;
+}
+.checkboxstyle{
+	padding: 0px 351px 0;
+}
+</style>
 </head>
 <body>
+<div class="center">
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>検索結果</h1>
+</div>
 <!-- <div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
 	<label for="regist">登録順で並び替え</label>
@@ -206,13 +219,14 @@
 <c:forEach var="list" items="${list}" varStatus="status">
 	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
-
+<div class=checkboxstyle>
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="searchResult">
 	<input type="submit" name="submit" value="一括編集">
 </form>
+</div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
