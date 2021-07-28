@@ -37,7 +37,7 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
-<p>フィードバックページ</p>
+<h1>フィードバックページ</h1>
 ※フィードバック入力後は必ず登録ボタンを押してください
 
 
