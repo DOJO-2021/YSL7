@@ -33,8 +33,6 @@
 
 <!-- インターン検索 -->
 <c:if test="${mode.equals('intern')}">
-			<form method="POST" action="/systemofj/Servlet">
-			<input type="hidden" name="page_id" value="searchResult" id="alledit">
 				<table border="1" id="myTable">
 						<tr>
 							<th></th>
@@ -48,13 +46,13 @@
 						</tr>
 						<tr>
 						<c:forEach var="e" items="${list}" varStatus="status">
+							<form method="POST" action="/systemofj/Servlet">
+						<tr>
+							<input type="hidden" name="page_id" value="searchResult" id="alledit">
 							<input type="hidden" name="g" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="h" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
-
-						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
-
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
 							<td>${e.sFaculty}</td>
@@ -72,8 +70,6 @@
 </c:if>
 <!-- イベント検索 -->
 <c:if test="${mode.equals('event')}">
-<form method="POST" action="/systemofj/Servlet">
-			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table border="1" id="myTable">
 						<tr>
@@ -87,11 +83,13 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+					<form method="POST" action="/systemofj/Servlet">
+						<tr>
+							<input type="hidden" name="page_id" value="searchResult"id="alledit">
 							<input type="hidden" name="e" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="f" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
-						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 
 							<td>${e.sName}</td>
@@ -111,8 +109,6 @@
 <!-- 選考検索 -->
 
 <c:if test="${mode.equals('selection')}">
-<form method="POST" action="/systemofj/Servlet">
-			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table border="1" id="myTable">
 						<tr>
@@ -125,13 +121,13 @@
 							<th></th>
 						</tr>
 					<c:forEach var="e" items="${list}" varStatus="status">
+					<form method="POST" action="/systemofj/Servlet">
+						<tr>
+							<input type="hidden" name="page_id" value="searchResult"id="alledit">
 							<input type="hidden" name="a" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="b" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
-
-						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
-
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
 							<td>${e.sFaculty}</td>
@@ -147,7 +143,6 @@
 </c:if>
 <!-- 名前検索 -->
 <c:if test="${mode.equals('name')}">
-<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table border="1" id="myTable">
@@ -162,25 +157,27 @@
 							<th></th>
 						</tr>
 				 	<c:forEach var="e" items="${list}" varStatus="status">
-							<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
-							<input type="hidden" name="d" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+				 		<form method="POST" action="/systemofj/Servlet">
+							<tr>
+							<input type="hidden" name="page_id" value="searchResult"id="alledit">
+								<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
+								<input type="hidden" name="d" value="cb" id="flagup${status.index}">
+								<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+								<input type="text" name="sName" value="${e.sName}">
+	  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+					 			<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
+								<td>${e.sName}</td>
+								<td>${e.sUnivercity}</td>
+								<td>${e.sFaculty}</td>
+								<td>${e.sDepartment}</td>
+								<td>${e.seSituation}</td>
+								<td><input type="submit" name="submit" value="メール送信" ></td>
+								<td><input type="submit" name="submit" value="詳細"></td>
+							</tr>
+						</form>
 
-						<tr>
-				 			<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
-							<td>${e.sName}</td>
-							<td>${e.sUnivercity}</td>
-							<td>${e.sFaculty}</td>
-							<td>${e.sDepartment}</td>
-							<td>${e.seSituation}</td>
-							<td><input type="submit" name="submit" value="メール送信" ></td>
-							<td><input type="submit" name="submit" value="詳細"></td>
-						</tr>
-						<input type="hidden" name="sName" value="${e.sName}">
-  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					</c:forEach>
 				</table>
-				</form>
 </c:if>
 <!--<c:if test="${list == null}" >
 			<input type="hidden" name="page_id" value="searchResult">
@@ -203,7 +200,7 @@
 </c:if> -->
 </div>
 <c:forEach var="list" items="${list}" varStatus="status">
-	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
+	<input type="text" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
