@@ -179,11 +179,11 @@
 		<input type="hidden" name="tTitle" value="${template.tTitle}">
 
 
-		<input type="submit" class="sub_button" name="submit" value="テンプレ更新" ><br>
+		<input type="submit" class="sub_button" name="submit" value="テンプレ更新"><br>
 		<input type="hidden" name="page_id" value="templateEdit">
 			<p id="output" class = "error"></p>
 
-		<textarea name = "tContent" onChange="check()">${requestScope.template.tContent}</textarea>
+		<textarea name="tContent" onChange="check()">${requestScope.template.tContent}</textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
@@ -243,7 +243,7 @@ function addUname(){
 
 
 	function check(){
-		text = document.templateArea.textarea.value;
+		text = document.templateArea.tContent.value;
 		n = text.length;
 		if (n > 1000){
 		document.getElementById('output').textContent ='※1000文字以内で入力してください';
