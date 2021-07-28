@@ -25,7 +25,7 @@
 					<tr>
 						<td class="td1"><a href="/systemofj/Servlet?FLG=studentsRegist" class="btn-flat-border">　学生の新規登録　></a></td>
 						<td class="td1"><a href="/systemofj/Servlet?FLG=templateRegist" class="btn-flat-border">　テンプレート登録　></a></td>
-						<td class="td1"><a href="/systemofj/Servlet?FLG=logout" class="btn-flat-border">　ログアウト　></a></td>
+						<td class="td1"><a href="/systemofj/Servlet?FLG=logout" class="btn-flat-border" onclick="return onLogout()">　ログアウト　></a></td>
 					</tr>
 				</table>
 
@@ -106,4 +106,24 @@
 
 
 </style>
+
+<script>
+
+
+function onLogout() {
+
+	if(window.confirm("ログアウトしますか？")){
+
+		//OKのときの処理
+		return true;
+
+	}else{
+		//キャンセルの時の処理
+		return false;
+	}
+
+}
+
+</script>
+
 </html>
