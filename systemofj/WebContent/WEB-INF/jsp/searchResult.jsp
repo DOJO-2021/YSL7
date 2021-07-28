@@ -210,6 +210,7 @@
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="searchResult">
 	<input type="submit" name="submit" value="一括編集">
 </form>
 </body>
@@ -225,7 +226,7 @@
 
 	$.ajax({
 		type:'post',
-		url: '/systemofj/SearchResultTestServlet',
+		url: '/systemofj/Servlet',
 		data:{page_id : che, pageload :'aj' ,submit:''}
 	});
 }
@@ -240,13 +241,13 @@ function changeflag(indexNo, sId){
 			if(ch.checked){
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
 			});
 			} else{
 				$.ajax({
 					type:'post',
-					url: '/systemofj/SearchResultTestServlet',
+					url: '/systemofj/Servlet',
 					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
 				});
 			}
@@ -325,7 +326,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'cb', submit:''}
 			});
 		}
@@ -336,7 +337,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'ef', submit:''}
 			});
 		}
