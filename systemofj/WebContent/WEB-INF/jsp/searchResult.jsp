@@ -52,6 +52,9 @@
 							<input type="hidden" name="g" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="h" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
 							<td>${e.sName }</td>
 							<td>${e.sUnivercity }</td>
@@ -61,12 +64,10 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
-						<input type="hidden" name="sName" value="${e.sName}">
-  						<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+						</form>
 						</c:forEach>
 					</tr>
 				</table>
-			</form>
 </c:if>
 <!-- イベント検索 -->
 <c:if test="${mode.equals('event')}">
@@ -89,6 +90,8 @@
 							<input type="hidden" name="e" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="f" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 
@@ -100,11 +103,9 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
-							<input type="hidden" name="sName" value="${e.sName}">
-  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+					</form>
 					</c:forEach>
 				</table>
-				</form>
 </c:if>
 <!-- 選考検索 -->
 
@@ -127,6 +128,9 @@
 							<input type="hidden" name="a" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="b" value="cb" id="flagup${status.index}">
 							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
+							<input type="hidden" name="sName" value="${e.sName}">
+  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
 							<td>${e.sName}</td>
 							<td>${e.sUnivercity}</td>
@@ -135,11 +139,9 @@
 							<td><input type="submit" name="submit" value="メール送信" ></td>
 							<td><input type="submit" name="submit" value="詳細"></td>
 						</tr>
-							<input type="hidden" name="sName" value="${e.sName}">
-  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
+					</form>
 					</c:forEach>
 				</table>
-				</form>
 </c:if>
 <!-- 名前検索 -->
 <c:if test="${mode.equals('name')}">
