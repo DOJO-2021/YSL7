@@ -153,11 +153,51 @@ public class UpdateDeleteAction {
 		int sfScore1_3 = Integer.parseInt(request.getParameter("sf_score_one3"));
 		int sfScore2_1 = Integer.parseInt(request.getParameter("se_textresult1"));
 		int sfScore2_2 = Integer.parseInt(request.getParameter("se_textresult2"));
-		int sfId1 = Integer.parseInt(request.getParameter("sfId1"));
-		int sfId2 = Integer.parseInt(request.getParameter("sfId2"));
-		int sfId3 = Integer.parseInt(request.getParameter("sfId3"));
-		int sfId4 = Integer.parseInt(request.getParameter("sfId4"));
-		int sfId5 = Integer.parseInt(request.getParameter("sfId5"));
+
+		int sfId1 = 0 ;
+
+		if(request.getParameter("sfId1") != null ) {
+			Integer.parseInt(request.getParameter("sfId1"));
+			}else {
+				sfId1 = 0;
+			}
+		int sfId2 = 0 ;
+
+		if(request.getParameter("sfId2") != null ) {
+			Integer.parseInt(request.getParameter("sfId2"));
+			}else {
+				sfId2 = 0;
+			}
+		int sfId3 = 0 ;
+
+		if(request.getParameter("sfId3") != null ) {
+			Integer.parseInt(request.getParameter("sfId3"));
+			}else {
+				sfId3 = 0;
+			}
+		int sfId4 = 0 ;
+
+		if(request.getParameter("sfId4") != null ) {
+			Integer.parseInt(request.getParameter("sfId4"));
+			}else {
+				sfId4 = 0;
+			}
+		int sfId5 = 0 ;
+
+		if(request.getParameter("sfId5") != null ) {
+			Integer.parseInt(request.getParameter("sfId5"));
+			}else {
+				sfId5 = 0;
+			}
+
+
+
+
+//		int sfId1 = Integer.parseInt(request.getParameter("sfId1"));
+//		int sfId2 = Integer.parseInt(request.getParameter("sfId2"));
+//		int sfId3 = Integer.parseInt(request.getParameter("sfId3"));
+//		int sfId4 = Integer.parseInt(request.getParameter("sfId4"));
+//		int sfId5 = Integer.parseInt(request.getParameter("sfId5"));
 
 
 		//selectionText
@@ -180,18 +220,111 @@ public class UpdateDeleteAction {
 		int stScore10 = Integer.parseInt(request.getParameter("st_score_text2"));
 		int stScore11 = Integer.parseInt(request.getParameter("st_score_text3"));
 		int stScore12 = Integer.parseInt(request.getParameter("st_score_text4"));
-		int stId1 = Integer.parseInt(request.getParameter("stId1"));
-		int stId2 = Integer.parseInt(request.getParameter("stId2"));
-		int stId3 = Integer.parseInt(request.getParameter("stId3"));
-		int stId4 = Integer.parseInt(request.getParameter("stId4"));
-		int stId5 = Integer.parseInt(request.getParameter("stId5"));
-		int stId6 = Integer.parseInt(request.getParameter("stId6"));
-		int stId7 = Integer.parseInt(request.getParameter("stId7"));
-		int stId8 = Integer.parseInt(request.getParameter("stId8"));
-		int stId9 = Integer.parseInt(request.getParameter("stId9"));
-		int stId10 = Integer.parseInt(request.getParameter("stId10"));
-		int stId11 = Integer.parseInt(request.getParameter("stId11"));
-		int stId12 = Integer.parseInt(request.getParameter("stId12"));
+
+
+		int stId1 = 0 ;
+
+		if(request.getParameter("stId1") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+					}else {
+						stId1 = 0;
+					}
+
+		int stId2 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId2 = 0;
+			}
+
+		int stId3 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId3 = 0;
+			}
+		int stId4 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId4 = 0;
+			}
+		int stId5 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId5 = 0;
+			}
+		int stId6 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId6 = 0;
+			}
+		int stId7 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId7= 0;
+			}
+		int stId8 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId8 = 0;
+			}
+		int stId9 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId9 = 0;
+			}
+		int stId10 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId10 = 0;
+			}
+		int stId11 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId11 = 0;
+			}
+		int stId12 = 0 ;
+
+		if(request.getParameter("stId2") != null ) {
+			Integer.parseInt(request.getParameter("stId1"));
+			}else {
+				stId12 = 0;
+			}
+
+
+//		int stId1 = Integer.parseInt(request.getParameter("stId1"));
+//		int stId2 = Integer.parseInt(request.getParameter("stId2"));
+//		int stId3 = Integer.parseInt(request.getParameter("stId3"));
+//		int stId4 = Integer.parseInt(request.getParameter("stId4"));
+//		int stId5 = Integer.parseInt(request.getParameter("stId5"));
+//		int stId6 = Integer.parseInt(request.getParameter("stId6"));
+//		int stId7 = Integer.parseInt(request.getParameter("stId7"));
+//		int stId8 = Integer.parseInt(request.getParameter("stId8"));
+//		int stId9 = Integer.parseInt(request.getParameter("stId9"));
+//		int stId10 = Integer.parseInt(request.getParameter("stId10"));
+//		int stId11 = Integer.parseInt(request.getParameter("stId11"));
+//		int stId12 = Integer.parseInt(request.getParameter("stId12"));
+
+
+
 
 		//internupdate
 		String iCategory1 ="1day";
@@ -234,19 +367,94 @@ public class UpdateDeleteAction {
 		String iAttend = request.getParameter("iAttend");
 
 
-		int   iId1 = Integer.parseInt(request.getParameter("iId1"));
-		int   iId2 = Integer.parseInt(request.getParameter("iId2"));
-		int   iId3 = Integer.parseInt(request.getParameter("iId3"));
-		int   iId4 = Integer.parseInt(request.getParameter("iId4"));
-		int   iId5 = Integer.parseInt(request.getParameter("iId5"));
+		int iId1 = 0;
+
+		if (request.getParameter("iId1") != null) {
+			Integer.parseInt(request.getParameter("iId1"));
+		} else {
+			iId1 = 0;
+		}
+
+		int iId2 = 0;
+
+		if (request.getParameter("iId2") != null) {
+			Integer.parseInt(request.getParameter("iId2"));
+		} else {
+			iId2 = 0;
+		}
+		int iId3 = 0;
+
+		if (request.getParameter("iId3") != null) {
+			Integer.parseInt(request.getParameter("iId3"));
+		} else {
+			iId3 = 0;
+		}
+
+		int iId4 = 0;
+
+		if (request.getParameter("iId4") != null) {
+			Integer.parseInt(request.getParameter("iId4"));
+		} else {
+			iId4 = 0;
+		}
+		int iId5 = 0;
+
+		if (request.getParameter("iId5") != null) {
+			Integer.parseInt(request.getParameter("iId5"));
+		} else {
+			iId5 = 0;
+		}
 
 		//eventupdate
-		int eId1 = Integer.parseInt(request.getParameter("eId1"));
-		int eId2 = Integer.parseInt(request.getParameter("eId2"));
-		int eId3 = Integer.parseInt(request.getParameter("eId3"));
-		int eId4 = Integer.parseInt(request.getParameter("eId4"));
-		int eId5 = Integer.parseInt(request.getParameter("eId5"));
-		int eId6 = Integer.parseInt(request.getParameter("eId6"));
+		int eId1 = 0 ;
+
+		if(request.getParameter("eId1") != null ) {
+			Integer.parseInt(request.getParameter("eId1"));
+			}else {
+				eId1 = 0;
+			}
+		int eId2 = 0 ;
+
+		if(request.getParameter("eId2") != null ) {
+			Integer.parseInt(request.getParameter("eId2"));
+			}else {
+				eId2 = 0;
+			}
+		int eId3 = 0 ;
+
+		if(request.getParameter("eId3") != null ) {
+			Integer.parseInt(request.getParameter("eId3"));
+			}else {
+				eId3 = 0;
+			}
+		int eId4 = 0 ;
+
+		if(request.getParameter("eId4") != null ) {
+			Integer.parseInt(request.getParameter("eId4"));
+			}else {
+				eId4 = 0;
+			}
+		int eId5 = 0 ;
+
+		if(request.getParameter("eId5") != null ) {
+			Integer.parseInt(request.getParameter("eId5"));
+			}else {
+				eId5 = 0;
+			}
+		int eId6 = 0 ;
+
+		if(request.getParameter("eId6") != null ) {
+			Integer.parseInt(request.getParameter("eId6"));
+			}else {
+				eId6 = 0;
+			}
+
+//		int eId1 = Integer.parseInt(request.getParameter("eId1"));
+//		int eId2 = Integer.parseInt(request.getParameter("eId2"));
+//		int eId3 = Integer.parseInt(request.getParameter("eId3"));
+//		int eId4 = Integer.parseInt(request.getParameter("eId4"));
+//		int eId5 = Integer.parseInt(request.getParameter("eId5"));
+//		int eId6 = Integer.parseInt(request.getParameter("eId6"));
 
 		String eDate1 = request.getParameter("e_date1");
 		String eDate2 = request.getParameter("e_date2");

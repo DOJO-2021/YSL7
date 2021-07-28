@@ -127,7 +127,7 @@ public class SelectAction {
 			//模擬面接、座談会、合説で分ける
 			ArrayList<SEvent> mock = new ArrayList<>();
 			ArrayList<SEvent> talk = new ArrayList<>();
-			SEvent con = new SEvent();;
+			ArrayList<SEvent> con = new ArrayList<>();;
 
 			for (SEvent e : events) {
 				if (e.geteCategory().contains("模擬")) {//模擬面接だった場合
@@ -135,7 +135,7 @@ public class SelectAction {
 				} else if (e.geteCategory().contains("座談会")) {//座談会だった場合
 					talk.add(e);
 				} else if (e.geteCategory().contains("合")) {//合説だった場合
-					con = e;
+					con .add(e);
 				}
 
 			}
