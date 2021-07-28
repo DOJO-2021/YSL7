@@ -50,7 +50,7 @@
 						<c:forEach var="e" items="${list}" varStatus="status">
 							<input type="hidden" name="g" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="h" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}" onchange="changeflag('${status.index}')"></td>
@@ -89,7 +89,7 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 							<input type="hidden" name="e" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="f" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
@@ -111,7 +111,7 @@
 <!-- 選考検索 -->
 
 <c:if test="${mode.equals('selection')}">
-<form method="POST" action="/systemofj/Servlets">
+<form method="POST" action="/systemofj/Servlet">
 			<input type="hidden" name="page_id" value="searchResult"id="alledit">
 
 				<table border="1" id="myTable">
@@ -127,7 +127,7 @@
 					<c:forEach var="e" items="${list}" varStatus="status">
 							<input type="hidden" name="a" value="aj"id="flagedit${status.index}">
 							<input type="hidden" name="b" value="cb" id="flagup${status.index}">
-							<input type="hidden" name="sId" value="${e.sId }" id="idname">
+							<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
 
 						<tr>
 							<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}')"></td>
