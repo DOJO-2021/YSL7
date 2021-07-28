@@ -14,11 +14,18 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
 --------------------------- -->
+<style>
+.center{
+	text-align: center;
+}
 
+</style>
 </head>
 <body>
+<div class="center">
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>検索結果</h1>
+</div>
 <!-- <div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
 	<label for="regist">登録順で並び替え</label>
