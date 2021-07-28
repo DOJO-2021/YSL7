@@ -163,7 +163,7 @@
 								<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 								<input type="hidden" name="d" value="cb" id="flagup${status.index}">
 								<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
-								<input type="text" name="sName" value="${e.sName}">
+								<input type="hidden" name="sName" value="${e.sName}">
 	  							<input type="hidden" name="sUnivercity" value="${e.sUnivercity}">
 					 			<td><input type="checkbox" name="check1" class="checkbox_list" id="chId${status.index}"onchange="changeflag('${status.index}','${e.sId }')" value="('${status.index}','${e.sId }')"></td>
 								<td>${e.sName}</td>
@@ -200,7 +200,7 @@
 </c:if> -->
 </div>
 <c:forEach var="list" items="${list}" varStatus="status">
-	<input type="text" name="SN" value="${list.sId}" id="sn${status.index}">
+	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
