@@ -25,42 +25,42 @@ alleditflag int (1) default 1
 insert into Intern values(
  null,
  '1',
- '1dayインターン',
- '2020-6-18',
+ '1day',
+ '2020-06-18',
  '〇',
  '〇',
  '〇',
  '〇',
  '〇',
- '2020-6-2',
+ '2020-06-02',
  '0'
 );
 
 insert into Intern values(
  null,
  '2',
- '１dayインターン',
- '2020-6-11',
+ '１day',
+ '2020-06-11',
  '〇',
  '〇',
  '〇',
  '〇',
  '〇',
- '2020-6-1',
+ '2020-06-01',
  '0'
 );
 
 insert into Intern values(
  null,
  '3',
- '3dayインターン',
- '2020-7-15',
+ '3day',
+ '2020-07-15',
  '〇',
  '〇',
  '〇',
  '〇',
  ' ',
- '2020-6-21',
+ '2020-06-21',
  '0'
 );
 
@@ -68,8 +68,8 @@ insert into Intern values(
 insert into Intern values(
  null,
  '4',
- '初級インターン',
- '2020-1-11',
+ '初級',
+ '2020-01-11',
  '〇',
  '〇',
  '〇',
@@ -83,8 +83,8 @@ insert into Intern values(
 insert into Intern values(
  null,
  '5',
- '中級インターン',
- '2020-1-17',
+ '中級',
+ '2020-01-17',
  ' ',
  '〇',
  '〇',
