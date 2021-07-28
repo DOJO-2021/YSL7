@@ -162,6 +162,7 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 				 		<form method="POST" action="/systemofj/Servlet">
 							<tr>
+
 							<input type="hidden" name="page_id" value="searchResult"id="alledit">
 								<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 								<input type="hidden" name="d" value="cb" id="flagup${status.index}">
@@ -208,9 +209,9 @@
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
-
+<form method="POST" action="/systemofj/Servlet"></form>
 	<input type="submit" name="submit" value="一括編集">
-
+</form>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
