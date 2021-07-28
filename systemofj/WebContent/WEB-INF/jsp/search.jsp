@@ -248,35 +248,35 @@ input[name="tab_item"] {
 
     <table  class="selection_width">
 	    <tr>
-	       <td><input type="radio" name=search_item value="適性検査受験前" checked>適性検査受験前</td>
-	       <td><input type="radio" name=search_item value="適性検査受験済">適性検査受験済み</td>
+	       <td><input type="radio" name=search_item value="適性検査受験前" checked id="zzl"><label for="zzl">適性検査受験前</label></td>
+	       <td><input type="radio" name=search_item value="適性検査受験済" id="zzm"><label for="zzm">適性検査受験済み</label></td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="書類選考中">書類選考中</td>
-	       <td><input type="radio" name=search_item value="書類選考合否">書類選考合否</td>
+	       <td><input type="radio" name=search_item value="書類選考中" id="zzn"><label for="zzn">書類選考中</label></td>
+	       <td><input type="radio" name=search_item value="書類選考合否" id="zzo"><label for="zzo">書類選考合否</label></td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="一次選考日程調整">1次選考日程調整</td>
-	       <td><input type="radio" name=search_item value="一次選考実施中">１次選考実施中</td>
+	       <td><input type="radio" name=search_item value="一次選考日程調整" id="zzp"><label for="zzp">1次選考日程調整</label></td>
+	       <td><input type="radio" name=search_item value="一次選考実施中" id="zzq"><label for="zzq">１次選考実施中</label></td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="二次選考日程調整">2次選考日程調整</td>
-	       <td><input type="radio" name=search_item value="二次選考実施中">2次選考実施中</td>
+	       <td><input type="radio" name=search_item value="二次選考日程調整" id="zzr"><label for="zzr">2次選考日程調整</label></td>
+	       <td><input type="radio" name=search_item value="二次選考実施中" id="zzs"><label for="zzs">2次選考実施中</label></td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="三次選考日程調整">3次選考日程調整中</td>
-	       <td><input type="radio" name=search_item value="三次選考実施中">3次選考実施中</td>
+	       <td><input type="radio" name=search_item value="三次選考日程調整" id="zzt"><label for="zzt">3次選考日程調整中</label></td>
+	       <td><input type="radio" name=search_item value="三次選考実施中" id="zzu"><label for="zzu">3次選考実施中</label></td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="内々定決定">内々定決定</td>
-	       <td><input type="radio" name=search_item value="内々定送付">内々定送付</td>
+	       <td><input type="radio" name=search_item value="内々定決定" id="zzv"><label for="zzv">内々定決定</label></td>
+	       <td><input type="radio" name=search_item value="内々定送付" id="zzw"><label for="zzw">内々定送付</label></td>
 		</tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="内々定応諾">内々定応諾</td>
-	       <td><input type="radio" name=search_item value="辞退">辞退</td>
+	       <td><input type="radio" name=search_item value="内々定応諾" id="zzx"><label for="zzx">内々定応諾</label></td>
+	       <td><input type="radio" name=search_item value="辞退" id="zzy"><label for="zzy">辞退</label></td>
 	    </tr>
 		<tr>
-	       <td><input type="radio" name=search_item value="不合格">不合格</td>
+	       <td><input type="radio" name=search_item value="不合格" id="zzz"><label for="zzz">不合格</label></td>
 		</tr>
 		<tr>
 	       <td colspan="2" align="right"><input type="submit" name="submit" value="検索"></td>
