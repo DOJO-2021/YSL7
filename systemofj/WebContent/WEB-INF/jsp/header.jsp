@@ -30,11 +30,18 @@
 				</table>
 
 				<div>
-					<!-- 人型のロゴ -->
-					<img src="images/account.png"  alt="account" class ="account" ><br><br>
-					<!-- ログインユーザーの名前表示 -->
-					${user.uName}　${user.uFirst}
-					<br><br><br>
+					<table class="ac">
+						<tr>
+							<td class="td2">
+								<!-- 人型のロゴ -->
+								<img src="images/account.png"  alt="account" class ="account" >
+							</td>
+							<td class="td2">
+								<!-- ログインユーザーの名前表示 -->
+								${user.uName}　${user.uFirst}
+							</td>
+						</tr>
+					</table>
 					<!-- <a href="/systemofj/Servlet?FLG=logout" class="logout">ログアウト</a> -->
 				</div>
 
@@ -50,7 +57,7 @@
 		background-color: #0096AE85;
 		color: #696969;
 		height: 180px;
-		width: 95em;
+		width: 94em;
 	}
 
 
@@ -88,11 +95,13 @@
 	}
 
 	.account{
-		margin-left:70px;
-		margin-top:10px;
 		width:80px;
 		height:80px;
 		float: left;
+	}
+
+	.ac, .td2{
+		border: 0px none;
 	}
 
 

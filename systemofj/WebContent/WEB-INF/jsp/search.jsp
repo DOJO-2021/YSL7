@@ -164,7 +164,7 @@ input[name="tab_item"] {
         </tr>
         <tr>
         	<td><input type="radio" name=search_item value="準備">選考準備</td>
-        	<td><input type="radio" name=search_item value="internAll">インターン参加者</td>
+<!--         	<td><input type="radio" name=search_item value="internAll">インターン参加者</td>  -->
         </tr>
         <tr>
         	<td colspan="3" align="right"><input type="submit" name="submit" value="検索" onclick="return dateCheck('internDay', 'internYear')"></td>
