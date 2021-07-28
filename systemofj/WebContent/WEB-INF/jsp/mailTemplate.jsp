@@ -8,11 +8,17 @@
 <meta charset="UTF-8">
 <title>mailTemplate</title>
 <style>
+.mailtitle{
+		text-align: center;
+		width: 94em;
+		height:150px;
 
+}
 </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<div class="mailtitle">
 <h1>メール作成（テンプレ選択）</h1>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="mailTemplate">
@@ -116,6 +122,7 @@
 			 <input type="submit" name="submit" value="テンプレ編集" >
 		</div>
 </form>
+</div>
 </body>
 
 <script>
