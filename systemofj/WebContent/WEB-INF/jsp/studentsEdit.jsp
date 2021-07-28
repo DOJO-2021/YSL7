@@ -56,15 +56,15 @@ width: 800px;
 
 	<table style="border: 0px; width: 800px;" class = "table">
 	  <tr>
-	    <td class = "td">氏名<hr><input type="text" name="s_name" value="${student.sName}" required></td>
-	    <td class = "td">フリガナ<hr><input type="text" name="s_kana" value="${student.sKana}" required></td>
-	    <td colspan="2" class = "td">住所<hr><input type="text" name="s_address" value="${student.sAddress}" required></td>
+	    <td class = "td">氏名<hr><input type="text" name="sName" value="${student.sName}" required></td>
+	    <td class = "td">フリガナ<hr><input type="text" name="sKana" value="${student.sKana}" required></td>
+	    <td colspan="2" class = "td">住所<hr><input type="text" name="sAddress" value="${student.sAddress}" required></td>
 	  </tr>
 	  <tr>
-	    <td class = "td">学校名<hr><input type="text" name="s_university" value="${student.sUnivercity}" required></td>
-	    <td class = "td">学部<hr><input type="text" name="s_faculty" value="${student.sFaculty}" required></td>
-	    <td class = "td">学科<hr><input type="text" name="s_department" value="${student.sDepartment}" required></td>
-	    <td class = "td">文理<hr><select name="s_contexts"><option value="　"></option><option value="文"<c:if test="${student.sContexts == '文'}" >selected</c:if>>文</option><option value="理"<c:if test="${student.sContexts == '理'}" >selected</c:if>>理</option></select></td>
+	    <td class = "td">学校名<hr><input type="text" name="sUniversity" value="${student.sUnivercity}" required></td>
+	    <td class = "td">学部<hr><input type="text" name="sFaculty" value="${student.sFaculty}" required></td>
+	    <td class = "td">学科<hr><input type="text" name="sDepartment" value="${student.sDepartment}" required></td>
+	    <td class = "td">文理<hr><select name="sContexts"><option value="　"></option><option value="文"<c:if test="${student.sContexts == '文'}" >selected</c:if>>文</option><option value="理"<c:if test="${student.sContexts == '理'}" >selected</c:if>>理</option></select></td>
 	  </tr>
 	  <tr>
 	    <td colspan="2" class = "td">PCメール<hr><input type="text" name="s_pcmail" value="${student.sPcMail}"></td>
