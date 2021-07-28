@@ -41,7 +41,7 @@
 		margin-right:300px;
 	}
 
-	.right_button1, .right_button2, .right_button3{
+/*  	.right_button1, .right_button2, .right_button3{
 		margin-right:180px;
 	}
 
@@ -49,7 +49,7 @@
 		width:137px;
 		}
 
-	.sub_button {
+  	.sub_button {
 	  position: relative;
 	  display: inline-block;
 	  font-weight: bold;
@@ -62,9 +62,109 @@
 	  height:40px;
 	}
 
-	.sub_button:hover {
+ 	.sub_button:hover {
 	  background: #ECECEC;
 	  color: #00BCD4;
+	}
+ */
+
+	.sub_button {
+	  line-height:20px;
+	  position:relative;
+	  height:27px;
+	  width:100px;
+	  font-size:13px;
+	  text-decoration:none;
+	  display:block;
+	  text-align:center;
+	  padding:0 auto 0 auto;
+	  margin-left: 66%;
+	  color:#0096AE85;
+	  background-color: #ffffff;
+	  border-color:#0096AE85
+	}
+	.sub_button:hover{
+	     background-color: #e0ffff;/*ボタン色*/
+	     border-bottom: solid 2px #00ced1; /*下線色*/
+	}
+	.sub_button:active {
+	     margin-top: 1px;
+	     -webkit-transform: translateY(0.5px); /*下移動*/
+	     transform: translateY(0.5px);
+	}
+
+		.right_button1 {
+	  line-height:20px;
+	  position:relative;
+	  height:30px;
+	  width:180px;
+	  font-size:13px;
+	  text-decoration:none;
+	  display:block;
+	  text-align:center;
+	  padding:0 auto 0 auto;
+	  margin-left: 77%;
+	  color:#0096AE85;
+	  background-color: #ffffff;
+	  border-color:#0096AE85
+
+	}
+	.right_button1:hover{
+	     background-color: #e0ffff;/*ボタン色*/
+	     border-bottom: solid 2px #00ced1; /*下線色*/
+	}
+	.right_button1:active {
+	     margin-top: 1px;
+	     -webkit-transform: translateY(0.5px); /*下移動*/
+	     transform: translateY(0.5px);
+	}
+	.right_button2 {
+	  line-height:20px;
+	  position:relative;
+	  height:30px;
+	  width:180px;
+	  font-size:13px;
+	  text-decoration:none;
+	  display:block;
+	  text-align:center;
+	  padding:0 auto 0 auto;
+	  margin-left: 77%;
+	  color:#0096AE85;
+	  background-color: #ffffff;
+	  border-color:#0096AE85
+	}
+	.right_button2:hover{
+	     background-color: #e0ffff;/*ボタン色*/
+	     border-bottom: solid 2px #00ced1; /*下線色*/
+	}
+	.right_button2:active {
+	     margin-top: 1px;
+	     -webkit-transform: translateY(0.5px); /*下移動*/
+	     transform: translateY(0.5px);
+	}
+		.right_button3 {
+	  line-height:20px;
+	  position:relative;
+	  height:30px;
+	  width:180px;
+	  font-size:13px;
+	  text-decoration:none;
+	  display:block;
+	  text-align:center;
+	  padding:0 auto 0 auto;
+	  margin-left: 77%;
+	  color:#0096AE85;
+	  background-color: #ffffff;
+	  border-color:#0096AE85
+	}
+	.right_button3:hover{
+	     background-color: #e0ffff;/*ボタン色*/
+	     border-bottom: solid 2px #00ced1; /*下線色*/
+	}
+	.right_button3:active {
+	     margin-top: 1px;
+	     -webkit-transform: translateY(0.5px); /*下移動*/
+	     transform: translateY(0.5px);
 	}
 
 </style>

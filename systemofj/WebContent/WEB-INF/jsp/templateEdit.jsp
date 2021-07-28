@@ -73,7 +73,7 @@
   line-height:20px;
   position:relative;
   height:27px;
-  width:77px;
+  width:100px;
   font-size:13px;
   text-decoration:none;
   display:block;
