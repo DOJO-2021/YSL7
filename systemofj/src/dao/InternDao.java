@@ -113,6 +113,34 @@ public class InternDao {
 		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 	}
 
+	public int ISUpdate(int iId,String iCategory, String iDate, String iAttend, String applyFlag) throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Intern set i_category=? ,i_date=? ,i_attend=? , applyflag=? where i_id =?";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		// SQL文を完成させる
+		//beanに値をひとつずつセットする
+		pStmt.setString(1,iCategory);
+		pStmt.setString(2,iDate);
+		pStmt.setString(3,iAttend);
+		pStmt.setString(4,applyFlag);
+		pStmt.setInt(5,iId);
+
+		int ans = pStmt.executeUpdate();
+
+//		if (conn != null) {
+//			conn.close();
+//		}
+
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+	}
+
 	public int internDelete(int sId) throws SQLException {
 
 
@@ -138,11 +166,11 @@ public class InternDao {
 
 	}
 	//一括編集の内容変更
-	public int allUpdate(String sqlContents) throws SQLException {
+	public int allUpdate(String sqlContents, String categorys) throws SQLException {
 
 		// SQL文を準備する
-		System.out.println(sqlContents);
-		String sql = sqlContents;
+
+		String sql = "update Intern" + sqlContents;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		int ans = pStmt.executeUpdate();

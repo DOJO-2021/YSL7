@@ -333,6 +333,8 @@ public class UpdateDeleteAction {
 		String iCategory3 = "初級";
 		String iCategory4 = "中級";
 		String iCategory5 = "準備";
+		String iCategory6 = "説明会";
+
 
 
 		String iDate1 =request.getParameter("iDate1");
@@ -340,6 +342,8 @@ public class UpdateDeleteAction {
 		String iDate3 =request.getParameter("iDate3");
 		String iDate4 =request.getParameter("iDate4");
 		String iDate5 =request.getParameter("iDate5");
+		String iDate6 =request.getParameter("iDate6");
+
 
 		String iMeeting1 = request.getParameter("iMeeting1");
 		String iMeeting2 = request.getParameter("iMeeting2");
@@ -353,11 +357,11 @@ public class UpdateDeleteAction {
 		String iSubmit4 = request.getParameter("iSubmit4");
 		String iSubmit5 = request.getParameter("iSubmit5");
 
-		String iAcceptace1 = request.getParameter("iAcceptace1");
-		String iAcceptace2 = request.getParameter("iAcceptace2");
-		String iAcceptace3 = request.getParameter("iAcceptace3");
-		String iAcceptace4 = request.getParameter("iAcceptace4");
-		String iAcceptace5 = request.getParameter("iAcceptace5");
+		String iAcceptace1 = request.getParameter("iAcceptance1");
+		String iAcceptace2 = request.getParameter("iAcceptance2");
+		String iAcceptace3 = request.getParameter("iAcceptance3");
+		String iAcceptace4 = request.getParameter("iAcceptance4");
+		String iAcceptace5 = request.getParameter("iAcceptance5");
 
 		String iDocument1 = request.getParameter("iDocument1");
 		String iDocument2 = request.getParameter("iDocument2");
@@ -366,9 +370,12 @@ public class UpdateDeleteAction {
 		String iDocument5 = request.getParameter("iDocument5");
 
 		String iAttend = request.getParameter("iAttend");
+		String applyFlag =request.getParameter("applyflag");
 
-		System.out.println(iMeeting1 + "ee");
-		System.out.println("iattend" + iAttend);
+
+		System.out.println(applyFlag + "ee");
+		System.out.println(iDate6 + "ii");
+
 
 //		int iId1 = 0;
 //
@@ -458,6 +465,8 @@ public class UpdateDeleteAction {
 		int iId3 = Integer.parseInt(request.getParameter("iId3"));
 		int iId4 = Integer.parseInt(request.getParameter("iId4"));
 		int iId5 = Integer.parseInt(request.getParameter("iId5"));
+		int iId6 = Integer.parseInt(request.getParameter("iId6"));
+
 
 		int eId1 = Integer.parseInt(request.getParameter("eId1"));
 		int eId2 = Integer.parseInt(request.getParameter("eId2"));
@@ -491,10 +500,10 @@ public class UpdateDeleteAction {
 											sfCategory1, sfCategory2, sfName1,sfName2, sfName3,  sfScore1_1, sfScore1_2, sfScore1_3 ,sfScore2_1, sfScore2_2,  sfId1, sfId2, sfId3, sfId4, sfId5,
 											stCategory1, stCategory2, stCategory3, stName1, stName2, stName3, stName4,
 											stScore1, stScore2, stScore3, stScore4, stScore5, stScore6, stScore7, stScore8, stScore9, stScore10, stScore11, stScore12, stId1, stId2, stId3, stId4, stId5, stId6, stId7, stId8, stId9, stId10, stId11, stId12,
-											iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iDate1, iDate2, iDate3, iDate4, iDate5, iMeeting1, iMeeting2,
+											iCategory1, iCategory2, iCategory3, iCategory4, iCategory5, iCategory6, iDate1, iDate2, iDate3, iDate4, iDate5, iDate6, iMeeting1, iMeeting2,
 											iMeeting3, iMeeting4, iMeeting5, iSubmit1, iSubmit2, iSubmit3, iSubmit4, iSubmit5,
 											iAcceptace1, iAcceptace2, iAcceptace3, iAcceptace4, iAcceptace5,
-											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iAttend,iId1, iId2, iId3, iId4, iId5,
+											iDocument1, iDocument2, iDocument3, iDocument4, iDocument5, iAttend, applyFlag, iId1, iId2, iId3, iId4, iId5, iId6,
 											eId1, eId2, eId3, eId4, eId5, eId6, eDate1, eDate2, eDate3, eDate4, eDate5, eDate6);
 
 			if (student == true) {
