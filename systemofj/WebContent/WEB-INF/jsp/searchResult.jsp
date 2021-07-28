@@ -226,7 +226,7 @@
 
 	$.ajax({
 		type:'post',
-		url: '/systemofj/SearchResultTestServlet',
+		url: '/systemofj/Servlet',
 		data:{page_id : che, pageload :'aj' ,submit:''}
 	});
 }
@@ -241,13 +241,13 @@ function changeflag(indexNo, sId){
 			if(ch.checked){
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
 			});
 			} else{
 				$.ajax({
 					type:'post',
-					url: '/systemofj/SearchResultTestServlet',
+					url: '/systemofj/Servlet',
 					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
 				});
 			}
@@ -326,7 +326,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'cb', submit:''}
 			});
 		}
@@ -337,7 +337,7 @@ function change_all(indexNo) {
 			//alert(IID);
 			$.ajax({
 				type:'post',
-				url: '/systemofj/SearchResultTestServlet',
+				url: '/systemofj/Servlet',
 				data: {	page_id : 'searchResult',  sId : SID , checkbox: 'ef', submit:''}
 			});
 		}
