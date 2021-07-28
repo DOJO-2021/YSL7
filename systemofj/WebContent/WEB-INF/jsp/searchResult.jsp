@@ -210,6 +210,7 @@
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
+	<input type="hidden" name="page_id" value="searchResult">
 	<input type="submit" name="submit" value="一括編集">
 </form>
 </body>
