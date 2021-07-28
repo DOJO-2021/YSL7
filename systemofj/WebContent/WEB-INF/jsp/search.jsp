@@ -8,6 +8,11 @@
 
 <style>
 
+	body{
+		text-align: center;
+		width: 94em;
+		height:1000px;
+		}
 /*プルダウン（インターン、イベント）の幅を広げる*/
 .width td {
   width:210px;
