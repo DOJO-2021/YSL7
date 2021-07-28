@@ -8,12 +8,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	body{
-		margin:50px;
-	}
+
+ 	body{
+		text-align: center;
+		width: 94em;
+		height:1000px;
+		}
 
 	textarea{
-		margin:50px;
+		margin:20px 0 0 400px;
 		width:700px;
 		height:600px;
 		float:left;
@@ -22,10 +25,14 @@
 	.inline{
 		display:inline-block;
 	}
+
+	.sub_button{
+		margin-left:43em;
+	}
 	ul{
 		margin-top:50px;
 		list-style:none;
-		float:left;
+
 	}
 	li{
 		margin-bottom:5px;
@@ -34,17 +41,43 @@
 		margin-right:300px;
 	}
 
-	.sub_button{
-		margin-left:500px;
+	.right_button1, .right_button2, .right_button3{
+		margin-right:180px;
+	}
+
+	.right_button3{
+		width:137px;
+		}
+
+	.sub_button {
+	  position: relative;
+	  display: inline-block;
+	  font-weight: bold;
+	  padding: 0.25em 0.5em;
+	  text-decoration: none;
+	  color: white;
+	  background: #00bcd4;
+	  transition: .4s;
+	  width:140px;
+	  height:40px;
+	}
+
+	.sub_button:hover {
+	  background: #ECECEC;
+	  color: #00BCD4;
 	}
 
 </style>
 </head>
+
 <body>
+<header>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
+</header>
+
 	<div class="templatehead">
-		<h2 class="inline">テンプレ登録ページ</h2>
-		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ編集ページへ</a>
+		<h2 class="inline">テンプレート登録ページ</h2>
+		<a href = "/systemofj/Servlet?FLG=templateEdit" class="inline">テンプレ選択ページへ</a>
 	</div>
 	<form action ="/systemofj/Servlet" method="POST" name="form1" onSubmit="return check()">
 	<select name="tr_category">
@@ -54,11 +87,10 @@
 		<option value="面接">面接</option>
 		<option value="その他">その他</option>
 	</select>
-	<br><input type="text" name="tr_title"><br>
+	<br><input type="text" name="tr_title" placeholder="タイトル" style="width:202px;"><br>
 
 	<!-- <p>${requestScope.template.t_title}</p>-->
-
-		<input type="submit" class="sub_button" name="submit" value="テンプレ登録ボタン">
+		<input type="submit" class="sub_button" name="submit" value="テンプレ登録"><br>
 		<input type="hidden" name="page_id" value="templateRegist">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
 		<textarea name="tr_content"></textarea>
