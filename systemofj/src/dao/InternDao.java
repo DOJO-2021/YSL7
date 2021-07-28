@@ -138,11 +138,11 @@ public class InternDao {
 
 	}
 	//一括編集の内容変更
-	public int allUpdate(String sqlContents, String categorys) throws SQLException {
+	public int allUpdate(String sqlContents) throws SQLException {
 
 		// SQL文を準備する
-
-		String sql = "update Intern" + sqlContents;
+		System.out.println(sqlContents);
+		String sql = sqlContents;
 		PreparedStatement pStmt = conn.prepareStatement(sql);
 
 		int ans = pStmt.executeUpdate();
