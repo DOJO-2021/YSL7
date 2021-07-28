@@ -23,7 +23,7 @@
 	margin:auto;
 }
 .checkboxstyle{
-	padding: 0px 351px 0;
+	text-align: center;
 }
 </style>
 </head>
@@ -219,11 +219,13 @@
 <c:forEach var="list" items="${list}" varStatus="status">
 	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
+<br>
 <div class=checkboxstyle>
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="searchResult">
+	<br>
 	<input type="submit" name="submit" value="一括編集">
 </form>
 </div>
