@@ -50,9 +50,9 @@ public class InternDao {
 
 			isList.add(bean);
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return isList;
 	}
 
@@ -102,9 +102,9 @@ public class InternDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 		// SQL文を実行する
@@ -127,9 +127,9 @@ public class InternDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 		// SQL文を実行する
 		// ここは変えなくていい
@@ -148,9 +148,9 @@ public class InternDao {
 		int ans = pStmt.executeUpdate();
 
 		// SQL文を完成させる
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 		// SQL文を実行する
