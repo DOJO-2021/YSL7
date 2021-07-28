@@ -19,6 +19,12 @@
 	text-align: center;
 }
 
+#myTable{
+	margin:auto;
+}
+.checkboxstyle{
+	padding: 0px 351px 0;
+}
 </style>
 </head>
 <body>
@@ -213,13 +219,14 @@
 <c:forEach var="list" items="${list}" varStatus="status">
 	<input type="hidden" name="SN" value="${list.sId}" id="sn${status.index}">
 </c:forEach>
-
+<div class=checkboxstyle>
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
 		<label for="checkbox_all" >全選択/解除</label>
 <form method="POST" action="/systemofj/Servlet">
 	<input type="hidden" name="page_id" value="searchResult">
 	<input type="submit" name="submit" value="一括編集">
 </form>
+</div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
