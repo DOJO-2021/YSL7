@@ -46,9 +46,9 @@ background-color: #e0e0e0;
   </form>
 
 <!-- 履歴書ボタン -->
-  <form action="/systemofj/uploaded/${student.sName}${student.sAddress}.pdf" method="GET" target="_blank" style="display:inline-flex">
-    <input type="submit" name="submit" value="履歴書PDFを表示">
-  </form>
+ <form method="GET" target="_blank" style="display:inline-flex">
+  <input type="button" id="pdf" name="pdf" value="履歴書PDFを表示" onclick="pdfButton()">
+	</form>
 <br>
 <!-- 基本情報テーブル -->
 
@@ -457,6 +457,9 @@ if(checkBox.checked){
 }
 
 }
+document.getElementById("pdf").onclick = function () {
+	window.open( "/systemofj/uploaded/${student.sName}${student.sAddress}.pdf" ,null, 'top=100, left=100 ,width=800, height=800');
 
+}
 </script>
 </html>
