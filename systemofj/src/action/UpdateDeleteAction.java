@@ -106,7 +106,7 @@ public class UpdateDeleteAction {
 		String sName = request.getParameter("sName");
 		String sKana = request.getParameter("sKana");
 		String sContents = request.getParameter("sContents");
-		String sUnivercity = request.getParameter("sUnivercity");
+		String sUnivercity = request.getParameter("sUniversity");
 		String sFaculy = request.getParameter("sFaculy");
 		String sDepartment = request.getParameter("sDepartment");
 		String sAddress = request.getParameter("sAddress");
@@ -367,6 +367,7 @@ public class UpdateDeleteAction {
 
 		String iAttend = request.getParameter("iAttend");
 
+		System.out.println(iMeeting1 + "ee");
 		System.out.println("iattend" + iAttend);
 
 //		int iId1 = 0;
