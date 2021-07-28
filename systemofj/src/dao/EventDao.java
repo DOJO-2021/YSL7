@@ -45,9 +45,9 @@ public class EventDao {
 			sEventList.add(sEvent);
 		}
 
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 
 		return sEventList;
 
@@ -86,9 +86,9 @@ public class EventDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 
 		return ans;
 	}
@@ -120,9 +120,9 @@ public class EventDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 
 		return ans;
 	}
