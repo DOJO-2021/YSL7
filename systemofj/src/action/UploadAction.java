@@ -32,14 +32,18 @@ public class UploadAction {
 				//ファイルの取得
 				request.setCharacterEncoding("UTF-8");
 				Part csv = request.getPart("csv");
+				Part pdf = request.getPart("pdf");
 				//ArrayList<Part> pdf = request.get
 
 					//ファイル名を取得
-					String fileName = csv.getSubmittedFileName();
+					String fileName1 = csv.getSubmittedFileName();
+					String fileName2 = pdf.getSubmittedFileName();
 					//ファイルの絶対パスを取得
-					Path path = Path.of(context.getRealPath(fileName));
+					Path path = Path.of(context.getRealPath(fileName1));
 
-					csv.write(context.getRealPath(fileName));
+
+					csv.write(context.getRealPath(fileName1));
+					pdf.write(context.getRealPath(fileName2));
 
 					Charset charset = StandardCharsets.UTF_8;
 
