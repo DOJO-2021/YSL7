@@ -99,10 +99,10 @@ public class UpdateDeleteService {
 			String sfCategory1, String sfCategory2, String sfName1, String sfName2, String sfName3, int sfScore1_1, int sfScore1_2, int sfScore1_3, int sfScore2_1, int sfScore2_2, int sfId1, int sfId2, int sfId3, int sfId4, int sfId5,
 			String stCategory1, String stCategory2, String stCategory3,
 			String stName1, String stName2, String stName3, String stName4, int stScore1, int stScore2, int stScore3, int stScore4, int stScore5, int stScore6, int stScore7, int stScore8, int stScore9,int stScore10, int stScore11, int stScore12, int stId1, int stId2, int stId3, int stId4, int stId5, int stId6, int stId7, int stId8, int stId9, int stId10, int stId11,int stId12,
-			String iCategory1, String iCategory2, String iCategory3, String iCategory4, String iCategory5, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5, String iMeeting1, String iMeeting2,
+			String iCategory1, String iCategory2, String iCategory3, String iCategory4, String iCategory5, String iCategory6, String iDate1, String iDate2, String iDate3, String iDate4, String iDate5, String iDate6, String iMeeting1, String iMeeting2,
 			String iMeeting3, String iMeeting4, String iMeeting5, String iSubmit1, String iSubmit2, String iSubmit3, String iSubmit4, String iSubmit5,
 			String iAcceptace1, String iAcceptace2, String iAcceptace3, String iAcceptace4, String iAcceptace5,
-			String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,  String iAttend, int iId1, int iId2, int iId3, int iId4, int iId5,
+			String iDocument1, String iDocument2, String iDocument3, String iDocument4, String iDocument5,  String iAttend, String applyFlag, int iId1, int iId2, int iId3, int iId4, int iId5, int iId6,
 			int eId1, int eId2, int eId3, int eId4, int eId5, int eId6, String eDate1, String eDate2, String eDate3, String eDate4, String eDate5, String eDate6
 			) throws ClassNotFoundException, SQLException {
 
@@ -137,6 +137,8 @@ public class UpdateDeleteService {
 			boolean result28 = false;
 			boolean result29 = false;
 			boolean result30 = false;
+			boolean result31 = false;
+
 			boolean allresult = false;
 
 			System.out.println(sfId1+"aaaaa");
@@ -219,6 +221,7 @@ public class UpdateDeleteService {
 			EventDao dao28 = new EventDao(conn);
 			EventDao dao29 = new EventDao(conn);
 			EventDao dao30 = new EventDao(conn);
+			InternDao dao31 = new InternDao(conn);
 
 			conn.setAutoCommit(false);
 
@@ -320,27 +323,27 @@ public class UpdateDeleteService {
 			result19 = true;
 			}
 
-			int test20 =dao20.internUpdate(iId1, iDate1,  iMeeting1,  iSubmit1, iAcceptace1,  iDocument1, iAttend, iCategory1);
+			int test20 =dao20.internUpdate(iId1,iCategory1,  iDate1,  iMeeting1,  iSubmit1, iAcceptace1,  iDocument1,  iAttend);
 			if(test20 != 0) {
 				result20 = true;
 				}
 
-			int test21 =dao21.internUpdate(iId2, iDate2,  iMeeting2,  iSubmit2, iAcceptace2,  iDocument2,  iCategory2, iAttend);
+			int test21 =dao21.internUpdate(iId2,iCategory2,  iDate2,  iMeeting2,  iSubmit2, iAcceptace2,  iDocument2,  iAttend);
 			if(test21 != 0) {
 				result21 = true;
 				}
 
-			int test22 =dao22.internUpdate(iId3, iDate3,  iMeeting3,  iSubmit3, iAcceptace3,  iDocument3,  iCategory3, iAttend);
+			int test22 =dao22.internUpdate(iId3,iCategory3,  iDate3,  iMeeting3,  iSubmit3, iAcceptace3,  iDocument3,  iAttend);
 			if(test22 != 0) {
 				result22 = true;
 				}
 
-			int test23 =dao23.internUpdate(iId4, iDate4,  iMeeting4,  iSubmit4, iAcceptace4,  iDocument4,  iCategory4, iAttend);
+			int test23 =dao23.internUpdate(iId4,iCategory4,  iDate4,  iMeeting4,  iSubmit4, iAcceptace4,  iDocument4,  iAttend);
 			if(test23 != 0) {
 				result23 = true;
 				}
 
-			int test24 =dao24.internUpdate(iId5, iDate5,  iMeeting5,  iSubmit5, iAcceptace5,  iDocument5,  iCategory5, iAttend);
+			int test24 =dao24.internUpdate(iId5,iCategory5,  iDate5,  iMeeting5,  iSubmit5, iAcceptace5,  iDocument5,  iAttend);
 			if(test24 != 0) {
 				result24 = true;
 				}
@@ -374,11 +377,16 @@ public class UpdateDeleteService {
 				result30 = true;
 				}
 
+			int test31 =dao31.ISUpdate(iId6, iCategory6, iDate6 , iAttend, applyFlag);
+			if(test31 != 0) {
+				result31 = true;
+				}
 
 
 
 
-			if(result1 && result2 && result3 && result4 && result5 && result6 && result7 && result8 && result9 && result10 && result11 && result12 && result13 && result14 && result15 && result16 && result17 && result18 && result19 && result20 && result21 && result22 && result23 && result24 && result25 && result26 && result27 && result28 && result29 && result30) {
+
+			if(result1 && result2 && result3 && result4 && result5 && result6 && result7 && result8 && result9 && result10 && result11 && result12 && result13 && result14 && result15 && result16 && result17 && result18 && result19 && result20 && result21 && result22 && result23 && result24 && result25 && result26 && result27 && result28 && result29 && result30 && result31) {
 				conn.commit();
 				allresult = true ;
 			}
