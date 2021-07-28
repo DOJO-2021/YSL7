@@ -102,9 +102,9 @@ public class StudentDao {
 		int ans = pStmt.executeUpdate();
 
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 
@@ -145,9 +145,9 @@ public class StudentDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 		// SQL文を実行する
@@ -198,12 +198,13 @@ public class StudentDao {
 			bean.setsMynavi(rs.getString("s_Mynavi"));
 			bean.setsRikunavi(rs.getString("s_Rikunavi"));
 			bean.setsOther(rs.getString("s_Other"));
-
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return bean;
+
 	}
 
 	//一覧のインターン
@@ -237,9 +238,9 @@ public class StudentDao {
 
 			searchInternList.add(student);
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return searchInternList;
 	}
 
@@ -274,9 +275,9 @@ public class StudentDao {
 			searchEventList.add(student);
 
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return searchEventList;
 	}
 
@@ -307,9 +308,9 @@ public class StudentDao {
 
 			searchEntryList.add(student);
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return searchEntryList;
 	}
 
@@ -347,9 +348,9 @@ public class StudentDao {
 			System.out.println(e.getsUnivercity());
 
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return searchName;
 	}
 

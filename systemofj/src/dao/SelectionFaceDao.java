@@ -49,9 +49,9 @@ public class SelectionFaceDao {
 
 			sfsList.add(bean);
 		}
-		if(conn != null) {
-			conn.close();
-		}
+//		if(conn != null) {
+//			conn.close();
+//		}
 		return sfsList;
 	}
 	public int selectionfaceInsert(String sfCategory, String sfName, int sfScore) throws SQLException {
@@ -95,9 +95,9 @@ public class SelectionFaceDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 		// SQL文を実行する
@@ -121,9 +121,9 @@ public class SelectionFaceDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 
 		// SQL文を実行する

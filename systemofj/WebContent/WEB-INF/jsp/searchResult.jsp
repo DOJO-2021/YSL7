@@ -14,11 +14,12 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
 --------------------------- -->
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <h1>検索結果</h1>
-<div class="radiobox">
+<!-- <div class="radiobox">
 	<input type="radio" id="regist" name="line" onclick="sort(0)">
 	<label for="regist">登録順で並び替え</label>
 
@@ -27,7 +28,7 @@
 
 	<input type="radio" id="day" name="line" onclick="sort(2)">
 	<label for="day">日付で並び替え</label>
-</div>
+</div> -->
 <div class="list_box">
 							<input type="hidden" name="z" value="${fn : length(list) }" id="fnsize">
 
@@ -161,6 +162,7 @@
 				 	<c:forEach var="e" items="${list}" varStatus="status">
 				 		<form method="POST" action="/systemofj/Servlet">
 							<tr>
+
 							<input type="hidden" name="page_id" value="searchResult"id="alledit">
 								<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 								<input type="hidden" name="d" value="cb" id="flagup${status.index}">
@@ -206,10 +208,10 @@
 </c:forEach>
 
 		<input type="checkbox" id="checkbox_all" onclick="change_all()" >
-		<label for="selection">全選択/解除</label>
-
+		<label for="checkbox_all" >全選択/解除</label>
+<form method="POST" action="/systemofj/Servlet">
 	<input type="submit" name="submit" value="一括編集">
-
+</form>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

@@ -139,6 +139,7 @@ public class UpdateDeleteService {
 			boolean result30 = false;
 			boolean allresult = false;
 
+			System.out.println(sfId1+"aaaaa");
 
 		try {
 			//ドライバの登録を行う
@@ -462,7 +463,9 @@ public class UpdateDeleteService {
 
 		if(test1 != 0) {
 			result1 = true;
+
 		}
+
 		int test2 =dao2.selectionEasyDelete(sId);
 
 		if(test2 != 0) {
