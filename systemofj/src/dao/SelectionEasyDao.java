@@ -215,9 +215,9 @@ public class SelectionEasyDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 		// SQL文を実行する
 		// ここは変えなくていい
@@ -240,9 +240,9 @@ public class SelectionEasyDao {
 
 		int ans = pStmt.executeUpdate();
 
-		if (conn != null) {
-			conn.close();
-		}
+//		if (conn != null) {
+//			conn.close();
+//		}
 
 		// SQL文を実行する
 		// ここは変えなくていい
