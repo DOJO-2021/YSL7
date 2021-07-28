@@ -20,10 +20,10 @@
 	<input type ="hidden" name ="sUnivercity" value ="${param.sUnivercity}">
 
 
-	<input type="radio" id="explanation" name="template" onclick="show()" >説明会
-	<input type="radio" id="intern" name="template" onclick="show()" >インターン
-	<input type="radio" id="face" name="template" onclick="show()" >面接
-	<input type="radio" id="other" name="template" onclick="show()" >その他<br>
+	<input type="radio" id="explanation" name="template" onclick="show()" ><label for=explanation>説明会</label>
+	<input type="radio" id="intern" name="template" onclick="show()" ><label for=intern>インターン</label>
+	<input type="radio" id="face" name="template" onclick="show()" ><label for=face>面接</label>
+	<input type="radio" id="other" name="template" onclick="show()" ><label for=other>その他</label><br>
 		<div id="explanationtemplate" style="display: none">
 					カテゴリを選択してください：
 			<select name="kind">
