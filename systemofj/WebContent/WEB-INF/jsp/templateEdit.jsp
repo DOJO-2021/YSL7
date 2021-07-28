@@ -251,6 +251,10 @@ function addUname(){
 		        alert("内容を入力してください");
 		        return false;
 		    }
+		    if(document.templateArea.tContent.value.length>1000 ){
+		    	alert("1000文字以内で入力してください");
+		        return false;
+		    }
 		}
 //		text = document.templateArea.tContent.value;
 //		n = text.length;
