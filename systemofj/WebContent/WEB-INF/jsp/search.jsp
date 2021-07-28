@@ -8,10 +8,10 @@
 
 <style>
 
-	body{
+.searchtitle{
 		text-align: center;
 		width: 94em;
-		height:1000px;
+		height:150px;
 		}
 /*プルダウン（インターン、イベント）の幅を広げる*/
 .width td {
@@ -88,7 +88,7 @@ input[name="tab_item"] {
  <%-- <jsp:include page="../../header.jsp"> --%>
  <jsp:include page="/WEB-INF/jsp/header.jsp"/>
 </header>
-
+<div class="searchtitle">
 <h1>検索</h1>
 
 
@@ -104,7 +104,7 @@ input[name="tab_item"] {
 	<input type="text" name="search_item" placeholder="個人名検索">
 	<input type="submit" name="submit" value="検索">
 </form>
-
+</div>
 <!-- 検索大項目 -->
 <div class="tabs">
     <input type="radio" name="tab_item" id="intern" checked>
