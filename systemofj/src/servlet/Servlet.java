@@ -111,6 +111,7 @@ public class Servlet extends HttpServlet {
 				}
 			}
 			System.out.println(FLG);
+			System.out.println(page_id);
 			//ログイン画面
 			if(FLG == null && page_id != null) {
 				if(page_id.equals("login")) {
@@ -238,9 +239,11 @@ public class Servlet extends HttpServlet {
 					}
 				}
 				//テンプレ登録画面
+				System.out.println(page_id);
 				if(page_id.equals( "templateRegist")) {
+
 					//テンプレ登録ボタン
-					if(submit.equals("テンプレ登録ボタン")){
+					if(submit.equals("テンプレ登録")){
 						path = RegistAction.TemplateRegist(request);
 					}
 				}
@@ -261,6 +264,7 @@ public class Servlet extends HttpServlet {
 						path = UpdateDeleteAction.templateUpdate(request);
 					}
 				}
+
 				System.out.println("最後です");
 			}
 			RequestDispatcher dispatcher = request.getRequestDispatcher(path);
