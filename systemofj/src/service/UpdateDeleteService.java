@@ -1033,7 +1033,7 @@ public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlCon
 //		return result;
 //
 //	}
-}
+
 //トランザクションを使用する場合はこんなかんじ
 //conn.commit();
 
@@ -1042,4 +1042,45 @@ public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlCon
 //		if(list.size()==0) {
 //			list=null;
 //		}
+
+public boolean privateFlagDelete( int sId) throws ClassNotFoundException, SQLException {
+    boolean result = false;
+try {
+    //ドライバの登録を行う
+    Class.forName("org.h2.Driver");
+    //データベースへの接続情報を設定する
+    Connection conn = DriverManager.getConnection("jdbc:h2:file:C:\\pleiades\\workspace\\YSL7\\data\\systemofj","sa","sa");
+    //DAOを実体化
+    StudentDao dao = new StudentDao(conn);
+    conn.setAutoCommit(false);
+    //引数を渡し、取得地をbeanに渡す
+    int test =dao.privateFlagDelete(sId);
+    if(test != 0) {
+        conn.commit();
+        result = true;
+    }else {
+        conn.rollback();
+    }
+    return result;
+}catch(ClassNotFoundException e) {
+    return result;
+}catch(SQLException e) {
+    e.printStackTrace();
+    try {
+        conn.rollback();
+    }catch(SQLException e1) {
+        e1.printStackTrace();
+    }
+    return result;
+}finally {
+    if(conn!= null) {
+        try {
+            conn.close();
+        }catch(SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+}
+}
 

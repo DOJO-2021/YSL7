@@ -1575,7 +1575,38 @@ System.out.println("mine");
 //	}
 
 
-
+    public String privateFlagDelete(HttpServletRequest request) {
+        //戻り値に設定するページを初期設定しておく
+        String page = "/WEB-INF/jsp/searchResult.jsp";
+        //リクエスト領域から取得
+        int sId = Integer.parseInt(request.getParameter("sId"));
+        System.out.println(sId);
+        //出力値を格納するBean
+        boolean flag = false;
+        try {
+            //入力されていたらサービスへ処理を委譲
+            UpdateDeleteService service = new UpdateDeleteService();
+            flag= service.privateFlagDelete(sId);
+//          if (flag == true) {
+//
+//              return page;
+//              //（更新成功）
+//
+//          }
+//          else {
+//              //値が入っていないので、エラーメッセージをセットしログイン画面へ
+//              request.setAttribute("errMsg", "失敗");
+//          }
+//
+            //サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("errMsg", "SQL文おかしい");
+        } catch (ClassNotFoundException e) {
+            request.setAttribute("errMsg", "サーバーおかしい");
+        }
+        return page;
+    }
 
 
 

@@ -107,7 +107,7 @@ width: 800px;
 <p>eidを表示します<c:out value="${talk[0].eId}"/></p>
 <p>eidを表示します<c:out value="${talk[1].eId}"/></p>
 <input type="text" name ="eId5" value ="${talk[0].eId}">
-<input type="text" name ="eId6" value ="${talk[0].eId}">
+<input type="text" name ="eId6" value ="${talk[1].eId}">
 
 
 <table style="border: 0px; width: 700px;" class = "table">
@@ -121,7 +121,7 @@ width: 800px;
           <td class = "td">参加日</td>
         </tr>
         <tr>
-          <td class = "td"><input type="date" name="e_date1" value="${con}"></td>
+          <td class = "td"><input type="date" name="e_date1" value="${con[0].eDate}"></td>
         </tr>
       </table>
     </td>
@@ -169,6 +169,8 @@ width: 800px;
 <input type="hidden" name ="iId3" value ="${intern[2].iId}">
 <input type="hidden" name ="iId4" value ="${intern[3].iId}">
 <input type="hidden" name ="iId5" value ="${intern[4].iId}">
+<input type="hidden" name ="iId6" value ="${exp.iId}">
+
 
 <table style="border: 0px #000000 solid; width: 900px;" class = "table">
   <tr>
@@ -275,7 +277,7 @@ width: 800px;
         </tr>
         <tr>
           <td class = "td"><input type="date" name="applyflag" value="${exp.applyflag}"></td>
-          <td class = "td"><input type="date" name="i_date6" value="${exp.iDate}"></td>
+          <td class = "td"><input type="date" name="iDate6" value="${exp.iDate}"></td>
           <td class = "td"><select name="iAttend"><option value="　"></option><option value="〇"<c:if test="${exp.iAttend == '〇'}" >selected</c:if>>〇</option></select></td>
         </tr>
       </table>
@@ -287,7 +289,7 @@ width: 800px;
          <th class = "th">適正点数</th>
         </tr>
         <tr>
-          <td class = "td"><input type="date" name="se_selectiondate" value="${eazy.seSelectionDate}"></td>
+          <td class = "td"><input type="date" name="seSelectionDate" value="${eazy.seSelectionDate}"></td>
           <td class = "td"><input type="text" name="seScore" value="${eazy.seScore}"></td>
         </tr>
       </table>
@@ -379,8 +381,8 @@ width: 800px;
           <th class = "th">合否</th>
         </tr>
         <tr>
-          <td style="width: 143px" class = "td"><input type="date" name="se_firstno" value="${eazy.seFirstNo}"></td>
-          <td style="width: 143px" class = "td"><input type="date" name="se_firstdate" value="${eazy.seFirstDate}"></td>
+          <td style="width: 143px" class = "td"><input type="date" name="seFirstNo" value="${eazy.seFirstNo}"></td>
+          <td style="width: 143px" class = "td"><input type="date" name="seFirstDate" value="${eazy.seFirstDate}"></td>
           <td class = "td"><select name="sf_score_one1"><option value="0"<c:if test="${face1[0].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[0].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[0].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[0].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[0].sfScore == '4'}" >selected</c:if>>4</option></select></td>
           <td class = "td"><select name="sf_score_one2"><option value="0"<c:if test="${face1[1].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[1].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[1].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[1].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[1].sfScore == '4'}" >selected</c:if>>4</option></select></td>
           <td class = "td"><select name="sf_score_one3"><option value="0"<c:if test="${face1[2].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[2].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[2].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[2].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[2].sfScore == '4'}" >selected</c:if>>4</option></select></td>
@@ -401,8 +403,8 @@ width: 800px;
           <th class = "th">合否</th>
         </tr>
         <tr>
-          <td style="width: 143px" class = "td"><input type="date" name="se_secondno" value="${eazy.seSecondNo}"></td>
-          <td style="width: 143px" class = "td"><input type="date" name="se_seconddate" value="${eazy.seSecondDate}"></td>
+          <td style="width: 143px" class = "td"><input type="date" name="seSecondNo" value="${eazy.seSecondNo}"></td>
+          <td style="width: 143px" class = "td"><input type="date" name="seSecondDate" value="${eazy.seSecondDate}"></td>
           <td class = "td"><select name="se_textresult1"><option value="0"<c:if test="${face2[0].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face2[0].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face2[0].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face2[0].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face2[0].sfScore == '4'}" >selected</c:if>>4</option></select></td>
 		  <td class = "td"><select name="se_textresult2"><option value="0"<c:if test="${face2[1].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face2[1].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face2[1].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face2[1].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face2[1].sfScore == '4'}" >selected</c:if>>4</option></select></td>
           <td class = "td"><select name="seSecondResult"><option value="　"></option><option value="合"<c:if test="${eazy.seSecondResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seSecondResult == '否'}" >selected</c:if>>否</option></select></td>
@@ -419,7 +421,7 @@ width: 800px;
           <th class = "th">合否</th>
         </tr>
         <tr>
-          <td class = "td"><input type="date" name="se_thirddate" value="${eazy.seThirdDate}"></td>
+          <td class = "td"><input type="date" name="seThirdDate" value="${eazy.seThirdDate}"></td>
           <td class = "td"><select name="seThirdResult"><option value="　"></option><option value="合"<c:if test="${eazy.seThirdResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seThirdResult == '否'}" >selected</c:if>>否</option></select></td>
         </tr>
       </table>
@@ -449,7 +451,7 @@ width: 800px;
           <th class = "th">辞退理由</th>
         </tr>
         <tr>
-          <td colspan="7" class = "td"><textarea style="width: 1069px" name="se_noreason">${eazy.seNoReason}</textarea></td>
+          <td colspan="7" class = "td"><textarea style="width: 1069px" name="seNoreason">${eazy.seNoReason}</textarea></td>
         </tr>
       </table>
     </td>
@@ -461,7 +463,7 @@ width: 800px;
          <th class = "th">備考</th>
        </tr>
        <tr>
-         <td class = "td"><textarea name="se_remarks">${eazy.seRemarks}</textarea></td>
+         <td class = "td"><textarea name="seRemarks">${eazy.seRemarks}</textarea></td>
        </tr>
      </table>
     </td>
@@ -471,7 +473,7 @@ width: 800px;
           <th class = "th">選考進捗状況</th>
         </tr>
         <tr>
-          <td class = "td"><select name="se_situation">
+          <td class = "td"><select name="seSituation">
           <option value="　">${eazy.seSituation}</option>
           <option value="適性検査受験前"<c:if test="${eazy.seSituation == '適性検査受験前'}">selected</c:if>>適性検査受験前</option>
           <option value="適性検査受験済"<c:if test="${eazy.seSituation == '適性検査受験済'}">selected</c:if>>適性検査受験済</option>

@@ -176,7 +176,7 @@
 				 		<form method="POST" action="/systemofj/Servlet">
 							<tr>
 
-							<input type="hidden" name="page_id" value="searchResult"id="alledit">
+							<input type="hidden" name="page_id" value="searchResult">
 								<input type="hidden" name="c" value="aj"id="flagedit${status.index}">
 								<input type="hidden" name="d" value="cb" id="flagup${status.index}">
 								<input type="hidden" name="sId" value="${e.sId }" id="idname${status.index}">
@@ -237,19 +237,19 @@
 'use strict';
 //ページを読み込んだらflagが1のものを0に戻すメソッド
  window.onload = function(){
-	var che = document.getElementById("alledit").value;
+//	var che = document.getElementById("alledit").value;
 	//var edi = 'aj';
 
 	$.ajax({
 		type:'post',
 		url: '/systemofj/Servlet',
-		data:{page_id : che, pageload :'aj' ,submit:''}
+		data:{page_id : 'searchResult', pageload :'aj' ,submit:''}
 	});
 }
 //checkされたflagを0から1に変更するメソッド
 function changeflag(indexNo, sId){
 	//チェックボックスの取得
-	var che = document.getElementById("alledit").value;
+//	var che = document.getElementById("alledit").value;
 	var ch = document.getElementById('chId'+indexNo);
 //	var fe = 'cb';
 	var sn = document.getElementById("idname"+indexNo).value;
@@ -258,13 +258,13 @@ function changeflag(indexNo, sId){
 			$.ajax({
 				type:'post',
 				url: '/systemofj/Servlet',
-				data: {	page_id : che, sId : sn , checkbox: 'cb', submit:''}
+				data: {	page_id : 'searchResult', sId : sn , checkbox: 'cb', submit:''}
 			});
 			} else{
 				$.ajax({
 					type:'post',
 					url: '/systemofj/Servlet',
-					data: {	page_id : che, sId : sn , checkbox: 'ef', submit:''}
+					data: {	page_id : 'searchResult', sId : sn , checkbox: 'ef', submit:''}
 				});
 			}
 }

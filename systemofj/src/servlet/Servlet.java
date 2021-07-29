@@ -167,7 +167,7 @@ public class Servlet extends HttpServlet {
 						if(checkbox.equals("cb")) {
 							path = UpdateDeleteAction.flagUpdate(request);
 						}else if(checkbox.equals("ef")) {
-							path = UpdateDeleteAction.flagDelete(request);
+							path = UpdateDeleteAction.privateFlagDelete(request);
 						}
 					}
 				}
