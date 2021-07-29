@@ -240,7 +240,7 @@ public class Servlet extends HttpServlet {
 				//テンプレ登録画面
 				if(page_id.equals( "templateRegist")) {
 					//テンプレ登録ボタン
-					if(submit.equals("テンプレ登録ボタン")){
+					if(submit.equals("テンプレ登録")){
 						path = RegistAction.TemplateRegist(request);
 					}
 				}

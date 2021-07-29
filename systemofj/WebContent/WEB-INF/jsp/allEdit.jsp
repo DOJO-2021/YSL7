@@ -62,11 +62,11 @@ width: 200px;
               </tr>
               <tr>
                 <td style="border: 0px"></td>
-                <td  class="td"><input type="date" name="iDate1" value="　"></td>
-                <td  class="td"><input type="date" name="iDate2" value="　"></td>
-                <td  class="td"><input type="date" name="iDate3" value="　"></td>
-                <td  class="td"><input type="date" name="iDate4" value="　"></td>
-                <td  class="td"><input type="date" name="iDate5" value="　"></td>
+                <td  class="td"><input type="date" name="iDate1" value=""></td>
+                <td  class="td"><input type="date" name="iDate2" value=""></td>
+                <td  class="td"><input type="date" name="iDate3" value=""></td>
+                <td  class="td"><input type="date" name="iDate4" value=""></td>
+                <td  class="td"><input type="date" name="iDate5" value=""></td>
               </tr>
               <tr>
                 <th>懇親会出欠</th>
@@ -78,11 +78,11 @@ width: 200px;
               </tr>
               <tr>
                 <th>アンケート合否</th>
-                <td  class="td"><select name="i_acceptance1"><option value=""></option><option value="〇">〇</option></select></td>
-                <td  class="td"><select name="i_acceptance2"><option value=""></option><option value="〇">〇</option></select></td>
-                <td  class="td"><select name="i_acceptance3"><option value=""></option><option value="〇">〇</option></select></td>
-                <td  class="td"><select name="i_acceptance4"><option value=""></option><option value="〇">〇</option></select></td>
-                <td  class="td"><select name="i_acceptance5"><option value=""></option><option value="〇">〇</option></select></td>
+                <td  class="td"><select name="iAcceptance1"><option value=""></option><option value="〇">〇</option></select></td>
+                <td  class="td"><select name="iAcceptance2"><option value=""></option><option value="〇">〇</option></select></td>
+                <td  class="td"><select name="iAcceptance3"><option value=""></option><option value="〇">〇</option></select></td>
+                <td  class="td"><select name="iAcceptance4"><option value=""></option><option value="〇">〇</option></select></td>
+                <td  class="td"><select name="iAcceptance5"><option value=""></option><option value="〇">〇</option></select></td>
               </tr>
               <tr>
                 <th>アンケート提出有無</th>
