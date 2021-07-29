@@ -242,10 +242,10 @@ width: 800px;
 <h3>選考<input type="checkbox" id="sele_info"  onclick="divOpen(this,'selection')"></h3>
 <div id="selection" style="display:none;">
 <input type="hidden" name ="sfId1" value ="${face1[0].sfId}">
-<input type="hidden" name ="sfId2" value ="${face1[0].sfId}">
-<input type="hidden" name ="sfId3" value ="${face1[0].sfId}">
+<input type="hidden" name ="sfId2" value ="${face1[1].sfId}">
+<input type="hidden" name ="sfId3" value ="${face1[2].sfId}">
 <input type="hidden" name ="sfId4" value ="${face2[0].sfId}">
-<input type="hidden" name ="sfId5" value ="${face2[0].sfId}">
+<input type="hidden" name ="sfId5" value ="${face2[1].sfId}">
 
 <input type="hidden" name ="stId1" value ="${resume[0].stId}">
 <input type="hidden" name ="stId2" value ="${resume[1].stId}">
@@ -302,7 +302,8 @@ width: 800px;
         </tr>
         <tr>
           <td class = "td"><input type="text" name="seTextScore" value="${eazy.seTextScore}"></td>
-          <td class = "td"><select name="seTextResult"><option value="${eazy.seTextResult}"></option><option value="合">合</option><option value="否">否</option></select></td>
+          <td class = "td"><select name="seTextResult"><option value="　"></option><option value="合"<c:if test = "${eazy.seTextResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test ="${eazy.seTextResult == '否'}">selected</c:if>>否</option></select></td>
+
         </tr>
       </table>
     </td>
@@ -387,8 +388,14 @@ width: 800px;
           <td class = "td"><select name="sf_score_one2"><option value="0"<c:if test="${face1[1].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[1].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[1].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[1].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[1].sfScore == '4'}" >selected</c:if>>4</option></select></td>
           <td class = "td"><select name="sf_score_one3"><option value="0"<c:if test="${face1[2].sfScore == '0'}" >selected</c:if>></option><option value="1"<c:if test="${face1[2].sfScore == '1'}" >selected</c:if>>1</option><option value="2"<c:if test="${face1[2].sfScore == '2'}" >selected</c:if>>2</option><option value="3"<c:if test="${face1[2].sfScore == '3'}" >selected</c:if>>3</option><option value="4"<c:if test="${face1[2].sfScore == '4'}" >selected</c:if>>4</option></select></td>
           <td class = "td"><select name="seFirstResult"><option value="　"></option><option value="合"<c:if test="${eazy.seFirstResult == '合'}" >selected</c:if>>合</option><option value="否"<c:if test="${eazy.seFirstResult == '否'}" >selected</c:if>>否</option></select></td>
-        </tr>
+
+      </tr>
       </table>
+      <p>a<c:out value="${face1[0].sfScore}"/></p>
+      <p>a<c:out value="${face1[1].sfScore}"/></p>
+
+      <p>a<c:out value="${face1[2].sfScore}"/></p>
+
     </td>
     <td style="border: 0px" class = "td">
       <table style="width: 440px" class = "table">
