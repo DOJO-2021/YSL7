@@ -175,17 +175,17 @@
 	</div>
 	<br>
 	<p class="title">${template.tTitle}</p>
-	<form action ="/systemofj/Servlet" method="POST" name ="templateArea" id ="form" onSubmit="return check()">
+	<form action ="/systemofj/Servlet" method="POST" name ="templateArea" id ="form" >
 
 		<input type="hidden" name="tId" value="${template.tId}">
 		<input type="hidden" name="tTitle" value="${template.tTitle}">
 
 
-		<input type="submit" class="sub_button" name="submit" id="btn" value="テンプレ更新"><br>
+		<input type="submit" class="sub_button" name="submit" id="btn" value="テンプレ更新" onClick="return check()"><br>
 		<input type="hidden" name="page_id" value="templateEdit">
 			<p id="output" class = "error"></p>
 
-		<textarea name="tContent" id="textarea" maxlength="1000">${requestScope.template.tContent}</textarea>
+		<textarea name="tContent" id="textarea">${requestScope.template.tContent}</textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
