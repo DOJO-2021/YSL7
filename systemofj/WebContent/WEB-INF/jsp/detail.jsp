@@ -33,6 +33,7 @@ background-color: #e0e0e0;
 </style>
 </head>
 <body>
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
 <div class="wrap">
 <!-- メール作成ボタン -->
   <form action="/systemofj/Servlet" method="POST" style="display:inline-flex; margin: 0 0 0 0.5em;">
