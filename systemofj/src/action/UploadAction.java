@@ -25,25 +25,25 @@ public class UploadAction {
 
 
 
-		public String upload(HttpServletRequest request, ServletContext context) {
+		public String csvupload(HttpServletRequest request, ServletContext context) {
 
 			try {
 
 				//ファイルの取得
 				request.setCharacterEncoding("UTF-8");
 				Part csv = request.getPart("csv");
-				Part pdf = request.getPart("pdf");
 				//ArrayList<Part> pdf = request.get
 
 					//ファイル名を取得
 					String fileName1 = csv.getSubmittedFileName();
-					String fileName2 = pdf.getSubmittedFileName();
+
+
 					//ファイルの絶対パスを取得
 					Path path = Path.of(context.getRealPath(fileName1));
 
 
 					csv.write(context.getRealPath(fileName1));
-					pdf.write(context.getRealPath(fileName2));
+
 
 					Charset charset = StandardCharsets.UTF_8;
 
@@ -439,14 +439,47 @@ public class UploadAction {
 						return "/WEB-INF/jsp/upload.jsp";
 					}
 
-				} catch (IOException e) {
-					e.printStackTrace();
-				} catch (ServletException e) {
-					e.printStackTrace();
-				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
 
 			request.setAttribute("msg", "どこかのifに入れていないよ！");
 			return "/WEB-INF/jsp/upload.jsp";
 
-	}
+		}
+
+		public String pdfupload(HttpServletRequest request, ServletContext context) {
+			ArrayList<Part> parts;
+			try {
+				//ファイルの取得
+				request.setCharacterEncoding("UTF-8");
+				//PDFファイルを取得してArrayListに格納
+				parts = new ArrayList<>(request.getParts());
+				//先頭・最後のnullを削除して別のリストに格納
+				ArrayList<Part> pdflist = new ArrayList<Part>();
+				for(int i = 1;i < parts.size() - 1;i++) {
+					pdflist.add(parts.get(i));
+				}
+				System.out.println(parts.size()+"←サイズ");
+				System.out.println(pdflist.size()+"←サイズ");
+				for(Part i : pdflist) {
+					System.out.println(i);
+					System.out.println(i.getSubmittedFileName()+"aaaa");
+				}
+
+				for(Part i : pdflist) {
+					i.write("C:\\pleiades\\workspace\\YSL7\\systemofj\\WebContent\\uploaded\\" + i.getSubmittedFileName());
+					System.out.println("C:\\pleiades\\workspace\\YSL7\\systemofj\\WebContent\\uploaded\\" + i.getSubmittedFileName());
+				}
+
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
+
+			return "/WEB-INF/jsp/upload.jsp";
+		}
 }

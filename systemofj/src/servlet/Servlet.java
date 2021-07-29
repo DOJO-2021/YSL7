@@ -121,8 +121,10 @@ public class Servlet extends HttpServlet {
 				//アップロード画面
 				//アップロード
 				if(page_id.equals("upload")) {
-					if(submit.equals("アップロード")){
-						path = UploadAction.upload(request, getServletContext());
+					if(submit.equals("CSVファイルをアップロード")){
+						path = UploadAction.csvupload(request, getServletContext());
+					} else if(submit.equals("PDFファイルをアップロード")) {
+						path = UploadAction.pdfupload(request, getServletContext());
 					}
 					//削除
 					if(submit.equals("削除")) {

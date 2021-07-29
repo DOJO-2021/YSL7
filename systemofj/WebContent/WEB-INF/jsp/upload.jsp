@@ -83,7 +83,8 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" name="submit" id="button" value="アップロード" onclick="return uploadcheck()" disabled>
+					<input type="submit" name="submit" id="csvbutton" value="CSVファイルをアップロード" onclick="return uploadcheck()" disabled>
+					<input type="submit" name="submit" id="pdfbutton" value="PDFファイルをアップロード" onclick="return uploadcheck()" disabled>
 				</td>
 			</tr>
 
@@ -108,6 +109,7 @@
 		document.getElementById("upcsv").style.display = "none";
 		document.getElementById("uppdf").style.display = "none";
 		document.getElementById("dropzone").style.display = "none";
+		document.getElementById("pdfbutton").style.display = "none";
 
 
 
@@ -134,6 +136,8 @@
 			document.getElementById("upcsv").style.display = "none";
 			document.getElementById("uppdf").style.display = "";
 			document.getElementById("dropzone").style.display = "";
+			document.getElementById("csvbutton").style.display = "none";
+			document.getElementById("pdfbutton").style.display = "";
 
 			for (var event of document.getElementsByName('event')) {
 				event.checked = false;
@@ -150,6 +154,8 @@
 			document.getElementById("upcsv").style.display = "none";
 			document.getElementById("uppdf").style.display = "none";
 			document.getElementById("dropzone").style.display = "none";
+			document.getElementById("csvbutton").style.display = "";
+			document.getElementById("pdfbutton").style.display = "none";
 
 			for (var event of document.getElementsByName('event')) {
 				event.checked = false;
@@ -166,6 +172,8 @@
 			document.getElementById("upcsv").style.display = "none";
 			document.getElementById("uppdf").style.display = "none";
 			document.getElementById("dropzone").style.display = "none";
+			document.getElementById("csvbutton").style.display = "";
+			document.getElementById("pdfbutton").style.display = "none";
 
 			for (var event of document.getElementsByName('event')) {
 				event.checked = false;
@@ -336,14 +344,14 @@
 		//CSVファイルが選択された時にアップロードボタンを活性化
 		file1.addEventListener("change",function() {
 			if(file1.files.length > 0) {
-				document.getElementById("button").disabled = false;
+				document.getElementById("csvbutton").disabled = false;
 			}
 		},false);
 
 		//PDFファイルが選択された時にアップロードボタンを活性化
 		file2.addEventListener("change",function() {
 			if(file2.files.length > 0) {
-				document.getElementById("button").disabled = false;
+				document.getElementById("pdfbutton").disabled = false;
 			}
 		},false);
 
@@ -375,7 +383,7 @@
 
 			//ドラッグ&ドロップでファイルが選択された時にアップロードボタンを活性化
 			if(title !== ""){
-				document.getElementById("button").disabled = false;
+				document.getElementById("pdfbutton").disabled = false;
 			}
 
 			//ファイル名の文字列を分割して配列に格納
