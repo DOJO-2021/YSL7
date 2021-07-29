@@ -47,6 +47,7 @@ public class InternDao {
 			bean.setiDocument(rs.getString("i_document"));
 			bean.setiId(rs.getInt("i_id"));
 			bean.setiAttend(rs.getString("i_attend"));
+			bean.setApplyflag(rs.getString("applyflag"));
 
 			isList.add(bean);
 		}
