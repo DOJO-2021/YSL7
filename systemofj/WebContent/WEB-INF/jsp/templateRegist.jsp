@@ -190,10 +190,10 @@
 	<br><input type="text" name="tr_title" placeholder="タイトル" style="width:202px;"><br>
 
 	<!-- <p>${requestScope.template.t_title}</p>-->
-		<input type="submit" class="sub_button" name="submit" value="テンプレ登録"><br>
+		<input type="submit" class="sub_button" name="submit" value="テンプレ登録" onClick="return check()"><br>
 		<input type="hidden" name="page_id" value="templateRegist">
 		<!-- <textarea>${requestScope.template.t_content}</textarea>-->
-		<textarea name="tr_content" maxlength="1000"></textarea>
+		<textarea name="tr_content"></textarea>
 		<ul>
 			<li><button type=button class="right_button1" onclick="return addSname()">学生名前登録ボタン</button></li>
 			<li><button type=button class="right_button2" onclick="return addRname()">人事名前登録ボタン</button></li>
@@ -260,6 +260,10 @@ function check() {
     }
     if(document.form1.tr_content.value == "") {
         alert("内容を入力してください");
+        return false;
+    }
+    if(document.form1.tr_content.value.length>1000 ){
+    	alert("1000文字以内で入力してください");
         return false;
     }
     if(document.form1.tr_category.value == "") {
