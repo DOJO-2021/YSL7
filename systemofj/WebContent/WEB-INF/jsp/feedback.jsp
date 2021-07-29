@@ -174,7 +174,7 @@
 	}
 
 	//空欄のまま登録押すとアラート
-	function check() {
+	function check(id, index) {
 	    if(document.form1.f_content.value == "") {
 	        alert("内容を入力してください");
 	        return false;
