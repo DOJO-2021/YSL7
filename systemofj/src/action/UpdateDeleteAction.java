@@ -1294,7 +1294,7 @@ System.out.println("mine");
 				 {iDate4,iMeeting4,iAcceptance4,iSubmit4,iDocument4},
 				 {iDate5,iMeeting5,iAcceptance5,iSubmit5,iDocument5}};
 				String category[] = {"1day","3days","初級","中級","準備"};
-				String sql[] = {"i_date=","i_meeting=","i_submit=","i_acceptance=","i_document="};
+				String sql[] = {"i_date=","i_meeting=","i_acceptance=","i_submit=","i_document="};
 				String sqlContent[] = {"","","","",""};
 				String set []= {"update intern set ","update intern set ","update intern set ","update intern set ","update intern set "};
 				String where [] = {" where "," where "," where "," where "," where "};
