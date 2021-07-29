@@ -171,17 +171,10 @@ background-color: #e0e0e0;
            		</c:forEach>
               </tr>
               <tr>
-              	<th>インターン出欠</th>
-                <c:forEach items="${intern}" var="intern">
-          		  <td>${intern.iAttend}</td>
-           		</c:forEach>
-              </tr>
-              <tr>
                 <th>懇親会出欠</th>
                 <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iMeeting}</td>
            		</c:forEach>
-
               </tr>
               <tr>
                 <th>アンケート合否</th>
