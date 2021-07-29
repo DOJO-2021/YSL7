@@ -7,6 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
+
+.wrap {
+	max-width: 810px;
+	margin: 3px auto;
+}
+
 table, td, th {
 border: 2px #000000 solid;
 margin: 3px auto;
@@ -27,9 +33,10 @@ background-color: #e0e0e0;
 </style>
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/jsp/header.jsp"/>
+<div class="wrap">
 <!-- メール作成ボタン -->
-  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+  <form action="/systemofj/Servlet" method="POST" style="display:inline-flex; margin: 0 0 0 0.5em;">
   	<input type="hidden" name="page_id" value="detail">
   	<input type="hidden" name="sId" value="${student.sId}">
   	<input type="hidden" name="sName" value="${student.sName}">
@@ -171,17 +178,10 @@ background-color: #e0e0e0;
            		</c:forEach>
               </tr>
               <tr>
-              	<th>インターン出欠</th>
-                <c:forEach items="${intern}" var="intern">
-          		  <td>${intern.iAttend}</td>
-           		</c:forEach>
-              </tr>
-              <tr>
                 <th>懇親会出欠</th>
                 <c:forEach items="${intern}" var="intern">
           		  <td>${intern.iMeeting}</td>
            		</c:forEach>
-
               </tr>
               <tr>
                 <th>アンケート合否</th>
@@ -433,7 +433,7 @@ background-color: #e0e0e0;
 </table>
 </div>
 <!-- 編集ボタン -->
-<form action="/systemofj/Servlet" method="POST" style="display:inline-flex">
+<form action="/systemofj/Servlet" method="POST" style="display:inline-flex; margin: 0 0 0 0.5em;">
 	<input type="hidden" name="page_id" value="detail">
 	<input type="hidden" name="sId" value="${student.sId}">
     <input type="submit" name="submit" value="編集">
@@ -445,7 +445,7 @@ background-color: #e0e0e0;
 	<input type="hidden" name="sId" value="${student.sId}">
     <input type="submit" name="submit" value="削除">
   </form>
-
+</div>
 </body>
 <script>
 'use strict'

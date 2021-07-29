@@ -46,7 +46,7 @@
 		<td>
 
 			<!-- tableの中のtable①（個人FB登録）ここから -->
-			<form method="POST" action="/systemofj/Servlet" name="form1" onSubmit="return check()">
+			<form method="POST" action="/systemofj/Servlet" name="form1">
 				<table border="1" class="fb-tbl">
 					<tr>
 						<td colspan="3">${fr_errormessage1} ${fr_errormessage2}</td><!-- これの存在している意味が分からないけど消すの怖いから放置しておくｂｙ椹 -->
@@ -59,12 +59,12 @@
 							<input type="hidden" name="sId" value="${param.sId}">
 							<input type="hidden" name="s_id" value="${param.sId}">
 
-							<input type="submit" name="submit" value="登録ボタン">
+							<input type="submit" name="submit" value="登録ボタン" onClick="return check('fcontent','')">
 
 						</td>
 					</tr>
 					<tr>
-						<td colspan="3"><textarea name="f_content" rows="20" cols="50"></textarea></td>
+						<td colspan="3"><textarea name="f_content" id="fcontent" rows="20" cols="50"></textarea></td>
 					</tr>
 				</table>
 			</form>
@@ -97,7 +97,7 @@
 				</table>
 			</form>
 
-			<form method="POST" action="/systemofj/Servlet"  name="form2" onSubmit="return emcheck()">
+			<form method="POST" action="/systemofj/Servlet"  name="form2">
 				<input type="hidden" name="page_id" value="feedback">
 				<input type="hidden" name="f_category" value="${param.category}">
 				<input type="hidden" name="sId" value="${param.sId}">
@@ -113,10 +113,10 @@
 
 					<tr>
 						<td id="f_regist_button">
-							<input type="submit" name="submit" value="フィードバックまとめ更新ボタン">
+							<input type="submit" name="submit" value="フィードバックまとめ更新ボタン" onClick="return check('tArea','')">
 						</td>
 						<td id="f_update_button">
-							 <input type="submit" name="submit" value="フィードバックまとめ登録ボタン">
+							 <input type="submit" name="submit" value="フィードバックまとめ登録ボタン" onClick="return check('tArea','')">
 						</td>
 					</tr>
 				</table>
@@ -127,7 +127,7 @@
 	</tr>
 
 
-	<c:forEach items="${list}" var="list">
+	<c:forEach items="${list}" var="list" varStatus="status">
 		<tr>
 			<td>
 				<!-- tableの中のtable③（FB更新）ここから -->
@@ -144,11 +144,11 @@
 								<input type="hidden" name="f_category" value="${list.fCategory}">
 								<input type="hidden" name="sId" value="${param.sId}">
 								<input type="hidden" name="s_id" value="${param.sId}">
-								<input type="submit" name="submit" value="更新ボタン">
+								<input type="submit" name="submit" value="更新ボタン" onClick="return check('fid','${status.index}')">
 							</td>
 						</tr>
 						<tr>
-							<td colspan="3"><textarea name="f_content" rows="20" cols="50" >${list.fContent}</textarea></td>
+							<td colspan="3"><textarea name="f_content" rows="20" cols="50" id="fid${status.index}">${list.fContent}</textarea></td>
 						</tr>
 					</table>
 				</form>
@@ -174,15 +174,24 @@
 	}
 
 	//空欄のまま登録押すとアラート
-	function check() {
-	    if(document.form1.f_content.value == "") {
+	function check(id, index) {
+		var textarea = document.getElementById(id+index).value;
+	    if(textarea == "") {
 	        alert("内容を入力してください");
+	        return false;
+	    }
+	    if(textarea.length>1000 ){
+	    	alert("1000文字以内で入力してください");
 	        return false;
 	    }
 	}
 	function emcheck() {
 	    if(document.form2.f_content.value == "") {
 	        alert("内容を入力してください");
+	        return false;
+	    }
+	    if(document.form1.f__content.value.length>1000 ){
+	    	alert("1000文字以内で入力してください");
 	        return false;
 	    }
 	}

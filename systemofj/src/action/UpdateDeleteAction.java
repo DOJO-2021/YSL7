@@ -141,7 +141,7 @@ public class UpdateDeleteAction {
 		String seRemarks = request.getParameter("seRemarks");
 		String seSituation = request.getParameter("seSituation");
 		String seDecide = request.getParameter("seSituation");
-
+		System.out.println(seTextResult + "sasa");
 		//selectionFace
 		String sfCategory1 = "一次面接";
 		String sfCategory2 = "二次面接";
@@ -1261,92 +1261,78 @@ System.out.println("mine");
 
 
 	public String allUpdate(HttpServletRequest request) {
-
 		//戻り値に設定するページを初期設定しておく
 		String page = "/WEB-INF/jsp/result.jsp";
-
-
 		String iDate1 = request.getParameter("iDate1");
 		String iDate2 = request.getParameter("iDate2");
 		String iDate3 = request.getParameter("iDate3");
 		String iDate4 = request.getParameter("iDate4");
 		String iDate5 = request.getParameter("iDate5");
-
 		String iMeeting1 = request.getParameter("iMeeting1");
 		String iMeeting2 = request.getParameter("iMeeting2");
 		String iMeeting3 = request.getParameter("iMeeting3");
 		String iMeeting4 = request.getParameter("iMeeting4");
 		String iMeeting5 = request.getParameter("iMeeting5");
-
 		String iAcceptance1 = request.getParameter("iAcceptance1");
 		String iAcceptance2 = request.getParameter("iAcceptance2");
 		String iAcceptance3 = request.getParameter("iAcceptance3");
 		String iAcceptance4 = request.getParameter("iAcceptance4");
 		String iAcceptance5 = request.getParameter("iAcceptance5");
-
 		String iSubmit1 = request.getParameter("iSubmit1");
 		String iSubmit2 = request.getParameter("iSubmit2");
 		String iSubmit3 = request.getParameter("iSubmit3");
 		String iSubmit4 = request.getParameter("iSubmit4");
 		String iSubmit5 = request.getParameter("iSubmit5");
-
 		String iDocument1 = request.getParameter("iDocument1");
 		String iDocument2 = request.getParameter("iDocument2");
 		String iDocument3 = request.getParameter("iDocument3");
 		String iDocument4 = request.getParameter("iDocument4");
 		String iDocument5 = request.getParameter("iDocument5");
-
 		String intern[][] = {{iDate1,iMeeting1,iAcceptance1,iSubmit1,iDocument1},
 				 {iDate2,iMeeting2,iAcceptance2,iSubmit2,iDocument2},
 				 {iDate3,iMeeting3,iAcceptance3,iSubmit3,iDocument3},
 				 {iDate4,iMeeting4,iAcceptance4,iSubmit4,iDocument4},
 				 {iDate5,iMeeting5,iAcceptance5,iSubmit5,iDocument5}};
-
-				String category[] = {"1day","3day","初級","中級","準備"};
-				String sql[] = {"i_date=","i_attend=","i_submit=","i_acceptance=","i_document"};
+				String category[] = {"1day","3days","初級","中級","準備"};
+				String sql[] = {"i_date=","i_meeting=","i_submit=","i_acceptance=","i_document="};
 				String sqlContent[] = {"","","","",""};
-				String set []= {"\"set ","\"set ","\"set ","\"set ","\"set "};
-				String where [] = {"where ","where ","where ","where ","where "};
-
+				String set []= {"update intern set ","update intern set ","update intern set ","update intern set ","update intern set "};
+				String where [] = {" where "," where "," where "," where "," where "};
 				for(int i = 0; i < intern.length; i++){
 					for(int j = 0; j < intern[i].length; j++) {
-						if(intern[i][j] != ""){
-							if(set[i] != "set "){
+						if(intern[i][j] != "" && intern[i][j] != null){
+							if(set[i] != "update intern set "){
 								set[i] += ",";
 							}
 							set[i] += sql[j] + "'" + intern[i][j] + "'";
 						}
 					}
-				if(set[i] != "\"set ") {
-					where[i] += "category = '" + category[i] + "' and alleditflag = 1\"";
+				if(set[i] != "update intern set ") {
+					where[i] += "i_category = '" + category[i] + "' and alleditflag = 1";
 				}
 				sqlContent[i] = set[i] + where[i] + ";";
 				}
-
-
 		boolean allUpdate = false;
-
+		UpdateDeleteService service = new UpdateDeleteService();
+		for(int i = 0;i < 5;i++) {
+			if(sqlContent[i] .equals("update intern set  where ;")) {
+				sqlContent[i] = null;
+				System.out.println(sqlContent[i]);
+			}else {
+				System.out.println(sqlContent[i]);
+			}
+		}
 		try {
-
 			//入力されていたらサービスへ処理を委譲
-			UpdateDeleteService service = new UpdateDeleteService();
-
-			allUpdate = service.allUpdate(sqlContent[0], sqlContent[1], sqlContent[2], sqlContent[3], sqlContent[4],  category[0], category[1], category[2] ,category[3], category[4]);
-
+			allUpdate = service.allUpdate(sqlContent[0], sqlContent[1], sqlContent[2], sqlContent[3], sqlContent[4]);
 			if (allUpdate == true) {
-
 				request.setAttribute("allUpdate", allUpdate);
 				//（更新成功）
 				request.setAttribute("errMsg", "編集成功");
-
 			}
 			else {
-
-
 				request.setAttribute("errMsg", "編集失敗");
-
 			}
-
 			//サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -1354,7 +1340,6 @@ System.out.println("mine");
 		} catch (ClassNotFoundException e) {
 			request.setAttribute("errMsg", "サーバーおかしい");
 		}
-
 		return page;
 	}
 
@@ -1575,7 +1560,38 @@ System.out.println("mine");
 //	}
 
 
-
+    public String privateFlagDelete(HttpServletRequest request) {
+        //戻り値に設定するページを初期設定しておく
+        String page = "/WEB-INF/jsp/searchResult.jsp";
+        //リクエスト領域から取得
+        int sId = Integer.parseInt(request.getParameter("sId"));
+        System.out.println(sId);
+        //出力値を格納するBean
+        boolean flag = false;
+        try {
+            //入力されていたらサービスへ処理を委譲
+            UpdateDeleteService service = new UpdateDeleteService();
+            flag= service.privateFlagDelete(sId);
+//          if (flag == true) {
+//
+//              return page;
+//              //（更新成功）
+//
+//          }
+//          else {
+//              //値が入っていないので、エラーメッセージをセットしログイン画面へ
+//              request.setAttribute("errMsg", "失敗");
+//          }
+//
+            //サーバー系エラー↓遷移先が違えばreturnの先を変えてあげる
+        } catch (SQLException e) {
+            e.printStackTrace();
+            request.setAttribute("errMsg", "SQL文おかしい");
+        } catch (ClassNotFoundException e) {
+            request.setAttribute("errMsg", "サーバーおかしい");
+        }
+        return page;
+    }
 
 
 

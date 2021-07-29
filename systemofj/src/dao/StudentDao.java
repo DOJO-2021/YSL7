@@ -378,7 +378,7 @@ public class StudentDao {
 
 	}
 
-	// フラグ削除 一括編集フラグを1から0に更新
+	// windowが開いたらすべてフラグ削除 一括編集フラグを1から0に更新
 	public int flagDelete() throws SQLException {
 
 		// SQL文を準備する
@@ -392,6 +392,25 @@ public class StudentDao {
 		// ここは変えなくていい
 		// 件数を返す
 		return pStmt.executeUpdate(); //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
+
+	}
+
+//すべてフラグ削除 一括編集フラグを1から0に更新
+	public int privateFlagDelete(int sId) throws SQLException {
+
+		// SQL文を準備する
+
+		String sql = "update Intern set alleditflag=0 where s_id=? ";
+		PreparedStatement pStmt = conn.prepareStatement(sql);
+
+		pStmt.setInt(1, sId); //1つ目の?(=NAME)に入力値をいれる
+
+		int ans = pStmt.executeUpdate();
+
+		// SQL文を実行する
+		// ここは変えなくていい
+		// 件数を返す
+		return ans; //executeUpdate()処理されたレコード件数が返る 1件登録だから1がでればOK
 
 	}
 

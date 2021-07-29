@@ -169,7 +169,7 @@ public class Servlet extends HttpServlet {
 						if(checkbox.equals("cb")) {
 							path = UpdateDeleteAction.flagUpdate(request);
 						}else if(checkbox.equals("ef")) {
-							path = UpdateDeleteAction.flagDelete(request);
+							path = UpdateDeleteAction.privateFlagDelete(request);
 						}
 					}
 				}
@@ -242,7 +242,7 @@ public class Servlet extends HttpServlet {
 				//テンプレ登録画面
 				if(page_id.equals( "templateRegist")) {
 					//テンプレ登録ボタン
-					if(submit.equals("テンプレ登録ボタン")){
+					if(submit.equals("テンプレ登録")){
 						path = RegistAction.TemplateRegist(request);
 					}
 				}

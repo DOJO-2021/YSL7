@@ -22,7 +22,7 @@ public class EventDao {
 
 
 		//SQL文を準備する
-		String sql = "select * from event where s_id=? order by e_date desc";
+		String sql = "select * from event where s_id=? order by e_date asc";
 
 		//準備したSQLを発行できる状態にする（全てまとめる）
 		PreparedStatement pStmt = conn.prepareStatement(sql);
