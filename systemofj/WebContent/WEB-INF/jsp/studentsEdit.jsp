@@ -97,17 +97,13 @@ width: 800px;
 
 <h3>イベント<input type="checkbox" id="e_info" onclick="divOpen(this,'event')"></h3>
 <div id="event" style="display:none;">
-<input type="text" name ="eId1" value ="${con[0].eId}">
+<input type="hidden" name ="eId1" value ="${con[0].eId}">
 <input type="hidden" name ="eId2" value ="${mock[0].eId}">
 <input type="hidden" name ="eId3" value ="${mock[1].eId}">
 <input type="hidden" name ="eId4" value ="${mock[2].eId}">
-<p>eidを表示します<c:out value="${mock[0].eId}"/></p>
-<p>eidを表示します<c:out value="${mock[1].eId}"/></p>
-<p>eidを表示します<c:out value="${mock[2].eId}"/></p>
-<p>eidを表示します<c:out value="${talk[0].eId}"/></p>
-<p>eidを表示します<c:out value="${talk[1].eId}"/></p>
-<input type="text" name ="eId5" value ="${talk[0].eId}">
-<input type="text" name ="eId6" value ="${talk[1].eId}">
+
+<input type="hidden" name ="eId5" value ="${talk[0].eId}">
+<input type="hidden" name ="eId6" value ="${talk[1].eId}">
 
 
 <table style="border: 0px; width: 700px;" class = "table">
@@ -164,8 +160,8 @@ width: 800px;
 
 <h3>インターン<input type="checkbox" id="i_info" onclick="divOpen(this,'intern')"></h3>
 <div id="intern" style="display:none;">
-<input type="text" name ="iId1" value ="${intern[0].iId}">
-<input type="text" name ="iId2" value ="${intern[1].iId}">
+<input type="hidden" name ="iId1" value ="${intern[0].iId}">
+<input type="hidden" name ="iId2" value ="${intern[1].iId}">
 <input type="hidden" name ="iId3" value ="${intern[2].iId}">
 <input type="hidden" name ="iId4" value ="${intern[3].iId}">
 <input type="hidden" name ="iId5" value ="${intern[4].iId}">
@@ -391,10 +387,7 @@ width: 800px;
 
       </tr>
       </table>
-      <p>a<c:out value="${face1[0].sfScore}"/></p>
-      <p>a<c:out value="${face1[1].sfScore}"/></p>
 
-      <p>a<c:out value="${face1[2].sfScore}"/></p>
 
     </td>
     <td style="border: 0px" class = "td">
