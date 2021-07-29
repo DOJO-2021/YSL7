@@ -446,9 +446,7 @@ public class UpdateDeleteService {
 		boolean result4 = false;
 		boolean result5 = false;
 		boolean result6 = false;
-		boolean result7 = false;
 		boolean allresult = false;
-
 	try {
 		//ドライバの登録を行う
 		Class.forName("org.h2.Driver");
@@ -462,63 +460,41 @@ public class UpdateDeleteService {
 		SelectionFaceDao dao5 = new SelectionFaceDao(conn);
 		SelectionTextDao dao6 = new SelectionTextDao(conn);
 		FeedbackDao dao7 = new FeedbackDao(conn);
-
 		conn.setAutoCommit(false);
-
-
 		//引数を渡し、取得地をbeanに渡す
 		int test1 =dao1.delete(sId);
-
 		if(test1 != 0) {
 			result1 = true;
-
 		}
-
 		int test2 =dao2.selectionEasyDelete(sId);
-
 		if(test2 != 0) {
 			result2 = true;
 		}
-
 		int test3 =dao3.eventDelete(sId);
-
 		if(test3 != 0) {
 			result3 = true;
 		}
 		int test4 =dao4.internDelete(sId);
-
 		if(test4 != 0) {
 			result4 = true;
 		}
 		int test5 =dao5.selectionfaceDelete(sId);
-
 		if(test5 != 0) {
 			result5 = true;
 		}
 		int test6 =dao6.selectiontextDelete(sId);
-
 		if(test6 != 0) {
 			result6 = true;
 		}
-		int test7 =dao7.delete(sId);
-
-		if(test7 != 0) {
-			result7 = true;
-		}
-
-
-
-		if(result1 && result2 && result3 && result4  && result5  && result6  && result7) {
+		if(result1 && result2 && result3 && result4  && result5  && result6) {
 			conn.commit();
 			allresult  = true;
 		}else {
-			conn.rollback();
+			throw new SQLException();
 		}
 		return allresult;
-
 	}catch(ClassNotFoundException e) {
 		return allresult;
-
 	}catch(SQLException e){
 		e.printStackTrace();
 		try {
@@ -527,20 +503,16 @@ public class UpdateDeleteService {
 			e1.printStackTrace();
 		}
 		return allresult;
-
 		}finally {
 			if(conn != null) {
 				try {
 					conn.close();
 				}catch(SQLException e) {
-
 					e.printStackTrace();
 				}
 			}
 		}
-
 	}
-
 
 
 	public boolean flagUpdate( int sId) throws ClassNotFoundException, SQLException {
@@ -869,8 +841,7 @@ public boolean feedbackUpdate(int fId, String fName, String fContent) throws Cla
 //	}
 
 public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlContents3, String sqlContents4,
-		String sqlContents5, String categorys1, String categorys2, String categorys3, String categorys4,
-		String categorys5) throws ClassNotFoundException, SQLException {
+		String sqlContents5) throws ClassNotFoundException, SQLException {
 	boolean result = false;
 	try {
 		//ドライバの登録を行う
@@ -881,41 +852,47 @@ public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlCon
 		//DAOを実体化
 		InternDao dao = new InternDao(conn);
 		conn.setAutoCommit(false);
+		int test1 = 0;
+		int test2 = 0;
+		int test3 = 0;
+		int test4 = 0;
+		int test5 = 0;
+		int totaltest = 0;
+		System.out.println(sqlContents1);
+		System.out.println(sqlContents2);
+		System.out.println(sqlContents3);
+		System.out.println(sqlContents4);
+		System.out.println(sqlContents5);
 		//引数を渡し、取得地をbeanに渡す
-		if (sqlContents1.equals("\"set where ;")) {
-			int test1 = dao.allUpdate(sqlContents1, categorys1);
-
-			if (sqlContents2.equals("\"set where ;")) {
-				int test2 = dao.allUpdate(sqlContents2, categorys2);
-
-				if (sqlContents3.equals("\"set where ;")) {
-					int test3 = dao.allUpdate(sqlContents3, categorys3);
-
-					if (sqlContents4.equals("\"set where ;")) {
-						int test4 = dao.allUpdate(sqlContents4, categorys4);
-
-						if (sqlContents5.equals("\"set where ;")) {
-							int test5 = dao.allUpdate(sqlContents5, categorys5);
-
-							if (test1 != 0 && test2 != 0 && test3 != 0 && test4 != 0 && test5 != 0) {
-								conn.commit();
-
-								result = true;
-							} else {
-								conn.rollback();
-
-							}
-						}
-					}
-				}
-			}
+		if (sqlContents1!=null) {
+			test1 = dao.allUpdate(sqlContents1);
+			totaltest++;
+		}
+		if (sqlContents2!=null) {
+			test2 = dao.allUpdate(sqlContents2);
+			totaltest++;
+		}
+		if (sqlContents3!=null) {
+			test3 = dao.allUpdate(sqlContents3);
+			totaltest++;
+		}
+		if (sqlContents4!=null) {
+			test4 = dao.allUpdate(sqlContents4);
+			totaltest++;
+		}
+		if (sqlContents5!=null) {
+			test5 = dao.allUpdate(sqlContents5);
+			totaltest++;
+		}
+		if (test1+test2+test3+test4+test5 >= totaltest) {
+			conn.commit();
+			result = true;
+		} else {
+			conn.rollback();
 		}
 		return result;
-
 	} catch (ClassNotFoundException e) {
-
 		return result;
-
 	} catch (SQLException e) {
 		e.printStackTrace();
 		try {
@@ -933,8 +910,7 @@ public boolean allUpdate(String sqlContents1, String sqlContents2, String sqlCon
 			}
 		}
 	}
-
-}
+	}
 
 //	public boolean selectionFaceUpdate( String sfCategory1, String sfCategory2, String sfName1, String sfName2, String sfName3, int sfScore1_1, int sfScore1_2, int sfScore1_3, int sfScore2_1, int sfScore2_2, int sfId) throws ClassNotFoundException, SQLException {
 //		boolean result = false;
