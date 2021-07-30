@@ -459,7 +459,7 @@ public class UploadAction {
 				parts = new ArrayList<>(request.getParts());
 				//先頭・最後のnullを削除して別のリストに格納
 				ArrayList<Part> pdflist = new ArrayList<Part>();
-				for(int i = 1;i < parts.size() - 1;i++) {
+				for(int i = 5;i < parts.size() - 1;i++) {
 					pdflist.add(parts.get(i));
 				}
 				System.out.println(parts.size()+"←サイズ");
