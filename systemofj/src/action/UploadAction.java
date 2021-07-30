@@ -480,6 +480,7 @@ public class UploadAction {
 				e.printStackTrace();
 			}
 
+			request.setAttribute("msg", "アップロードが成功しました");
 			return "/WEB-INF/jsp/upload.jsp";
 		}
 }
